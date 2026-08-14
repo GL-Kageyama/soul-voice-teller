@@ -216,3 +216,9 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# soul-voice-teller: per-user writer state — never commit (each user has their own)
+# persona / voice-ledger live at ~/.soul-voice-teller/ by default, but if a user
+# points SOUL_VOICE_HOME into the repo (or drops their files here), ignore them.
+persona.md
+voice-ledger.md

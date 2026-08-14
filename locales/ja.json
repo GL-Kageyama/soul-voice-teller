@@ -1,0 +1,46 @@
+{
+  "_comment": "ja 本実装。en/zh は追いつき待ち（骨組みのみ）。",
+  "skills": {
+    "writer-persona": "書き手設定",
+    "premise": "発想",
+    "plot-design": "設計",
+    "fast-draft": "草稿",
+    "voice-ledger": "ため庫",
+    "narration-design": "語りの詳細設計",
+    "character-forge": "人物設計",
+    "character-in-action": "人物の活かし方",
+    "worldbuild": "世界設計",
+    "world-iceberg": "未描の世界の資料化",
+    "research-verify": "時代考証の照合",
+    "prose": "文体",
+    "scene-writer": "場面執筆",
+    "series-bible": "作品聖典",
+    "revise-for-reader": "読者体験の改稿"
+  },
+  "persona": {
+    "soul-story": "魂の物語（なぜ書くか）",
+    "aesthetic": "美意識（何が良い文か）",
+    "voice": "声・筆致（どう書くか）",
+    "forbidden": "禁じ手（何を書かないか）",
+    "subject-preference": "題材の嗜好（何に惹かれるか）"
+  },
+  "restraint": {
+    "title": "抑制の美学",
+    "no-explain": "感情を説明しない",
+    "no-name": "名指ししない",
+    "no-moral": "結末に教訓や総括を置かない",
+    "leave-space": "読者への余白を残す"
+  },
+  "voice-ledger": {
+    "idea": "発想の声",
+    "draft": "草稿の声",
+    "flow": "筆が乗った瞬間",
+    "forbidden": "禁じ手に触れた瞬間",
+    "evaluation": "評価の響き"
+  },
+  "ground": {
+    "A": "人間の実経験",
+    "B": "persona＋ため庫",
+    "C": "計画（シーン表）"
+  }
+}
