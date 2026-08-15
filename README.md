@@ -36,7 +36,7 @@ execution layer            fast-draft ──→ rough prose (detect departure by
 
 - `${SOUL_VOICE_HOME}/persona.md` —— "I write like this" (present tense · portrait). Made by writer-persona
 - `${SOUL_VOICE_HOME}/voice-ledger.md` —— "I have written like this" (past tense · diary). Accumulated by voice-ledger
-- The location is a **dedicated folder (private git repository)** the user makes inside their workspace, pointed to by the `SOUL_VOICE_HOME` environment variable (if unset, `~/.soul-voice-teller/`). writer-persona's first step is to prompt this folder's creation
+- The location is a **dedicated folder (a local folder is fine; a git repository is recommended)** the user makes inside their workspace, pointed to by the `SOUL_VOICE_HOME` environment variable (if unset, `~/.soul-voice-teller/`). writer-persona's first step is to prompt this folder's creation
 
 > **persona / voice-ledger are per-writer state, not included in the repository (not fixed)** — because many different people use it. There is no default persona the skills refer to. The persona in `examples/sample/` is a demo sample, not the skills' default.
 

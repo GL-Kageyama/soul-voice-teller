@@ -59,7 +59,7 @@
 - `docs/` — 汎用的に何でも置ける場所（実証・根拠・設計メモなど。ルール本体とは分離）
 - `locales/` — i18n 表示文字列（en 正典；`ja` / `zh` ミラー）
 - `examples/<work>/` — 作品ごとの成果物（premise.md / design.md / draft_*.md）
-- 書き手の永続状態は、ユーザーがワークスペース内に作る**専用フォルダ（private git リポジトリ）**に置く: `persona.md`（私はこう書く＝現在形）と `voice-ledger.md`（私はこう書いてきた＝過去形）。置き場所は `SOUL_VOICE_HOME` で指す（未設定なら `~/.soul-voice-teller/` にフォールバック）。writer-persona の第一手は、この専用フォルダ作成をユーザーに促すこと。**ユーザーごとの状態であり、soul-voice-teller リポジトリには含めない（固定しない）**——色々な人が使うため。スキルが参照する persona の既定は存在せず、常に `SOUL_VOICE_HOME` のものを読む
+- 書き手の永続状態は、ユーザーがワークスペース内に作る**専用フォルダ（ローカルフォルダでも可・git リポジトリ推奨）**に置く: `persona.md`（私はこう書く＝現在形）と `voice-ledger.md`（私はこう書いてきた＝過去形）。置き場所は `SOUL_VOICE_HOME` で指す（未設定なら `~/.soul-voice-teller/` にフォールバック）。writer-persona の第一手は、この専用フォルダ作成をユーザーに促すこと。**ユーザーごとの状態であり、soul-voice-teller リポジトリには含めない（固定しない）**——色々な人が使うため。スキルが参照する persona の既定は存在せず、常に `SOUL_VOICE_HOME` のものを読む
 
 ## 執筆内在の判断 vs 外在の評価（区別）
 

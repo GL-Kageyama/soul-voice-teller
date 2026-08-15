@@ -37,9 +37,9 @@ The first skill of the **writer layer** in the three-layer model. All later intr
 
 ## Procedure
 
-1. First, prompt the user to create the **dedicated folder (repository)** that holds the writer's accumulated state (persona + store). This becomes the home of the writer's permanent state:
-   - "Let's put your accumulated voice in a dedicated folder (git repository) inside your workspace. Where should it go? (e.g. <workspace>/voice/)"
-   - **Recommend git** — the persona is an irreversible soul-story, the store is a growing diary. They need history and backup. But **private** (do not push to a public remote).
+1. First, prompt the user to create the **dedicated folder** that holds the writer's accumulated state (persona + store). This becomes the home of the writer's permanent state:
+   - "Let's put your accumulated voice in a dedicated folder inside your workspace. Where should it go? (e.g. <workspace>/voice/)"
+   - **A local folder is fine; a git repository is recommended** — the persona is an irreversible soul-story, the store is a growing diary. They need history and backup. But **private** (do not push to a public remote).
    - Save location = the folder the user names (given explicitly by `SOUL_VOICE_HOME`; if unset, `~/.soul-voice-teller/`). Create it if absent.
    - persona location: `persona.md` in that folder. If it already exists, read it and treat this as an **update** (reread and revise). If not, **create new**.
    - **Do not put the persona inside the soul-voice-teller (distribution skill) repository** — it is per-writer state, not to be fixed or committed.

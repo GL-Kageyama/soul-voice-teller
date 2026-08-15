@@ -59,7 +59,7 @@ The operation that runs through all three layers is **introspection** (hearing t
 - `docs/` — a place to put anything generic (evidence · rationale · design notes. Separated from the rules themselves)
 - `locales/` — i18n display strings (`en` canonical; `ja` / `zh` mirror)
 - `examples/<work>/` — the artifacts per work (premise.md / design.md / draft_*.md)
-- The writer's permanent state lives in a **dedicated folder (private git repository)** the user makes inside their workspace: `persona.md` (I write like this = present tense) and `voice-ledger.md` (I have written like this = past tense). Pointed to by `SOUL_VOICE_HOME` (falling back to `~/.soul-voice-teller/` if unset). writer-persona's first step is to prompt this folder's creation. **It is per-writer state, not included in the soul-voice-teller repository (not fixed)** — because many different people use it. There is no default persona the skills refer to; always read the one in `SOUL_VOICE_HOME`.
+- The writer's permanent state lives in a **dedicated folder (a local folder is fine; a git repository is recommended)** the user makes inside their workspace: `persona.md` (I write like this = present tense) and `voice-ledger.md` (I have written like this = past tense). Pointed to by `SOUL_VOICE_HOME` (falling back to `~/.soul-voice-teller/` if unset). writer-persona's first step is to prompt this folder's creation. **It is per-writer state, not included in the soul-voice-teller repository (not fixed)** — because many different people use it. There is no default persona the skills refer to; always read the one in `SOUL_VOICE_HOME`.
 
 ## The judgment internal to writing vs external evaluation (the distinction)
 

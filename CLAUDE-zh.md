@@ -59,7 +59,7 @@
 - `docs/` —— 放通用之物的地方（实证 · 理由 · 设计笔记。与规则本身分离）
 - `locales/` —— i18n 显示字符串（`en` 正典；`ja` / `zh` 镜像）
 - `examples/<作品>/` —— 每部作品的产物（premise.md / design.md / draft_*.md）
-- 写作者的持久状态放在用户在**工作区**内另设的**专用文件夹（私有 git 仓库）**：`persona.md`（我这样写＝现在式）与 `voice-ledger.md`（我这样写过＝过去式）。由 `SOUL_VOICE_HOME` 指向（未设定则回退到 `~/.soul-voice-teller/`）。writer-persona 的第一步就是促成这个文件夹的创建。**它是每位写作者的状态，不纳入 soul-voice-teller 仓库（不固定）**——因为会有许多不同的人使用它。技能不引用任何默认 persona；始终读取 `SOUL_VOICE_HOME` 中的那个。
+- 写作者的持久状态放在用户在**工作区**内另设的**专用文件夹（本地文件夹即可，推荐 git 仓库）**：`persona.md`（我这样写＝现在式）与 `voice-ledger.md`（我这样写过＝过去式）。由 `SOUL_VOICE_HOME` 指向（未设定则回退到 `~/.soul-voice-teller/`）。writer-persona 的第一步就是促成这个文件夹的创建。**它是每位写作者的状态，不纳入 soul-voice-teller 仓库（不固定）**——因为会有许多不同的人使用它。技能不引用任何默认 persona；始终读取 `SOUL_VOICE_HOME` 中的那个。
 
 ## 写作内部判断与外部评价（区分）
 

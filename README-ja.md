@@ -36,7 +36,7 @@
 
 - `${SOUL_VOICE_HOME}/persona.md` —— 「私はこう書く」（現在形・肖像）。writer-persona が作る
 - `${SOUL_VOICE_HOME}/voice-ledger.md` —— 「私はこう書いてきた」（過去形・日記）。voice-ledger が積む
-- 置き場所は、ユーザーがワークスペース内に作る**専用フォルダ（private git リポジトリ）**を環境変数 `SOUL_VOICE_HOME` で指す（未設定なら `~/.soul-voice-teller/`）。writer-persona の第一手が、このフォルダ作成を促す
+- 置き場所は、ユーザーがワークスペース内に作る**専用フォルダ（ローカルフォルダでも可・git リポジトリ推奨）**を環境変数 `SOUL_VOICE_HOME` で指す（未設定なら `~/.soul-voice-teller/`）。writer-persona の第一手が、このフォルダ作成を促す
 
 > **persona / voice-ledger はユーザーごとの状態で、リポジトリには含めない（固定しない）**——色々な人が使うため。スキルが参照する persona の既定は存在しない。`examples/sample/` の persona はデモ用サンプルであり、スキルの既定ではない。
 
