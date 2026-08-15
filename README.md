@@ -11,7 +11,7 @@
 - **魂を運ぶことが目的、anti-generic は手段**。非平均性（個別性）は目的でなく手段。
 - **人間が作者、AI は草案装置、persona は人間の嗜好を映す鏡**。
 - **内省は「照合」であって「捏造」ではない**。照合対象（ground）が無い内省は観測にならない。
-- **抑制の美学が魂のマスターレバー**（E5 で実証）: 感情を説明しない・名指ししない・総括しない・余白を残す。
+- **抑制の美学が魂のマスターレバー**: 感情を説明しない・名指ししない・総括しない・余白を残す。
 
 ## 三層モデル
 
@@ -27,11 +27,11 @@
 
 | スキル | 役割 | 入力 → 出力 |
 |---|---|---|
-| `writer-persona` | 対話で書き手設定を引き出す（A問い・ground=人間の実経験） | 対話 → `~/.soul-voice-teller/persona.md`（魂の物語/美意識/声・筆致/禁じ手/題材の嗜好） |
+| `writer-persona` | 対話で書き手設定を引き出す（A問い・ground=人間の実経験） | 対話 → `${SOUL_VOICE_HOME}/persona.md`（魂の物語/美意識/声・筆致/禁じ手/題材の嗜好） |
 | `premise` | 発想（B問い・ground=persona＋ため庫） | 種＋persona＋ため庫 → `<work>/premise.md`（ログライン/核心の問い/テーマ/ジャンルの約束/文体の方向/読者像と約束） |
 | `plot-design` | 設計書（fast-draft の入力仕様） | premise＋persona → `<work>/design.md`（必須構想欄＋任意下準備欄） |
 | `fast-draft` | 草稿（抑制の美学＋内省ループ） | design＋persona＋ため庫 → `<work>/draft_*.md`＋計画更新＋ため庫への声 |
-| `voice-ledger` | 声を貯め、読み返す | 声（発想/草稿/筆の乗り/禁じ手/評価の響き）→ `~/.soul-voice-teller/voice-ledger.md` |
+| `voice-ledger` | 声を貯め、読み返す | 声（発想/草稿/筆の乗り/禁じ手/評価の響き）→ `${SOUL_VOICE_HOME}/voice-ledger.md` |
 
 **第2弾（任意下準備）**——plot-design から任意に呼ぶ。空白でも執筆可
 
@@ -87,9 +87,9 @@
 
 ## 書き手の永続状態
 
-- `~/.soul-voice-teller/persona.md` —— 「私はこう書く」（現在形・肖像）。writer-persona が作る
-- `~/.soul-voice-teller/voice-ledger.md` —— 「私はこう書いてきた」（過去形・日記）。voice-ledger が積む
-- 場所は環境変数 `SOUL_VOICE_HOME` で変更できる（既定 `~/.soul-voice-teller`）
+- `${SOUL_VOICE_HOME}/persona.md` —— 「私はこう書く」（現在形・肖像）。writer-persona が作る
+- `${SOUL_VOICE_HOME}/voice-ledger.md` —— 「私はこう書いてきた」（過去形・日記）。voice-ledger が積む
+- 置き場所は、ユーザーがワークスペース内に作る**専用フォルダ（private git リポジトリ）**を環境変数 `SOUL_VOICE_HOME` で指す（未設定なら `~/.soul-voice-teller/`）。writer-persona の第一手が、このフォルダ作成を促す
 
 > **persona / voice-ledger はユーザーごとの状態で、リポジトリには含めない（固定しない）**——色々な人が使うため。スキルが参照する persona の既定は存在しない。`examples/sample/` の persona はデモ用サンプルであり、スキルの既定ではない。
 
@@ -97,6 +97,7 @@
 
 - `skills/{name}/SKILL.md` — 15スキルの正本（ja 本訳）
 - `references/` — 運用原理（内省問い・抑制の美学・ため庫）
+- `docs/` — 汎用的に何でも置ける場所（実証・根拠・設計メモなど）
 - `locales/` — i18n 骨組み（ja 実体、en/zh スタブ）
 - `examples/<work>/` — 作品ごとの成果物
 - `install.sh` — symlink 導入（グローバル／ローカル／アンインストール）
