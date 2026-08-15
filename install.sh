@@ -61,6 +61,11 @@ if [[ "$ACTION" == "uninstall" ]]; then
       removed=$((removed+1))
     fi
   done
+  if [[ -L "$TARGET_SKILLS_DIR/references" || -e "$TARGET_SKILLS_DIR/references" ]]; then
+    rm -rf "$TARGET_SKILLS_DIR/references"
+    echo "    ✓ removed references"
+    removed=$((removed+1))
+  fi
   echo "==> Removed $removed component(s)."
   exit 0
 fi
@@ -80,9 +85,16 @@ for skill_dir in "$SKILLS_DIR"/*/; do
   echo "    ✓ skill $name"
 done
 
-# Verify every symlink resolves to a readable SKILL.md
+# references/ も導入——SKILL.md の ../references/ 相対参照が解決するため
+rm -rf "$TARGET_SKILLS_DIR/references"
+ln -s "$REPO_DIR/references" "$TARGET_SKILLS_DIR/references"
+echo "    ✓ references"
+
+# Verify every skill symlink resolves to a readable SKILL.md
 failures=0
-for target in "$TARGET_SKILLS_DIR"/*/; do
+for skill_dir in "$SKILLS_DIR"/*/; do
+  name="$(basename "$skill_dir")"
+  target="$TARGET_SKILLS_DIR/$name"
   if [[ -f "$target/SKILL.md" ]]; then
     :
   else
