@@ -4,13 +4,13 @@
 
 ## 项目定位
 
-这是**小说写作技能**的一层。由 15 个技能构成：第一波的五个（`writer-persona` 映照写作者（人）的灵魂、声音与偏好，`premise` 构思，`plot-design` 设计，`fast-draft` 草稿，`voice-ledger` 存声），加上六个可选预备（`narration-design` / `character-forge` / `character-in-action` / `worldbuild` / `world-iceberg` / `research-verify`，第二波）以及写作质量 · 改稿 · 长期技能（`prose` / `scene-writer` / `series-bible` / `revise-for-reader`，第三波）。
+这是**小说写作技能**的一层。由 15 个技能构成：五个（`writer-persona` 映照写作者（人）的灵魂、声音与偏好，`premise` 构思，`plot-design` 设计，`fast-draft` 草稿，`voice-ledger` 存声），加上六个可选预备（`narration-design` / `character-forge` / `character-in-action` / `worldbuild` / `world-iceberg` / `research-verify`）以及写作质量 · 改稿 · 长期技能（`prose` / `scene-writer` / `series-bible` / `revise-for-reader`）。
 
 > **分工**：本层**只负责写作**。对作品的**评价**（看穿）由外部的评价层（novel-council / wisdom-council / elevate-draft-engine）承担。本仓库「写」，不「看穿」。不过，草稿内部的**偏离判定**作为「写作内部判断」属于内省的一部分。
 
 ## 核心主张（置于最前）
 
-**以承载灵魂为目的，反套路（非平均）是手段。**
+**写作，是承载灵魂。**
 
 - 避开「谁都不是的平均文字」（个别性）**不是目的**。打动读者的心、在记忆中留下些什么（灵魂）才是目的；个别性只是通向它的**手段**之一。
 - 这一反转已被实证（[docs/実証.md](docs/実証.md)）。
@@ -21,9 +21,9 @@
 写作者层（持久）    writer-persona ──→ 灵魂故事 · 声音 · 禁忌 · 审美（以内省＝对照人的真实经验而听到）
                    voice-ledger ──→ 存下听到的声音，再回读（构思 · 挣脱停滞 · 更新 persona）
 构思层（每部作品）  premise → plot-design ──→ 必需的构思（设计书）
-                   预备（第二波 · 可选） narration-design / character-forge / character-in-action / worldbuild / world-iceberg / research-verify
+                   预备（可选） narration-design / character-forge / character-in-action / worldbuild / world-iceberg / research-verify
 执行层             fast-draft ──→ 粗稿（以内省察觉偏离并更新计划 · 以克制的美学送达）
-                   写作质量（第三波） prose / scene-writer ／ 改稿 revise-for-reader ／ 长期 series-bible
+                   写作质量 prose / scene-writer ／ 改稿 revise-for-reader ／ 长期 series-bible
 外部（评价层）      评价 · 扬弃 ──→ 改稿的素材
 ```
 

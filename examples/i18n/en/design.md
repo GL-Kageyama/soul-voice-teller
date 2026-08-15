@@ -1,6 +1,6 @@
 # design — the design document
 
-> Skills: `/plot-design` (base) → `/narration-design` · `/character-forge` · `/character-in-action` · `/worldbuild` · `/world-iceberg` (wave-2 elaboration) · Input: premise + demo persona
+> Skills: `/plot-design` (base) → `/narration-design` · `/character-forge` · `/character-in-action` · `/worldbuild` · `/world-iceberg` (elaboration) · Input: premise + demo persona
 
 ## Required design (what should be fixed before fast-draft writes)
 
@@ -45,7 +45,7 @@ Short sentences. Breathe at the period. Avoid adjectives; write with nouns and v
 ### Reader image & promise
 For a reader who has waited. Grab at the storm (scene 1), hold at the tea (scene 2), release at dusk (scene 3) — leaving the reader the space to feel their own waiting. The promise is a quiet displacement, and it is kept by not closing.
 
-## Optional preparation (elaborated in wave 2)
+## Optional preparation
 
 ### Character
 The keeper. Middle-aged. He has kept the light by himself for years.

@@ -4,13 +4,13 @@
 
 ## Project Identity（プロジェクトの正体）
 
-これは**小説執筆スキル**のレイヤー。書き手（人間）の魂・声・嗜好を映す `writer-persona`、発想の `premise`、設計の `plot-design`、草稿の `fast-draft`、声を貯める `voice-ledger` の5スキル（第1弾）に、任意下準備の `narration-design` / `character-forge` / `character-in-action` / `worldbuild` / `world-iceberg` / `research-verify`（第2弾）と、書く質・改稿・長期の `prose` / `scene-writer` / `series-bible` / `revise-for-reader`（第3弾）を加えた15スキルで構成する。
+これは**小説執筆スキル**のレイヤー。書き手（人間）の魂・声・嗜好を映す `writer-persona`、発想の `premise`、設計の `plot-design`、草稿の `fast-draft`、声を貯める `voice-ledger` の5スキルに、任意下準備の `narration-design` / `character-forge` / `character-in-action` / `worldbuild` / `world-iceberg` / `research-verify`と、書く質・改稿・長期の `prose` / `scene-writer` / `series-bible` / `revise-for-reader`を加えた15スキルで構成する。
 
 > **役割分担**: このレイヤーは**執筆のみ**。作品の**評価**（見抜く）は外部の評価レイヤー（novel-council / wisdom-council / elevate-draft-engine）が担う。このリポジトリは「見抜く」のでなく「書く」。ただし草稿の中の**逸脱判定**は「執筆内在の判断」（書くことの一部）として内省に含める。
 
 ## 核心命題（一番上に置く）
 
-**魂を運ぶことが目的、anti-generic（非平均性）は手段。**
+**書くことは、魂を運ぶこと。**
 
 - 「誰のものでもない平均的な文」を避けること（個別性）は**目的ではない**。読者の心を動かし、記憶に残るもの（魂）を運ぶことが目的で、個別性はそのための**手段**の一つ。
 - この反転は実証済み（[docs/実証.md](docs/実証.md)）。
@@ -21,9 +21,9 @@
 書き手層（永続）   writer-persona ──→ 魂の物語・声・禁じ手・美意識（内省で聞く＝人間の実経験に照合）
                   voice-ledger ──→ 聞こえた声を貯め、読み返す（発想・停滞脱出・persona 更新）
 構想層（作品ごと） premise → plot-design ──→ 必須構想（設計書）
-                  下準備（第2弾・任意）narration-design / character-forge / character-in-action / worldbuild / world-iceberg / research-verify
+                  下準備（任意）narration-design / character-forge / character-in-action / worldbuild / world-iceberg / research-verify
 実行層            fast-draft ──→ ラフ散文（内省で逸脱を検出し計画を更新・抑制の美学で届ける）
-                  書く質（第3弾）prose / scene-writer ／ 改稿 revise-for-reader ／ 長期 series-bible
+                  書く質 prose / scene-writer ／ 改稿 revise-for-reader ／ 長期 series-bible
 外部（評価レイヤー）評価・昇華 ──→ 再草稿の材料
 ```
 

@@ -4,7 +4,7 @@
     "name": "GL-Kageyama"
   },
   "metadata": {
-    "description": "小説執筆スキルのレイヤー。魂を運ぶことが目的、anti-generic は手段。5つの執筆スキル（writer-persona / premise / plot-design / fast-draft / voice-ledger）で「構想→草稿」を成立させ、内省（照合）と抑制の美学で魂を運ぶ。"
+    "description": "小説執筆スキルのレイヤー。書くことは、魂を運ぶこと。5つの執筆スキル（writer-persona / premise / plot-design / fast-draft / voice-ledger）で「構想→草稿」を成立させ、内省（照合）と抑制の美学で魂を運ぶ。"
   },
   "plugins": [
     {

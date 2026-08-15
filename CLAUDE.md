@@ -4,13 +4,13 @@
 
 ## Project Identity
 
-This is a layer of **novel-writing skills**. It is composed of 15 skills: the five of the first wave (`writer-persona` reflecting the writer's (human's) soul, voice, and preferences, `premise` for ideation, `plot-design` for design, `fast-draft` for the draft, `voice-ledger` for storing the voice), plus six optional preparations (`narration-design` / `character-forge` / `character-in-action` / `worldbuild` / `world-iceberg` / `research-verify`, wave 2) and the quality-of-writing · revision · long-term skills (`prose` / `scene-writer` / `series-bible` / `revise-for-reader`, wave 3).
+This is a layer of **novel-writing skills**. It is composed of 15 skills: the five (`writer-persona` reflecting the writer's (human's) soul, voice, and preferences, `premise` for ideation, `plot-design` for design, `fast-draft` for the draft, `voice-ledger` for storing the voice), plus six optional preparations (`narration-design` / `character-forge` / `character-in-action` / `worldbuild` / `world-iceberg` / `research-verify`) and the quality-of-writing · revision · long-term skills (`prose` / `scene-writer` / `series-bible` / `revise-for-reader`).
 
 > **Division of labor**: this layer is **writing only**. The **evaluation** (seeing through) of a work is borne by the external evaluation layers (novel-council / wisdom-council / elevate-draft-engine). This repository "writes", not "sees through". However, the **departure judgment** inside a draft is part of introspection as "the judgment internal to writing".
 
 ## The core proposition (placed at the top)
 
-**To carry the soul is the aim; anti-generic (non-averageness) is the means.**
+**To write is to carry the soul.**
 
 - Avoiding "average prose that belongs to no one" (particularity) is **not the aim**. Moving the reader's heart and leaving something in memory (the soul) is the aim; particularity is one **means** toward it.
 - This inversion is proven ([docs/実証.md](docs/実証.md)).
@@ -21,9 +21,9 @@ This is a layer of **novel-writing skills**. It is composed of 15 skills: the fi
 writer layer (permanent)   writer-persona ──→ soul-story · voice · forbidden moves · aesthetic sense (heard by introspection = checked against real experience)
                            voice-ledger ──→ store the heard voice, read it back (ideation · escaping a stall · updating persona)
 design layer (per work)    premise → plot-design ──→ the required design (the design document)
-                           preparation (wave 2 · optional) narration-design / character-forge / character-in-action / worldbuild / world-iceberg / research-verify
+                           preparation (optional) narration-design / character-forge / character-in-action / worldbuild / world-iceberg / research-verify
 execution layer            fast-draft ──→ rough prose (detect departure by introspection and update the plan · deliver by the aesthetic of restraint)
-                           quality of writing (wave 3) prose / scene-writer ／ revision revise-for-reader ／ long-term series-bible
+                           quality of writing prose / scene-writer ／ revision revise-for-reader ／ long-term series-bible
 external (evaluation layer) evaluation · sublation ──→ material for redrafting
 ```
 
