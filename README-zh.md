@@ -2,6 +2,10 @@
 
 # soul-voice-teller
 
+<p align="center">
+  <img src="assets/repo-hero.png" width="100%" alt="soul-voice-teller">
+</p>
+
 **写作，是承载灵魂。**—— 小说写作技能的一层。
 
 由 15 个技能构成——五个（`writer-persona` 映照写作者（人）的灵魂、声音与偏好，`premise` 构思，`plot-design` 设计，`fast-draft` 草稿，`voice-ledger` 存声），六个可选预备，以及文体 · 改稿 · 账本的四个——让「设计 → 草稿 → 改稿」仅凭写作技能即可成立。

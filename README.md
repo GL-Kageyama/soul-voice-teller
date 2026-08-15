@@ -2,6 +2,10 @@
 
 # soul-voice-teller
 
+<p align="center">
+  <img src="assets/repo-hero.png" width="100%" alt="soul-voice-teller">
+</p>
+
 **To write is to carry the soul.** —— a layer of novel-writing skills.
 
 With 15 skills — five (`writer-persona` reflecting the writer's (human's) soul, voice, and preferences, `premise` for ideation, `plot-design` for design, `fast-draft` for the draft, `voice-ledger` for storing the voice), six optional preparations, and four for prose style · revision · the ledger — the layer makes "design → draft → revision" hold up on writing skills alone.

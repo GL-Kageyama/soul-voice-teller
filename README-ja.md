@@ -2,6 +2,10 @@
 
 # soul-voice-teller
 
+<p align="center">
+  <img src="assets/repo-hero.png" width="100%" alt="soul-voice-teller">
+</p>
+
 **書くことは、魂を運ぶこと。** —— 小説執筆スキルのレイヤー。
 
 書き手（人間）の魂・声・嗜好を映す `writer-persona`、発想の `premise`、設計の `plot-design`、草稿の `fast-draft`、声を貯める `voice-ledger` の5スキルに、任意下準備6種と文体・改稿・台帳4種を加えた15スキルで、「構想 → 草稿 → 改稿」を執筆スキル単体で成立させる。
