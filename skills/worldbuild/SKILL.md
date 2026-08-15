@@ -1,51 +1,61 @@
 ---
 name: worldbuild
-description: 世界を設計する下準備スキル。舞台・社会・文化・歴史・ルールと内部一貫性を決め、設定が物語にどう負荷をかけるかを design.md の「世界」欄に書き込む。超常・魔法はコストと制約を持つ。任意下準備（無くても執筆可）。plot-design の後。
-argument-hint: '（任意）design.md のパス。省略時は作業ディレクトリ内の design.md を探す'
+description: A preparation skill that designs the world. Fixes setting, society, culture, history, rules, and internal consistency, and writes how the setting loads the story into design.md's "world". The supernatural and magic carry cost and constraint. Optional preparation (writing works without it). After plot-design.
+argument-hint: '(optional) the path to design.md. If omitted, look for design.md in the working directory. Add lang=en|ja|zh to switch output language (default en).'
 ---
 
-# worldbuild —— 世界設計（舞台・ルール・一貫性を作る）
+# worldbuild — world design (setting · rules · consistency)
+
+## Language Mode
+
+This skill writes in English by default. To write in another language, pass a `lang` argument (e.g. `/worldbuild lang=ja`) or set `SOUL_VOICE_TELLER_LANG=ja` in the environment. Resolution order: `$ARGUMENTS.lang` > `SOUL_VOICE_TELLER_LANG` > `en`.
+
+- `en` (default): use this file (`SKILL.md`) and `../references/*.md`.
+- `ja`: read `SKILL-ja.md` and `../references/ja/*.md`; output in Japanese.
+- `zh`: read `SKILL-zh.md` and `../references/zh/*.md`; output in Chinese.
+
+Write all output in the resolved language.
 
 ## Skill Metadata
 
 - **id**: `worldbuild`
 - **version**: `0.1.0`
-- **category**: `writing`（構想層・任意下準備）
+- **category**: `writing` (design layer · optional preparation)
 - **standalone**: `true`
-- **language**: `ja`（本訳。en/zh は追いつき待ち）
+- **language**: `en` (canonical. ja/zh mirrored in `SKILL-ja.md` / `SKILL-zh.md`)
 
-## 位置づけ
+## Position
 
-任意下準備（技術目録 §1 世界）。plot-design の「世界」欄（空欄可）を、fast-draft が「この世界でしか起きない物語」を書ける粒度まで深める。無くても書けるが、世界が物語を動かすジャンル（SF・ファンタジー・歴史）では必須に近い。
+Optional preparation (technical catalogue §1 world). Deepens plot-design's "world" (may be blank) to the granularity at which fast-draft can write "a story that could only happen in this world". Writing works without it, but in genres where the world moves the story (SF · fantasy · historical) it is close to required.
 
-**出所**: 技術目録 §1（1-1〜1-20）。
+**Source**: technical catalogue §1 (1-1〜1-20).
 
-## 入力契約
+## Input Contract
 
-- **design.md**: `<作業ディレクトリ>/design.md`（世界欄。空欄・`?` でもよい）。
-- **premise.md**: `<作業ディレクトリ>/premise.md`（ジャンルの約束——世界のルールが約束になる）。
-- **persona**: `${SOUL_VOICE_HOME:-$HOME/.soul-voice-teller}/persona.md`（題材の嗜好・惹かれる舞台）。
+- **design.md**: `<working-dir>/design.md` (the world section. Blank or `?` is fine).
+- **premise.md**: `<working-dir>/premise.md` (the genre promise — the world's rules become the promise).
+- **persona**: `${SOUL_VOICE_HOME:-$HOME/.soul-voice-teller}/persona.md` (subject-matter preference · the settings that draw you).
 
-## 手順
+## Procedure
 
-1. design.md の「世界」欄、premise の「ジャンルの約束」、persona の「題材の嗜好」を読む。
-2. 世界の核を確定する（§1）。ジャンルに応じて重点を置く:
-   - 舞台・場所（1-1）・時代（1-2）・地理・自然（1-3）
-   - 社会構造（1-4）・政治・経済・法（1-5）・文化・風習（1-6）・宗教・神話（1-7）・歴史・年表（1-8）
-   - 技術・文明水準（1-9）・科学・理論（1-10 SF）・超常・魔法のルール（1-11 幻想。**万能にせず、コストと制約を持つ**）
-   - 言語・名前（1-12）・世界の約束（1-13 読者との契約）
-3. **内部一貫性（1-14）**を確認する: ルールがどこまで壊れないか。魔法・技術に例外を作りすぎない。
-4. **設定⇔物語の接続（1-15）**を確定する: 設定が単なる背景でなく、物語をどう動かすか（世界のルールが葛藤・選択・結末をどう縛るか）。これが「この世界でしか起きない物語」の要。
-5. **設定の伝達（1-16）**の方針を決める: 設定を説明だらけにしない（描写・行動で見せる）。
-6. design.md の「世界」欄に書き込む。未定は `?` のまま残してよい。
+1. Read design.md's "world", premise's "genre promise", and persona's "subject-matter preference".
+2. Fix the core of the world (§1). Weight it by genre:
+   - setting · place (1-1) · era (1-2) · geography · nature (1-3)
+   - social structure (1-4) · politics · economy · law (1-5) · culture · custom (1-6) · religion · myth (1-7) · history · chronology (1-8)
+   - technology · level of civilization (1-9) · science · theory (1-10 SF) · the rules of the supernatural · magic (1-11 the fantastic. **Don't make it omnipotent; give it cost and constraint**)
+   - language · names (1-12) · the world's promise (1-13 the contract with the reader)
+3. Check **internal consistency (1-14)**: how far the rules do not break. Don't make too many exceptions to magic · technology.
+4. Fix **the setting ⇔ story connection (1-15)**: so the setting is not mere background but moves the story (how the world's rules bind conflict · choice · ending). This is the key to "a story that could only happen in this world".
+5. Fix the policy of **conveying the setting (1-16)**: don't make the setting all explanation (show it through description · action).
+6. Write into design.md's "world". Undecided may be left as `?`.
 
-## 出力
+## Output
 
-design.md の「世界」欄の詳細化（舞台・社会・文化・歴史・ルール・内部一貫性・設定⇔物語の接続・設定の伝達方針）。
+The elaboration of design.md's "world" (setting · society · culture · history · rules · internal consistency · setting ⇔ story connection · the policy of conveying the setting).
 
-## 注意
+## Notes
 
-- 超常・魔法は**コストと制約を持つ**（1-11）。万能の魔法は葛藤を消す。
-- 設定は**物語を動かして初めて意味を持つ**（1-15）。背景の羅列は資料であって小説でない。
-- 独創性より**内部一貫性**（1-14）。世界のルールが壊れないことが読者の没入を守る。
-- 設定の伝達は「説明」でなく「描写」（1-16）。説明だらけは没入を壊す（抑制の美学と同根）。
+- The supernatural · magic **carry cost and constraint** (1-11). Omnipotent magic erases conflict.
+- A setting **means something only when it moves the story** (1-15). A list of background is material, not a novel.
+- **Internal consistency** (1-14) over originality. The world's rules not breaking is what protects the reader's immersion.
+- Conveying the setting is "description", not "explanation" (1-16). All-explanation breaks immersion (the same root as the aesthetic of restraint).

@@ -1,76 +1,86 @@
 ---
 name: voice-ledger
-description: 執筆者の魂の声を貯め、読み返すためのため庫（台帳）。内省（A/B/C問い）で聞こえた声・逸脱・筆の乗り・評価の響きを1件の書式で追記し、発想・停滞脱出・persona 更新に読み返す。単独でも、他の執筆スキルと併用でも使う。
-argument-hint: '（任意）「貯める」か「読む」かの指示と、貯める場合は声の内容'
+description: A store (ledger) for storing and reading back the writer's soul-voice. Appends the voices, departures, flow, and resonance of evaluation heard in introspection (the A/B/C questions) in a one-entry form, and reads them back for ideation, escaping a stall, and updating the persona. Use standalone or alongside the other writing skills.
+argument-hint: '(optional) "store" or "read", and the voice content if storing. Add lang=en|ja|zh to switch output language (default en).'
 ---
 
-# voice-ledger —— 魂の声のため庫（貯める＋読む）
+# voice-ledger — the store of the soul's voice (store + read)
+
+## Language Mode
+
+This skill writes in English by default. To write in another language, pass a `lang` argument (e.g. `/voice-ledger lang=ja`) or set `SOUL_VOICE_TELLER_LANG=ja` in the environment. Resolution order: `$ARGUMENTS.lang` > `SOUL_VOICE_TELLER_LANG` > `en`.
+
+- `en` (default): use this file (`SKILL.md`) and `../references/*.md`.
+- `ja`: read `SKILL-ja.md` and `../references/ja/*.md`; output in Japanese.
+- `zh`: read `SKILL-zh.md` and `../references/zh/*.md`; output in Chinese.
+
+Write all output in the resolved language.
 
 ## Skill Metadata
 
 - **id**: `voice-ledger`
 - **version**: `0.1.0`
-- **category**: `writing`（書き手層・永続）
+- **category**: `writing` (writer layer · permanent)
 - **standalone**: `true`
-- **language**: `ja`（本訳。en/zh は追いつき待ち）
+- **language**: `en` (canonical. ja/zh mirrored in `SKILL-ja.md` / `SKILL-zh.md`)
 
-## 位置づけ
+## Position
 
-三層モデルの**書き手層**の2つ目。writer-persona が「声を定める」（現在形の設定）、本スキルは「声を貯める」（過去形の日記）。内省で聞こえた声を、作品をまたいで積み、読み返す。
+The second skill of the **writer layer** in the three-layer model. writer-persona "fixes the voice" (present-tense setting); this skill "stores the voice" (past-tense diary). It accumulates the voices heard in introspection across works, and reads them back.
 
-**persona との区別**: persona は「私はこう書く」、ため庫は「私はこう書いてきた」。**別ファイル**。
+**Distinction from persona**: the persona is "I write like this", the store is "I have written like this". **Separate files.**
 
-## 入力契約
+## Input Contract
 
-- **貯める場合**: 声（5種）・その出所・文脈。argument-hint または対話で受け取る。
-- **読む場合**: 読み返す目的（発想開始／persona 更新／停滞／fast-draft の渇き）。
-- **保存先**: `${SOUL_VOICE_HOME:-$HOME/.soul-voice-teller}/voice-ledger.md`
+- **When storing**: the voice (five kinds) · its source · its context. Received via argument-hint or dialogue.
+- **When reading**: the purpose of reading back (start of ideation / persona update / a stall / fast-draft going dry).
+- **Save location**: `${SOUL_VOICE_HOME:-$HOME/.soul-voice-teller}/voice-ledger.md`
 
-## 貯める（5種の声）
+## Store (five kinds of voice)
 
-| 種 | 出所 | 例 |
+| Kind | Source | Example |
 |---|---|---|
-| 発想の声 | B問い・閃き | 「この素材は、何度も書き続ける問いにこう応える」と聞こえた断片 |
-| 草稿の声 | C問い・逸脱の記録 | 人物が計画を離れて動き始めた場所・その台詞 |
-| 筆が乗った瞬間 | フロー | エマージェンスが起きた条件（材料・制約・空白）。**条件自体**を記録して再現の手がかりにする |
-| 禁じ手に触れた瞬間 | A-4 | 破りかけた・破った。深さになったか、壊れになったか |
-| 評価の響き | 読者反応 | 外部評価で響いた・響かなかったこと。流されず、音だけ残す |
+| The voice of ideation | B questions · a flash | a fragment heard as "this material answers my recurring question this way" |
+| The voice of the draft | C questions · a record of a departure | where the character left the plan and began to move · their line |
+| The moment the writing took off | flow | the conditions under which emergence happened (material · constraint · empty space). Record **the conditions themselves** as a clue for reproducing it |
+| The moment you touched a forbidden move | A-4 | almost broke it · broke it. Whether it became depth or breakage |
+| The resonance of evaluation | reader reaction | what resonated · what didn't, in external evaluation. Keep only the sound, without being swept along |
 
-**いつ貯めるか（誘発であって強制でない）**: 声が聞こえた時だけ。聞こえない日に無理に書かず、空行を増やさない。
+**When to store (evoke, don't force)**: only when a voice is heard. On days nothing is heard, don't force a line; don't add empty lines.
 
-**1件の書式**（[../references/魂の声のため庫.md](../references/魂の声のため庫.md)）:
+**The form of one entry** ([../references/voice-store.md](../references/voice-store.md)):
 
-| 欄 | 内容 |
+| Field | Content |
 |---|---|
-| 日付・作品・場面 | いつ・どの作品の・どこで聞こえたか |
-| 聞こえた声 | **原文のまま。** 要約しない——声は要約で死ぬ |
-| 文脈（どの問いに答えた声か） | 問いの定型（A/B/C）を引用し、同じ問いで再誘発できるようにする |
-| 使った／未使用 | 後で結びつくための印 |
+| Date · work · scene | when · in which work · where it was heard |
+| The voice heard | **verbatim. Do not summarize — the voice dies in summary** |
+| Context (which question it answered) | quote the question form (A/B/C) so the same question can re-evoke it |
+| Used / unused | a mark for connecting later |
 
 ```markdown
-- [x] 2026-08-14 / 夜を歩く男 / 第2章・クライマックスの台詞
-  声：この男は「謝らない」んじゃなくて「謝れない」。謝ると何かが終わるから。
-  文脈：C-1（この台詞は計画の要求から出た？人物自身から出た？）
-  使った：第2章のクライマックス。評価の響きもここ（originality が高かった）。
+- [x] 2026-08-14 / The Man Walking at Night / chapter 2 · the climactic line
+  voice: this man doesn't "not apologize" — he "cannot apologize". Because if he apologizes, something ends.
+  context: C-1 (did this line come from the plan's demand, or from the character himself?)
+  used: the climax of chapter 2. The resonance of evaluation is here too (originality was high).
 ```
 
-## 読む（ためて終わりにしない）
+## Read (do not end at storing)
 
-ため庫は貯めるだけでなく**読む**ためにある。読まない台帳はゴミ捨て場になる。
+The store exists not only to store but to **read**. A ledger never read becomes a dumping ground.
 
-- **発想の開始時**（premise の B問い）——前の作品の声を新しい問いに呼び込む
-- **writer-persona の更新時**——貯まった声を「魂の物語がどこへ向かったか」として読み、設定を改訂する
-- **停滞時**——書けない時の水源
-- **fast-draft の渇いた時**（C-4 聞こえない→追従に戻る）——追従に戻る前に、ため庫を聞く
+- **At the start of ideation** (premise's B questions) — call the previous work's voice into the new question
+- **When updating writer-persona** — read the accumulated voices as "where the soul-story went", and revise the setting
+- **At a stall** — the water source when you cannot write
+- **When fast-draft goes dry** (C-4, nothing heard → fall back to following the plan) — before falling back, listen to the store
 
-## 手順
+## Procedure
 
-1. 「貯める」か「読む」かを確認する（argument-hint か対話で）。
-2. **貯める**: 声を受け取り、5種のどれかを判別し、1件の書式で `voice-ledger.md` に追記する。声は**原文のまま**、文脈（どの問いか）を必ず添える。
-3. **読む**: 目的に応じてため庫を読み返し、該当する声を引用して返す。更新材料・発想の源・水源として提示する。
+1. Confirm "store" or "read" (via argument-hint or dialogue).
+2. **Store**: receive the voice, decide which of the five kinds it is, and append it to `voice-ledger.md` in the one-entry form. Keep the voice **verbatim**, and always attach the context (which question).
+3. **Read**: reread the store for the purpose, quote the relevant voice, and present it as update material · the source of ideation · a water source.
 
-## 注意
+## Notes
 
-- **ため庫自体は判定しない**——貯めて、読む。「何が声か」の選択は問いかけ型スキル（persona / premise / fast-draft）が行う。
-- 魂の物語・声は**人間（ユーザー）のもの**。AI はそれを映し・貯め・反映する鏡であって、作者ではない。
-- 評価の響きを貯めるとき、外部評価に**流されない**——点数や断定を写すのではなく、自分に響いた「音」だけを残す。
+- **The store itself does not judge** — it stores, and reads. The choice of "what counts as a voice" is made by the question-asking skills (persona / premise / fast-draft).
+- The soul-story and the voice are **the human's (user's)**. The AI is a mirror that reflects · stores · returns them, not the author.
+- When storing the resonance of evaluation, **do not be swept along** by external evaluation — don't copy scores or verdicts; keep only the "sound" that resonated with you.

@@ -1,84 +1,94 @@
 ---
 name: plot-design
-description: premise と persona から設計書（必須構想＋任意下準備）を作る。ログライン・語り・文体・シーン表・読者像と約束を必須構想として確定し、人物・世界・伏線は空欄を許す。fast-draft の入力仕様そのもの。premise の次、fast-draft の前。
-argument-hint: '（任意）premise.md のパス。省略時は作業ディレクトリ内の premise.md を探す'
+description: Builds a design document (required design + optional preparation) from premise and persona. Fixes the logline, narration, prose style, scene table, and reader image & promise as the required design, and allows character / world / foreshadowing to be left blank. This is fast-draft's input specification itself. After premise, before fast-draft.
+argument-hint: '(optional) the path to premise.md. If omitted, look for premise.md in the working directory. Add lang=en|ja|zh to switch output language (default en).'
 ---
 
-# plot-design —— 設計（fast-draft の入力仕様を作る）
+# plot-design — design (build fast-draft's input specification)
+
+## Language Mode
+
+This skill writes in English by default. To write in another language, pass a `lang` argument (e.g. `/plot-design lang=ja`) or set `SOUL_VOICE_TELLER_LANG=ja` in the environment. Resolution order: `$ARGUMENTS.lang` > `SOUL_VOICE_TELLER_LANG` > `en`.
+
+- `en` (default): use this file (`SKILL.md`) and `../references/*.md`.
+- `ja`: read `SKILL-ja.md` and `../references/ja/*.md`; output in Japanese.
+- `zh`: read `SKILL-zh.md` and `../references/zh/*.md`; output in Chinese.
+
+Write all output in the resolved language.
 
 ## Skill Metadata
 
 - **id**: `plot-design`
 - **version**: `0.1.0`
-- **category**: `writing`（構想層・作品ごと）
+- **category**: `writing` (design layer · per work)
 - **standalone**: `true`
-- **language**: `ja`（本訳。en/zh は追いつき待ち）
+- **language**: `en` (canonical. ja/zh mirrored in `SKILL-ja.md` / `SKILL-zh.md`)
 
-## 位置づけ
+## Position
 
-三層モデルの**構想層**の後段。premise が定めた「何を問い・どんな文で・誰に読ませるか」を、fast-draft が**書ける粒度**に展開する。設計書は fast-draft の**入力仕様そのもの**。
+The back stage of the **design layer** in the three-layer model. It expands what premise fixed — "what it asks · in what prose · for whom" — into the granularity at which fast-draft can **write**. The design document is fast-draft's **input specification itself**.
 
-## 入力契約
+## Input Contract
 
-- **premise**: `<作業ディレクトリ>/premise.md`（必須）。
-- **persona**: `${SOUL_VOICE_HOME:-$HOME/.soul-voice-teller}/persona.md`（必須。語り・文体・読者像の選択が「誰でもない選択」にならないよう照らす）。
+- **premise**: `<working-dir>/premise.md` (required).
+- **persona**: `${SOUL_VOICE_HOME:-$HOME/.soul-voice-teller}/persona.md` (required. Checked so the choice of narration · prose style · reader image does not become "a choice no one made").
 
-## 手順
+## Procedure
 
-1. premise と persona を読み込む。
-2. **必須構想**を確定する（下の形式）。これは fast-draft が一文を書く前に「誰が何を語るか」「どんな文か」「誰に読ませるか」が決まっているためのもの:
-   - **ログライン**——premise から引き継ぐ
-   - **語り**——視点（一人称/三人称/二人称）・時制・語り手（誰が・どの距離から語るか）
-   - **文体の方向**——persona の声・筆致に照らした文の方向
-   - **シーン表**——各シーンの目的・誰が・何が変わる。**未定は `?` と書いて「何が未定か」を分かるように残す**
-   - **読者像と約束**——premise から引き継ぎ、シーンごとの「読者の時間の配分」に落とす（どこで掴み・置かせ・解放するか）
-3. **任意下準備**（人物・世界・伏線）は**空欄を許す**。書く過程で埋められる（計画は命令でなく地図）。ただし「未定であること」は `?` で記録し、後から一貫性確認できるようにする。
-4. 出力を `<作業ディレクトリ>/design.md` に保存する。
+1. Read premise and persona.
+2. Fix the **required design** (the format below). This exists so that before fast-draft writes a single sentence, "who tells what", "in what prose", and "for whom" are already decided:
+   - **logline** — carried over from premise
+   - **narration** — point of view (first/second/third person) · tense · narrator (who tells it, and from what distance)
+   - **direction of prose style** — the direction of the prose, checked against the persona's voice & brushwork
+   - **scene table** — each scene's purpose · who · what changes. **Write undecided items as `?` so "what is undecided" stays visible**
+   - **reader image & promise** — carried over from premise, and broken down into the "distribution of the reader's time" per scene (where you grab · hold · release them)
+3. **Optional preparation** (character · world · foreshadowing) **may be left blank**. It can be filled in during writing (the plan is a map, not an order). But record "that it is undecided" with `?` so consistency can be checked later.
+4. Save the output to `<working-dir>/design.md`.
 
-## 出力
+## Output
 
-`<作業ディレクトリ>/design.md`
+`<working-dir>/design.md`
 
 ```markdown
-# design —— 設計書
+# design — the design document
 
-## 必須構想（fast-draft が書く前に確定しているべきもの）
+## Required design (what should be fixed before fast-draft writes)
 
-### ログライン
-（premise から）
+### Logline
+(from premise)
 
-### 語り
-- 視点: （一人称／三人称／二人称）
-- 時制: （現在／過去）
-- 語り手: （誰が・どの距離から）
+### Narration
+- point of view: (first / second / third person)
+- tense: (present / past)
+- narrator: (who · from what distance)
 
-### 文体の方向
-（persona の声に照らした、この作品の文の方向）
+### Direction of prose style
+(the direction of this work's prose, checked against the persona's voice)
 
-### シーン表
-| # | 場面 | 目的（何を果たすか） | 誰が | 何が変わる |
+### Scene table
+| # | scene | purpose (what it achieves) | who | what changes |
 |---|---|---|---|---|
-| 1 | （例：嵐の夜、灯台守が遭難を見る） | （例：恐怖と葛藤を立たせる） | （例：灯台守） | （例：救助へ向かう決意の前段） |
+| 1 | (e.g. on a stormy night, the lighthouse keeper sees the wreck) | (e.g. raise fear and conflict) | (e.g. the keeper) | (e.g. the prelude to the decision to go to the rescue) |
 
-（未定の欄は `?`）
+(undecided cells are `?`)
 
-### 読者像と読者への約束
-（誰に・どんな体験を約束するか。各シーンで読者の時間をどこで掴み・置かせ・解放するか）
+### Reader image & promise
+(who · what experience you promise. Where in each scene you grab · hold · release the reader's time)
 
-## 任意下準備（空欄可・書く過程で埋める）
+## Optional preparation (may be blank · filled in during writing)
 
-### 人物
-（`?` 可）
+### Character
+(`?` allowed)
 
-### 世界
-（`?` 可）
+### World
+(`?` allowed)
 
-### 伏線
-（`?` 可）
+### Foreshadowing
+(`?` allowed)
 ```
 
-## 注意
+## Notes
 
-- **必須構想の欠落が唯一の致命点**。語り（視点・時制・語り手）・文体の方向・読者像と約束・シーン表が無いと、草稿は平均化した文の羅列になる。
-- 逆に**下準備の空白は致命でない**。欠けた設定は書く過程で決められる。ただし「未定」は `?` で記録する。
-- 個別性がレバー（密度ではない）: 三幕構成・欠点克服を丁寧に埋める「厚い汎用」より、一つの特異なイメージ・制約・声の決定（「薄い個別」）の方が非平均の文を生む。
+- **The only fatal flaw is a missing required design.** Without narration (point of view · tense · narrator) · direction of prose style · reader image & promise · scene table, the draft becomes a string of averaged sentences.
+- Conversely, **a blank preparation is not fatal**. Missing settings can be decided during writing. But record "undecided" with `?`.
+- Particularity is the lever (not density): a single singular image · constraint · decision of voice ("thin particularity") produces more non-average prose than carefully filling in three-act structure and flaw-overcoming ("thick generality").

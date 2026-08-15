@@ -1,49 +1,59 @@
 ---
 name: world-iceberg
-description: 未描の世界の資料化の加減を決める下準備スキル。物語が触れそうな未描部分を触れる確率順に優先度付けし、資料化する/しないの線を引く。世界の厚みと一貫性を資料の重荷なしに保つ。任意下準備。worldbuild の後。
-argument-hint: '（任意）design.md のパス。省略時は作業ディレクトリ内の design.md を探す'
+description: A preparation skill that decides the extent to document the unwritten world. Prioritizes the unwritten parts the story is likely to touch, in order of the probability of touching them, and draws the line between what to document and what not to. Keeps the world's thickness and consistency without the burden of material. Optional preparation. After worldbuild.
+argument-hint: '(optional) the path to design.md. If omitted, look for design.md in the working directory. Add lang=en|ja|zh to switch output language (default en).'
 ---
 
-# world-iceberg —— 未描の世界の資料化（氷山の水面下をどこまで文書にするか）
+# world-iceberg — documenting the unwritten world (how far to write down what is below the surface)
+
+## Language Mode
+
+This skill writes in English by default. To write in another language, pass a `lang` argument (e.g. `/world-iceberg lang=ja`) or set `SOUL_VOICE_TELLER_LANG=ja` in the environment. Resolution order: `$ARGUMENTS.lang` > `SOUL_VOICE_TELLER_LANG` > `en`.
+
+- `en` (default): use this file (`SKILL.md`) and `../references/*.md`.
+- `ja`: read `SKILL-ja.md` and `../references/ja/*.md`; output in Japanese.
+- `zh`: read `SKILL-zh.md` and `../references/zh/*.md`; output in Chinese.
+
+Write all output in the resolved language.
 
 ## Skill Metadata
 
 - **id**: `world-iceberg`
 - **version**: `0.1.0`
-- **category**: `writing`（構想層・任意下準備）
+- **category**: `writing` (design layer · optional preparation)
 - **standalone**: `true`
-- **language**: `ja`（本訳。en/zh は追いつき待ち）
+- **language**: `en` (canonical. ja/zh mirrored in `SKILL-ja.md` / `SKILL-zh.md`)
 
-## 位置づけ
+## Position
 
-任意下準備（技術目録 §1-C 未描の世界の資料化）。worldbuild が「作った」世界のうち、**描かない部分をどこまで資料化するか**の加減を決める。資料化の加減そのものが世界観設計の肝（§1-C 冒頭）——多すぎれば重荷、少なすぎれば矛盾。worldbuild の後。
+Optional preparation (technical catalogue §1-C documenting the unwritten world). Of the world worldbuild "made", decides how far to **document the parts not written**. The extent of documentation is itself the crux of worldview design (§1-C opening) — too much is a burden, too little is contradiction. After worldbuild.
 
-**出所**: 技術目録 §1-C（1-21〜1-26）。
+**Source**: technical catalogue §1-C (1-21〜1-26).
 
-## 入力契約
+## Input Contract
 
-- **design.md**: `<作業ディレクトリ>/design.md`（世界欄＝設計済み・シーン表）。
-- **前提**: worldbuild で世界が設計済みであること。
+- **design.md**: `<working-dir>/design.md` (world section = already designed · scene table).
+- **Prerequisite**: the world already designed by worldbuild.
 
-## 手順
+## Procedure
 
-1. design.md の「世界」欄と「シーン表」を読む。
-2. 未描部分を**触れる確率順**に並べる（1-21）: 物語が触れそうな未描部分は資料化し、まず触れない部分は頭の中に置く。
-3. 資料化の加減を決める（1-22〜1-25）:
-   - **資料化の目的（1-22）**: 一貫性のためか・深みのためか・執筆中の迷いを減らすためか。目的で粒度が変わる
-   - **資料の階層（1-23）**: 読者に見せる資料（地図・年表）と、自分だけの資料（裏設定・生い立ち）を分ける
-   - **単位（1-24）**: 固有名・年号・ルールは一行、構造は一段落、空間の広がりは図
-   - **資料化しない自由（1-25）**: 言語化しないことで保たれる余白がある
-4. 「触れた瞬間に矛盾しない」ための最小の資料（見えない世界の成立 1-19）を design.md の「世界」欄に追記する。
-5. 資料化しない部分は「頭の中に置く」と明記して残す（資料の重荷にしない）。
+1. Read design.md's "world" and "scene table".
+2. Order the unwritten parts **by the probability of touching them** (1-21): document the unwritten parts the story is likely to touch; keep in mind the parts it won't touch first.
+3. Decide the extent of documentation (1-22〜1-25):
+   - **the purpose of documentation (1-22)**: for consistency · for depth · for reducing hesitation while writing. The granularity changes with the purpose
+   - **the hierarchy of material (1-23)**: separate the material the reader sees (map · chronology) from the material only you see (backstage settings · origin)
+   - **the unit (1-24)**: a proper name · year · rule is one line, a structure is one paragraph, a spatial expanse is a figure
+   - **the freedom not to document (1-25)**: some empty space is preserved only by not verbalizing it
+4. Append to design.md's "world" the minimal material so "it does not contradict the moment it is touched" (the standing of the unseen world 1-19).
+5. State that the parts not documented are "kept in mind" (don't make them a burden of material).
 
-## 出力
+## Output
 
-design.md の「世界」欄への追記（未描部分の資料化リスト＝触れる確率順・資料の階層・単位・資料化しない部分）。
+Append to design.md's "world" (the documentation list of the unwritten parts = in order of touching probability · the hierarchy of material · the unit · the parts not documented).
 
-## 注意
+## Notes
 
-- **資料化の目的は一貫性・深み・迷いの軽減**（1-22）。目的の無い資料は重荷。
-- 触れる確率順（1-21）で優先度を付ける。触れない部分の資料は作らない。
-- 資料化しない自由（1-25）を守る。言語化しないことで保たれる余白は、抑制の美学（余白を残す）と同根。
-- 資料は生きている（1-26）: 書くうちに世界が動いたら更新する（fast-draft の逸脱と連動）。
+- **The purpose of documentation is consistency · depth · reducing hesitation** (1-22). Material without a purpose is a burden.
+- Prioritize by touching probability (1-21). Don't make material for the parts you won't touch.
+- Keep **the freedom not to document** (1-25). The empty space preserved by not verbalizing it is the same root as the aesthetic of restraint (leave space).
+- Material is alive (1-26): if the world moves as you write, update it (linked to fast-draft's departure).

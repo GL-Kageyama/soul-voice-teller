@@ -1,50 +1,60 @@
 ---
 name: character-in-action
-description: 設計済みの人物設定をシーン表の各場面で機能させる下準備スキル。段階的開示・設定の機能化・バックストーリーの振る舞わせ方を決め、「この人物の設定だからこそこの場面がこう動く」連動点を各場面に作る。任意下準備。character-forge の後。
-argument-hint: '（任意）design.md のパス。省略時は作業ディレクトリ内の design.md を探す'
+description: A preparation skill that makes the designed character settings function in each scene of the scene table. Fixes staged disclosure, making the settings function, and making the backstory behave, and creates in each scene the linkage point where "this scene moves this way precisely because of this character's setting". Optional preparation. After character-forge.
+argument-hint: '(optional) the path to design.md. If omitted, look for design.md in the working directory. Add lang=en|ja|zh to switch output language (default en).'
 ---
 
-# character-in-action —— 人物の活かし方（設定を場面で機能させる）
+# character-in-action — making the character act (make the setting function in the scene)
+
+## Language Mode
+
+This skill writes in English by default. To write in another language, pass a `lang` argument (e.g. `/character-in-action lang=ja`) or set `SOUL_VOICE_TELLER_LANG=ja` in the environment. Resolution order: `$ARGUMENTS.lang` > `SOUL_VOICE_TELLER_LANG` > `en`.
+
+- `en` (default): use this file (`SKILL.md`) and `../references/*.md`.
+- `ja`: read `SKILL-ja.md` and `../references/ja/*.md`; output in Japanese.
+- `zh`: read `SKILL-zh.md` and `../references/zh/*.md`; output in Chinese.
+
+Write all output in the resolved language.
 
 ## Skill Metadata
 
 - **id**: `character-in-action`
 - **version**: `0.1.0`
-- **category**: `writing`（構想層・任意下準備）
+- **category**: `writing` (design layer · optional preparation)
 - **standalone**: `true`
-- **language**: `ja`（本訳。en/zh は追いつき待ち）
+- **language**: `en` (canonical. ja/zh mirrored in `SKILL-ja.md` / `SKILL-zh.md`)
 
-## 位置づけ
+## Position
 
-任意下準備（技術目録 §2-B 人物の活かし方）。character-forge が「作った」人物設定を、シーン表の各場面で「働かせる」設計。作っても使わなければ死んでいる（§2-B 冒頭）。character-forge の後、fast-draft の前。
+Optional preparation (technical catalogue §2-B making the character act). Design that makes the character settings character-forge "made" **work** in each scene of the scene table. Even a made character is dead if never used (§2-B opening). After character-forge, before fast-draft.
 
-**出所**: 技術目録 §2-B（2-17〜2-28）。
+**Source**: technical catalogue §2-B (2-17〜2-28).
 
-## 入力契約
+## Input Contract
 
-- **design.md**: `<作業ディレクトリ>/design.md`（人物欄＝設計済み・シーン表）。
-- **前提**: character-forge で人物が設計済みであること（未設計なら character-forge を先に促す）。
+- **design.md**: `<working-dir>/design.md` (character section = already designed · scene table).
+- **Prerequisite**: characters already designed by character-forge (if not, prompt character-forge first).
 
-## 手順
+## Procedure
 
-1. design.md の「人物」欄と「シーン表」を読む。
-2. 各場面で、人物設定がどう「動く」かを確定する（§2-B）:
-   - **設定の浸透（2-17）**: 性格・癖・価値観が、どの場面でも行動に現れるようにする（設定を「背負って」動かす）
-   - **バックストーリーの転化（2-18）**: 過去の傷・経験を「語る」のでなく「振る舞わせる」。説明されずとも、振る舞いが過去を裏切る
-   - **段階的開示（2-20）**: バックボーンを最初に全部出さず、進行に沿って明かす（情報配分 3-8 と連動）
-   - **設定の機能化（2-21）**: 「この人物の設定だからこそ、この場面がこう動く」連動点を各場面に作る
-   - **過去の制約（2-22）**: 過去の約束・罪・喪失が現在の選択を縛る（後戻りできない点）
-   - **外からの照らし（2-24）**: 他者の視点・言及で人物を陰影付きで浮き彫りにする
-3. シーン表の各場面に「この人物の設定がどう効くか」を追記する（場面の「目的」欄を人物の機能化で補強）。
-4. 開示の順序（どの場面でバックボーンの何を明かすか）を決め、シーン表に「開示」の観点を足す。
-5. design.md の「人物」欄（またはシーン表）に書き込む。
+1. Read design.md's "character" and "scene table".
+2. Fix how the character setting "moves" in each scene (§2-B):
+   - **permeation of the setting (2-17)**: so that personality · habit · values appear in action in every scene (move them "carrying" the setting)
+   - **transmutation of backstory (2-18)**: "behave" the past wound · experience, not "tell" it. Even unspoken, the behavior betrays the past
+   - **staged disclosure (2-20)**: don't show the backbone all at once; reveal it along the progression (linked to information distribution 3-8)
+   - **making the setting function (2-21)**: create in each scene the linkage point where "this scene moves this way precisely because of this character's setting"
+   - **the constraint of the past (2-22)**: a past promise · guilt · loss binds the present choice (the point of no return)
+   - **lighting from outside (2-24)**: bring the character into relief with shading through another's point of view · mention
+3. Append to each scene of the scene table "how this character's setting works" (reinforce the scene's "purpose" with the functioning of the character).
+4. Fix the order of disclosure (what of the backbone is revealed in which scene) and add the "disclosure" view to the scene table.
+5. Write into design.md's "character" (or the scene table).
 
-## 出力
+## Output
 
-design.md のシーン表への追記（各場面での設定の機能化・段階的開示の順序）。
+Append to design.md's scene table (the functioning of the setting in each scene · the order of staged disclosure).
 
-## 注意
+## Notes
 
-- バックストーリーは「語る」のでなく「振る舞わせる」（2-18）。説明台詞・回想の丸投げは凡庸。
-- 開示は**配分**（情報配分 3-8 と連動）。全部出すと読者が先を読む。
-- 設定が場面を動かさないなら、その設定は削るか、動かす場面を作るか。死んだ設定は残さない。
+- The backstory is "behaved", not "told" (2-18). Exposition dialogue and dumping a recollection wholesale are mediocre.
+- Disclosure is **distribution** (linked to information distribution 3-8). Showing it all lets the reader read ahead.
+- If a setting does not move the scene, either cut the setting or make a scene where it moves. Don't keep a dead setting.

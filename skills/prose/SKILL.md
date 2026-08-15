@@ -1,50 +1,60 @@
 ---
 name: prose
-description: 文を文体の質（リズム・感覚的テクスチャ・言い換え不能な声・長文短文の時間制御）で書き直すスキル。persona の声に照らして、誰にでも書ける文を「この書き手にしか書けない文」へ研ぐ。草稿の場面単位で使う。
-argument-hint: '（任意）書き直す文・場面（draft_<n>.md のパス）、または文の引用。省略時は対話で確認する'
+description: A skill that rewrites prose for stylistic quality (rhythm, sensory texture, an irreplaceable voice, and control of time through long and short sentences). Checked against the persona's voice, it sharpens sentences "anyone could write" into sentences "only this writer could write". Used per scene of the draft.
+argument-hint: '(optional) the prose / scene to rewrite (the path to draft_<n>.md), or a quoted sentence. If omitted, confirm in dialogue. Add lang=en|ja|zh to switch output language (default en).'
 ---
 
-# prose —— 文体（リズム・感覚・声で文を研ぐ）
+# prose — prose style (sharpen sentences by rhythm · sense · voice)
+
+## Language Mode
+
+This skill writes in English by default. To write in another language, pass a `lang` argument (e.g. `/prose lang=ja`) or set `SOUL_VOICE_TELLER_LANG=ja` in the environment. Resolution order: `$ARGUMENTS.lang` > `SOUL_VOICE_TELLER_LANG` > `en`.
+
+- `en` (default): use this file (`SKILL.md`) and `../references/*.md`.
+- `ja`: read `SKILL-ja.md` and `../references/ja/*.md`; output in Japanese. The source concepts (内省 / 余白 / 間) live here.
+- `zh`: read `SKILL-zh.md` and `../references/zh/*.md`; output in Chinese (留白 / 含蓄).
+
+Write all output in the resolved language.
 
 ## Skill Metadata
 
 - **id**: `prose`
 - **version**: `0.1.0`
-- **category**: `writing`（実行層・文体）
+- **category**: `writing` (execution layer · prose style)
 - **standalone**: `true`
-- **language**: `ja`（本訳。en/zh は追いつき待ち）
+- **language**: `en` (canonical. ja/zh mirrored in `SKILL-ja.md` / `SKILL-zh.md`)
 
-## 位置づけ
+## Position
 
-三層モデルの**実行層**の文体スキル。fast-draft が「書く」、prose が「研ぐ」。草稿の粗さを残したまま、文体の質（リズム・感覚・声）だけを上げる。散文系スキルは言語別に効く（日本語のリズム・余白・間が本領）。
+The prose-style skill of the **execution layer** in the three-layer model. fast-draft "writes", prose "sharpens". Leaving the draft's roughness in place, it raises only the quality of the prose style (rhythm · sense · voice). The prose-family skills work language by language (English prose's rhythm · negative space · caesura are its home ground — re-derived here in the English tradition of negative space and restraint, not translated word-for-word).
 
-**出所**: 技術目録 §7（7-A 言語素材・7-B 比喩・7-C 効果・7-D 文体の種類・7-E 日本語表記）。
+**Source**: technical catalogue §7 (7-A language material · 7-B metaphor · 7-C effect · 7-D kinds of style · 7-E English prose mechanics).
 
-## 入力契約
+## Input Contract
 
-- **書き直す文**: `draft_<n>_<場面>.md` の該当場面、または文の引用。
-- **design.md**: `<作業ディレクトリ>/design.md`（文体の方向）。
-- **persona**: `${SOUL_VOICE_HOME:-$HOME/.soul-voice-teller}/persona.md`（声・筆致・具体文アンカー）。
+- **Prose to rewrite**: the relevant scene of `draft_<n>_<scene>.md`, or a quoted sentence.
+- **design.md**: `<working-dir>/design.md` (direction of prose style).
+- **persona**: `${SOUL_VOICE_HOME:-$HOME/.soul-voice-teller}/persona.md` (voice & brushwork · concrete-sentence anchor).
 
-## 手順
+## Procedure
 
-1. 書き直す文と design.md の「文体の方向」、persona の「声・筆致（具体文アンカー）」を読む。
-2. 文を文体の観点で検品する（§7）:
-   - **リズム（7-3）**: 文の長さ・息継ぎ・読む速度。長文（思考・反芻）と短文（疾走・切断）の配分（7-1）
-   - **語彙の精度（7-6）**: 名詞の具体性・動詞の力。「それ」「もの」で済ませない
-   - **感覚の描写（7-17）**: 視覚・聴覚・触覚・嗅覚・味覚・平衡感覚
-   - **比喩（7-B）**: 陳腐（使い古し）・混喩（比喩の衝突）・誇張を警戒しつつ、直喩・隠喩・暗喩を persona の声で
-   - **表記（7-E）**: ひらがな・カタカナ・漢字の使い分け、括弧・記号、段落の切れ目
-3. 書き直す。ただし**声を壊さない**——persona の具体文アンカーに照らし、「この書き手の文」から外れない（7-23 筆致・声）。
-4. **言い換え不能な声（7-23）**を目指す: 誰にでも書ける文を、この書き手にしか書けない文へ。
-5. 書き直した文を保存する（draft を上書きするか、新版として残す）。
+1. Read the prose to rewrite, design.md's "direction of prose style", and persona's "voice & brushwork (concrete-sentence anchor)".
+2. Inspect the prose from the viewpoint of style (§7):
+   - **rhythm (7-3)**: sentence length · breathing · reading speed. The division between long sentences (thought · rumination) and short sentences (velocity · severing) (7-1)
+   - **lexical precision (7-6)**: the concreteness of nouns · the force of verbs. Don't settle for "it", "thing"
+   - **sensory description (7-17)**: sight · hearing · touch · smell · taste · balance
+   - **metaphor (7-B)**: wary of the stale (worn out) · the mixed metaphor (collision of metaphors) · hyperbole, yet simile · metaphor · implied metaphor in the persona's voice
+   - **diction & mechanics (7-E)**: the register of the vocabulary (the English analog of the kanji/hiragana split — Latinate abstraction vs Anglo-Saxon concreteness), punctuation, paragraph breaks, white space
+3. Rewrite. But **do not break the voice** — checked against the persona's concrete-sentence anchor, don't stray from "this writer's prose" (7-23 brushwork · voice).
+4. Aim for the **irreplaceable voice (7-23)**: prose anyone could write, into prose only this writer could write.
+5. Save the rewritten prose (overwrite the draft, or keep it as a new version).
 
-## 出力
+## Output
 
-書き直した文（`draft_<n>_<場面>.md` の上書き、または新版）。
+The rewritten prose (overwrite `draft_<n>_<scene>.md`, or a new version).
 
-## 注意
+## Notes
 
-- 比喩は**個性の主戦場だが最大の罠**（7-14）。陳腐な比喩・混喩・誇張は凡庸を生む。persona の声でしか生まれない比喩だけを使う。
-- 修辞で埋めるのでなく、**余白と省略を効かせる**（7-25 簡潔体）。埋めたがる AI の癖を、persona の禁じ手・抑制の美学で抑える。
-- 文体は**統一と変化**（7-33）: 作品全体で貫くか、場面・人物ごとに切り替えるか。design.md の文体の方向に従う。
+- Metaphor is **the main battlefield of individuality but the greatest trap** (7-14). Stale metaphor · mixed metaphor · hyperbole breed mediocrity. Use only the metaphors that could only be born from the persona's voice.
+- Don't fill with rhetoric; **let empty space and omission work** (7-25 the plain style). Hold back the AI's impulse to fill, through the persona's forbidden moves and the aesthetic of restraint.
+- Prose style is **unity and variation** (7-33): carry it through the whole work, or switch it per scene · character. Follow design.md's direction of prose style.

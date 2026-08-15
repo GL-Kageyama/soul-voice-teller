@@ -1,53 +1,63 @@
 ---
 name: character-forge
-description: 人物を設計する下準備スキル。欲求・動機・傷・信念・変化弧・他者と区別される声を決め、design.md の「人物」欄を fast-draft が「この人物らしく動かせる」粒度まで深める。内面葛藤を1つに絞る。任意下準備（無くても執筆可）。plot-design の後。
-argument-hint: '（任意）design.md のパス。省略時は作業ディレクトリ内の design.md を探す'
+description: A preparation skill that designs characters. Fixes desire, motive, wound, belief, change arc, and a voice distinct from others, and deepens design.md's "character" to the granularity at which fast-draft can "move them in character". Narrows the inner conflict to one. Optional preparation (writing works without it). After plot-design.
+argument-hint: '(optional) the path to design.md. If omitted, look for design.md in the working directory. Add lang=en|ja|zh to switch output language (default en).'
 ---
 
-# character-forge —— 人物設計（欲求・傷・弧・声を作る）
+# character-forge — character design (desire · wound · arc · voice)
+
+## Language Mode
+
+This skill writes in English by default. To write in another language, pass a `lang` argument (e.g. `/character-forge lang=ja`) or set `SOUL_VOICE_TELLER_LANG=ja` in the environment. Resolution order: `$ARGUMENTS.lang` > `SOUL_VOICE_TELLER_LANG` > `en`.
+
+- `en` (default): use this file (`SKILL.md`) and `../references/*.md`.
+- `ja`: read `SKILL-ja.md` and `../references/ja/*.md`; output in Japanese.
+- `zh`: read `SKILL-zh.md` and `../references/zh/*.md`; output in Chinese.
+
+Write all output in the resolved language.
 
 ## Skill Metadata
 
 - **id**: `character-forge`
 - **version**: `0.1.0`
-- **category**: `writing`（構想層・任意下準備）
+- **category**: `writing` (design layer · optional preparation)
 - **standalone**: `true`
-- **language**: `ja`（本訳。en/zh は追いつき待ち）
+- **language**: `en` (canonical. ja/zh mirrored in `SKILL-ja.md` / `SKILL-zh.md`)
 
-## 位置づけ
+## Position
 
-任意下準備（技術目録 §2-A 人物の設計）。plot-design の「人物」欄（空欄可）を、fast-draft が「この人物らしく動かせる」粒度まで深める。無くても書けるが、人物が「役割（主人公・敵役）」でなく「生きている人間」になるかはここで決まる。
+Optional preparation (technical catalogue §2-A character design). Deepens plot-design's "character" (may be blank) to the granularity at which fast-draft can "move them in character". Writing works without it, but whether a character becomes "a living person" rather than "a role (protagonist · antagonist)" is decided here.
 
-**出所**: 技術目録 §2-A（2-1〜2-16）。
+**Source**: technical catalogue §2-A (2-1〜2-16).
 
-## 入力契約
+## Input Contract
 
-- **design.md**: `<作業ディレクトリ>/design.md`（人物欄。空欄・`?` でもよい）。
-- **premise.md**: `<作業ディレクトリ>/premise.md`（核心の問い・テーマ——人物の欲求・傷はテーマと結びつく）。
-- **persona**: `${SOUL_VOICE_HOME:-$HOME/.soul-voice-teller}/persona.md`（題材の嗜好・惹かれる人物と関係）。
+- **design.md**: `<working-dir>/design.md` (the character section. Blank or `?` is fine).
+- **premise.md**: `<working-dir>/premise.md` (the core question · theme — the character's desire · wound tie into the theme).
+- **persona**: `${SOUL_VOICE_HOME:-$HOME/.soul-voice-teller}/persona.md` (subject-matter preference · the people and relationships that draw you).
 
-## 手順
+## Procedure
 
-1. design.md の「人物」欄、premise のテーマ、persona の「題材の嗜好」を読む。
-2. 人物ごとに「核」を確定する（§2-A）:
-   - **欲求・目的（2-3）**: 何を欲するか（表面的な願い）
-   - **動機（2-4）**: なぜ欲するか（根の部分）
-   - **欠乏・傷・弱点（2-5）**: 内面の欠け・過去の傷
-   - **信念・価値観（2-6）**: 何を正しいとするか・死守するもの
-   - **声（2-13）**: 話し方・語彙・思考の癖。他者と区別される
-   - **変化弧（2-12）**: どう変わるか／変わらないか
-   - **表と内のずれ（2-16）**: 見た目・言動と内面の食い違い
-3. **内面葛藤を1つに絞る**: 二つの相反する欲求・信念がぶつかる点（例: 守りたい vs 逃げたい）。これは変化弧の原動力。
-4. 人物がテーマ（premise の核心の問い）とどう結びつくかを明記する——人物はテーマの「生きている議論」であるべき。
-5. design.md の「人物」欄に書き込む。未定は `?` のまま残してよい（下準備は空欄を許す）。
+1. Read design.md's "character", premise's theme, and persona's "subject-matter preference".
+2. Fix the "core" of each character (§2-A):
+   - **desire · goal (2-3)**: what they want (the surface wish)
+   - **motive (2-4)**: why they want it (the root)
+   - **lack · wound · weakness (2-5)**: the inner lack · a past wound
+   - **belief · values (2-6)**: what they hold right · what they will defend to the death
+   - **voice (2-13)**: way of speaking · vocabulary · habit of thought. Distinct from others
+   - **change arc (2-12)**: how they change / how they don't change
+   - **the gap between surface and interior (2-16)**: the mismatch between appearance · words and the interior
+3. **Narrow the inner conflict to one**: the point where two opposing desires · beliefs collide (e.g. wanting to protect vs wanting to flee). This is the engine of the change arc.
+4. State how the character ties into the theme (premise's core question) — the character should be the theme's "living argument".
+5. Write into design.md's "character". Undecided may be left as `?` (preparation allows blanks).
 
-## 出力
+## Output
 
-design.md の「人物」欄の詳細化（欲求・動機・傷・信念・声・変化弧・内面葛藤・表と内のずれ）。
+The elaboration of design.md's "character" (desire · motive · wound · belief · voice · change arc · inner conflict · the gap between surface and interior).
 
-## 注意
+## Notes
 
-- **欲求に一貫性を持たせる**（2-3〜2-4）: 表面的な願い（欲求）と根の部分（動機）が食い違わない。食い違うなら、それが内面葛藤。
-- 人物は「役割（2-11）」でなく「人」として作る。主人公・敵役は機能であり、その下に傷・欲求・信念がある。
-- 敵役も**一方的な悪にしない**（2-27）: 敵の論理の正しさを持たせる。
-- 声は persona の「禁じ手」に反しない範囲で。禁じ手に触れる人物は、理由を持って作る。
+- **Keep the desire consistent** (2-3〜2-4): the surface wish (desire) and the root (motive) must not contradict. If they do, that is the inner conflict.
+- Build the character as a "person", not a "role (2-11)". Protagonist · antagonist are functions; beneath them are wound · desire · belief.
+- **Do not make the antagonist one-sided evil** (2-27): give the antagonist's logic its own rightness.
+- The voice must stay within the persona's "forbidden moves". A character who touches a forbidden move is made with a reason.

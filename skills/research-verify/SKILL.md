@@ -1,52 +1,62 @@
 ---
 name: research-verify
-description: 設定・草稿の事実と史実を照合する下準備スキル。時代考証（風俗・言葉・制度・技術水準）と専門知識の誤りを指摘し、意図的逸脱と誤りを区別して訂正案を出す。物語に誤りを混ぜない。任意下準備。plot-design の後、または草稿の後。
-argument-hint: '（任意）照合対象（design.md または draft.md）のパス。省略時は作業ディレクトリ内を探す'
+description: A preparation skill that checks the facts and historical reality of the settings and draft. Points out errors in period detail (custom, language, institutions, level of technology) and specialist knowledge, and distinguishes deliberate departures from errors to propose corrections. Keeps errors out of the story. Optional preparation. After plot-design, or after the draft.
+argument-hint: '(optional) the path of the object to check (design.md or draft.md). If omitted, look in the working directory. Add lang=en|ja|zh to switch output language (default en).'
 ---
 
-# research-verify —— 照合（史実・時代考証・専門知識の誤りを混ぜない）
+# research-verify — checking (keep out errors of historical reality · period detail · specialist knowledge)
+
+## Language Mode
+
+This skill writes in English by default. To write in another language, pass a `lang` argument (e.g. `/research-verify lang=ja`) or set `SOUL_VOICE_TELLER_LANG=ja` in the environment. Resolution order: `$ARGUMENTS.lang` > `SOUL_VOICE_TELLER_LANG` > `en`.
+
+- `en` (default): use this file (`SKILL.md`) and `../references/*.md`.
+- `ja`: read `SKILL-ja.md` and `../references/ja/*.md`; output in Japanese.
+- `zh`: read `SKILL-zh.md` and `../references/zh/*.md`; output in Chinese.
+
+Write all output in the resolved language.
 
 ## Skill Metadata
 
 - **id**: `research-verify`
 - **version**: `0.1.0`
-- **category**: `writing`（構想層・任意下準備）
+- **category**: `writing` (design layer · optional preparation)
 - **standalone**: `true`
-- **language**: `ja`（本訳。en/zh は追いつき待ち）
+- **language**: `en` (canonical. ja/zh mirrored in `SKILL-ja.md` / `SKILL-zh.md`)
 
-## 位置づけ
+## Position
 
-任意下準備（技術目録 §13 リサーチ）。世界・人物設定（design.md）や草稿（draft.md）に、**史実・風俗・言葉・制度・技術水準の誤り**が混ざっていないかを照合する。物語に誤りを混ぜない（§13 冒頭）。plot-design の後（設定の照合）、または fast-draft の後（草稿の照合）。
+Optional preparation (technical catalogue §13 research). Checks whether **errors of historical fact · custom · language · institutions · level of technology** have slipped into the world · character settings (design.md) or the draft (draft.md). Keeps errors out of the story (§13 opening). After plot-design (checking settings), or after fast-draft (checking the draft).
 
-**出所**: 技術目録 §13（13-A 調査・13-B 時代考証）。
+**Source**: technical catalogue §13 (13-A investigation · 13-B period detail).
 
-## 入力契約
+## Input Contract
 
-- **照合対象**: design.md（世界・人物・時代設定）または draft.md（草稿）。argument-hint か対話で指定。
-- **persona**: `${SOUL_VOICE_HOME:-$HOME/.soul-voice-teller}/persona.md`（禁じ手・題材の嗜好——どこまで厳密に照合するかの判断に使う）。
+- **Object to check**: design.md (world · character · period setting) or draft.md (the draft). Given by argument-hint or dialogue.
+- **persona**: `${SOUL_VOICE_HOME:-$HOME/.soul-voice-teller}/persona.md` (forbidden moves · subject-matter preference — used to judge how strictly to check).
 
-## 手順
+## Procedure
 
-1. 照合対象を読み、物語のジャンル・時代・専門領域を特定する。
-2. 誤りを照合する（§13-B）:
-   - **史実の正確さ（13-6）**: 歴史的な出来事・人物・年号に誤りがないか
-   - **風俗・生活（13-7）**: 衣装・食事・住居・道具・交通・貨幣がその時代に存在したか
-   - **言葉・呼称（13-8）**: その時代の言葉遣い・敬語・呼称に現代語が混ざっていないか
-   - **制度・法・度量衡（13-9）**: 法律・身分制度・単位・時間の数え方
-   - **技術・知識水準（13-10）**: 当時存在しなかったものを紛れ込ませていないか
-   - **専門知識（13-3）**: 職能・学問・技術・法律の正確さ
-3. 各指摘を**誤り（直すべき）と意図的逸脱（残してよい）**に区別する（13-11）:
-   - 誤り: 読者の没入を壊す、意図のない不正確さ
-   - 意図的逸脱: 物語のために意図した逸脱（明記すべき）
-4. 訂正案を提示する（調査の変換 13-5: 知識を物語に変換し、調査を説明にしない）。
-5. 訂正を design.md / draft.md に反映する（または反映案を提示して確認する）。
+1. Read the object to check, and identify the story's genre · period · specialist domain.
+2. Check for errors (§13-B):
+   - **accuracy of historical fact (13-6)**: are the historical events · people · years wrong?
+   - **custom · life (13-7)**: did the clothing · food · housing · tools · transport · currency exist in that period?
+   - **language · address (13-8)**: has modern language slipped into that period's wording · honorifics · forms of address?
+   - **institutions · law · weights and measures (13-9)**: law · status system · units · ways of counting time
+   - **level of technology · knowledge (13-10)**: has something that did not exist then slipped in?
+   - **specialist knowledge (13-3)**: the accuracy of the trade · learning · technique · law
+3. Distinguish each point into **error (to fix) and deliberate departure (may keep)** (13-11):
+   - error: unintended inaccuracy that breaks the reader's immersion
+   - deliberate departure: a departure intended for the story (should be marked)
+4. Propose corrections (the transmutation of investigation 13-5: transmute knowledge into story; don't make investigation into explanation).
+5. Reflect the correction in design.md / draft.md (or propose the reflection and confirm).
 
-## 出力
+## Output
 
-照合結果（誤りリスト＋訂正案＋意図的逸脱の区別）と、訂正を反映した design.md / draft.md。
+The result of checking (a list of errors + proposed corrections + the distinction of deliberate departures), and design.md / draft.md with the correction reflected.
 
-## 注意
+## Notes
 
-- **考証と物語の均衡**（13-11）: 考証の重さが物語を潰さない。誤りは没入を壊すが、考証の羅列もまた没入を壊す。
-- 意図的逸脱は**明記**して残す（ジャンルの約束の破り方 18-D と同根）。誤りと意図的逸脱を混同しない。
-- 調査は**物語に変換**する（13-5）。調べたことを説明するのでなく、物語として見せる。
+- **The balance of period detail and story** (13-11): the weight of period detail must not crush the story. Errors break immersion, but a list of period detail also breaks immersion.
+- Mark **deliberate departures** and keep them (the same root as the way of breaking the genre promise 18-D). Don't confuse error with deliberate departure.
+- Transmute investigation **into story** (13-5). Don't explain what you researched; show it as story.

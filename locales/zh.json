@@ -1,8 +1,46 @@
 {
-  "_comment": "STUB — 中文翻译待后续（ja 先行）。保持与 ja.json 相同的键结构，便于后续替换。",
-  "skills": {},
-  "persona": {},
-  "restraint": {},
-  "voice-ledger": {},
-  "ground": {}
+  "_comment": "中文镜像，键结构与 en/ja 一致。",
+  "skills": {
+    "writer-persona": "写作者设定",
+    "premise": "构思",
+    "plot-design": "设计",
+    "fast-draft": "草稿",
+    "voice-ledger": "声音库",
+    "narration-design": "叙述的详细设计",
+    "character-forge": "人物设计",
+    "character-in-action": "人物的活用",
+    "worldbuild": "世界设计",
+    "world-iceberg": "未写世界的资料化",
+    "research-verify": "时代考据的对照",
+    "prose": "文体",
+    "scene-writer": "场景写作",
+    "series-bible": "作品圣经",
+    "revise-for-reader": "读者体验的改稿"
+  },
+  "persona": {
+    "soul-story": "灵魂故事（为何而写）",
+    "aesthetic": "审美（何为好文字）",
+    "voice": "声音与笔触（如何写）",
+    "forbidden": "禁忌（不写什么）",
+    "subject-preference": "题材偏好（被什么吸引）"
+  },
+  "restraint": {
+    "title": "克制的美学",
+    "no-explain": "不解释情感",
+    "no-name": "不点名",
+    "no-moral": "结尾不落教训或总结",
+    "leave-space": "为读者留白"
+  },
+  "voice-ledger": {
+    "idea": "构思之声",
+    "draft": "草稿之声",
+    "flow": "笔兴勃发之瞬",
+    "forbidden": "触碰禁忌之瞬",
+    "evaluation": "评价的回响"
+  },
+  "ground": {
+    "A": "人的真实经验",
+    "B": "persona＋声音库",
+    "C": "计划（场景表）"
+  }
 }

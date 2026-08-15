@@ -1,48 +1,58 @@
 ---
 name: scene-writer
-description: 劇的場面を1つ、じっくり書くスキル。空白の設計（何を言わないか）・見せて語る・場の切れ目を意識し、欲求→衝突→変化のビートで1シーンを仕上げる。fast-draft が一気書きするのに対し、1場面を深く書きたい時に使う。
-argument-hint: '（任意）書く場面（シーン表の #n）と design.md のパス。省略時は対話で確認する'
+description: A skill that writes one dramatic scene slowly. Aware of the design of empty space (what not to say), show-don't-tell, and the seams of the scene, it finishes one scene on the desire → conflict → change beat. Where fast-draft writes all at once, use this when you want to write one scene deeply.
+argument-hint: '(optional) the scene to write (#n of the scene table) and the path to design.md. If omitted, confirm in dialogue. Add lang=en|ja|zh to switch output language (default en).'
 ---
 
-# scene-writer —— 劇的場面（1シーンを深く書く）
+# scene-writer — the dramatic scene (write one scene deeply)
+
+## Language Mode
+
+This skill writes in English by default. To write in another language, pass a `lang` argument (e.g. `/scene-writer lang=ja`) or set `SOUL_VOICE_TELLER_LANG=ja` in the environment. Resolution order: `$ARGUMENTS.lang` > `SOUL_VOICE_TELLER_LANG` > `en`.
+
+- `en` (default): use this file (`SKILL.md`) and `../references/*.md`.
+- `ja`: read `SKILL-ja.md` and `../references/ja/*.md`; output in Japanese.
+- `zh`: read `SKILL-zh.md` and `../references/zh/*.md`; output in Chinese.
+
+Write all output in the resolved language.
 
 ## Skill Metadata
 
 - **id**: `scene-writer`
 - **version**: `0.1.0`
-- **category**: `writing`（実行層・場面）
+- **category**: `writing` (execution layer · scene)
 - **standalone**: `true`
-- **language**: `ja`（本訳。en/zh は追いつき待ち）
+- **language**: `en` (canonical. ja/zh mirrored in `SKILL-ja.md` / `SKILL-zh.md`)
 
-## 位置づけ
+## Position
 
-三層モデルの**実行層**の場面スキル。fast-draft が「一気に全場面」を書くのに対し、scene-writer は「1つの劇的場面を深く」書く。特にクライマックス・対決・別れなど、物語の要の場面に向く。
+The scene skill of the **execution layer** in the three-layer model. Where fast-draft writes "all scenes at once", scene-writer writes "**one dramatic scene deeply**". Suited especially to the pivotal scenes of a story — the climax · the confrontation · the parting.
 
-**出所**: 技術目録 §14-A（場面の執筆 14-2）＋§3 出来事＋§4 構造＋§9 読者。
+**Source**: technical catalogue §14-A (writing a scene 14-2) + §3 events + §4 structure + §9 the reader.
 
-## 入力契約
+## Input Contract
 
-- **書く場面**: シーン表の #n（または対話で指定）。
-- **design.md**: `<作業ディレクトリ>/design.md`（シーン表・語り・文体の方向・読者像と約束）。
-- **persona**: `${SOUL_VOICE_HOME:-$HOME/.soul-voice-teller}/persona.md`（声・禁じ手）。
-- **voice-ledger**: `${SOUL_VOICE_HOME:-$HOME/.soul-voice-teller}/voice-ledger.md`（渇いた時の水源）。
+- **Scene to write**: #n of the scene table (or given in dialogue).
+- **design.md**: `<working-dir>/design.md` (scene table · narration · direction of prose style · reader image & promise).
+- **persona**: `${SOUL_VOICE_HOME:-$HOME/.soul-voice-teller}/persona.md` (voice · forbidden moves).
+- **voice-ledger**: `${SOUL_VOICE_HOME:-$HOME/.soul-voice-teller}/voice-ledger.md` (the water source when it goes dry).
 
-## 手順
+## Procedure
 
-1. シーン表の該当場面（目的・誰が・何が変わる）、語り、文体の方向、persona を読む。
-2. 場面のビートを組み立てる（§4-3）: **欲求 → 衝突 → 変化**。人物が何を欲し、何に阻まれ、何が変わるか。
-3. **空白の設計**（何を言わないか）を先に決める（§9-5 空白・§1-18 見せる/見せないの線引き）: この場面で語らないことで、読者に委ねるものは何か。
-4. **見せて語る**（show, don't tell）で書く: 感情を説明せず、行動・台詞・沈黙で示す（抑制の美学と同根）。
-5. **場の切れ目**を意識する（§4-16 シーンの開始と終了）: 入口（フック）と出口（余韻・引き・予感）。読者の離脱点を制御する。
-6. 書いた文を抑制の美学4条で検品し、破っていたら直す（fast-draft と同じ検品基準）。
-7. 場面を保存し、内省で声・逸脱が聞こえたらため庫に追記する。
+1. Read the scene table's relevant scene (purpose · who · what changes), the narration, the direction of prose style, and the persona.
+2. Assemble the beats of the scene (§4-3): **desire → conflict → change**. What the character wants, what blocks them, what changes.
+3. Decide **the design of empty space** (what not to say) first (§9-5 empty space · §1-18 the line between show and don't-show): what does this scene hand over to the reader by not saying it?
+4. Write **show, don't tell**: don't explain emotion; show it through action · line · silence (the same root as the aesthetic of restraint).
+5. Be aware of **the seams of the scene** (§4-16 the start and end of a scene): the entrance (hook) and the exit (aftertaste · pull · presentiment). Control the reader's point of departure.
+6. Inspect what you wrote against the five clauses of restraint, and fix what violates them (the same criterion of inspection as fast-draft).
+7. Save the scene, and if introspection hears a voice · departure, append to the store.
 
-## 出力
+## Output
 
-`<作業ディレクトリ>/draft_<n>_<場面>.md`（1場面の草稿）＋ため庫への声。
+`<working-dir>/draft_<n>_<scene>.md` (the draft of one scene) + a voice for the store.
 
-## 注意
+## Notes
 
-- 空白の設計は**先に**決める（§9-5）。何を語らないかが、何を語るかの強度を作る。
-- 見せて語る（show, don't tell）: 感情を説明せず、行動で示す（抑制の美学4条と同根）。
-- 場の切れ目（§4-16）が読者の離脱を制御する。入口のフックと出口の余韻を意識する。
+- The design of empty space is decided **first** (§9-5). What you don't say makes the intensity of what you do say.
+- Show, don't tell: don't explain emotion; show it through action (the same root as the five clauses of restraint).
+- The seams of the scene (§4-16) control the reader's departure. Be aware of the hook at the entrance and the aftertaste at the exit.

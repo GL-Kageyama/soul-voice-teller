@@ -1,83 +1,93 @@
 ---
 name: writer-persona
-description: 書き手（人間＝ユーザー）の魂・声・嗜好を対話で引き出し、永続プロファイル（persona）を作る。他のすべての執筆スキルがこの persona に照らして書く。作品を書き始める前に、または persona を更新したいときに使う。
-argument-hint: '（任意）更新対象の persona パス、または「新規」「更新」の指示。省略時は対話で確認する'
+description: Draws out the writer's (the human = user's) soul, voice, and preferences through dialogue and creates a permanent profile (persona) that every other writing skill writes against. Use before starting a work, or when you want to update the persona.
+argument-hint: '(optional) the path of the persona to update, or "new" / "update". If omitted, confirm in dialogue. Add lang=en|ja|zh to switch output language (default en).'
 ---
 
-# writer-persona —— 書き手設定（人間の実経験に照合して声を定める）
+# writer-persona — the writer's setting (fix the voice by checking against real experience)
+
+## Language Mode
+
+This skill writes in English by default. To write in another language, pass a `lang` argument (e.g. `/writer-persona lang=ja`) or set `SOUL_VOICE_TELLER_LANG=ja` in the environment. Resolution order: `$ARGUMENTS.lang` > `SOUL_VOICE_TELLER_LANG` > `en`.
+
+- `en` (default): use this file (`SKILL.md`) and `../references/*.md`.
+- `ja`: read `SKILL-ja.md` and `../references/ja/*.md`; output in Japanese. The source concepts (内省 / 余白 / 間) live here.
+- `zh`: read `SKILL-zh.md` and `../references/zh/*.md`; output in Chinese (留白 / 含蓄).
+
+Write all output in the resolved language.
 
 ## Skill Metadata
 
 - **id**: `writer-persona`
 - **version**: `0.1.0`
-- **category**: `writing`（書き手層・永続）
+- **category**: `writing` (writer layer · permanent)
 - **standalone**: `true`
-- **language**: `ja`（本訳。en/zh は追いつき待ち）
+- **language**: `en` (canonical. ja/zh mirrored in `SKILL-ja.md` / `SKILL-zh.md`)
 
-## 位置づけ
+## Position
 
-三層モデルの**書き手層**の最初のスキル。以後のすべての内省（premise の発想・fast-draft の草稿）が、ここで定めた persona に照らして書く。
+The first skill of the **writer layer** in the three-layer model. All later introspection (premise's ideation · fast-draft's drafting) writes against the persona fixed here.
 
-**誰が書くか**: 人間が作者、AI は草案装置、persona は人間の嗜好を映す鏡。このスキルで作る persona の魂・声は**人間（ユーザー）のもの**。AI はそれを対話で引き出し・保持する鏡であって、作者ではない。
+**Who writes**: the human is the author, the AI is a drafting device, the persona is a mirror of the human's preferences. The soul and voice of the persona made by this skill are **the human's (user's)**. The AI is a mirror that draws them out and holds them in dialogue — not the author.
 
-## 入力契約
+## Input Contract
 
-- **入力**: ユーザーとの対話（A問い）。ground = **人間の実経験**。
-- **絶対原則**: AI は**問うだけで、自ら「傷」を捏造しない**。ユーザーの答えを引き出して保持する。架空の伝記的痛み・「それらしい魂の物語」をでっち上げてはならない。ground の無い「内省」は捏造になる。
+- **Input**: dialogue with the user (the A questions). ground = **the writer's real experience**.
+- **Absolute principle**: the AI **only asks; it does not fabricate a "wound" of its own**. It draws out and holds the user's answers. It must not invent a fictional biographical pain or a "plausible soul-story". Introspection without a ground is fabrication.
 
-## 手順
+## Procedure
 
-1. まず、書き手の蓄積（persona＋ため庫）を置く**専用フォルダ（リポジトリ）**の作成をユーザーに促す。これが以後の書き手の永続状態のホームになる:
-   - 「あなたの声の蓄積を、ワークスペース内の専用フォルダ（git リポジトリ）に置きましょう。どこに作りますか？（例: <ワークスペース>/魂の声/）」
-   - **git 管理を勧める**——persona は不可逆な魂の物語、ため庫は育つ日記。履歴・バックアップが要る。ただし **private**（公開 remote への push はしない）。
-   - 保存先 = ユーザーが指定したフォルダ（`SOUL_VOICE_HOME` で明示。未指定なら `~/.soul-voice-teller/`）。無ければ作成する。
-   - persona 保存先: そのフォルダの `persona.md`。既にあれば読み込み、**更新**（読み返して改訂）として扱う。無ければ**新規作成**。
-   - **persona は soul-voice-teller（配布用スキル）のリポジトリ内に置かない**——書き手ごとの状態であり、固定・コミットしない。
-   - **voice-ledger.md も初期化する**——そのフォルダの `voice-ledger.md` が無ければ、ため庫のヘッダ（[../references/魂の声のため庫.md](../references/魂の声のため庫.md) の書式）で作る。persona とため庫は書き手層の対になる永続状態で、persona を作る時点で両方用意する。
-   - 更新時は [../references/魂の声のため庫.md](../references/魂の声のため庫.md) のため庫も読み返し、「魂の物語がどこへ向かったか」を反映する。
-2. A問い（[../references/内省問い.md](../references/内省問い.md) A章）を**1項目ずつ**、対話で問い、答えを引き出す。全5項目:
-   - **A-1 魂の物語**（なぜ書くか・何度も回帰する問い）
-   - **A-2 美意識**（何が良い文か・信じる美学）
-   - **A-3 声・筆致**（文の呼吸・具体文アンカー）
-   - **A-4 禁じ手**（何を書かないか）
-   - **A-5 題材の嗜好**（何に惹かれるか）
-3. 問いの条件を守る（内省問い §0）:
-   - **開いている**——はい／いいえで終わらせない
-   - **書き手設定に照らす**——誰でもない答えを許さない
-   - **照合を求める**——判断でなく、実経験と突き合わせた声の報告
-   - **誘発であって強制でない**——無理に聞き出そうとしない。答えたくない項目は「未定」として残してよい
-4. 全項目を persona.md にまとめて保存する。**具体文アンカー**（A-3 で**取り出した**実在の一文）は原文のまま残す——形容詞でなく、その文そのものが声の実体。**浮かばなければ「未定」のまま**（強制は捏造になる。未定でも pipeline は動く）。
-5. 最後に、persona を premise / plot-design / fast-draft が読み込める形（下の出力形式）になっていることを確認する。
+1. First, prompt the user to create the **dedicated folder (repository)** that holds the writer's accumulated state (persona + store). This becomes the home of the writer's permanent state:
+   - "Let's put your accumulated voice in a dedicated folder (git repository) inside your workspace. Where should it go? (e.g. <workspace>/voice/)"
+   - **Recommend git** — the persona is an irreversible soul-story, the store is a growing diary. They need history and backup. But **private** (do not push to a public remote).
+   - Save location = the folder the user names (given explicitly by `SOUL_VOICE_HOME`; if unset, `~/.soul-voice-teller/`). Create it if absent.
+   - persona location: `persona.md` in that folder. If it already exists, read it and treat this as an **update** (reread and revise). If not, **create new**.
+   - **Do not put the persona inside the soul-voice-teller (distribution skill) repository** — it is per-writer state, not to be fixed or committed.
+   - **Also initialize voice-ledger.md** — if `voice-ledger.md` does not exist in that folder, create it with the store's header (the form in [../references/voice-store.md](../references/voice-store.md)). The persona and the store are the paired permanent state of the writer layer; prepare both when the persona is made.
+   - On update, also reread the store in [../references/voice-store.md](../references/voice-store.md) and reflect "where the soul-story went".
+2. Ask the A questions ([../references/introspection.md](../references/introspection.md) chapter A) **one item at a time**, in dialogue, drawing out the answers. Five items in all:
+   - **A-1 the soul-story** (why you write · the question you return to)
+   - **A-2 aesthetic sense** (what makes good prose · the aesthetic you believe)
+   - **A-3 voice & brushwork** (the breathing of the sentence · the concrete-sentence anchor)
+   - **A-4 forbidden moves** (what you do not write)
+   - **A-5 subject-matter preference** (what you are drawn to)
+3. Honor the conditions on the questions (introspection §0):
+   - **open** — don't let it end in yes/no
+   - **checked against the writer's setting** — don't allow an answer that could be anyone's
+   - **ask for checking** — not judgment, but a report of the voice held against real experience
+   - **evoke, don't force** — don't press to draw it out. Items the user doesn't want to answer may be left "undecided"
+4. Summarize all items into persona.md and save. The **concrete-sentence anchor** (a real sentence **taken out** in A-3) is kept verbatim — not an adjective, the sentence itself is the substance of the voice. **If none comes, leave it "undecided"** (forcing is fabrication. The pipeline runs even undecided).
+5. Finally, confirm the persona is in the form (the output format below) that premise / plot-design / fast-draft can read.
 
-## 出力
+## Output
 
-`${SOUL_VOICE_HOME:-$HOME/.soul-voice-teller}/persona.md`（永続プロファイル）
+`${SOUL_VOICE_HOME:-$HOME/.soul-voice-teller}/persona.md` (the permanent profile)
 
 ```markdown
-# persona（書き手設定）
+# persona (the writer's setting)
 
-> 人間の実経験から対話で引き出したもの。AI が捏造したものではない。
+> Drawn out in dialogue from the writer's real experience. Not fabricated by the AI.
 
-## 魂の物語（なぜ書くか）
-（何度も書きたくなる物語・回帰する問い・決着のついていない問い）
+## The soul-story (why you write)
+(the story you want to write again and again · the recurring question · the unsettled question)
 
-## 美意識（何が良い文か）
-（良い文／ダメな文・信じる美学・埋めたがらない余白）
+## Aesthetic sense (what makes good prose)
+(good / bad sentences · the aesthetic you believe · the negative space you won't fill)
 
-## 声・筆致（どう書くか）
-（文の呼吸・好きな言葉／避ける言葉・読者に取らせたい距離）
-- 具体文アンカー: （実在の一文を照合で取り出す。未定可。原文のまま）
+## Voice & brushwork (how you write)
+(the breathing of the sentence · words you like / avoid · the distance you want the reader to take)
+- concrete-sentence anchor: (a real sentence, taken out by checking. May be undecided. Keep verbatim)
 
-## 禁じ手（何を書かないか）
-（絶対に書かないもの・書きたくない形式・破ったときの代償）
+## Forbidden moves (what you do not write)
+(what you will absolutely never write · forms you don't want · the price of breaking them)
 
-## 題材の嗜好（何に惹かれるか）
-（題材・舞台・時間帯・季節・惹かれる人物と関係）
+## Subject-matter preference (what you are drawn to)
+(subjects · settings · times of day · seasons · the people and relationships that draw you)
 ```
 
-## 注意
+## Notes
 
-- persona は「私はこう書く」（現在形の設定）。ため庫（voice-ledger）は「私はこう書いてきた」（過去形の日記）で、**別ファイル**。
-- 魂の物語・声・禁じ手は**ユーザーのもの**。ユーザーが答えるまでは「未定」のまま残し、AI が埋めてはならない。
-- **具体文アンカーは任意**。無くても呼吸・好き/避ける言葉・禁じ手・題材が声を固定し、pipeline は動く。アンカーは声を concrete に照合できる強力な加点であって、必須ではない。
-- persona が無いまま premise / fast-draft に進もうとしたら、先に本スキルを促す（「誰が書くか」が未確定では、構想も草稿も「誰でもない文」になる）。
+- The persona is "I write like this" (present-tense setting). The store (voice-ledger) is "I have written like this" (past-tense diary) — a **separate file**.
+- The soul-story, voice, and forbidden moves are **the user's**. Until the user answers, leave them "undecided"; the AI must not fill them in.
+- **The concrete-sentence anchor is optional.** Without it, the breathing · liked/avoided words · forbidden moves · subject matter still fix the voice and the pipeline runs. The anchor is a strong bonus that lets the voice be checked concretely — not a requirement.
+- If someone tries to proceed to premise / fast-draft without a persona, prompt this skill first (with "who writes" unsettled, both design and draft become "no one's prose").

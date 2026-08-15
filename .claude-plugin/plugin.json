@@ -7,7 +7,9 @@
   },
   "license": "MIT",
   "languages": [
-    "ja"
+    "en",
+    "ja",
+    "zh"
   ],
   "keywords": [
     "claude-code",

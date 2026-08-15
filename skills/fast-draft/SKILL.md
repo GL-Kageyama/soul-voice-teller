@@ -1,83 +1,93 @@
 ---
 name: fast-draft
-description: 設計書（シーン表）と persona・ため庫から、場面ごとのラフ散文を書く草稿スキル。内省ループ（照合→逸脱→計画更新）で筆の乗りを検出し、抑制の美学（説明しない・名指ししない・総括しない・余白・源を語らない）で魂を運ぶ。執筆の本丸。plot-design の後。
-argument-hint: '（任意）design.md のパス。省略時は作業ディレクトリ内の design.md を探す'
+description: A drafting skill that writes rough prose scene by scene from the design document (scene table) and persona + store. Detects flow with an introspection loop (check → departure → plan update), and carries the soul with the aesthetic of restraint (don't explain · don't name · don't summarize · leave space · hold the source). The heart of writing. After plot-design.
+argument-hint: '(optional) the path to design.md. If omitted, look for design.md in the working directory. Add lang=en|ja|zh to switch output language (default en).'
 ---
 
-# fast-draft —— 草稿（内省で逸脱を検出し、抑制の美学で魂を運ぶ）
+# fast-draft — draft (detect departure by introspection, carry the soul by restraint)
+
+## Language Mode
+
+This skill writes in English by default. To write in another language, pass a `lang` argument (e.g. `/fast-draft lang=ja`) or set `SOUL_VOICE_TELLER_LANG=ja` in the environment. Resolution order: `$ARGUMENTS.lang` > `SOUL_VOICE_TELLER_LANG` > `en`.
+
+- `en` (default): use this file (`SKILL.md`) and `../references/*.md`.
+- `ja`: read `SKILL-ja.md` and `../references/ja/*.md`; output in Japanese.
+- `zh`: read `SKILL-zh.md` and `../references/zh/*.md`; output in Chinese.
+
+Write all output in the resolved language.
 
 ## Skill Metadata
 
 - **id**: `fast-draft`
 - **version**: `0.1.0`
-- **category**: `writing`（実行層）
+- **category**: `writing` (execution layer)
 - **standalone**: `true`
-- **language**: `ja`（本訳。en/zh は追いつき待ち）
+- **language**: `en` (canonical. ja/zh mirrored in `SKILL-ja.md` / `SKILL-zh.md`)
 
-## 位置づけ
+## Position
 
-三層モデルの**実行層**。魂の本丸。構想の個別性は魂を動かさない。魂を動かすのは**書き方＝抑制**。その書き方をここで実装する。
+The **execution layer** of the three-layer model. The heart of the soul. The particularity of the design does not move the soul. What moves the soul is the **manner of writing = restraint**. That manner is implemented here.
 
-**役割の境界**: このスキルは**執筆内在の判断**（内省・逸脱判定＝書くことの一部）を持つ。外在の評価（評議会・昇華・改稿の精査）は**外部の評価レイヤー**が担い、ここでは内蔵しない。
+**Boundary of roles**: this skill holds **the judgment internal to writing** (introspection · departure judgment = part of writing). The judgment external to writing (the council · sublation · the scrutiny of revision) is borne by **the external evaluation layer**, and is not built in here.
 
-## 入力契約
+## Input Contract
 
-- **design.md**: `<作業ディレクトリ>/design.md`（シーン表・語り・文体・読者像と約束）。**必須**。
-- **persona**: `${SOUL_VOICE_HOME:-$HOME/.soul-voice-teller}/persona.md`（必須。声・禁じ手に照らして書く）。
-- persona の**具体文アンカー**は任意（未定可）。あるなら声の照合基準（「この文はアンカーの観察の質に乗っているか」）に使う。無くても呼吸・好き/避ける言葉・禁じ手・題材で声を固定する。
-- **voice-ledger**: `${SOUL_VOICE_HOME:-$HOME/.soul-voice-teller}/voice-ledger.md`（渇いたときに読む水源）。
+- **design.md**: `<working-dir>/design.md` (scene table · narration · prose style · reader image & promise). **Required.**
+- **persona**: `${SOUL_VOICE_HOME:-$HOME/.soul-voice-teller}/persona.md` (required. Write checked against voice · forbidden moves).
+- The persona's **concrete-sentence anchor** is optional (may be undecided). If present, use it as the standard for checking the voice ("does this sentence ride on the quality of the anchor's observation?"). Without it, the breathing · liked/avoided words · forbidden moves · subject matter still fix the voice.
+- **voice-ledger**: `${SOUL_VOICE_HOME:-$HOME/.soul-voice-teller}/voice-ledger.md` (the water source to read when it goes dry).
 
-## 出力仕様：抑制の美学（魂のレバー）
+## Output specification: the aesthetic of restraint (the lever of the soul)
 
-書く前の指示ではなく、**書いた文を検品する基準**。各場面を書き終えるたび、次の5条に照らして検品する（[../references/抑制の美学.md](../references/抑制の美学.md)）:
+Not an instruction before writing, but a **criterion for inspecting what you have written**. After finishing each scene, inspect it against the five clauses ([../references/restraint.md](../references/restraint.md)):
 
-1. **感情を説明しない**——「悲しかった」「嬉しかった」と書かない。行動と沈黙で示す。
-2. **名指ししない**——テーマ・感情を言葉で明示しない。読者が感じ取るのを邪魔しない。
-3. **結末に教訓や総括を置かない**——最後の一行でまとめず、残す。
-4. **読者への余白を残す**——読者自身の哀しみ・問いを呼び込む空白。責め立てずに残す。
-5. **persona の魂の物語を理由として書かない**——傷・決着のついていない問いは背後の源としてのみ用い、草稿に「〜年前に…」と書き込まない。**源は持つが、源を語らない**。
+1. **Do not explain emotion** — don't write "I was sad", "I was glad". Show through action and silence.
+2. **Do not name it** — don't state the theme or emotion in words. Don't obstruct the reader from feeling it.
+3. **Do not put a moral or summary at the ending** — don't wrap up in the last line; leave it.
+4. **Leave negative space for the reader** — an emptiness that invites the reader's own grief and questions. Leave it without pressing.
+5. **Do not write the persona's soul-story as the reason** — the wound, the unsettled question, are used only as the source behind the work; don't write "years ago…" into the draft. **Hold the source, don't speak the source.**
 
-混ざっていたら書き直す。「説明・名指し・総括」は**捏造された感傷（魂を壊す）と凡庸さ（個別性を壊す）の二重の害**。「源を涙の装置として語る」ことは4条（名指ししない）が禁じる。
+If any has slipped in, rewrite. "Explanation, naming, summary" are a **double harm — fabricated sentiment (breaks the soul) and mediocrity (breaks particularity)**. "Speaking the source as a device for tears" is what clause 4 (do not name it) forbids.
 
-## 内省ループ（場面ごとに回す）
+## The introspection loop (run per scene)
 
-ground = **計画（シーン表）**。生成した文と計画を照合し、逸脱の有無を判定する。問いは [../references/内省問い.md](../references/内省問い.md) C章。
+ground = **the plan (scene table)**. Check the generated prose against the plan and judge whether there is a departure. The questions are [../references/introspection.md](../references/introspection.md) chapter C.
 
 ```
-① 問いかける（声に耳を向ける）
-② 照合する（シーン表と突き合わせる。判定しない）
-③ 人物が計画を離れて動き出している → 逸脱を許す（追従より逸脱）
-④ 逸脱の判断基準で判定（深めるか壊すか）…… 執筆内在の判断
-⑤ 深めるなら、計画（シーン表）を更新して従う
-⑥ 聞こえた声・逸脱・筆の乗りはため庫に貯める（voice-ledger）
+① Ask (turn your ear to the voice)
+② Check (hold it against the scene table. Do not judge)
+③ The character has left the plan and begun to move → allow the departure (departure over compliance)
+④ Judge by the criteria for departure (deepens or breaks) …… the judgment internal to writing
+⑤ If it deepens, update the plan (scene table) and follow
+⑥ Store the heard voice · departure · flow in the store (voice-ledger)
 ```
 
-- **C-1 フローの検出**: この人物は計画通りか、勝手に動き始めたか。台詞・行動が計画の要求から出たか、人物自身から出たか。
-- **C-2 逸脱の判定**（深める/壊す）: この逸脱は物語を深めるか壊すか。約束・伏線・結末への影響は。禁じ手（persona A-4）に反していないか。
-- **C-3 計画の更新**: 逸脱を計画にどう写すか。旧計画への機械的回帰をしない。
-- **C-4 安全弁（最重要）**: フローを**無理に作らない**。聞こえないのに聞こえたふりをしない。**聞こえないなら追従に戻る**——声は待つもので、押し出すものではない。追従に戻る前に、ため庫を聞く。
+- **C-1 detecting flow**: is this character as planned, or moving on their own? Did the line · action come from the plan's demand, or from the character themselves?
+- **C-2 judging the departure** (deepens/breaks): does this departure deepen or break the story? Its effect on the promise · foreshadowing · ending. Does it violate the forbidden moves (persona A-4)?
+- **C-3 updating the plan**: how to write the departure into the plan. Don't mechanically regress to the old plan.
+- **C-4 the safety valve (most important)**: **don't force the flow.** Don't pretend to hear what you don't hear. **If you don't hear it, fall back to following the plan** — the voice is something to wait for, not push out. Before falling back, listen to the store.
 
-## 手順
+## Procedure
 
-1. design.md・persona・ため庫を読み込む。
-2. シーン表の**場面1から順に**書く。各場面:
-   - 場面の目的（何を果たすか）と、語り（視点・時制・語り手）・文体の方向を確認してから書く。
-   - **ラフ散文**で書く（完成度を上げる脚色は不要。草稿としての粗さは許容）。
-   - 書いた文を**抑制の美学5条**で検品し、破っていたら直す。
-   - **内省ループ**を回す（上の①〜⑥）。逸脱したら計画を更新する。
-   - 場面単位の草稿を保存し、声があればため庫に追記する。
-3. 全場面を書き終えたら、連結した `draft.md` を作る。
-4. 未定（`?`）の下準備を書く過程で埋めた場合、design.md を更新して残す。
+1. Read design.md · persona · store.
+2. Write **scene by scene from scene 1** of the scene table. Each scene:
+   - Confirm the scene's purpose (what it achieves) and the narration (point of view · tense · narrator) · direction of prose style before writing.
+   - Write in **rough prose** (no elaboration to raise polish. Roughness as a draft is allowed).
+   - Inspect what you wrote against the **five clauses of restraint**, and fix what violates them.
+   - Run the **introspection loop** (①–⑥ above). On a departure, update the plan.
+   - Save the per-scene draft, and append to the store if there is a voice.
+3. When all scenes are done, assemble the concatenated `draft.md`.
+4. If undecided (`?`) preparation was filled in during writing, update design.md to keep it.
 
-## 出力
+## Output
 
-- `<作業ディレクトリ>/draft_<n>_<場面>.md`（場面単位。再草稿の単位）
-- `<作業ディレクトリ>/draft.md`（全場面を連結した草稿）
-- 更新された `<作業ディレクトリ>/design.md`（`?` を埋めた場合）
-- `${SOUL_VOICE_HOME:-$HOME/.soul-voice-teller}/voice-ledger.md` への追記（声・逸脱・筆の乗り）
+- `<working-dir>/draft_<n>_<scene>.md` (per scene. The unit of redrafting)
+- `<working-dir>/draft.md` (the draft with all scenes concatenated)
+- updated `<working-dir>/design.md` (when `?` was filled in)
+- append to `${SOUL_VOICE_HOME:-$HOME/.soul-voice-teller}/voice-ledger.md` (voice · departure · flow)
 
-## 注意
+## Notes
 
-- **構想に縛り続けることも致命**。構想は地図として尊重しつつ、内省で筆の乗り（エマージェンス）を検出したら解く（逸脱を許す）。計画通りの書き方は平均化の温床。
-- **抑制と内省は両立する**: 内省が逸脱を許し（声に従う）、抑制が届け方を絞る（壊さない）。逸脱したからといって説明し始めてはならない。
-- **再草稿**: 外部評価の結果は、該当する場面の `draft_<n>.md` を本スキルの再実行で書き直す（評価を内蔵せず、材料として反映する）。
+- **Staying bound to the design forever is also fatal.** Respect the design as a map, but if introspection detects flow (emergence), loosen it (allow the departure). Writing exactly to plan is a hotbed of averaging.
+- **Restraint and introspection are compatible**: introspection allows the departure (follows the voice), restraint tightens the delivery (doesn't break it). Departing does not license you to start explaining.
+- **Redrafting**: reflect the result of external evaluation by rerunning this skill on the relevant `draft_<n>.md` (don't build the evaluation in; reflect it as material).

@@ -1,53 +1,63 @@
 ---
 name: revise-for-reader
-description: 読者体験の観点（没入・ページターナー・約束の維持・再読誘因）で草稿を改稿するスキル。design.md の読者像と約束に照らして、読者の時間をどこで掴み・置かせ・解放するかを調整する。昇華（評価レイヤー）は内蔵しない。
-argument-hint: '（任意）draft.md のパス。省略時は作業ディレクトリ内の draft.md を探す'
+description: A skill that revises the draft from the viewpoint of the reader's experience (immersion, page-turner, keeping the promise, the inducement to reread). Checked against design.md's reader image & promise, it adjusts where the reader's time is grabbed, held, and released. Does not build in sublation (the evaluation layer).
+argument-hint: '(optional) the path to draft.md. If omitted, look for draft.md in the working directory. Add lang=en|ja|zh to switch output language (default en).'
 ---
 
-# revise-for-reader —— 読者体験で改稿する（没入・ページターナー・約束の維持・再読）
+# revise-for-reader — revise by the reader's experience (immersion · page-turner · keeping the promise · rereading)
+
+## Language Mode
+
+This skill writes in English by default. To write in another language, pass a `lang` argument (e.g. `/revise-for-reader lang=ja`) or set `SOUL_VOICE_TELLER_LANG=ja` in the environment. Resolution order: `$ARGUMENTS.lang` > `SOUL_VOICE_TELLER_LANG` > `en`.
+
+- `en` (default): use this file (`SKILL.md`) and `../references/*.md`.
+- `ja`: read `SKILL-ja.md` and `../references/ja/*.md`; output in Japanese.
+- `zh`: read `SKILL-zh.md` and `../references/zh/*.md`; output in Chinese.
+
+Write all output in the resolved language.
 
 ## Skill Metadata
 
 - **id**: `revise-for-reader`
 - **version**: `0.1.0`
-- **category**: `writing`（改稿）
+- **category**: `writing` (revision)
 - **standalone**: `true`
-- **language**: `ja`（本訳。en/zh は追いつき待ち）
+- **language**: `en` (canonical. ja/zh mirrored in `SKILL-ja.md` / `SKILL-zh.md`)
 
-## 位置づけ
+## Position
 
-三層モデルの**改稿**スキル。草稿を「読者体験」の観点で改稿する。**昇華（否定・保存・高次化）は評価レイヤー（外部）の機構**であり、ここには内蔵しない（構想リスト §3-C）。本スキルが扱うのは読者体験（§9）の改稿のみ。
+The **revision** skill of the three-layer model. Revises the draft from the viewpoint of the "reader's experience". **Sublation (negation · preservation · elevation) is the mechanism of the evaluation layer (external)**, not built in here (design list §3-C). This skill handles only the revision of the reader's experience (§9).
 
-**出所**: 技術目録 §9 読者体験＋§15 改稿。
+**Source**: technical catalogue §9 the reader's experience + §15 revision.
 
-## 入力契約
+## Input Contract
 
-- **draft.md**: `<作業ディレクトリ>/draft.md`（改稿対象）。
-- **design.md**: `<作業ディレクトリ>/design.md`（読者像と約束＝改稿の基準）。
-- **persona**: `${SOUL_VOICE_HOME:-$HOME/.soul-voice-teller}/persona.md`（禁じ手・声——読者のために声を壊さない）。
+- **draft.md**: `<working-dir>/draft.md` (the object of revision).
+- **design.md**: `<working-dir>/design.md` (the reader image & promise = the standard of revision).
+- **persona**: `${SOUL_VOICE_HOME:-$HOME/.soul-voice-teller}/persona.md` (forbidden moves · voice — don't break the voice for the reader's sake).
 
-## 手順
+## Procedure
 
-1. draft.md と design.md の「読者像と約束」を読む。
-2. 読者体験の観点（§9）で検品する:
-   - **没入（9-1）**: 現実から引き剥がし、物語の時間へ入れる力
-   - **好奇心（9-2）**: 次が気になる引力
-   - **ページターナー（9-8）**: 章末・場面末で置いてもらえない力
-   - **約束と回収（9-6）**: 冒頭の契約が最後に返るか
-   - **再読の誘因（9-9）**: 二度目が別の本になる仕掛け
-   - **読後の変位（9-10）**: 読後、人生の何かが動いた感覚
-3. 各観点で、読者の時間の配分（どこで掴み・置かせ・解放するか）が design.md の約束通りかを確認する。
-4. 改稿する（§15）: 構造改稿（15-2）を先に、場面の削除・移動・追加（15-3）、冗長の削減（15-5）を後にする。
-5. **改稿の限界（15-10）**を守る: 直しすぎて壊さない。完成を認める判断は人間がする（外部化しにくい判断）。
-6. 改稿した draft.md を保存する。
+1. Read draft.md and design.md's "reader image & promise".
+2. Inspect from the viewpoint of the reader's experience (§9):
+   - **immersion (9-1)**: the power to pull out of reality and into the time of the story
+   - **curiosity (9-2)**: the pull of wanting the next
+   - **page-turner (9-8)**: the power that won't let the reader put it down at a chapter/scene end
+   - **promise and recovery (9-6)**: whether the contract of the opening returns at the end
+   - **the inducement to reread (9-9)**: the device that makes the second read a different book
+   - **the displacement after reading (9-10)**: the sense that something in life moved after reading
+3. For each viewpoint, confirm that the distribution of the reader's time (where to grab · hold · release) matches design.md's promise.
+4. Revise (§15): structural revision (15-2) first, then the deletion · movement · addition of scenes (15-3), then the reduction of redundancy (15-5).
+5. Keep **the limit of revision (15-10)**: don't over-fix and break it. The judgment to acknowledge completion is the human's (a judgment hard to externalize).
+6. Save the revised draft.md.
 
-## 出力
+## Output
 
-改稿した `<作業ディレクトリ>/draft.md`。
+The revised `<working-dir>/draft.md`.
 
-## 注意
+## Notes
 
-- 改稿は**「直す」でなく「読者体験を上げる」**。昇華（否定・保存・高次化）は評価レイヤーの機構で、ここではしない。
-- 読者像と約束が**改稿の基準**。約束を守りつつ、再読の誘因を残す。
-- **改稿の限界**（15-10）: 直しすぎて壊す、または完成を認める判断は人間がする。AI は候補を示すまで。
-- 抑制の美学を壊さない: 改稿で説明・名指し・総括を足してはならない（読者のための改稿が、魂を壊す改稿にならないよう）。
+- Revision is **"raising the reader's experience", not "fixing"**. Sublation (negation · preservation · elevation) is the evaluation layer's mechanism; don't do it here.
+- The reader image & promise is **the standard of revision**. Keep the promise while leaving the inducement to reread.
+- **The limit of revision** (15-10): the judgment to over-fix and break, or to acknowledge completion, is the human's. The AI goes as far as proposing candidates.
+- Don't break the aesthetic of restraint: revision must not add explanation · naming · summary (so that revising for the reader does not become revising that breaks the soul).

@@ -1,111 +1,130 @@
+**Language:** English | [日本語](README-ja.md) | [中文](README-zh.md)
+
 # soul-voice-teller
 
-**魂を運ぶことが目的、anti-generic は手段。** —— 小説執筆スキルのレイヤー。
+**To carry the soul is the aim; anti-generic is the means.** —— a layer of novel-writing skills.
 
-書き手（人間）の魂・声・嗜好を映す `writer-persona`、発想の `premise`、設計の `plot-design`、草稿の `fast-draft`、声を貯める `voice-ledger` の第1弾5スキルに、任意下準備6種（第2弾）と文体・改稿・台帳4種（第3弾）を加えた15スキルで、「構想 → 草稿 → 改稿」を執筆スキル単体で成立させる。
+With 15 skills — the first wave of five (`writer-persona` reflecting the writer's (human's) soul, voice, and preferences, `premise` for ideation, `plot-design` for design, `fast-draft` for the draft, `voice-ledger` for storing the voice), six optional preparations (wave 2), and four for prose style · revision · the ledger (wave 3) — the layer makes "design → draft → revision" hold up on writing skills alone.
 
-> **役割分担**: このレイヤーは**執筆のみ**。作品の評価（見抜く）は外部の評価レイヤー（[novel-council-layer](../novel-council-layer/) / [wisdom-council-layer](../wisdom-council-layer/) / [elevate-draft-engine](../elevate-draft-engine/)）が担う。
+> **Division of labor**: this layer is **writing only**. Evaluation (seeing through) a work is borne by the external evaluation layers ([novel-council-layer](../novel-council-layer/) / [wisdom-council-layer](../wisdom-council-layer/) / [elevate-draft-engine](../elevate-draft-engine/)).
 
-## 核心命題
+## The core proposition
 
-- **魂を運ぶことが目的、anti-generic は手段**。非平均性（個別性）は目的でなく手段。
-- **人間が作者、AI は草案装置、persona は人間の嗜好を映す鏡**。
-- **内省は「照合」であって「捏造」ではない**。照合対象（ground）が無い内省は観測にならない。
-- **抑制の美学が魂のマスターレバー**: 感情を説明しない・名指ししない・総括しない・余白を残す。
+- **To carry the soul is the aim, anti-generic is the means.** Non-averageness (particularity) is a means, not the aim.
+- **The human is the author, the AI is a drafting device, the persona is a mirror of the human's preferences.**
+- **Introspection is "checking against", not "fabrication".** Introspection without a ground (what it is checked against) is not observation.
+- **The aesthetic of restraint is the master lever of the soul**: don't explain emotion · don't name it · don't summarize · leave space.
 
-## 三層モデル
+## The three-layer model
 
 ```
-書き手層（永続）   writer-persona ──→ 魂の物語・声・禁じ手・美意識（人間の実経験に照合）
-                  voice-ledger ──→ 聞こえた声を貯め、読み返す
-構想層（作品ごと） premise → plot-design ──→ 必須構想（設計書）
-実行層            fast-draft ──→ ラフ散文（内省で逸脱を検出・抑制の美学で届ける）
-外部（評価レイヤー）評価・昇華 ──→ 再草稿の材料
+writer layer (permanent)   writer-persona ──→ the soul-story · voice · forbidden moves · aesthetic sense (checked against real experience)
+                           voice-ledger ──→ store the heard voice, read it back
+design layer (per work)    premise → plot-design ──→ the required design (the design document)
+execution layer            fast-draft ──→ rough prose (detect departure by introspection · deliver by the aesthetic of restraint)
+external (evaluation layer) evaluation · sublation ──→ material for redrafting
 ```
 
-## 15スキル（第1弾〜第3弾）
+## The 15 skills (wave 1〜3)
 
-| スキル | 役割 | 入力 → 出力 |
+| skill | role | input → output |
 |---|---|---|
-| `writer-persona` | 対話で書き手設定を引き出す（A問い・ground=人間の実経験） | 対話 → `${SOUL_VOICE_HOME}/persona.md`（魂の物語/美意識/声・筆致/禁じ手/題材の嗜好） |
-| `premise` | 発想（B問い・ground=persona＋ため庫） | 種＋persona＋ため庫 → `<work>/premise.md`（ログライン/核心の問い/テーマ/ジャンルの約束/文体の方向/読者像と約束） |
-| `plot-design` | 設計書（fast-draft の入力仕様） | premise＋persona → `<work>/design.md`（必須構想欄＋任意下準備欄） |
-| `fast-draft` | 草稿（抑制の美学＋内省ループ） | design＋persona＋ため庫 → `<work>/draft_*.md`＋計画更新＋ため庫への声 |
-| `voice-ledger` | 声を貯め、読み返す | 声（発想/草稿/筆の乗り/禁じ手/評価の響き）→ `${SOUL_VOICE_HOME}/voice-ledger.md` |
+| `writer-persona` | draw out the writer's setting in dialogue (A questions · ground = real experience) | dialogue → `${SOUL_VOICE_HOME}/persona.md` (soul-story / aesthetic sense / voice & brushwork / forbidden moves / subject-matter preference) |
+| `premise` | ideation (B questions · ground = persona + store) | seed + persona + store → `<work>/premise.md` (logline / core question / theme / genre promise / direction of prose style / reader image & promise) |
+| `plot-design` | the design document (fast-draft's input specification) | premise + persona → `<work>/design.md` (required design + optional preparation) |
+| `fast-draft` | the draft (the aesthetic of restraint + the introspection loop) | design + persona + store → `<work>/draft_*.md` + plan update + voices for the store |
+| `voice-ledger` | store the voice, read it back | the voice (ideation / draft / flow / forbidden moves / resonance of evaluation) → `${SOUL_VOICE_HOME}/voice-ledger.md` |
 
-**第2弾（任意下準備）**——plot-design から任意に呼ぶ。空白でも執筆可
+**Wave 2 (optional preparation)** — called optionally from plot-design. Writing works even with blanks
 
-| スキル | 役割 | 入力 → 出力 |
+| skill | role | input → output |
 |---|---|---|
-| `narration-design` | 語りの詳細設計（視点の型・信頼性・距離・時制・入れ子・話法） | design → design.md の「語り」欄詳細化 |
-| `character-forge` | 人物設計（欲求・傷・声・変化弧・内面葛藤） | design＋premise＋persona → design.md の「人物」欄詳細化 |
-| `character-in-action` | 人物設定を場面で機能させる（段階的開示・設定の機能化） | design → シーン表への連動点追記 |
-| `worldbuild` | 世界設計（舞台・ルール・内部一貫性・設定⇔物語の接続） | design＋premise＋persona → design.md の「世界」欄詳細化 |
-| `world-iceberg` | 未描の世界の資料化の加減（触れる確率順） | design → 資料化リスト追記 |
-| `research-verify` | 史実・時代考証・専門知識の照合（誤りを混ぜない） | design/draft → 誤りリスト＋訂正 |
+| `narration-design` | detailed design of narration (type of point of view · reliability · distance · tense · nesting · speech style) | design → the elaboration of design.md's "narration" |
+| `character-forge` | character design (desire · wound · voice · change arc · inner conflict) | design + premise + persona → the elaboration of design.md's "character" |
+| `character-in-action` | make the character setting function in the scene (staged disclosure · making the setting function) | design → append linkage points to the scene table |
+| `worldbuild` | world design (setting · rules · internal consistency · the setting ⇔ story connection) | design + premise + persona → the elaboration of design.md's "world" |
+| `world-iceberg` | the extent to document the unwritten world (by touching probability) | design → append the documentation list |
+| `research-verify` | checking historical fact · period detail · specialist knowledge (keep errors out) | design/draft → a list of errors + corrections |
 
-**第3弾（書く質・改稿・長期）**
+**Wave 3 (the quality of writing · revision · long-term)**
 
-| スキル | 役割 | 入力 → 出力 |
+| skill | role | input → output |
 |---|---|---|
-| `prose` | 文体で研ぐ（リズム・感覚・言い換え不能な声） | 文/場面＋persona → 書き直した文 |
-| `scene-writer` | 1場面を深く書く（空白の設計・見せて語る・場の切れ目） | design＋persona → draft_<n>_<場面>.md |
-| `series-bible` | 作品聖典（設定・伏線・連載を一元管理する台帳） | 作品成果物 → series-bible.md |
-| `revise-for-reader` | 読者体験で改稿（没入・ページターナー・約束・再読） | draft＋design → 改稿 draft.md |
+| `prose` | sharpen by prose style (rhythm · sense · an irreplaceable voice) | prose/scene + persona → rewritten prose |
+| `scene-writer` | write one scene deeply (the design of empty space · show, don't tell · the seams of the scene) | design + persona → draft_<n>_<scene>.md |
+| `series-bible` | the work's bible (a ledger that centrally manages setting · foreshadowing · serialization) | the work's artifacts → series-bible.md |
+| `revise-for-reader` | revise by the reader's experience (immersion · page-turner · promise · rereading) | draft + design → the revised draft.md |
 
-## 使い方
+## Usage
 
 ```bash
-# 導入（グローバル / プロジェクト内）
-./install.sh            # ~/.claude/skills/（どこからでも呼べる）
-./install.sh --local    # .claude/skills/（このリポジトリのみ）
+# install (global / in-project)
+./install.sh            # ~/.claude/skills/ (callable from anywhere)
+./install.sh --local    # .claude/skills/ (this repo only)
 ```
 
-導入後、Claude Code でスキルを順に呼ぶ:
+After installing, call the skills in order in Claude Code:
 
 ```
-/writer-persona        # まず書き手設定を引き出す（5項目の persona を作る）
-/premise               # 種を渡して発想
-/plot-design           # 設計書を作る（必須構想＋任意下準備）
-/fast-draft            # 草稿を書く（内省ループ＋抑制の美学）
-/voice-ledger          # 声をためる・読み返す
+/writer-persona        # first draw out the writer's setting (make the five-item persona)
+/premise               # pass a seed and ideate
+/plot-design           # make the design document (required design + optional preparation)
+/fast-draft            # write the draft (introspection loop + the aesthetic of restraint)
+/voice-ledger          # store the voice · read it back
 
-# 下準備（第2弾・任意。plot-design の前後で）
-/narration-design      # 語りの詳細設計
-/character-forge       # 人物設計
-/character-in-action   # 人物の場面での活かし方
-/worldbuild            # 世界設計
-/world-iceberg         # 未描の世界の資料化
-/research-verify       # 史実・時代考証の照合
+# preparation (wave 2 · optional. Before or after plot-design)
+/narration-design      # detailed design of narration
+/character-forge       # character design
+/character-in-action   # making the character act in the scene
+/worldbuild            # world design
+/world-iceberg         # documenting the unwritten world
+/research-verify       # checking historical fact · period detail
 
-# 書く質・改稿・長期（第3弾）
-/prose                 # 文体で研ぐ
-/scene-writer          # 1場面を深く書く
-/series-bible          # 作品聖典・台帳
-/revise-for-reader     # 読者体験で改稿
+# the quality of writing · revision · long-term (wave 3)
+/prose                 # sharpen by prose style
+/scene-writer          # write one scene deeply
+/series-bible          # the work's bible · ledger
+/revise-for-reader     # revise by the reader's experience
 ```
 
-## 書き手の永続状態
+Each skill accepts a `lang` argument (e.g. `/premise lang=ja`) or reads `SOUL_VOICE_TELLER_LANG` to switch the output language (default `en`). See **Language** below.
 
-- `${SOUL_VOICE_HOME}/persona.md` —— 「私はこう書く」（現在形・肖像）。writer-persona が作る
-- `${SOUL_VOICE_HOME}/voice-ledger.md` —— 「私はこう書いてきた」（過去形・日記）。voice-ledger が積む
-- 置き場所は、ユーザーがワークスペース内に作る**専用フォルダ（private git リポジトリ）**を環境変数 `SOUL_VOICE_HOME` で指す（未設定なら `~/.soul-voice-teller/`）。writer-persona の第一手が、このフォルダ作成を促す
+## The writer's permanent state
 
-> **persona / voice-ledger はユーザーごとの状態で、リポジトリには含めない（固定しない）**——色々な人が使うため。スキルが参照する persona の既定は存在しない。`examples/sample/` の persona はデモ用サンプルであり、スキルの既定ではない。
+- `${SOUL_VOICE_HOME}/persona.md` —— "I write like this" (present tense · portrait). Made by writer-persona
+- `${SOUL_VOICE_HOME}/voice-ledger.md` —— "I have written like this" (past tense · diary). Accumulated by voice-ledger
+- The location is a **dedicated folder (private git repository)** the user makes inside their workspace, pointed to by the `SOUL_VOICE_HOME` environment variable (if unset, `~/.soul-voice-teller/`). writer-persona's first step is to prompt this folder's creation
 
-## リポジトリ構成
+> **persona / voice-ledger are per-writer state, not included in the repository (not fixed)** — because many different people use it. There is no default persona the skills refer to. The persona in `examples/sample/` is a demo sample, not the skills' default.
 
-- `skills/{name}/SKILL.md` — 15スキルの正本（ja 本訳）
-- `references/` — 運用原理（内省問い・抑制の美学・ため庫）
-- `docs/` — 汎用的に何でも置ける場所（実証・根拠・設計メモなど）
-- `locales/` — i18n 骨組み（ja 実体、en/zh スタブ）
-- `examples/<work>/` — 作品ごとの成果物
-- `install.sh` — symlink 導入（グローバル／ローカル／アンインストール）
+## Repository layout
 
-## i18n
+- `skills/{name}/SKILL.md` — the 15 skills (en canonical) + `SKILL-ja.md` / `SKILL-zh.md` per language
+- `references/` — the operational principles (introspection · restraint · voice-store, en canonical; `references/ja/`, `references/zh/` mirrors)
+- `docs/` — a place to put anything generic (evidence · rationale · design notes)
+- `locales/` — display strings (`en` canonical, `ja` / `zh` mirror)
+- `examples/<work>/` — the artifacts per work
+- `install.sh` — symlink install (global / local / uninstall)
 
-ja 先行（本訳）。en/zh は3層骨組み（locales・references ミラー）を用意済みで、本訳と「内省の作法の言語別再導出」は次工程。
+## Language (i18n)
 
-## ライセンス
+Three languages — **en / ja / zh** — in the three-layer structure:
 
-MIT（[LICENSE](LICENSE)）
+1. **Locale JSON** — `locales/{en,ja,zh}.json` (display strings)
+2. **Language-specific prompts** — `skills/{name}/SKILL-{lang}.md` + `references/{lang}/*.md`
+3. **Mirror tree** — `README-{lang}.md` / `CLAUDE-{lang}.md`
+
+Language resolution: the `lang` argument > the `SOUL_VOICE_TELLER_LANG` environment variable > **en** (default). An unsupported language warns and falls back to `en`.
+
+To write in Japanese (or Chinese) by default, set it in your shell profile:
+
+```bash
+# ~/.zshenv
+export SOUL_VOICE_TELLER_LANG=ja   # or zh
+```
+
+The **source concepts (内省 / 余白 / 間)** are Japanese, and are re-derived — not translated word-for-word — into English (introspection / negative space / restraint) and Chinese (内省 / 留白 / 含蓄). The prose-family skills (`prose` / `scene-writer` / `revise-for-reader`) are re-implemented in each language's prose tradition.
+
+## License
+
+MIT ([LICENSE](LICENSE))

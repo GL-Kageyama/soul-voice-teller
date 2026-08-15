@@ -1,8 +1,46 @@
 {
-  "_comment": "STUB — English translation is a next-step task (ja-first). Keep the key structure identical to ja.json so translation is a drop-in.",
-  "skills": {},
-  "persona": {},
-  "restraint": {},
-  "voice-ledger": {},
-  "ground": {}
+  "_comment": "en canonical. ja/zh mirror this key structure.",
+  "skills": {
+    "writer-persona": "Writer Setting",
+    "premise": "Ideation",
+    "plot-design": "Design",
+    "fast-draft": "Draft",
+    "voice-ledger": "Store",
+    "narration-design": "Narration Detail",
+    "character-forge": "Character Design",
+    "character-in-action": "Making the Character Act",
+    "worldbuild": "World Design",
+    "world-iceberg": "Documenting the Unwritten World",
+    "research-verify": "Checking Historical / Factual Detail",
+    "prose": "Prose Style",
+    "scene-writer": "Scene Writing",
+    "series-bible": "Series Bible",
+    "revise-for-reader": "Revising for the Reader's Experience"
+  },
+  "persona": {
+    "soul-story": "The soul-story (why you write)",
+    "aesthetic": "Aesthetic sense (what makes good prose)",
+    "voice": "Voice & brushwork (how you write)",
+    "forbidden": "Forbidden moves (what you do not write)",
+    "subject-preference": "Subject-matter preference (what you are drawn to)"
+  },
+  "restraint": {
+    "title": "The Aesthetic of Restraint",
+    "no-explain": "Do not explain emotion",
+    "no-name": "Do not name it",
+    "no-moral": "Do not put a moral or summary at the ending",
+    "leave-space": "Leave negative space for the reader"
+  },
+  "voice-ledger": {
+    "idea": "The voice of ideation",
+    "draft": "The voice of the draft",
+    "flow": "The moment the writing took off",
+    "forbidden": "The moment you touched a forbidden move",
+    "evaluation": "The resonance of evaluation"
+  },
+  "ground": {
+    "A": "the writer's real experience",
+    "B": "persona + the store",
+    "C": "the plan (scene table)"
+  }
 }

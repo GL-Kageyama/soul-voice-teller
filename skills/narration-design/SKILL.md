@@ -1,50 +1,60 @@
 ---
 name: narration-design
-description: 設計書の「語り」を詳細設計する下準備スキル。視点の型・信頼性・距離・時制・入れ子・話法を決め、plot-design が大まかに定めた語りを fast-draft が一貫して書ける粒度まで深める。任意下準備（無くても執筆可）。plot-design の後、fast-draft の前。
-argument-hint: '（任意）design.md のパス。省略時は作業ディレクトリ内の design.md を探す'
+description: A preparation skill that designs the "narration" of the design document in detail. Fixes the type of point of view, reliability, distance, tense, nesting, and speech style, and deepens the narration that plot-design roughly fixed to the granularity at which fast-draft can write it consistently. Optional preparation (writing works without it). After plot-design, before fast-draft.
+argument-hint: '(optional) the path to design.md. If omitted, look for design.md in the working directory. Add lang=en|ja|zh to switch output language (default en).'
 ---
 
-# narration-design —— 語りの詳細設計（誰が・どこから・どの距離で語るか）
+# narration-design — detailed design of narration (who · from where · at what distance)
+
+## Language Mode
+
+This skill writes in English by default. To write in another language, pass a `lang` argument (e.g. `/narration-design lang=ja`) or set `SOUL_VOICE_TELLER_LANG=ja` in the environment. Resolution order: `$ARGUMENTS.lang` > `SOUL_VOICE_TELLER_LANG` > `en`.
+
+- `en` (default): use this file (`SKILL.md`) and `../references/*.md`.
+- `ja`: read `SKILL-ja.md` and `../references/ja/*.md`; output in Japanese.
+- `zh`: read `SKILL-zh.md` and `../references/zh/*.md`; output in Chinese.
+
+Write all output in the resolved language.
 
 ## Skill Metadata
 
 - **id**: `narration-design`
 - **version**: `0.1.0`
-- **category**: `writing`（構想層・任意下準備）
+- **category**: `writing` (design layer · optional preparation)
 - **standalone**: `true`
-- **language**: `ja`（本訳。en/zh は追いつき待ち）
+- **language**: `en` (canonical. ja/zh mirrored in `SKILL-ja.md` / `SKILL-zh.md`)
 
-## 位置づけ
+## Position
 
-任意下準備（技術目録 §6 語り）。plot-design が大まかに定めた「語り（視点・時制・語り手）」を、fast-draft が**一貫して**書ける粒度まで深める。無くても書けるが、語りの一貫した決定こそ非平均の文を生む。
+Optional preparation (technical catalogue §6 narration). Deepens the "narration (point of view · tense · narrator)" that plot-design roughly fixed to the granularity at which fast-draft can write **consistently**. Writing works without it, but a consistent decision on narration is precisely what produces non-average prose.
 
-**出所**: 技術目録 §6（語り手 6-A・視点の分類 6-B・語りの技法 6-C）。
+**Source**: technical catalogue §6 (the narrator 6-A · the classification of point of view 6-B · techniques of narration 6-C).
 
-## 入力契約
+## Input Contract
 
-- **design.md**: `<作業ディレクトリ>/design.md`（語りの骨格＝視点・時制・語り手）。
-- **premise.md**: `<作業ディレクトリ>/premise.md`（文体の方向・読者像と約束）。
-- **persona**: `${SOUL_VOICE_HOME:-$HOME/.soul-voice-teller}/persona.md`（声・筆致。語りの選択が「誰でもない選択」にならないよう照らす）。
+- **design.md**: `<working-dir>/design.md` (the skeleton of narration = point of view · tense · narrator).
+- **premise.md**: `<working-dir>/premise.md` (direction of prose style · reader image & promise).
+- **persona**: `${SOUL_VOICE_HOME:-$HOME/.soul-voice-teller}/persona.md` (voice & brushwork. Checked so the choice of narration does not become "a choice no one made").
 
-## 手順
+## Procedure
 
-1. design.md の「語り」欄、premise の「文体の方向」「読者像と約束」、persona の「声・筆致（具体文アンカー）」を読む。
-2. 下の6項目を確定する（§6）:
-   - **視点の型（§6-B）**: 一人称（独白／回想／目撃者／書簡・日記）・二人称・三人称（全知／制限＝内的焦点化／客観＝カメラ）。どの型か、**なぜその型か**。
-   - **信頼性（§6-4）**: 語り手は信頼できるか。嘘・錯覚・無知・偏見をどこまで許すか。
-   - **距離（§6-6）**: 人物の内面にどれだけ近づくか。遠い（客観・行動のみ）か近い（内的焦点化）か。
-   - **時制（§5-8・§7-22）**: 過去形（距離感）か現在形（生々しさ）か。
-   - **入れ子（§6-8・視点の入れ子）**: 枠物語・手紙・日記・証言を挟むか。
-   - **話法（§6-7）**: 直接話法・間接話法・自由間接話法・内心の独白の使い分け。
-3. 各決定を「なぜ」と一緒に design.md の「語り」欄へ書き込む。特に**視点の一貫性（§6-10）**——どこで守り、どこで破るか（破るなら理由）を明記する。
-4. 語りが persona の声（具体文アンカー）と矛盾しないか確認する。矛盾するなら persona に引き寄せ直す。
+1. Read design.md's "narration", premise's "direction of prose style" and "reader image & promise", and persona's "voice & brushwork (concrete-sentence anchor)".
+2. Fix the six items below (§6):
+   - **type of point of view (§6-B)**: first person (monologue / recollection / witness / letter · diary) · second person · third person (omniscient / limited = internal focalization / objective = camera). Which type, and **why that type**.
+   - **reliability (§6-4)**: is the narrator reliable? How much lie · illusion · ignorance · bias is allowed?
+   - **distance (§6-6)**: how close to the character's interior? Far (objective · action only) or near (internal focalization)?
+   - **tense (§5-8 · §7-22)**: past (a sense of distance) or present (rawness)?
+   - **nesting (§6-8 · nesting of points of view)**: does it interpose a frame story · letter · diary · testimony?
+   - **speech style (§6-7)**: the division among direct · indirect · free indirect · interior monologue.
+3. Write each decision into design.md's "narration" together with its "why". In particular, mark **the consistency of point of view (§6-10)** — where it is kept, and where it is broken (and the reason if broken).
+4. Confirm the narration does not contradict the persona's voice (concrete-sentence anchor). If it does, pull it back toward the persona.
 
-## 出力
+## Output
 
-design.md の「語り」欄の詳細化（視点の型・信頼性・距離・時制・入れ子・話法・一貫性の破りどころ）。
+The elaboration of design.md's "narration" (type of point of view · reliability · distance · tense · nesting · speech style · where consistency is broken).
 
-## 注意
+## Notes
 
-- 語りは**個別性の主戦場**。「厚い汎用」（全知型で誰でも語れる）より「薄い個別」（制限型の一貫した距離）が非平均の文を生む。
-- **視点の揺れ**（意図しない視点の滑り）は凡庸の温床。一貫性を守るか、破るなら理由を持つ（§6-10）。
-- 決めすぎない。語りは地図（計画）であって命令でない——fast-draft の内省で逸脱したら解く。
+- Narration is **the main battlefield of particularity**. "Thin particularity" (a consistent distance of the limited type) produces more non-average prose than "thick generality" (omniscient, anyone could tell it).
+- **Wavering point of view** (an unintended slip of point of view) is a hotbed of mediocrity. Keep consistency, or have a reason if you break it (§6-10).
+- Don't over-decide. Narration is a map (plan), not an order — loosen it if fast-draft's introspection departs.

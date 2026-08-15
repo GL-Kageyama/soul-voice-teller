@@ -16,6 +16,11 @@
 # Note: soul-voice-teller has no subagents — the skills are the writing layer's
 # runbooks. The 内省 (introspection) is the writer's own self-reflection, not an
 # independent evaluator, so no agents/ directory is needed.
+#
+# Language (i18n): each skill ships SKILL.md (en canonical) + SKILL-ja.md /
+# SKILL-zh.md, and references/{en,ja,zh}/ are linked alongside. Output language
+# is resolved per invocation: the `lang` argument (e.g. `/premise lang=ja`) >
+# the SOUL_VOICE_TELLER_LANG environment variable > en (default).
 
 set -euo pipefail
 
