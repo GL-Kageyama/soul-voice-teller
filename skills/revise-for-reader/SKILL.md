@@ -60,4 +60,4 @@ The revised `<working-dir>/draft.md`.
 - Revision is **"raising the reader's experience", not "fixing"**. Sublation (negation · preservation · elevation) is the evaluation layer's mechanism; don't do it here.
 - The reader image & promise is **the standard of revision**. Keep the promise while leaving the inducement to reread.
 - **The limit of revision** (15-10): the judgment to over-fix and break, or to acknowledge completion, is the human's. The AI goes as far as proposing candidates.
-- Don't break the aesthetic of restraint: revision must not add explanation · naming · summary (so that revising for the reader does not become revising that breaks the soul).
+- Don't break the aesthetic of expression and restraint: revision must not add explanation · naming · summary (so that revising for the reader does not become revising that breaks the soul).

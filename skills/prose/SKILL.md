@@ -56,5 +56,5 @@ The rewritten prose (overwrite `draft_<n>_<scene>.md`, or a new version).
 ## Notes
 
 - Metaphor is **the main battlefield of individuality but the greatest trap** (7-14). Stale metaphor · mixed metaphor · hyperbole breed mediocrity. Use only the metaphors that could only be born from the persona's voice.
-- Don't fill with rhetoric; **let empty space and omission work** (7-25 the plain style). Hold back the AI's impulse to fill, through the persona's forbidden moves and the aesthetic of restraint.
+- Don't fill with rhetoric; **let empty space and omission work** (7-25 the plain style). Hold back the AI's impulse to fill, through the persona's forbidden moves and the aesthetic of expression and restraint.
 - Prose style is **unity and variation** (7-33): carry it through the whole work, or switch it per scene · character. Follow design.md's direction of prose style.

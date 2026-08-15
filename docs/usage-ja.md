@@ -18,7 +18,7 @@
 /writer-persona        # まず書き手設定を引き出す（5項目の persona を作る）
 /premise               # 種を渡して発想
 /plot-design           # 設計書を作る（必須構想＋任意下準備）
-/fast-draft            # 草稿を書く（内省ループ＋抑制の美学）
+/fast-draft            # 草稿を書く（内省ループ＋発露と抑制の美学）
 /voice-ledger          # 声をためる・読み返す
 
 # 下準備（任意。plot-design の前後で）

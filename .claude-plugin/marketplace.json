@@ -4,13 +4,13 @@
     "name": "GL-Kageyama"
   },
   "metadata": {
-    "description": "小説執筆スキルのレイヤー。書くことは、魂を運ぶこと。5つの執筆スキル（writer-persona / premise / plot-design / fast-draft / voice-ledger）で「構想→草稿」を成立させ、内省（照合）と抑制の美学で魂を運ぶ。"
+    "description": "小説執筆スキルのレイヤー。書くことは、魂を運ぶこと。5つの執筆スキル（writer-persona / premise / plot-design / fast-draft / voice-ledger）で「構想→草稿」を成立させ、内省（照合）と発露と抑制の美学で魂を運ぶ。"
   },
   "plugins": [
     {
       "name": "soul-voice-teller",
       "source": "./",
-      "description": "soul-voice-teller（魂の声を運ぶ人）—— 小説執筆スキルのレイヤー。人間が作者、AI は草案装置、persona は人間の嗜好を映す鏡。writer-persona / premise / plot-design / fast-draft / voice-ledger の5スキルで、内省（照合）と抑制の美学を通じて魂を運ぶ草稿を書く。",
+      "description": "soul-voice-teller（魂の声を運ぶ人）—— 小説執筆スキルのレイヤー。人間が作者、AI は草案装置、persona は作者の鏡。writer-persona / premise / plot-design / fast-draft / voice-ledger の5スキルで、内省（照合）と発露と抑制の美学を通じて魂を運ぶ草稿を書く。",
       "version": "0.1.0",
       "author": {
         "name": "GL-Kageyama"

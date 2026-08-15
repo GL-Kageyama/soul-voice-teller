@@ -6,8 +6,6 @@
 
 这是**小说写作技能**的一层。由 15 个技能构成：五个（`writer-persona` 映照写作者（人）的灵魂、声音与偏好，`premise` 构思，`plot-design` 设计，`fast-draft` 草稿，`voice-ledger` 存声），加上六个可选预备（`narration-design` / `character-forge` / `character-in-action` / `worldbuild` / `world-iceberg` / `research-verify`）以及写作质量 · 改稿 · 长期技能（`prose` / `scene-writer` / `series-bible` / `revise-for-reader`）。
 
-> **分工**：本层**只负责写作**。对作品的**评价**（看穿）由外部的评价层（novel-council / wisdom-council / elevate-draft-engine）承担。本仓库「写」，不「看穿」。不过，草稿内部的**偏离判定**作为「写作内部判断」属于内省的一部分。
-
 ## 核心主张（置于最前）
 
 **写作，是承载灵魂。**
@@ -22,12 +20,11 @@
                    voice-ledger ──→ 存下听到的声音，再回读（构思 · 挣脱停滞 · 更新 persona）
 构思层（每部作品）  premise → plot-design ──→ 必需的构思（设计书）
                    预备（可选） narration-design / character-forge / character-in-action / worldbuild / world-iceberg / research-verify
-执行层             fast-draft ──→ 粗稿（以内省察觉偏离并更新计划 · 以克制的美学送达）
+执行层             fast-draft ──→ 粗稿（以内省察觉偏离并更新计划 · 以流露与克制的美学送达）
                    写作质量 prose / scene-writer ／ 改稿 revise-for-reader ／ 长期 series-bible
-外部（评价层）      评价 · 扬弃 ──→ 改稿的素材
 ```
 
-贯穿三层的运作是**内省**（听见声音）。内省不是「判断」，而是「**对照**」。
+贯穿三层的运作是**内省**（听见声音）。内省是「**对照**」——对照对象（ground）上的观察。
 
 ## 内省的三个依据（对照对象）
 
@@ -37,17 +34,17 @@
 | B 构思（premise） | **persona＋声音库**——声音 · 审美（HOW）对照，题材（WHAT）容许摇晃（拉得过近则每部作品相同） |
 | C 草稿循环（fast-draft） | **计划（场景表）**——把生成的文字与计划对照，判断是否有偏离 |
 
-**没有依据的内省是「捏造」，不是「观察」。**每个问句都要标明依据；没有依据的问句不叫「内省」（[references/introspection.md](references/introspection.md)）。
+**没有依据（ground）的内省，不成其为观察。**每个问句都要标明依据；没有依据的问句不叫「内省」（[references/introspection.md](references/introspection.md)）。
 
-## 克制的美学（灵魂的主杠杆）
+## 流露与克制的美学（灵魂的主杠杆）
 
-- 打动灵魂的不是构想的个别性，而是**写作的方式＝克制**。
-- 作为 fast-draft 的**输出规格**内置：不解释情感 · 不点名 · 结尾不落教训或总结 · 为读者留白（[references/restraint.md](references/restraint.md)）。
+- 打动灵魂的不是构想的个别性，而是**写作的方式＝流露与克制**。
+- 作为 fast-draft 的**输出规格**内置：让情感在情景·行为中流露，然后不解释情感 · 不点名 · 结尾不落教训或总结 · 为读者留白（[references/expression-and-restraint.md](references/expression-and-restraint.md)）。
 - 但克制需要「克制什么」的**源**。源是 SOURCE（对照＝写作者的真实经验）。克制（MANNER）是必要条件，不是充分条件。
 
 ## 谁来写（框架 · 最先固定）
 
-**人是作者，AI 是草稿装置，persona 是人偏好的镜子。**
+**人是作者，AI 是草稿装置，persona 是作者的镜子。**
 
 - persona 的灵魂与声音是**人（用户）的**。AI 是在对谈中引出 · 持有 · 反照它的镜子——不是作者。
 - 正因如此，A/B 问句的内省才成为「对照」，而非「捏造」。
@@ -58,7 +55,7 @@
 - `.claude/skills/` —— 项目内发现的符号链接（`./install.sh --local`）
 - `~/.claude/skills/` —— 全局安装目标（`./install.sh`，从任何地方可调用）
 - `.claude-plugin/` —— 插件分发定义
-- `references/` —— 技能引用的运用原理（en 正典：内省 · 克制 · 声音库；`references/ja/` · `references/zh/` 镜像）
+- `references/` —— 技能引用的运用原理（en 正典：内省 · 流露与克制 · 声音库；`references/ja/` · `references/zh/` 镜像）
 - `docs/` —— 放通用之物的地方（实证 · 理由 · 设计笔记。与规则本身分离）
 - `locales/` —— i18n 显示字符串（`en` 正典；`ja` / `zh` 镜像）
 - `examples/<作品>/` —— 每部作品的产物（premise.md / design.md / draft_*.md）

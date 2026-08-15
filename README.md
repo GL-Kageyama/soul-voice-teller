@@ -10,14 +10,12 @@
 
 With 15 skills — five (`writer-persona` reflecting the writer's (human's) soul, voice, and preferences, `premise` for ideation, `plot-design` for design, `fast-draft` for the draft, `voice-ledger` for storing the voice), six optional preparations, and four for prose style · revision · the ledger — the layer makes "design → draft → revision" hold up on writing skills alone.
 
-> **Division of labor**: this layer is **writing only**. Evaluation (seeing through) a work is borne by the external evaluation layers ([novel-council-layer](../novel-council-layer/) / [wisdom-council-layer](../wisdom-council-layer/) / [elevate-draft-engine](../elevate-draft-engine/)).
-
 ## The core proposition
 
 - **To write is to carry the soul.**
-- **The human is the author, the AI is a drafting device, the persona is a mirror of the human's preferences.**
-- **Introspection is "checking against", not "fabrication".** Introspection without a ground (what it is checked against) is not observation.
-- **The aesthetic of restraint is the master lever of the soul**: don't explain emotion · don't name it · don't summarize · leave space.
+- **The human is the author, the AI is a drafting device, the persona is a mirror of the author.**
+- **Introspection is "checking against" — observation against a ground.**
+- **The aesthetic of expression and restraint is the master lever of the soul.**
 
 ## The three-layer model
 
@@ -25,8 +23,7 @@ With 15 skills — five (`writer-persona` reflecting the writer's (human's) soul
 writer layer (permanent)   writer-persona ──→ the soul-story · voice · forbidden moves · aesthetic sense (checked against real experience)
                            voice-ledger ──→ store the heard voice, read it back
 design layer (per work)    premise → plot-design ──→ the required design (the design document)
-execution layer            fast-draft ──→ rough prose (detect departure by introspection · deliver by the aesthetic of restraint)
-external (evaluation layer) evaluation · sublation ──→ material for redrafting
+execution layer            fast-draft ──→ rough prose (detect departure by introspection · deliver by the aesthetic of expression and restraint)
 ```
 
 ## Documentation
@@ -46,7 +43,7 @@ external (evaluation layer) evaluation · sublation ──→ material for redra
 ## Repository layout
 
 - `skills/{name}/SKILL.md` — the 15 skills (en canonical) + `SKILL-ja.md` / `SKILL-zh.md` per language
-- `references/` — the operational principles (introspection · restraint · voice-store, en canonical; `references/ja/`, `references/zh/` mirrors)
+- `references/` — the operational principles (introspection · expression and restraint · voice-store, en canonical; `references/ja/`, `references/zh/` mirrors)
 - `docs/` — usage & the skill reference ([usage.md](docs/usage.md) / [skills.md](docs/skills.md)) plus anything generic (evidence · rationale · design notes)
 - `locales/` — display strings (`en` canonical, `ja` / `zh` mirror)
 - `examples/<work>/` — the artifacts per work

@@ -6,8 +6,6 @@
 
 This is a layer of **novel-writing skills**. It is composed of 15 skills: the five (`writer-persona` reflecting the writer's (human's) soul, voice, and preferences, `premise` for ideation, `plot-design` for design, `fast-draft` for the draft, `voice-ledger` for storing the voice), plus six optional preparations (`narration-design` / `character-forge` / `character-in-action` / `worldbuild` / `world-iceberg` / `research-verify`) and the quality-of-writing · revision · long-term skills (`prose` / `scene-writer` / `series-bible` / `revise-for-reader`).
 
-> **Division of labor**: this layer is **writing only**. The **evaluation** (seeing through) of a work is borne by the external evaluation layers (novel-council / wisdom-council / elevate-draft-engine). This repository "writes", not "sees through". However, the **departure judgment** inside a draft is part of introspection as "the judgment internal to writing".
-
 ## The core proposition (placed at the top)
 
 **To write is to carry the soul.**
@@ -22,12 +20,11 @@ writer layer (permanent)   writer-persona ──→ soul-story · voice · forbi
                            voice-ledger ──→ store the heard voice, read it back (ideation · escaping a stall · updating persona)
 design layer (per work)    premise → plot-design ──→ the required design (the design document)
                            preparation (optional) narration-design / character-forge / character-in-action / worldbuild / world-iceberg / research-verify
-execution layer            fast-draft ──→ rough prose (detect departure by introspection and update the plan · deliver by the aesthetic of restraint)
+execution layer            fast-draft ──→ rough prose (detect departure by introspection and update the plan · deliver by the aesthetic of expression and restraint)
                            quality of writing prose / scene-writer ／ revision revise-for-reader ／ long-term series-bible
-external (evaluation layer) evaluation · sublation ──→ material for redrafting
 ```
 
-The operation that runs through all three layers is **introspection** (hearing the voice). Introspection is not "judgment" but "**checking against**".
+The operation that runs through all three layers is **introspection** (hearing the voice). Introspection is "**checking against**" — observation against a ground.
 
 ## The three grounds of introspection (what it is checked against)
 
@@ -37,17 +34,17 @@ The operation that runs through all three layers is **introspection** (hearing t
 | B ideation (premise) | **persona + the store** — voice · aesthetic sense (HOW) are checked, subject matter (WHAT) may waver (pulling too close makes every work the same) |
 | C the draft loop (fast-draft) | **the plan (scene table)** — the generated prose is checked against the plan to judge whether there is a departure |
 
-**Introspection without a ground is "fabrication", not "observation".** Mark the ground in every question; a question without a ground is not called "introspection" ([references/introspection.md](references/introspection.md)).
+**Introspection without a ground is not observation.** Mark the ground in every question; a question without a ground is not called "introspection" ([references/introspection.md](references/introspection.md)).
 
-## The aesthetic of restraint (the master lever of the soul)
+## The aesthetic of expression and restraint (the master lever of the soul)
 
-- What moves the soul is not the particularity of the design, but **the manner of writing = restraint**.
-- Built into fast-draft as its **output specification**: don't explain emotion · don't name it · don't put a moral or summary at the ending · leave space for the reader ([references/restraint.md](references/restraint.md)).
+- What moves the soul is not the particularity of the design, but **the manner of writing = expression and restraint**.
+- Built into fast-draft as its **output specification**: let the emotion surface through scene and act, then don't explain it · don't name it · don't put a moral or summary at the ending · leave space for the reader ([references/expression-and-restraint.md](references/expression-and-restraint.md)).
 - But restraint needs a **source** for "what it restrains". The source is SOURCE (checking = the writer's real experience). Restraint (MANNER) is necessary, not sufficient.
 
 ## Who writes (the framing · fixed first)
 
-**The human is the author, the AI is a drafting device, the persona is a mirror of the human's preferences.**
+**The human is the author, the AI is a drafting device, the persona is a mirror of the author.**
 
 - The persona's soul and voice are **the human's (user's)**. The AI is a mirror that draws them out, holds them, and reflects them in dialogue — not the author.
 - This makes the introspection of the A/B questions "checking", not "fabrication".
@@ -58,7 +55,7 @@ The operation that runs through all three layers is **introspection** (hearing t
 - `.claude/skills/` — symlinks for in-project discovery (`./install.sh --local`)
 - `~/.claude/skills/` — the global install target (`./install.sh`, callable from anywhere)
 - `.claude-plugin/` — the plugin distribution definition
-- `references/` — the operational principles the skills cite (en canonical: introspection · restraint · voice-store; `references/ja/` · `references/zh/` mirrors)
+- `references/` — the operational principles the skills cite (en canonical: introspection · expression and restraint · voice-store; `references/ja/` · `references/zh/` mirrors)
 - `docs/` — a place to put anything generic (evidence · rationale · design notes. Separated from the rules themselves)
 - `locales/` — i18n display strings (`en` canonical; `ja` / `zh` mirror)
 - `examples/<work>/` — the artifacts per work (premise.md / design.md / draft_*.md)

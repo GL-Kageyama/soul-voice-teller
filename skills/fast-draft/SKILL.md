@@ -1,10 +1,10 @@
 ---
 name: fast-draft
-description: A drafting skill that writes rough prose scene by scene from the design document (scene table) and persona + store. Detects flow with an introspection loop (check → departure → plan update), and carries the soul with the aesthetic of restraint (don't explain · don't name · don't summarize · leave space · hold the source). The heart of writing. After plot-design.
+description: A drafting skill that writes rough prose scene by scene from the design document (scene table) and persona + store. Detects flow with an introspection loop (check → departure → plan update), and carries the soul with the aesthetic of expression and restraint (express · don't name · don't summarize · leave space · hold the source). The heart of writing. After plot-design.
 argument-hint: '(optional) the path to design.md. If omitted, look for design.md in the working directory. Add lang=en|ja|zh to switch output language (default en).'
 ---
 
-# fast-draft — draft (detect departure by introspection, carry the soul by restraint)
+# fast-draft — draft (detect departure by introspection, carry the soul by expression and restraint)
 
 ## Language Mode
 
@@ -26,7 +26,7 @@ Write all output in the resolved language.
 
 ## Position
 
-The **execution layer** of the three-layer model. The heart of the soul. The particularity of the design does not move the soul. What moves the soul is the **manner of writing = restraint**. That manner is implemented here.
+The **execution layer** of the three-layer model. The heart of the soul. The particularity of the design does not move the soul. What moves the soul is the **manner of writing = expression and restraint**. That manner is implemented here.
 
 **Boundary of roles**: this skill holds **the judgment internal to writing** (introspection · departure judgment = part of writing). The judgment external to writing (the council · sublation · the scrutiny of revision) is borne by **the external evaluation layer**, and is not built in here.
 
@@ -37,11 +37,11 @@ The **execution layer** of the three-layer model. The heart of the soul. The par
 - The persona's **concrete-sentence anchor** is optional (may be undecided). If present, use it as the standard for checking the voice ("does this sentence ride on the quality of the anchor's observation?"). Without it, the breathing · liked/avoided words · forbidden moves · subject matter still fix the voice.
 - **voice-ledger**: `${SOUL_VOICE_HOME:-$HOME/.soul-voice-teller}/voice-ledger.md` (the water source to read when it goes dry).
 
-## Output specification: the aesthetic of restraint (the lever of the soul)
+## Output specification: the aesthetic of expression and restraint (the lever of the soul)
 
-Not an instruction before writing, but a **criterion for inspecting what you have written**. After finishing each scene, inspect it against the five clauses ([../references/restraint.md](../references/restraint.md)):
+Not an instruction before writing, but a **criterion for inspecting what you have written**. After finishing each scene, inspect it against the five clauses ([../references/expression-and-restraint.md](../references/expression-and-restraint.md)):
 
-1. **Do not explain emotion** — don't write "I was sad", "I was glad". Show through action and silence.
+1. **Express (show, don't tell)** — let the emotion surface through scene · action · silence. Don't write "I was sad", "I was glad".
 2. **Do not name it** — don't state the theme or emotion in words. Don't obstruct the reader from feeling it.
 3. **Do not put a moral or summary at the ending** — don't wrap up in the last line; leave it.
 4. **Leave negative space for the reader** — an emptiness that invites the reader's own grief and questions. Leave it without pressing.
@@ -73,7 +73,7 @@ ground = **the plan (scene table)**. Check the generated prose against the plan 
 2. Write **scene by scene from scene 1** of the scene table. Each scene:
    - Confirm the scene's purpose (what it achieves) and the narration (point of view · tense · narrator) · direction of prose style before writing.
    - Write in **rough prose** (no elaboration to raise polish. Roughness as a draft is allowed).
-   - Inspect what you wrote against the **five clauses of restraint**, and fix what violates them.
+   - Inspect what you wrote against the **five clauses of expression and restraint**, and fix what violates them.
    - Run the **introspection loop** (①–⑥ above). On a departure, update the plan.
    - Save the per-scene draft, and append to the store if there is a voice.
 3. When all scenes are done, assemble the concatenated `draft.md`.

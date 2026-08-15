@@ -55,5 +55,5 @@ Append to design.md's "world" (the documentation list of the unwritten parts = i
 
 - **The purpose of documentation is consistency · depth · reducing hesitation** (1-22). Material without a purpose is a burden.
 - Prioritize by touching probability (1-21). Don't make material for the parts you won't touch.
-- Keep **the freedom not to document** (1-25). The empty space preserved by not verbalizing it is the same root as the aesthetic of restraint (leave space).
+- Keep **the freedom not to document** (1-25). The empty space preserved by not verbalizing it is the same root as the aesthetic of expression and restraint (leave space).
 - Material is alive (1-26): if the world moves as you write, update it (linked to fast-draft's departure).

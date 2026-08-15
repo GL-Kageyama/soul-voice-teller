@@ -10,14 +10,12 @@
 
 由 15 个技能构成——五个（`writer-persona` 映照写作者（人）的灵魂、声音与偏好，`premise` 构思，`plot-design` 设计，`fast-draft` 草稿，`voice-ledger` 存声），六个可选预备，以及文体 · 改稿 · 账本的四个——让「设计 → 草稿 → 改稿」仅凭写作技能即可成立。
 
-> **分工**：本层**只负责写作**。对作品的评价（看穿）由外部的评价层承担（[novel-council-layer](../novel-council-layer/) / [wisdom-council-layer](../wisdom-council-layer/) / [elevate-draft-engine](../elevate-draft-engine/)）。
-
 ## 核心主张
 
 - **写作，是承载灵魂。**
-- **人是作者，AI 是草稿装置，persona 是人偏好的镜子。**
-- **内省是「对照」，不是「捏造」。**没有依据（对照对象）的内省，不是观察。
-- **克制的美学是灵魂的主杠杆**：不解释情感 · 不点名 · 不总结 · 留白。
+- **人是作者，AI 是草稿装置，persona 是作者的镜子。**
+- **内省是「对照」——对照对象（ground）上的观察。**
+- **流露与克制的美学是灵魂的主杠杆。**
 
 ## 三层模型
 
@@ -25,8 +23,7 @@
 写作者层（持久）    writer-persona ──→ 灵魂故事 · 声音 · 禁忌 · 审美（对照人的真实经验）
                    voice-ledger ──→ 存下听到的声音，再回读
 构思层（每部作品）  premise → plot-design ──→ 必需的构思（设计书）
-执行层             fast-draft ──→ 粗稿（以内省察觉偏离 · 以克制的美学送达）
-外部（评价层）      评价 · 扬弃 ──→ 改稿的素材
+执行层             fast-draft ──→ 粗稿（以内省察觉偏离 · 以流露与克制的美学送达）
 ```
 
 ## 文档
@@ -46,7 +43,7 @@
 ## 仓库布局
 
 - `skills/{name}/SKILL.md` —— 15 个技能（en 正典）＋各语言的 `SKILL-ja.md` / `SKILL-zh.md`
-- `references/` —— 运用原理（内省 · 克制 · 声音库，en 正典；`references/ja/`、`references/zh/` 镜像）
+- `references/` —— 运用原理（内省 · 流露与克制 · 声音库，en 正典；`references/ja/`、`references/zh/` 镜像）
 - `docs/` —— 用法与技能一览（[usage-zh.md](docs/usage-zh.md) / [skills-zh.md](docs/skills-zh.md)）＋放通用之物的地方（实证 · 理由 · 设计笔记）
 - `locales/` —— 显示字符串（`en` 正典，`ja` / `zh` 镜像）
 - `examples/<作品>/` —— 每部作品的产物

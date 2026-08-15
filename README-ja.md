@@ -10,14 +10,12 @@
 
 書き手（人間）の魂・声・嗜好を映す `writer-persona`、発想の `premise`、設計の `plot-design`、草稿の `fast-draft`、声を貯める `voice-ledger` の5スキルに、任意下準備6種と文体・改稿・台帳4種を加えた15スキルで、「構想 → 草稿 → 改稿」を執筆スキル単体で成立させる。
 
-> **役割分担**: このレイヤーは**執筆のみ**。作品の評価（見抜く）は外部の評価レイヤー（[novel-council-layer](../novel-council-layer/) / [wisdom-council-layer](../wisdom-council-layer/) / [elevate-draft-engine](../elevate-draft-engine/)）が担う。
-
 ## 核心命題
 
 - **書くことは、魂を運ぶこと。**
-- **人間が作者、AI は草案装置、persona は人間の嗜好を映す鏡**。
-- **内省は「照合」であって「捏造」ではない**。照合対象（ground）が無い内省は観測にならない。
-- **抑制の美学が魂のマスターレバー**: 感情を説明しない・名指ししない・総括しない・余白を残す。
+- **人間が作者、AI は草案装置、persona は作者の鏡。**
+- **内省は「照合」——ground（照合対象）に照らした観測。**
+- **発露と抑制の美学が魂のマスターレバー。**
 
 ## 三層モデル
 
@@ -25,8 +23,7 @@
 書き手層（永続）   writer-persona ──→ 魂の物語・声・禁じ手・美意識（人間の実経験に照合）
                   voice-ledger ──→ 聞こえた声を貯め、読み返す
 構想層（作品ごと） premise → plot-design ──→ 必須構想（設計書）
-実行層            fast-draft ──→ ラフ散文（内省で逸脱を検出・抑制の美学で届ける）
-外部（評価レイヤー）評価・昇華 ──→ 再草稿の材料
+実行層            fast-draft ──→ ラフ散文（内省で逸脱を検出・発露と抑制の美学で届ける）
 ```
 
 ## ドキュメント
@@ -46,7 +43,7 @@
 ## リポジトリ構成
 
 - `skills/{name}/SKILL.md` — 15スキル（en 正典）＋各言語の `SKILL-ja.md` / `SKILL-zh.md`
-- `references/` — 運用原理（内省・抑制・ため庫、en 正典；`references/ja/`・`references/zh/` ミラー）
+- `references/` — 運用原理（内省・発露と抑制・ため庫、en 正典；`references/ja/`・`references/zh/` ミラー）
 - `docs/` — 使い方とスキル一覧（[usage-ja.md](docs/usage-ja.md) / [skills-ja.md](docs/skills-ja.md)）＋汎用的に何でも置ける場所（実証・根拠・設計メモなど）
 - `locales/` — 表示文字列（en 正典、`ja` / `zh` ミラー）
 - `examples/<work>/` — 作品ごとの成果物

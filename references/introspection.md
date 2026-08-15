@@ -9,7 +9,7 @@
 
 ## 0. The structure of introspection
 
-Introspection is not "judgment" but "**checking against**" (照合). When you report a voice you heard, you must say **what it was checked against** (its ground). Introspection without a ground is "fabrication", not "observation". Judgment happens at a different stage (the criteria for deciding whether a departure deepens or breaks).
+Introspection is "**checking against**" (照合) — observation against a ground. When you report a voice you heard, you must say **what it was checked against** (its ground). Introspection without a ground is not observation. Judgment happens at a different stage (the criteria for deciding whether a departure deepens or breaks).
 
 | Question layer | Ground (what it is checked against) | What it is compared to |
 |---|---|---|

@@ -18,7 +18,7 @@
 /writer-persona        # 先引出写作者的设定（做五项 persona）
 /premise               # 传入种子并构思
 /plot-design           # 做设计书（必需构思＋可选预备）
-/fast-draft            # 写草稿（内省循环＋克制的美学）
+/fast-draft            # 写草稿（内省循环＋流露与克制的美学）
 /voice-ledger          # 存声 · 回读
 
 # 预备（可选。plot-design 之前或之后）

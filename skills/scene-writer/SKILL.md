@@ -42,9 +42,9 @@ The scene skill of the **execution layer** in the three-layer model. Where fast-
 1. Read the scene table's relevant scene (purpose · who · what changes), the narration, the direction of prose style, and the persona.
 2. Assemble the beats of the scene (§4-3): **desire → conflict → change**. What the character wants, what blocks them, what changes.
 3. Decide **the design of empty space** (what not to say) first (§9-5 empty space · §1-18 the line between show and don't-show): what does this scene hand over to the reader by not saying it?
-4. Write **show, don't tell**: don't explain emotion; show it through action · line · silence (the same root as the aesthetic of restraint).
+4. Write **show, don't tell**: don't explain emotion; show it through action · line · silence (the same root as the aesthetic of expression and restraint).
 5. Be aware of **the seams of the scene** (§4-16 the start and end of a scene): the entrance (hook) and the exit (aftertaste · pull · presentiment). Control the reader's point of departure.
-6. Inspect what you wrote against the five clauses of restraint, and fix what violates them (the same criterion of inspection as fast-draft).
+6. Inspect what you wrote against the five clauses of expression and restraint, and fix what violates them (the same criterion of inspection as fast-draft).
 7. Save the scene, and if introspection hears a voice · departure, append to the store.
 
 ## Output

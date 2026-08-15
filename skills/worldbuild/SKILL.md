@@ -58,4 +58,4 @@ The elaboration of design.md's "world" (setting · society · culture · history
 - The supernatural · magic **carry cost and constraint** (1-11). Omnipotent magic erases conflict.
 - A setting **means something only when it moves the story** (1-15). A list of background is material, not a novel.
 - **Internal consistency** (1-14) over originality. The world's rules not breaking is what protects the reader's immersion.
-- Conveying the setting is "description", not "explanation" (1-16). All-explanation breaks immersion (the same root as the aesthetic of restraint).
+- Conveying the setting is "description", not "explanation" (1-16). All-explanation breaks immersion (the same root as the aesthetic of expression and restraint).

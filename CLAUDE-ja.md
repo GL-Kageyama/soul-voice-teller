@@ -6,8 +6,6 @@
 
 これは**小説執筆スキル**のレイヤー。書き手（人間）の魂・声・嗜好を映す `writer-persona`、発想の `premise`、設計の `plot-design`、草稿の `fast-draft`、声を貯める `voice-ledger` の5スキルに、任意下準備の `narration-design` / `character-forge` / `character-in-action` / `worldbuild` / `world-iceberg` / `research-verify`と、書く質・改稿・長期の `prose` / `scene-writer` / `series-bible` / `revise-for-reader`を加えた15スキルで構成する。
 
-> **役割分担**: このレイヤーは**執筆のみ**。作品の**評価**（見抜く）は外部の評価レイヤー（novel-council / wisdom-council / elevate-draft-engine）が担う。このリポジトリは「見抜く」のでなく「書く」。ただし草稿の中の**逸脱判定**は「執筆内在の判断」（書くことの一部）として内省に含める。
-
 ## 核心命題（一番上に置く）
 
 **書くことは、魂を運ぶこと。**
@@ -22,12 +20,11 @@
                   voice-ledger ──→ 聞こえた声を貯め、読み返す（発想・停滞脱出・persona 更新）
 構想層（作品ごと） premise → plot-design ──→ 必須構想（設計書）
                   下準備（任意）narration-design / character-forge / character-in-action / worldbuild / world-iceberg / research-verify
-実行層            fast-draft ──→ ラフ散文（内省で逸脱を検出し計画を更新・抑制の美学で届ける）
+実行層            fast-draft ──→ ラフ散文（内省で逸脱を検出し計画を更新・発露と抑制の美学で届ける）
                   書く質 prose / scene-writer ／ 改稿 revise-for-reader ／ 長期 series-bible
-外部（評価レイヤー）評価・昇華 ──→ 再草稿の材料
 ```
 
-三層を貫く操作が**内省**（声を聞く）。内省は「判定」でなく「**照合**」。
+三層を貫く操作が**内省**（声を聞く）。内省は「**照合**」——ground に照らした観測。
 
 ## 内省の三つの ground（照合対象）
 
@@ -37,17 +34,17 @@
 | B 発想（premise） | **persona＋ため庫**——声・美意識（HOW）は照合、題材（WHAT）は揺らぎを許す（引き寄せすぎると毎回同じになる） |
 | C 草稿ループ（fast-draft） | **計画（シーン表）**——生成した文と計画を照合し、逸脱の有無を判定 |
 
-**照合対象の無い内省は「捏造」であって「観測」ではない。** 各問いに ground を明記し、ground の無い問いは「内省」と呼ばない（[references/ja/内省問い.md](references/ja/内省問い.md)）。
+**照合対象（ground）が無い内省は観測にならない。** 各問いに ground を明記し、ground の無い問いは「内省」と呼ばない（[references/ja/内省問い.md](references/ja/内省問い.md)）。
 
-## 抑制の美学（魂のマスターレバー）
+## 発露と抑制の美学（魂のマスターレバー）
 
-- 魂を動かすのは構想の個別性ではなく、**書く仕方＝抑制**。
-- fast-draft の**出力仕様**として組み込む: 感情を説明しない・名指ししない・結末に教訓や総括を置かない・読者への余白を残す（[references/ja/抑制の美学.md](references/ja/抑制の美学.md)）。
+- 魂を動かすのは構想の個別性ではなく、**書く仕方＝発露と抑制**。
+- fast-draft の**出力仕様**として組み込む: 感情を情景・行為で発露させ、説明しない・名指ししない・結末に教訓や総括を置かない・読者への余白を残す（[references/ja/発露と抑制の美学.md](references/ja/発露と抑制の美学.md)）。
 - ただし抑制は「何を抑制するか」の**源**を必要とする。源は SOURCE（照合＝人間の実経験）。抑制（MANNER）は必要条件であって十分条件ではない。
 
 ## 誰が書くか（フレーミング・最初に確定）
 
-**人間が作者、AI は草案装置、persona は人間の嗜好を映す鏡。**
+**人間が作者、AI は草案装置、persona は作者の鏡。**
 
 - persona の魂・声は**人間（ユーザー）のもの**。AI はそれを対話で引き出し・保持・反映する鏡であって、作者ではない。
 - これにより A/B 問いの内省が「捏造」でなく「照合」になる（構想レビュー Ⅰ-1）。
@@ -58,7 +55,7 @@
 - `.claude/skills/` — プロジェクト内検出用の symlink（`./install.sh --local` で生成）
 - `~/.claude/skills/` — グローバル導入先（`./install.sh`、どこからでも呼べる）
 - `.claude-plugin/` — プラグイン配布定義
-- `references/` — スキルが引用する運用原理（en 正典：内省・抑制・ため庫；`references/ja/`・`references/zh/` ミラー）
+- `references/` — スキルが引用する運用原理（en 正典：内省・発露と抑制・ため庫；`references/ja/`・`references/zh/` ミラー）
 - `docs/` — 汎用的に何でも置ける場所（実証・根拠・設計メモなど。ルール本体とは分離）
 - `locales/` — i18n 表示文字列（en 正典；`ja` / `zh` ミラー）
 - `examples/<work>/` — 作品ごとの成果物（premise.md / design.md / draft_*.md）

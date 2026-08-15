@@ -28,7 +28,7 @@ Write all output in the resolved language.
 
 The first skill of the **writer layer** in the three-layer model. All later introspection (premise's ideation · fast-draft's drafting) writes against the persona fixed here.
 
-**Who writes**: the human is the author, the AI is a drafting device, the persona is a mirror of the human's preferences. The soul and voice of the persona made by this skill are **the human's (user's)**. The AI is a mirror that draws them out and holds them in dialogue — not the author.
+**Who writes**: the human is the author, the AI is a drafting device, the persona is a mirror of the author. The soul and voice of the persona made by this skill are **the human's (user's)**. The AI is a mirror that draws them out and holds them in dialogue — not the author.
 
 ## Input Contract
 
