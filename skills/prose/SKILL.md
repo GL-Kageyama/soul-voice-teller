@@ -41,6 +41,7 @@ The prose-style skill of the **execution layer** in the three-layer model. fast-
 1. Read the prose to rewrite, design.md's "direction of prose style", and persona's "voice & brushwork (concrete-sentence anchor)".
 2. Inspect the prose from the viewpoint of style (§7):
    - **rhythm (7-3)**: sentence length · breathing · reading speed. The division between long sentences (thought · rumination) and short sentences (velocity · severing) (7-1)
+   - **paragraph breaks (7-E)**: break at the decisive stroke of the reversal · refrain. Don't cram short sentences together and crush the negative space.
    - **lexical precision (7-6)**: the concreteness of nouns · the force of verbs. Don't settle for "it", "thing"
    - **sensory description (7-17)**: sight · hearing · touch · smell · taste · balance
    - **metaphor (7-B)**: wary of the stale (worn out) · the mixed metaphor (collision of metaphors) · hyperbole, yet simile · metaphor · implied metaphor in the persona's voice
