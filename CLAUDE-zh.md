@@ -4,7 +4,7 @@
 
 ## 项目定位
 
-这是**小说写作技能**的一层。由 18 个技能构成：五个（`writer-persona` 映照写作者（人）的灵魂、声音与偏好，`premise` 构思，`plot-design` 设计，`fast-draft` 草稿，`voice-ledger` 存声），加上七个可选预备（`narration-design` / `character-forge` / `character-in-action` / `character-bond` / `worldbuild` / `world-iceberg` / `research-verify`）以及写作质量 · 改稿 · 长期技能（`prose` / `scene-writer` / `series-bible` / `revise-for-reader` / `entertainment` / `whole-work-review`）。
+这是**小说写作技能**的一层。由 19 个技能构成：五个（`writer-persona` 映照写作者（人）的灵魂、声音与偏好，`premise` 构思，`plot-design` 设计，`fast-draft` 草稿，`voice-ledger` 存声），加上七个可选预备（`narration-design` / `character-forge` / `character-in-action` / `character-bond` / `worldbuild` / `world-iceberg` / `research-verify`）、写作质量 · 改稿 · 长期技能（`prose` / `scene-writer` / `series-bible` / `revise-for-reader` / `entertainment` / `whole-work-review`），以及 `package`（送达 · 把完成的作品包装给读者）。
 
 ## 核心主张（置于最前）
 
@@ -21,7 +21,7 @@
 构思层（每部作品）  premise → plot-design ──→ 必需的构思（设计书）
                    预备（可选） narration-design / character-forge / character-in-action / character-bond / worldbuild / world-iceberg / research-verify
 执行层             fast-draft ──→ 粗稿（以内省察觉偏离并更新计划 · 以流露与克制的美学送达）
-                   写作质量 prose / scene-writer ／ 改稿 revise-for-reader / entertainment / whole-work-review ／ 长期 series-bible
+                   写作质量 prose / scene-writer ／ 改稿 revise-for-reader / entertainment / whole-work-review ／ 长期 series-bible ／ 送达 package
 ```
 
 贯穿三层的运作是**内省**（听见声音）。内省是「**对照**」——对照对象（ground）上的观察。

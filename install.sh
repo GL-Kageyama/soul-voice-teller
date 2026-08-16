@@ -2,7 +2,7 @@
 #
 # soul-voice-teller installer
 #
-# Installs the 18 writing skills to Claude Code discovery locations so they are
+# Installs the 19 writing skills to Claude Code discovery locations so they are
 # available by name.
 #
 # Usage:
@@ -136,7 +136,9 @@ echo "      /prose             # 文体で研ぐ"
 echo "      /scene-writer      # 1場面を深く書く"
 echo "      /series-bible      # 作品聖典・台帳"
 echo "      /revise-for-reader # 読者体験で改稿"
-echo "      /entertainment     # 抑制を壊さずにエンタメの快楽を足す
-      /whole-work-review # 一冊として閉じているか全体を見直す"
+echo "      /entertainment     # 抑制を壊さずにエンタメの快楽を足す"
+echo "      /whole-work-review # 一冊として閉じているか全体を見直す"
+echo "    届ける:"
+echo "      /package           # 完成した作品を読者へ包む"
 echo ""
 echo "    Note: restart Claude Code or run /skills once to reload the listing."

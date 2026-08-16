@@ -25,6 +25,7 @@
 /narration-design      # 叙述的详细设计
 /character-forge       # 人物设计
 /character-in-action   # 人物在场景中的活用
+/character-bond        # 描绘两人之间的关系
 /worldbuild            # 世界设计
 /world-iceberg         # 未写世界的资料化
 /research-verify       # 史实 · 时代考据的对照
@@ -34,6 +35,11 @@
 /scene-writer          # 深写一个场景
 /series-bible          # 作品圣经 · 账本
 /revise-for-reader     # 以读者体验改稿
+/entertainment         # 不破坏克制地增添娱乐的快感
+/whole-work-review     # 作为一本书是否闭合的整体重看
+
+# 送达
+/package               # 把完成的作品包装给读者
 ```
 
 ## 切换输出语言

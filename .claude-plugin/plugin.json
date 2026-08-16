@@ -1,7 +1,7 @@
 {
   "name": "soul-voice-teller",
   "version": "0.1.0",
-  "description": "soul-voice-teller — 小説執筆スキルのレイヤー。書くことは、魂を運ぶこと。writer-persona / premise / plot-design / fast-draft / voice-ledger の5スキルに、任意下準備の narration-design / character-forge / character-in-action / character-bond / worldbuild / world-iceberg / research-verify と、書く質・改稿・長期の prose / scene-writer / series-bible / revise-for-reader / entertainment / whole-work-review を加えた18スキルで「構想→草稿→改稿」を執筆スキル単体で成立させる。内省は照合（人間の実経験・persona・計画）であって捏造でなく、発露と抑制の美学を魂のマスターレバーとして fast-draft に組み込む。",
+  "description": "soul-voice-teller — 小説執筆スキルのレイヤー。書くことは、魂を運ぶこと。writer-persona / premise / plot-design / fast-draft / voice-ledger の5スキルに、任意下準備の narration-design / character-forge / character-in-action / character-bond / worldbuild / world-iceberg / research-verify と、書く質・改稿・長期の prose / scene-writer / series-bible / revise-for-reader / entertainment / whole-work-review と、届けるの package を加えた19スキルで「構想→草稿→改稿→届ける」を執筆スキル単体で成立させる。内省は照合（人間の実経験・persona・計画）であって捏造でなく、発露と抑制の美学を魂のマスターレバーとして fast-draft に組み込む。",
   "author": {
     "name": "GL-Kageyama"
   },

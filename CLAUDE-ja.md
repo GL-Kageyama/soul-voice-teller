@@ -4,7 +4,7 @@
 
 ## Project Identity（プロジェクトの正体）
 
-これは**小説執筆スキル**のレイヤー。書き手（人間）の魂・声・嗜好を映す `writer-persona`、発想の `premise`、設計の `plot-design`、草稿の `fast-draft`、声を貯める `voice-ledger` の5スキルに、任意下準備の `narration-design` / `character-forge` / `character-in-action` / `character-bond` / `worldbuild` / `world-iceberg` / `research-verify`と、書く質・改稿・長期の `prose` / `scene-writer` / `series-bible` / `revise-for-reader` / `entertainment` / `whole-work-review`を加えた18スキルで構成する。
+これは**小説執筆スキル**のレイヤー。書き手（人間）の魂・声・嗜好を映す `writer-persona`、発想の `premise`、設計の `plot-design`、草稿の `fast-draft`、声を貯める `voice-ledger` の5スキルに、任意下準備の `narration-design` / `character-forge` / `character-in-action` / `character-bond` / `worldbuild` / `world-iceberg` / `research-verify`と、書く質・改稿・長期の `prose` / `scene-writer` / `series-bible` / `revise-for-reader` / `entertainment` / `whole-work-review`、届けるの `package` を加えた19スキルで構成する。
 
 ## 核心命題（一番上に置く）
 
@@ -21,7 +21,7 @@
 構想層（作品ごと） premise → plot-design ──→ 必須構想（設計書）
                   下準備（任意）narration-design / character-forge / character-in-action / character-bond / worldbuild / world-iceberg / research-verify
 実行層            fast-draft ──→ ラフ散文（内省で逸脱を検出し計画を更新・発露と抑制の美学で届ける）
-                  書く質 prose / scene-writer ／ 改稿 revise-for-reader / entertainment / whole-work-review ／ 長期 series-bible
+                  書く質 prose / scene-writer ／ 改稿 revise-for-reader / entertainment / whole-work-review ／ 長期 series-bible ／ 届ける package
 ```
 
 三層を貫く操作が**内省**（声を聞く）。内省は「**照合**」——ground に照らした観測。

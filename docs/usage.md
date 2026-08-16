@@ -25,6 +25,7 @@ After installing, call the skills in order in Claude Code:
 /narration-design      # detailed design of narration
 /character-forge       # character design
 /character-in-action   # making the character act in the scene
+/character-bond        # render the relationship between two characters
 /worldbuild            # world design
 /world-iceberg         # documenting the unwritten world
 /research-verify       # checking historical fact · period detail
@@ -34,6 +35,11 @@ After installing, call the skills in order in Claude Code:
 /scene-writer          # write one scene deeply
 /series-bible          # the work's bible · ledger
 /revise-for-reader     # revise by the reader's experience
+/entertainment         # add the pleasures of entertainment without breaking restraint
+/whole-work-review     # review the work as a whole — one book that closes
+
+# delivery
+/package               # wrap the finished work for the reader
 ```
 
 ## Switching the output language

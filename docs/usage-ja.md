@@ -25,6 +25,7 @@
 /narration-design      # 語りの詳細設計
 /character-forge       # 人物設計
 /character-in-action   # 人物の場面での活かし方
+/character-bond        # 二人の間の関係を描く
 /worldbuild            # 世界設計
 /world-iceberg         # 未描の世界の資料化
 /research-verify       # 史実・時代考証の照合
@@ -34,6 +35,11 @@
 /scene-writer          # 1場面を深く書く
 /series-bible          # 作品聖典・台帳
 /revise-for-reader     # 読者体験で改稿
+/entertainment         # 抑制を壊さずにエンタメの快楽を足す
+/whole-work-review     # 一冊として閉じているか全体を見直す
+
+# 届ける
+/package               # 完成した作品を読者へ包む
 ```
 
 ## 出力言語の切り替え

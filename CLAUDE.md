@@ -4,7 +4,7 @@
 
 ## Project Identity
 
-This is a layer of **novel-writing skills**. It is composed of 18 skills: the five (`writer-persona` reflecting the writer's (human's) soul, voice, and preferences, `premise` for ideation, `plot-design` for design, `fast-draft` for the draft, `voice-ledger` for storing the voice), plus seven optional preparations (`narration-design` / `character-forge` / `character-in-action` / `character-bond` / `worldbuild` / `world-iceberg` / `research-verify`) and the quality-of-writing · revision · long-term skills (`prose` / `scene-writer` / `series-bible` / `revise-for-reader` / `entertainment` / `whole-work-review`).
+This is a layer of **novel-writing skills**. It is composed of 19 skills: the five (`writer-persona` reflecting the writer's (human's) soul, voice, and preferences, `premise` for ideation, `plot-design` for design, `fast-draft` for the draft, `voice-ledger` for storing the voice), plus seven optional preparations (`narration-design` / `character-forge` / `character-in-action` / `character-bond` / `worldbuild` / `world-iceberg` / `research-verify`), the quality-of-writing · revision · long-term skills (`prose` / `scene-writer` / `series-bible` / `revise-for-reader` / `entertainment` / `whole-work-review`), and `package` (delivery — wrapping the finished work for the reader).
 
 ## The core proposition (placed at the top)
 
@@ -21,7 +21,7 @@ writer layer (permanent)   writer-persona ──→ soul-story · voice · forbi
 design layer (per work)    premise → plot-design ──→ the required design (the design document)
                            preparation (optional) narration-design / character-forge / character-in-action / character-bond / worldbuild / world-iceberg / research-verify
 execution layer            fast-draft ──→ rough prose (detect departure by introspection and update the plan · deliver by the aesthetic of expression and restraint)
-                           quality of writing prose / scene-writer ／ revision revise-for-reader / entertainment / whole-work-review ／ long-term series-bible
+                           quality of writing prose / scene-writer ／ revision revise-for-reader / entertainment / whole-work-review ／ long-term series-bible ／ delivery package
 ```
 
 The operation that runs through all three layers is **introspection** (hearing the voice). Introspection is "**checking against**" — observation against a ground.

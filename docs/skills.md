@@ -1,4 +1,4 @@
-# The 18 skills
+# The 19 skills
 
 The reference of what each skill does (input → output). See [Usage](usage.md) for how to call them.
 
@@ -36,3 +36,9 @@ Called optionally from plot-design. Writing works even with blanks.
 | `revise-for-reader` | revise by the reader's experience (immersion · page-turner · promise · rereading) | draft + design → the revised draft.md |
 | `entertainment` | add the pleasures of entertainment without breaking restraint (hook · page-turner · twist · catharsis · pacing · empathy) | draft + design → the revised draft.md |
 | `whole-work-review` | review the work as a whole — one book that closes (structural coherence · foreshadowing payoff · density distribution · redundancy · world-closed vocabulary · restraint balance) | draft + series-bible → the revised draft.md |
+
+## Delivery
+
+| skill | role | input → output |
+|---|---|---|
+| `package` | wrap the finished work for the reader (title + hooking subtitle · catch copy · synopsis · image prompt · tags), checked against the reader's first impression | draft + premise + series-bible + persona → `<work>/package.md` |
