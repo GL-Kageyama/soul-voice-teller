@@ -1,4 +1,4 @@
-# The 15 skills
+# The 17 skills
 
 The reference of what each skill does (input → output). See [Usage](usage.md) for how to call them.
 
@@ -21,6 +21,7 @@ Called optionally from plot-design. Writing works even with blanks.
 | `narration-design` | detailed design of narration (type of point of view · reliability · distance · tense · nesting · speech style) | design → the elaboration of design.md's "narration" |
 | `character-forge` | character design (desire · wound · voice · change arc · inner conflict) | design + premise + persona → the elaboration of design.md's "character" |
 | `character-in-action` | make the character setting function in the scene (staged disclosure · making the setting function) | design → append linkage points to the scene table |
+| `character-bond` | render the relationship between two characters (the axis of want · reversal/mirror · the turning point · bidirectionality · embodiment) | design + draft → the elaborated relationship between the two |
 | `worldbuild` | world design (setting · rules · internal consistency · the setting ⇔ story connection) | design + premise + persona → the elaboration of design.md's "world" |
 | `world-iceberg` | the extent to document the unwritten world (by touching probability) | design → append the documentation list |
 | `research-verify` | checking historical fact · period detail · specialist knowledge (keep errors out) | design/draft → a list of errors + corrections |
@@ -33,3 +34,4 @@ Called optionally from plot-design. Writing works even with blanks.
 | `scene-writer` | write one scene deeply (the design of empty space · show, don't tell · the seams of the scene) | design + persona → draft_<n>_<scene>.md |
 | `series-bible` | the work's bible (a ledger that centrally manages setting · foreshadowing · serialization) | the work's artifacts → series-bible.md |
 | `revise-for-reader` | revise by the reader's experience (immersion · page-turner · promise · rereading) | draft + design → the revised draft.md |
+| `entertainment` | add the pleasures of entertainment without breaking restraint (hook · page-turner · twist · catharsis · pacing · empathy) | draft + design → the revised draft.md |

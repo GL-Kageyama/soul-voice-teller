@@ -4,7 +4,7 @@
 
 ## Project Identity
 
-This is a layer of **novel-writing skills**. It is composed of 15 skills: the five (`writer-persona` reflecting the writer's (human's) soul, voice, and preferences, `premise` for ideation, `plot-design` for design, `fast-draft` for the draft, `voice-ledger` for storing the voice), plus six optional preparations (`narration-design` / `character-forge` / `character-in-action` / `worldbuild` / `world-iceberg` / `research-verify`) and the quality-of-writing · revision · long-term skills (`prose` / `scene-writer` / `series-bible` / `revise-for-reader`).
+This is a layer of **novel-writing skills**. It is composed of 17 skills: the five (`writer-persona` reflecting the writer's (human's) soul, voice, and preferences, `premise` for ideation, `plot-design` for design, `fast-draft` for the draft, `voice-ledger` for storing the voice), plus seven optional preparations (`narration-design` / `character-forge` / `character-in-action` / `character-bond` / `worldbuild` / `world-iceberg` / `research-verify`) and the quality-of-writing · revision · long-term skills (`prose` / `scene-writer` / `series-bible` / `revise-for-reader` / `entertainment`).
 
 ## The core proposition (placed at the top)
 
@@ -19,9 +19,9 @@ This is a layer of **novel-writing skills**. It is composed of 15 skills: the fi
 writer layer (permanent)   writer-persona ──→ soul-story · voice · forbidden moves · aesthetic sense (heard by introspection = checked against real experience)
                            voice-ledger ──→ store the heard voice, read it back (ideation · escaping a stall · updating persona)
 design layer (per work)    premise → plot-design ──→ the required design (the design document)
-                           preparation (optional) narration-design / character-forge / character-in-action / worldbuild / world-iceberg / research-verify
+                           preparation (optional) narration-design / character-forge / character-in-action / character-bond / worldbuild / world-iceberg / research-verify
 execution layer            fast-draft ──→ rough prose (detect departure by introspection and update the plan · deliver by the aesthetic of expression and restraint)
-                           quality of writing prose / scene-writer ／ revision revise-for-reader ／ long-term series-bible
+                           quality of writing prose / scene-writer ／ revision revise-for-reader / entertainment ／ long-term series-bible
 ```
 
 The operation that runs through all three layers is **introspection** (hearing the voice). Introspection is "**checking against**" — observation against a ground.

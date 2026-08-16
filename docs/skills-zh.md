@@ -1,4 +1,4 @@
-# 15 个技能
+# 17 个技能
 
 每个技能做什么（输入 → 输出）的参考。调用方式见 [用法](usage-zh.md)。
 
@@ -21,6 +21,7 @@
 | `narration-design` | 叙述的详细设计（视角类型 · 可靠度 · 距离 · 时态 · 嵌套 · 语体） | 设计 → design.md 的「叙述」细化 |
 | `character-forge` | 人物设计（欲望 · 伤口 · 声音 · 变化弧 · 内在冲突） | 设计＋premise＋persona → design.md 的「人物」细化 |
 | `character-in-action` | 让人物设定在场景中生效（分阶段披露 · 让设定动起来） | 设计 → 向场景表追加联动点 |
+| `character-bond` | 描绘两人之间的关系（关系的轴 · 反转／镜像 · 转折点 · 双向 · 身体化） | 设计＋草稿 → 两人关系的细化 |
 | `worldbuild` | 世界设计（舞台 · 规则 · 内在一致 · 设定⇔故事的连接） | 设计＋premise＋persona → design.md 的「世界」细化 |
 | `world-iceberg` | 未写世界的资料化程度（按触及概率） | 设计 → 追加资料清单 |
 | `research-verify` | 史实 · 时代考据 · 专业知识的对照（排除错误） | 设计/草稿 → 错误＋订正清单 |
@@ -33,3 +34,4 @@
 | `scene-writer` | 深写一个场景（留白的设计 · 见而示之 · 场景的接缝） | 设计＋persona → draft_<n>_<场景>.md |
 | `series-bible` | 作品圣经（集中管理设定 · 伏笔 · 连载的账本） | 作品的产物 → series-bible.md |
 | `revise-for-reader` | 以读者体验改稿（沉浸 · 翻页感 · 约定 · 重读） | 草稿＋设计 → 改稿后的 draft.md |
+| `entertainment` | 不破坏克制地增添娱乐的快感（钩子 · 翻页 · 反转 · 宣泄 · 节奏 · 共情） | 草稿＋设计 → 改稿后的 draft.md |
