@@ -1,4 +1,4 @@
-# The 17 skills
+# The 18 skills
 
 The reference of what each skill does (input → output). See [Usage](usage.md) for how to call them.
 
@@ -35,3 +35,4 @@ Called optionally from plot-design. Writing works even with blanks.
 | `series-bible` | the work's bible (a ledger that centrally manages setting · foreshadowing · serialization) | the work's artifacts → series-bible.md |
 | `revise-for-reader` | revise by the reader's experience (immersion · page-turner · promise · rereading) | draft + design → the revised draft.md |
 | `entertainment` | add the pleasures of entertainment without breaking restraint (hook · page-turner · twist · catharsis · pacing · empathy) | draft + design → the revised draft.md |
+| `whole-work-review` | review the work as a whole — one book that closes (structural coherence · foreshadowing payoff · density distribution · redundancy · world-closed vocabulary · restraint balance) | draft + series-bible → the revised draft.md |

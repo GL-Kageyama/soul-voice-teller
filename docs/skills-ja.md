@@ -1,4 +1,4 @@
-# 17スキル
+# 18スキル
 
 各スキルが何をするか（入力 → 出力）のリファレンス。呼び方は [使い方](usage-ja.md) を参照。
 
@@ -35,3 +35,4 @@ plot-design から任意に呼ぶ。空白でも執筆可。
 | `series-bible` | 作品聖典（設定・伏線・連載を一元管理する台帳） | 作品成果物 → series-bible.md |
 | `revise-for-reader` | 読者体験で改稿（没入・ページターナー・約束・再読） | draft＋design → 改稿 draft.md |
 | `entertainment` | 抑制を壊さずにエンタメの快楽を足す（フック・ページターナー・ツイスト・カタルシス・テンポ・共感） | draft＋design → 改稿 draft.md |
+| `whole-work-review` | 作品を「全体」として見直す——一冊として閉じているか（構造の一貫性・伏線回収・密度配分・重複・世界観用語への寄りかかり・抑制のバランス） | draft＋series-bible → 改稿 draft.md |
