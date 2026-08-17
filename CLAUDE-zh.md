@@ -55,7 +55,7 @@
 - `.claude/skills/` —— 项目内发现的符号链接（`./install.sh --local`）
 - `~/.claude/skills/` —— 全局安装目标（`./install.sh`，从任何地方可调用）
 - `.claude-plugin/` —— 插件分发定义
-- `references/` —— 技能引用的运用原理（en 正典：内省 · 流露与克制 · 声音库；`references/ja/` · `references/zh/` 镜像）
+- `references/` —— 技能引用的运用原理（en 正典：内省 · 流露与克制 · 反应轴 · 声音库；`references/ja/` · `references/zh/` 镜像）
 - `docs/` —— 放通用之物的地方（实证 · 理由 · 设计笔记。与规则本身分离）
 - `locales/` —— i18n 显示字符串（`en` 正典；`ja` / `zh` 镜像）
 - `examples/<作品>/` —— 每部作品的产物（premise.md / design.md / draft_*.md）

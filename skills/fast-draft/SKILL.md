@@ -91,3 +91,4 @@ ground = **the plan (scene table)**. Check the generated prose against the plan 
 - **Staying bound to the design forever is also fatal.** Respect the design as a map, but if introspection detects flow (emergence), loosen it (allow the departure). Writing exactly to plan is a hotbed of averaging.
 - **Restraint and introspection are compatible**: introspection allows the departure (follows the voice), restraint tightens the delivery (doesn't break it). Departing does not license you to start explaining.
 - **Redrafting**: reflect the result of external evaluation by rerunning this skill on the relevant `draft_<n>.md` (don't build the evaluation in; reflect it as material).
+- **Fire the axis small, per scene.** Each scene should deliver at least one of the axis's three kinds (the scene arc in [../references/six-response-axes.md](../references/six-response-axes.md)); a scene that delivers none is where the reader leaves.

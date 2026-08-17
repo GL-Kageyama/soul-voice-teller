@@ -35,7 +35,7 @@ After installing, call the skills in order in Claude Code:
 /scene-writer          # write one scene deeply
 /series-bible          # the work's bible · ledger
 /revise-for-reader     # revise by the reader's experience
-/entertainment         # add the pleasures of entertainment without breaking restraint
+/entertainment         # inspect the draft against the six reaction axes and fill the weak one
 /whole-work-review     # review the work as a whole — one book that closes
 
 # delivery

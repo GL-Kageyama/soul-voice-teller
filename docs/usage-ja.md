@@ -35,7 +35,7 @@
 /scene-writer          # 1場面を深く書く
 /series-bible          # 作品聖典・台帳
 /revise-for-reader     # 読者体験で改稿
-/entertainment         # 抑制を壊さずにエンタメの快楽を足す
+/entertainment         # 6つの反応軸で検品し、弱い軸を補う
 /whole-work-review     # 一冊として閉じているか全体を見直す
 
 # 届ける

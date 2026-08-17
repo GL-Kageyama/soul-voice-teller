@@ -47,7 +47,7 @@ The front stage of the **design layer** in the three-layer model. `inspire` (ide
    - **B-3 character & world** — the character the writer most wants to write, the place that draws them
    - **B-4 seed × subject-matter wavering** — if the seed's season · setting · time of day · character · relationship overlaps the persona's subject matter (A-5) too much, shift it deliberately. A mismatch (e.g. a summer Bon festival against an autumn preference) is welcomed as a wavering; a deliberate departure is recorded with `?`
 3. Summarize the ideation result into the output format below. Throw away answers "**anyone could write**" (stock themes · loglines) and pull back toward voice · aesthetic sense (HOW). If the subject matter (WHAT) overlaps the persona's preference too much, deliberately move away — the same subject every time is mediocre.
-4. **Always fix the reader image and the promise to the reader** (a novel is "the art of the time it is read"). Until you write who it is for and what promise you make, the draft has no reader.
+4. **Always fix the reader image and the promise to the reader** (a novel is "the art of the time it is read"). Until you write who it is for and what promise you make, the draft has no reader. The promise includes **the reaction axis** — name the primary and secondary of the six axes ([../references/six-response-axes.md](../references/six-response-axes.md)).
 5. Save the output to `<working-dir>/premise.md`. The working directory is named by the user (if unset, `examples/<slug>/`).
 
 ## Output
@@ -69,6 +69,9 @@ The front stage of the **design layer** in the three-layer model. `inspire` (ide
 ## The genre promise
 (what the reader may expect of this work)
 
+## The reaction axis
+(primary · secondary of the six axes — which reaction the reader mainly feels. e.g. 恐怖 primary · 感嘆 secondary)
+
 ## Direction of prose style
 (the direction of this work's prose, checked against the persona's voice & brushwork)
 
@@ -81,3 +84,4 @@ The front stage of the **design layer** in the three-layer model. `inspire` (ide
 - Ideation is **both checking and wavering**. Voice · aesthetic sense · forbidden moves (HOW) are checked against the ground (persona) and kept. Subject-matter preference (WHAT) is used as a seed but not pulled too close — if it overlaps too much, deliberately move away (high-temperature wavering). Either way, don't fabricate a "plausible theme" from the ground.
 - The reader image & promise is **required** (design review flash #1). Do not omit it.
 - Don't design here (causal structure · the scene table is plot-design's job). Premise settles "what it asks · in what prose · for whom" and stops there.
+- **The promise selects the reaction axis.** Which of the six axes the reader will feel is fixed here as part of the genre promise + reader image & promise ([../references/six-response-axes.md](../references/six-response-axes.md)). plot-design turns that axis into the whole-work arc.

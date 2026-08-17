@@ -35,7 +35,7 @@
 /scene-writer          # 深写一个场景
 /series-bible          # 作品圣经 · 账本
 /revise-for-reader     # 以读者体验改稿
-/entertainment         # 不破坏克制地增添娱乐的快感
+/entertainment         # 以六个反应轴检视并补足薄弱之轴
 /whole-work-review     # 作为一本书是否闭合的整体重看
 
 # 送达
