@@ -83,3 +83,4 @@ How far to lengthen is decided by the persona's breathing and expression-and-res
 - The design of empty space is decided **first** (§9-5). What you don't say makes the intensity of what you do say.
 - Show, don't tell: don't explain emotion; show it through action (the same root as the five clauses of restraint).
 - The seams of the scene (§4-16) control the reader's departure. Be aware of the hook at the entrance and the aftertaste at the exit.
+- **The scene's entrance/exit is the branch hook.** The hook at the entrance and the aftertaste at the exit are the branch of the hook engine ([../references/hook-engine.md](../references/hook-engine.md)) — the scene gives → breaks, and the exit opens the next question.

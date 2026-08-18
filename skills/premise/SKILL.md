@@ -85,3 +85,4 @@ The front stage of the **design layer** in the three-layer model. `inspire` (ide
 - The reader image & promise is **required** (design review flash #1). Do not omit it.
 - Don't design here (causal structure · the scene table is plot-design's job). Premise settles "what it asks · in what prose · for whom" and stops there.
 - **The promise selects the reaction axis.** Which of the six axes the reader will feel is fixed here as part of the genre promise + reader image & promise ([../references/six-response-axes.md](../references/six-response-axes.md)). plot-design turns that axis into the whole-work arc.
+- **The core question is the trunk.** The unsettled question premise fixes is the whole-work hook — the unknown preserved to the peak ([../references/hook-engine.md](../references/hook-engine.md)).

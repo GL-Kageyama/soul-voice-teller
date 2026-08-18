@@ -61,3 +61,4 @@ The elaboration of design.md's "character" (desire · motive · wound · belief 
 - Build the character as a "person", not a "role (2-11)". Protagonist · antagonist are functions; beneath them are wound · desire · belief.
 - **Do not make the antagonist one-sided evil** (2-27): give the antagonist's logic its own rightness.
 - The voice must stay within the persona's "forbidden moves". A character who touches a forbidden move is made with a reason.
+- **The character is a carrier (器) of the hook.** The desire · wound you fix is what the reader will possess; the hook engine ([../references/hook-engine.md](../references/hook-engine.md)) breaks it. Build the character so something can be given, then broken.

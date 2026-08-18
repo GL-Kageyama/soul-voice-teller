@@ -28,7 +28,7 @@ Write all output in the resolved language.
 
 The revision skill of the three-layer model. Where revise-for-reader handles **reader experience** (immersion · reread · post-reading displacement), entertainment handles the **reactions** — the six response axes that move the reader's heart. It fills the weak axis **without breaking expression and restraint** (negative space · don't name it · no moral at the ending) — through action · image · sound, not explanation.
 
-**Source**: [references/six-response-axes.md](../references/six-response-axes.md) · technical catalogue §9 the reader + §4 structure.
+**Source**: [references/six-response-axes.md](../references/six-response-axes.md) · [references/hook-engine.md](../references/hook-engine.md) · technical catalogue §9 the reader + §4 structure.
 
 ## The six response axes
 
@@ -43,7 +43,7 @@ The draft is inspected against the **six reaction axes** — the six routes to "
 | 恐怖 (fear) | on edge, cold sweat | a threat shown × no escape |
 | かわいい (cuteness) | "precious", protective | protectiveness × lovability |
 
-**The former "six axes" (hook · page-turner · twist · catharsis · pacing · empathy) are not lost — they are reclassified.** Hook and page-turner are the **engine (interest)**; twist is the *exceed* ingredient of 感嘆; the empathy hook is the *identification* ingredient of 感動; catharsis is the *structure of release*; pacing is the *flow* of 楽しい. They stay as the concrete moves below.
+**The former "six axes" (hook · page-turner · twist · catharsis · pacing · empathy) are not lost — they are reclassified.** Hook and page-turner are the **engine (interest)** — expanded in [references/hook-engine.md](../references/hook-engine.md) (未知 × 知りたさ · give → break · the four axes of the chain); twist is the *exceed* ingredient of 感嘆; the empathy hook is the *identification* ingredient of 感動; catharsis is the *structure of release*; pacing is the *flow* of 楽しい. They stay as the concrete moves below.
 
 ## Procedure
 
@@ -62,4 +62,4 @@ The revised `<working-dir>/draft.md`.
 
 - **Fill the weak axis, but don't break expression and restraint.** A release written as a moral breaks the soul.
 - Add the reaction through the **concrete** (action · image · sound), not explanation.
-- **The engine (interest) runs across all six axes.** Hook and twist are built by **withholding information**; the release and the flow by **the concrete of body and image**.
+- **The engine (interest) runs across all six axes** ([../references/hook-engine.md](../references/hook-engine.md)). Hook and twist are built by **withholding information**; the release and the flow by **the concrete of body and image**.

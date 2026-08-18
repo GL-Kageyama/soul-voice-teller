@@ -55,7 +55,7 @@
 - `.claude/skills/` — プロジェクト内検出用の symlink（`./install.sh --local` で生成）
 - `~/.claude/skills/` — グローバル導入先（`./install.sh`、どこからでも呼べる）
 - `.claude-plugin/` — プラグイン配布定義
-- `references/` — スキルが引用する運用原理（en 正典：内省・発露と抑制・反応軸・ため庫；`references/ja/`・`references/zh/` ミラー）
+- `references/` — スキルが引用する運用原理（en 正典：内省・発露と抑制・反応軸・フックのエンジン・ため庫；`references/ja/`・`references/zh/` ミラー）
 - `docs/` — 汎用的に何でも置ける場所（実証・根拠・設計メモなど。ルール本体とは分離）
 - `locales/` — i18n 表示文字列（en 正典；`ja` / `zh` ミラー）
 - `examples/<work>/` — 作品ごとの成果物（premise.md / design.md / draft_*.md）

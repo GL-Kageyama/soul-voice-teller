@@ -64,3 +64,4 @@ The revised `<working-dir>/draft.md`.
 - **Reversal/mirror** means returning the other's verb in the reverse direction. It is the same shape as the tilt toward the passive voice.
 - A relationship without a **turning point** does not move. Left passive, no relationship is born.
 - A **one-way** relationship is a device, not a person. Keep it bidirectional.
+- **The bond is a path of the want to know.** A relationship the reader settles into is what the hook engine ([../references/hook-engine.md](../references/hook-engine.md)) breaks; the turning point is where the unknown enters.

@@ -59,3 +59,4 @@ The elaboration of design.md's "world" (setting · society · culture · history
 - A setting **means something only when it moves the story** (1-15). A list of background is material, not a novel.
 - **Internal consistency** (1-14) over originality. The world's rules not breaking is what protects the reader's immersion.
 - Conveying the setting is "description", not "explanation" (1-16). All-explanation breaks immersion (the same root as the aesthetic of expression and restraint).
+- **The world is a carrier (器) of the hook.** The setting · rules you fix are what the reader will trust; the hook engine ([../references/hook-engine.md](../references/hook-engine.md)) breaks that trust to plant the unknown.

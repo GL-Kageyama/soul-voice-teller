@@ -65,3 +65,4 @@ The revised `<working-dir>/draft.md`.
 - **The world's closed vocabulary is a scaffold, not a substitute for the concrete.** When a closed word does the work, ground it in thing · sound · body — or the world becomes a rulebook, not a story.
 - **A refrain is repetition that varies (trembles).** A loop is repetition that doesn't. Change the loop into a refrain, or cut it.
 - Sublation (negation · preservation · elevation) is the evaluation layer's mechanism; don't do it here.
+- **The trunk must survive to the end.** Check that the whole-work question (the trunk of the hook engine ([../references/hook-engine.md](../references/hook-engine.md))) was preserved to the peak and not answered early.

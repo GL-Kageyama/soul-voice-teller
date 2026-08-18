@@ -92,3 +92,4 @@ ground = **the plan (scene table)**. Check the generated prose against the plan 
 - **Restraint and introspection are compatible**: introspection allows the departure (follows the voice), restraint tightens the delivery (doesn't break it). Departing does not license you to start explaining.
 - **Redrafting**: reflect the result of external evaluation by rerunning this skill on the relevant `draft_<n>.md` (don't build the evaluation in; reflect it as material).
 - **Fire the axis small, per scene.** Each scene should deliver at least one of the axis's three kinds (the scene arc in [../references/six-response-axes.md](../references/six-response-axes.md)); a scene that delivers none is where the reader leaves.
+- **Fire the hook small, per scene.** Each scene should also give → break (与える → 欠けさせる) of the hook engine ([../references/hook-engine.md](../references/hook-engine.md)) — let the reader possess something, then make it incomplete.

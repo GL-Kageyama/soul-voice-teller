@@ -62,3 +62,4 @@ The revised `<working-dir>/draft.md`.
 - **The limit of revision** (15-10): the judgment to over-fix and break, or to acknowledge completion, is the human's. The AI goes as far as proposing candidates.
 - Don't break the aesthetic of expression and restraint: revision must not add explanation · naming · summary (so that revising for the reader does not become revising that breaks the soul).
 - **Check that the reaction landed.** Confirm the work's reaction axis ([../references/six-response-axes.md](../references/six-response-axes.md)) fires where the promise said it would — the three kinds per scene, the peak on the whole-work arc.
+- **Check that the hook's chain landed.** curiosity · page-turner are the outcome of the hook engine ([../references/hook-engine.md](../references/hook-engine.md)); confirm the joints (継ぎ) and the trunk's preservation (温存) held.

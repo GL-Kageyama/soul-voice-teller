@@ -55,7 +55,7 @@ The operation that runs through all three layers is **introspection** (hearing t
 - `.claude/skills/` — symlinks for in-project discovery (`./install.sh --local`)
 - `~/.claude/skills/` — the global install target (`./install.sh`, callable from anywhere)
 - `.claude-plugin/` — the plugin distribution definition
-- `references/` — the operational principles the skills cite (en canonical: introspection · expression and restraint · six response axes · voice-store; `references/ja/` · `references/zh/` mirrors)
+- `references/` — the operational principles the skills cite (en canonical: introspection · expression and restraint · six response axes · hook engine · voice-store; `references/ja/` · `references/zh/` mirrors)
 - `docs/` — a place to put anything generic (evidence · rationale · design notes. Separated from the rules themselves)
 - `locales/` — i18n display strings (`en` canonical; `ja` / `zh` mirror)
 - `examples/<work>/` — the artifacts per work (premise.md / design.md / draft_*.md)
