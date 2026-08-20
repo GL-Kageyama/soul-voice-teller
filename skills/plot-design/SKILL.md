@@ -43,7 +43,7 @@ The back stage of the **design layer** in the three-layer model. It expands what
    - **reaction axis** — carried over from premise (primary · secondary); its four steps become the whole-work arc ([../references/six-response-axes.md](../references/six-response-axes.md))
    - **scene table** — each scene's reaction axis (three kinds) · purpose · who · what changes. **Write undecided items as `?` so "what is undecided" stays visible**
    - **reader image & promise** — carried over from premise, and broken down into the "distribution of the reader's time" per scene (where you grab · hold · release them)
-3. **Optional preparation** (character · world · foreshadowing) **may be left blank**. It can be filled in during writing (the plan is a map, not an order). But record "that it is undecided" with `?` so consistency can be checked later.
+3. **Optional preparation** (character · world · foreshadowing) **may be left blank**. It can be filled in during writing (the plan is a map, not an order). But record "that it is undecided" with `?` so consistency can be checked later. If a hidden role exists, record it here as a foreshadowing map so "who is really what" is decided before fast-draft — but it may also be filled during writing (`?`).
 4. Save the output to `<working-dir>/design.md`.
 
 ## Output
@@ -82,13 +82,13 @@ The back stage of the **design layer** in the three-layer model. It expands what
 ## Optional preparation (may be blank · filled in during writing)
 
 ### Character
-(`?` allowed)
+(`?` allowed. When a character has a role, add a "Role" subheading — stake / challenge / agency (the rule, with risk-taking as its core). The function is fixed by plot-design. See character-forge. *Consistency (らしさ)* is not a field — it is verified at the scene level by character-in-action.)
 
 ### World
 (`?` allowed)
 
 ### Foreshadowing
-(`?` allowed)
+(`?` allowed. When a character hides a role, this takes the form of a "foreshadowing map" — surface role → hidden role, who it's hidden from (reader / other characters), the trunk question, the disclosure (turning point), the foreshadowing list (scene · clue · disclosure degree · disclosure curve · recollection), and the 4-axis check. See character-forge / character-in-action.)
 ```
 
 ## Notes

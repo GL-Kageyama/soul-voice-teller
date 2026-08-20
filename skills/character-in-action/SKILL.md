@@ -45,8 +45,13 @@ Optional preparation (technical catalogue §2-B making the character act). Desig
    - **making the setting function (2-21)**: create in each scene the linkage point where "this scene moves this way precisely because of this character's setting"
    - **the constraint of the past (2-22)**: a past promise · guilt · loss binds the present choice (the point of no return)
    - **lighting from outside (2-24)**: bring the character into relief with shading through another's point of view · mention
+   - **role functioning (agency)**: in each scene, what the character pursues · reacts to · chooses, per their agency rule. This is what makes the character move autonomously (by their own stake) rather than be moved by the plot.
+   - **consistency check (らしさ)**: after filling every scene, read the reactions across scenes — does the same agency rule produce them, or does the character waver from scene to scene? A reaction that cannot be derived from the agency rule is *wavering — a stake with no rule (意思なき賭け)*. Fix the reaction to match the rule, or the rule is wrong. らしさ is this check, not a number to write.
 3. Append to each scene of the scene table "how this character's setting works" (reinforce the scene's "purpose" with the functioning of the character).
-4. Fix the order of disclosure (what of the backbone is revealed in which scene) and add the "disclosure" view to the scene table.
+4. Fix the order of disclosure (what of the backbone is revealed in which scene) and add the "disclosure" view to the scene table — and, for a hidden role, the **foreshadowing and disclosure**:
+    - plant each foreshadowing clue from the foreshadowing map in its scene (as a discrepancy in description · dialogue · behavior — not as an answer)
+    - fix the disclosure (turning point) — where the hidden role is revealed, and what it changes (the role changes: ally → antagonist, etc.)
+    - check the 4 axes: 温存 (the true role is not answered before the disclosure) · 進み (clues accumulate toward the truth) · 間合い (spacing ∝ the question's size, accelerating toward the disclosure) · 継ぎ (the disclosure opens the next question)
 5. Write into design.md's "character" (or the scene table).
 
 ## Output

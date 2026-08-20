@@ -47,6 +47,11 @@ Optional preparation (technical catalogue §2-A character design). Deepens plot-
    - **voice (2-13)**: way of speaking · vocabulary · habit of thought. Distinct from others
    - **change arc (2-12)**: how they change / how they don't change
    - **the gap between surface and interior (2-16)**: the mismatch between appearance · words and the interior
+2b. Fix the character's **role** — what they *do* in the story (a person without a role does not move; the core alone leaves them static):
+    - **stake** (what they stand to lose): the desire · wound tied to the story's causality (e.g. "the place they earned by hiding their identity — lost by confessing")
+    - **challenge** (what they stand against): the object · antagonist · barrier
+    - **agency (the rule)**: "they move for X; when X is threatened they do Y; for X they will sacrifice Z." Z (risk-taking) is the test that the stake is real — if they cannot name what they would sacrifice, the stake is not actually on the line. The reaction (Y) is the seed of *consistency (らしさ)* — one Y, the same in every scene.
+    Note: the function (protagonist / antagonist / …) is plot-design's, from the causal web; stake and agency are yours, from the desire and wound. The two meet in the stake. *Consistency (らしさ)* is not a value to set here — it is the result of that one reaction staying consistent scene to scene; character-in-action verifies it at the scene level.
 3. **Narrow the inner conflict to one**: the point where two opposing desires · beliefs collide (e.g. wanting to protect vs wanting to flee). This is the engine of the change arc.
 4. State how the character ties into the theme (premise's core question) — the character should be the theme's "living argument".
 5. Write into design.md's "character". Undecided may be left as `?` (preparation allows blanks).
@@ -62,3 +67,10 @@ The elaboration of design.md's "character" (desire · motive · wound · belief 
 - **Do not make the antagonist one-sided evil** (2-27): give the antagonist's logic its own rightness.
 - The voice must stay within the persona's "forbidden moves". A character who touches a forbidden move is made with a reason.
 - **The character is a carrier (器) of the hook.** The desire · wound you fix is what the reader will possess; the hook engine ([../references/hook-engine.md](../references/hook-engine.md)) breaks it. Build the character so something can be given, then broken.
+- If a character's true role is hidden (surface role → hidden role, e.g. ally by appearance, antagonist in fact), do not leave it at the core level. Fill design.md's "Foreshadowing" as a **foreshadowing map**:
+    - surface role → hidden role
+    - who it is hidden from (the reader = twist / the other characters = irony)
+    - the trunk question ("who is this character really?")
+    - the disclosure (turning point) and the next question it opens
+    - the foreshadowing list: scene · clue (a discrepancy, not the answer) · disclosure degree (0→1, monotonic) · disclosure curve (reader / other characters) · recollection (which disclosure collects it)
+  A hidden role without this map becomes an ungrounded twist (a clue-less disclosure).
