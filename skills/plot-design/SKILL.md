@@ -82,7 +82,7 @@ The back stage of the **design layer** in the three-layer model. It expands what
 ## Optional preparation (may be blank · filled in during writing)
 
 ### Character
-(`?` allowed. When a character has a role, add a "Role" subheading — stake / challenge / agency (the rule, with risk-taking as its core). The function is fixed by plot-design. See character-forge. *Consistency (らしさ)* is not a field — it is verified at the scene level by character-in-action.)
+(`?` allowed. When a character has a role, add a "Role" subheading — stake / challenge (adversary named × adversary's want × confrontation scene) / agency (the rule, with risk-taking as its core). The function is fixed by plot-design. See character-forge. *Consistency (らしさ)* is not a field — it is verified at the scene level by character-in-action.)
 
 ### World
 (`?` allowed)

@@ -49,7 +49,11 @@ Optional preparation (technical catalogue §2-A character design). Deepens plot-
    - **the gap between surface and interior (2-16)**: the mismatch between appearance · words and the interior
 2b. Fix the character's **role** — what they *do* in the story (a person without a role does not move; the core alone leaves them static):
     - **stake** (what they stand to lose): the desire · wound tied to the story's causality (e.g. "the place they earned by hiding their identity — lost by confessing")
-    - **challenge** (what they stand against): the object · antagonist · barrier
+    - **challenge** (what they stand against): three parts, not a noun — (1) the named adversary, (2) why they actively oppose now, (3) the confrontation scene:
+        1. **adversary (named)**: who/what they stand against. Name them (an antagonist, not a vague "the organization").
+        2. **the adversary's want (active opposition)**: what the adversary wants and does *now* that opposes this character. The adversary must act, not just exist — a named enemy who never moves is not a challenge.
+        3. **confrontation scene**: in which scene the two face off. The adversary must be present and opposing in that scene — not a silent bystander named at the end.
+        A challenge that only names the adversary ("the powerful man who covered it up") is static: the adversary will stay a silent figure, and the character will have 向かう先のない不安 (a stake with nothing to stand against).
     - **agency (the rule)**: "they move for X; when X is threatened they do Y; for X they will sacrifice Z." Z (risk-taking) is the test that the stake is real — if they cannot name what they would sacrifice, the stake is not actually on the line. The reaction (Y) is the seed of *consistency (らしさ)* — one Y, the same in every scene.
     Note: the function (protagonist / antagonist / …) is plot-design's, from the causal web; stake and agency are yours, from the desire and wound. The two meet in the stake. *Consistency (らしさ)* is not a value to set here — it is the result of that one reaction staying consistent scene to scene; character-in-action verifies it at the scene level.
 3. **Narrow the inner conflict to one**: the point where two opposing desires · beliefs collide (e.g. wanting to protect vs wanting to flee). This is the engine of the change arc.
