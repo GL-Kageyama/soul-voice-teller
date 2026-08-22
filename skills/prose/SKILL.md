@@ -41,6 +41,7 @@ The prose-style skill of the **execution layer** in the three-layer model. fast-
 1. Read the prose to rewrite, design.md's "direction of prose style", and persona's "voice & brushwork (concrete-sentence anchor)".
 2. Inspect the prose from the viewpoint of style (§7):
    - **rhythm (7-3)**: sentence length · breathing · reading speed. The division between long sentences (thought · rumination) and short sentences (velocity · severing) (7-1)
+   - **punctuation as breathing (commas flow or carve)**: let parallel elements flow in one breath; carve only the **decisive stroke (reversal · refrain)**. Let ordinary narration flow — "The morning light came through the window." Don't atomize noun phrases · verb phrases · set phrases with commas ("The, morning, light, came" / splitting "neither heavy nor light" into "neither, heavy, nor, light"). Carve at most **one** point per sentence.
    - **paragraph breaks (7-E)**: break at the decisive stroke of the reversal · refrain. Don't cram short sentences together and crush the negative space.
    - **lexical precision (7-6)**: the concreteness of nouns · the force of verbs. Don't settle for "it", "thing"
    - **sensory description (7-17)**: sight · hearing · touch · smell · taste · balance
@@ -57,5 +58,6 @@ The rewritten prose (overwrite `draft_<n>_<scene>.md`, or a new version).
 ## Notes
 
 - Metaphor is **the main battlefield of individuality but the greatest trap** (7-14). Stale metaphor · mixed metaphor · hyperbole breed mediocrity. Use only the metaphors that could only be born from the persona's voice.
+- **Carve only the decisive stroke.** Rhythm is made by the **division between flowing and carving**, not by the amount of carving. Carving everywhere is "holding your breath forever" — it deadens the decisive stroke. When sharpening, first delete commas; keep only the reversal · refrain · the character's voice.
 - Don't fill with rhetoric; **let empty space and omission work** (7-25 the plain style). Hold back the AI's impulse to fill, through the persona's forbidden moves and the aesthetic of expression and restraint.
 - Prose style is **unity and variation** (7-33): carry it through the whole work, or switch it per scene · character. Follow design.md's direction of prose style.
