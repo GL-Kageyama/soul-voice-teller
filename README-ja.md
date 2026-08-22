@@ -40,6 +40,8 @@
 
 > **persona / voice-ledger はユーザーごとの状態で、リポジトリには含めない（固定しない）**——色々な人が使うため。スキルが参照する persona の既定は存在しない。`examples/sample/` の persona はデモ用サンプルであり、スキルの既定ではない。
 
+> **注記——ため庫の増大とコンテキスト。** `voice-ledger.md` はセッションのコンテキストに自動で読み込まれない——必要時に読むだけなので、コンテキストを圧迫するのは**読む瞬間だけ**。読み方と、増大しても全文読みを軽く保つ方法は [usage「voice-ledger の増大とコンテキスト」](docs/usage-ja.md) 参照。
+
 ## リポジトリ構成
 
 - `skills/{name}/SKILL.md` — 19スキル（en 正典）＋各言語の `SKILL-ja.md` / `SKILL-zh.md`

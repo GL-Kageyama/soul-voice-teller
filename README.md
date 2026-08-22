@@ -40,6 +40,8 @@ execution layer            fast-draft ──→ rough prose (detect departure by
 
 > **persona / voice-ledger are per-writer state, not included in the repository (not fixed)** — because many different people use it. There is no default persona the skills refer to. The persona in `examples/sample/` is a demo sample, not the skills' default.
 
+> **Note — the ledger's growth and context.** `voice-ledger.md` is not loaded into the session context automatically — it is read on demand, so it costs context only at the moment of reading. See [voice-ledger's growth and context](docs/usage.md#voice-ledgers-growth-and-context) for how it is read and how to keep a full read cheap as it grows.
+
 ## Repository layout
 
 - `skills/{name}/SKILL.md` — the 19 skills (en canonical) + `SKILL-ja.md` / `SKILL-zh.md` per language

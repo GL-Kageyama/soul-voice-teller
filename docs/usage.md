@@ -52,3 +52,22 @@ export SOUL_VOICE_TELLER_LANG=ja   # or zh
 ```
 
 See the [Language (i18n)](../README.md) section of the README for the full resolution order and the three-layer structure.
+
+## The writer's permanent state (persona / voice-ledger)
+
+`persona.md` ("I write like this" — present) and `voice-ledger.md` ("I have written like this" — past) live in `$SOUL_VOICE_HOME` (see [The writer's permanent state](../README.md#the-writers-permanent-state) in the README).
+
+### voice-ledger's growth and context
+
+`voice-ledger.md` is **not loaded into the session context automatically**. It lives on disk and is read only when a skill asks for it:
+
+- `premise` at ideation (call the previous work's voice into the new question)
+- `fast-draft`'s safety valve (when the voice runs dry)
+- the `voice-ledger` skill itself
+
+Growth therefore costs context **only at the moment of reading** — not continuously. Reading a ~40 KB ledger costs roughly 10k tokens once; cheap per read, but a full read of a growing file becomes wasteful.
+
+When the ledger grows (roughly past 100 KB), keep a full read cheap:
+
+- **Index at the top** — a one-line pointer per work; read the index, open only the entry you need.
+- **Archive separation** — split older works into an archive file so the daily-read file stays small.

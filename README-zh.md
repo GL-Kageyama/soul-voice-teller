@@ -40,6 +40,8 @@
 
 > **persona / voice-ledger 是每位写作者的状态，不纳入仓库（不固定）**——因为会有许多不同的人使用它。技能并不引用任何默认 persona。`examples/sample/` 里的 persona 是演示样例，不是技能的默认值。
 
+> **注记——存声录的增长与上下文。** `voice-ledger.md` 不会被自动载入会话上下文——仅在需要时读取，因此只在**读取的那一刻**占用上下文。读取方式，以及如何在增长后保持全文读取轻量，参见 [usage「存声录的增长与上下文」](docs/usage-zh.md)。
+
 ## 仓库布局
 
 - `skills/{name}/SKILL.md` —— 19 个技能（en 正典）＋各语言的 `SKILL-ja.md` / `SKILL-zh.md`
