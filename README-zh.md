@@ -8,7 +8,7 @@
 
 **写作，是承载灵魂。**—— 小说写作技能的一层。
 
-由 19 个技能构成——五个（`writer-persona` 映照写作者（人）的灵魂、声音与偏好，`premise` 构思，`plot-design` 设计，`fast-draft` 草稿，`voice-ledger` 存声），七个可选预备，文体 · 改稿 · 账本的六个，以及送达的一个——让「设计 → 草稿 → 改稿 → 送达」仅凭写作技能即可成立。
+由 20 个技能构成——五个（`writer-persona` 映照写作者（人）的灵魂、声音与偏好，`premise` 构思，`plot-design` 设计，`fast-draft` 草稿，`voice-ledger` 存声），七个可选预备，文体 · 改稿 · 账本的六个，以及送达的两个——让「设计 → 草稿 → 改稿 → 送达」仅凭写作技能即可成立。
 
 ## 核心主张
 
@@ -29,7 +29,7 @@
 ## 文档
 
 - [用法](docs/usage-zh.md) — 安装方法、调用顺序，以及切换输出语言
-- [19 个技能](docs/skills-zh.md) — 每个技能做什么（输入 → 输出）的参考
+- [20 个技能](docs/skills-zh.md) — 每个技能做什么（输入 → 输出）的参考
 - [実証](docs/実証.md) — 支撑设计的实证记录（日语）
 
 ## 写作者的持久状态
@@ -44,7 +44,7 @@
 
 ## 仓库布局
 
-- `skills/{name}/SKILL.md` —— 19 个技能（en 正典）＋各语言的 `SKILL-ja.md` / `SKILL-zh.md`
+- `skills/{name}/SKILL.md` —— 20 个技能（en 正典）＋各语言的 `SKILL-ja.md` / `SKILL-zh.md`
 - `references/` —— 运用原理（内省 · 流露与克制 · 声音库，en 正典；`references/ja/`、`references/zh/` 镜像）
 - `docs/` —— 用法与技能一览（[usage-zh.md](docs/usage-zh.md) / [skills-zh.md](docs/skills-zh.md)）＋放通用之物的地方（实证 · 理由 · 设计笔记）
 - `locales/` —— 显示字符串（`en` 正典，`ja` / `zh` 镜像）

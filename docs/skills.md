@@ -1,4 +1,4 @@
-# The 19 skills
+# The 20 skills
 
 The reference of what each skill does (input → output). See [Usage](usage.md) for how to call them.
 
@@ -42,3 +42,4 @@ Called optionally from plot-design. Writing works even with blanks.
 | skill | role | input → output |
 |---|---|---|
 | `package` | wrap the finished work for the reader (title + hooking subtitle · catch copy · synopsis · image prompt · tags), checked against the reader's first impression | draft + premise + series-bible + persona → `<work>/package.md` |
+| `theme-song` | condense the finished work into one theme song (song title · structured lyrics · style of music · vocal · song description · placement), checked against the work's soul (the theme + the scenes where emotion surfaces) | draft + premise + series-bible + persona → `<work>/theme-song.md` |

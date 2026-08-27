@@ -4,7 +4,7 @@
 
 ## 项目定位
 
-这是**小说写作技能**的一层。由 19 个技能构成：五个（`writer-persona` 映照写作者（人）的灵魂、声音与偏好，`premise` 构思，`plot-design` 设计，`fast-draft` 草稿，`voice-ledger` 存声），加上七个可选预备（`narration-design` / `character-forge` / `character-in-action` / `character-bond` / `worldbuild` / `world-iceberg` / `research-verify`）、写作质量 · 改稿 · 长期技能（`prose` / `scene-writer` / `series-bible` / `revise-for-reader` / `entertainment` / `whole-work-review`），以及 `package`（送达 · 把完成的作品包装给读者）。
+这是**小说写作技能**的一层。由 20 个技能构成：五个（`writer-persona` 映照写作者（人）的灵魂、声音与偏好，`premise` 构思，`plot-design` 设计，`fast-draft` 草稿，`voice-ledger` 存声），加上七个可选预备（`narration-design` / `character-forge` / `character-in-action` / `character-bond` / `worldbuild` / `world-iceberg` / `research-verify`）、写作质量 · 改稿 · 长期技能（`prose` / `scene-writer` / `series-bible` / `revise-for-reader` / `entertainment` / `whole-work-review`），以及送达技能 `package`（把完成的作品包装给读者）与 `theme-song`（把它凝缩为一首主题曲）。
 
 ## 核心主张（置于最前）
 
@@ -21,7 +21,7 @@
 构思层（每部作品）  premise → plot-design ──→ 必需的构思（设计书）
                    预备（可选） narration-design / character-forge / character-in-action / character-bond / worldbuild / world-iceberg / research-verify
 执行层             fast-draft ──→ 粗稿（以内省察觉偏离并更新计划 · 以流露与克制的美学送达）
-                   写作质量 prose / scene-writer ／ 改稿 revise-for-reader / entertainment / whole-work-review ／ 长期 series-bible ／ 送达 package
+                   写作质量 prose / scene-writer ／ 改稿 revise-for-reader / entertainment / whole-work-review ／ 长期 series-bible ／ 送达 package / theme-song
 ```
 
 贯穿三层的运作是**内省**（听见声音）。内省是「**对照**」——对照对象（ground）上的观察。
@@ -51,7 +51,7 @@
 
 ## 目录约定
 
-- `skills/{name}/SKILL.md` —— 各技能的正典源（18 个）。均可独立调用。`SKILL-ja.md` / `SKILL-zh.md` 是各语言镜像
+- `skills/{name}/SKILL.md` —— 各技能的正典源（20 个）。均可独立调用。`SKILL-ja.md` / `SKILL-zh.md` 是各语言镜像
 - `.claude/skills/` —— 项目内发现的符号链接（`./install.sh --local`）
 - `~/.claude/skills/` —— 全局安装目标（`./install.sh`，从任何地方可调用）
 - `.claude-plugin/` —— 插件分发定义
