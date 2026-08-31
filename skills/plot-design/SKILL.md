@@ -1,6 +1,6 @@
 ---
 name: plot-design
-description: Builds a design document (required design + optional preparation) from premise and persona, and revises it against the promise + voice through a design loop (check → drift → revise). Fixes the logline, narration, prose style, scene table, and reader image & promise as the required design, and allows character / world / foreshadowing to be left blank. This is fast-draft's input specification itself. After premise, before fast-draft.
+description: Builds a design document (required design + optional preparation) from premise and persona, and revises it against the promise + voice through a design loop (check → drift → revise). Fixes the logline, narration, prose style, scene table, and reader image & promise as the required design; for a serialized work, it also breaks the arc into chapters and episodes (what happens in each episode). Allows character / world / foreshadowing to be left blank. This is fast-draft's input specification itself. After premise, before fast-draft.
 argument-hint: '(optional) the path to premise.md. If omitted, look for premise.md in the working directory. Add lang=en|ja|zh to switch output language (default en).'
 ---
 
@@ -42,6 +42,8 @@ The back stage of the **design layer** in the three-layer model. It expands what
    - **narration** — point of view (first/second/third person) · tense · narrator (who tells it, and from what distance)
    - **direction of prose style** — the direction of the prose, checked against the persona's voice & brushwork
    - **reaction axis** — carried over from premise (primary · secondary); its four steps become the whole-work arc ([../references/six-response-axes.md](../references/six-response-axes.md))
+   - **chapter breakdown (章立て)** — for a serialized/long work, expand the whole-work arc into chapters; each chapter is one unit of the arc (its reaction axis · the events that must happen · trunk/branch hook · what changes). A short work omits this.
+   - **episode breakdown (話割り)** — for a serialized/long work, subdivide each chapter into posting units (one episode ≈ 2,000 chars); each episode is self-contained (its own small arc) and ends with a pull into the next. A short work omits this.
    - **scene table** — each scene's reaction axis (three kinds) · purpose · who · what changes. **Write undecided items as `?` so "what is undecided" stays visible**
    - **reader image & promise** — carried over from premise, and broken down into the "distribution of the reader's time" per scene (where you grab · hold · release them)
 3. **Run the design loop** (chapter C of [../references/introspection.md](../references/introspection.md)). After a first pass, check the design against the ground — **premise (the promise · the reaction axis · the core question/trunk) + persona (voice · aesthetic sense · forbidden moves)** — and revise. Compare each choice (narration · prose direction · which axis a scene fires) against the voice — not by sublation — and discard "anyone could write" choices. On a departure, judge whether it deepens (update premise) or breaks (revise the design). On a day nothing is heard, fall back to the one-shot design.
@@ -70,6 +72,20 @@ The back stage of the **design layer** in the three-layer model. It expands what
 
 ### The reaction axis
 (primary · secondary carried from premise. Its four steps become the whole-work arc — [../references/six-response-axes.md](../references/six-response-axes.md))
+
+### Chapter breakdown (章立て · serialized/long works only; a short work omits this)
+Each chapter = one unit of the whole-work arc. Break the arc into chapters, fixing per chapter the reaction axis · the events that must happen · the trunk/branch hook · what changes.
+
+| chapter | reaction axis (three kinds) | the events that must happen | trunk / branch (hook) | what changes |
+|---|---|---|---|---|
+| 1 (title) | (e.g. emotion · a soft ache) | (e.g. …) | trunk "…" (preserve) / branch "…" | (e.g. …) |
+
+### Episode breakdown (話割り · serialized/long works only; a short work omits this)
+Subdivide each chapter into posting units (one episode ≈ 2,000 chars; one draft file per episode). Each episode is **self-contained** — its own small arc (setup · development · turn · resolution) plus an **ending pull** (a cut or question that is the promise of the next episode) — so it reads even alone.
+
+| chapter | episode | title | what happens (ending with the pull into the next) |
+|---|---|---|---|
+| 1 | 1-1 | (e.g. The Sign) | (e.g. …) |
 
 ### Scene table
 | # | scene | reaction axis (three kinds) | purpose (what it achieves) | who | what changes |
@@ -100,4 +116,5 @@ The back stage of the **design layer** in the three-layer model. It expands what
 - Particularity is the lever (not density): a single singular image · constraint · decision of voice ("thin particularity") produces more non-average prose than carefully filling in three-act structure and flaw-overcoming ("thick generality").
 - **The chosen axis is designed as the whole-work arc.** The primary axis premise selected is laid out as its four steps across the scene table ([../references/six-response-axes.md](../references/six-response-axes.md)). Write, in each scene's "reaction axis (three kinds)" cell, which axis and which of its three kinds that scene fires. **In a long work you may change the axis per scene** — the primary axis carries the whole-work arc, while individual scenes fire other axes (a fear scene, a humor scene, a cute scene) so the reader's response never saturates. In a short work the primary axis's three kinds usually recur scene by scene.
 - **The scene table places the hook's chain.** Where you grab · hold · release the reader's time maps to the trunk (whole-work question) and the branches (scene questions) of the hook engine ([../references/hook-engine.md](../references/hook-engine.md)); preserve the trunk's answer to the peak.
+- **The serialized skeleton is chapter → episode → scene.** For a serialized/long work, the arc breaks into chapters (arc units), each chapter into episodes (posting units), each episode into scenes (the scene table). A chapter carries one beat of the arc; an episode is self-contained and ends with a pull; a scene is where fast-draft actually writes. The chapter/episode breakdown is **required for serialized works** and **omitted for short works** — determine which from premise (its scale and reader promise); if premise is silent, ask the user.
 - **The design loop is internal judgment, not evaluation.** Revising the design against the promise + voice (the loop) is part of writing — the same category as fast-draft's departure judgment. The *scrutiny · sublation* of the design is handed off to the external evaluation layer, and is not built in here.

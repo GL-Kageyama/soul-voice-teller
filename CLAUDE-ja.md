@@ -18,7 +18,7 @@
 ```
 書き手層（永続）   writer-persona ──→ 魂の物語・声・禁じ手・美意識（内省で聞く＝人間の実経験に照合）
                   voice-ledger ──→ 聞こえた声を貯め、読み返す（発想・停滞脱出・persona 更新）
-構想層（作品ごと） premise → plot-design ──→ 必須構想（設計書。約束＋声に照らして改訂）
+構想層（作品ごと） premise → plot-design ──→ 必須構想（設計書。約束＋声に照らして改訂。連載は章立て・話割りへ展開）
                   下準備（任意）narration-design / character-forge / character-in-action / character-bond / worldbuild / world-iceberg / research-verify
 実行層            fast-draft ──→ ラフ散文（内省で逸脱を検出し計画を更新・発露と抑制の美学で届ける）
                   書く質 prose / scene-writer ／ 改稿 revise-for-reader / entertainment / whole-work-review ／ 長期 series-bible ／ 届ける package / theme-song

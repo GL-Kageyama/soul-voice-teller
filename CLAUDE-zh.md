@@ -18,7 +18,7 @@
 ```
 写作者层（持久）    writer-persona ──→ 灵魂故事 · 声音 · 禁忌 · 审美（以内省＝对照人的真实经验而听到）
                    voice-ledger ──→ 存下听到的声音，再回读（构思 · 挣脱停滞 · 更新 persona）
-构思层（每部作品）  premise → plot-design ──→ 必需的构思（设计书。对照约定＋声音来修订）
+构思层（每部作品）  premise → plot-design ──→ 必需的构思（设计书。对照约定＋声音来修订。连载作品展开为章立て・话割り）
                    预备（可选） narration-design / character-forge / character-in-action / character-bond / worldbuild / world-iceberg / research-verify
 执行层             fast-draft ──→ 粗稿（以内省察觉偏离并更新计划 · 以流露与克制的美学送达）
                    写作质量 prose / scene-writer ／ 改稿 revise-for-reader / entertainment / whole-work-review ／ 长期 series-bible ／ 送达 package / theme-song

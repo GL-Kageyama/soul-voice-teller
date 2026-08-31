@@ -8,7 +8,7 @@
 |---|---|---|
 | `writer-persona` | 対話で書き手設定を引き出す（A問い・ground=人間の実経験） | 対話 → `${SOUL_VOICE_HOME}/persona.md`（魂の物語/美意識/声・筆致/禁じ手/題材の嗜好） |
 | `premise` | 発想（B問い・ground=persona＋ため庫） | 種＋persona＋ため庫 → `<work>/premise.md`（ログライン/核心の問い/テーマ/ジャンルの約束/文体の方向/読者像と約束） |
-| `plot-design` | 設計書（fast-draft の入力仕様）、約束＋声に照らして改訂（C問い・ground=premise＋persona） | premise＋persona＋ため庫 → `<work>/design.md`（必須構想欄＋任意下準備欄） |
+| `plot-design` | 設計書（fast-draft の入力仕様）、約束＋声に照らして改訂（C問い・ground=premise＋persona）。連載では弧を章立て・話割りへ展開 | premise＋persona＋ため庫 → `<work>/design.md`（必須構想＋章立て・話割り＋任意下準備） |
 | `fast-draft` | 草稿（発露と抑制の美学＋内省ループ） | design＋persona＋ため庫 → `<work>/draft_*.md`＋計画更新＋ため庫への声 |
 | `voice-ledger` | 声を貯め、読み返す | 声（発想/設計/草稿/筆の乗り/禁じ手/評価の響き）→ `${SOUL_VOICE_HOME}/voice-ledger.md` |
 

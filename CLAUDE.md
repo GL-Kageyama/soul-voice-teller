@@ -18,7 +18,7 @@ This is a layer of **novel-writing skills**. It is composed of 20 skills: the fi
 ```
 writer layer (permanent)   writer-persona ──→ soul-story · voice · forbidden moves · aesthetic sense (heard by introspection = checked against real experience)
                            voice-ledger ──→ store the heard voice, read it back (ideation · escaping a stall · updating persona)
-design layer (per work)    premise → plot-design ──→ the required design (the design document, revised against the promise + voice)
+design layer (per work)    premise → plot-design ──→ the required design (the design document, revised against the promise + voice; for a serialized work, broken into chapters and episodes)
                            preparation (optional) narration-design / character-forge / character-in-action / character-bond / worldbuild / world-iceberg / research-verify
 execution layer            fast-draft ──→ rough prose (detect departure by introspection and update the plan · deliver by the aesthetic of expression and restraint)
                            quality of writing prose / scene-writer ／ revision revise-for-reader / entertainment / whole-work-review ／ long-term series-bible ／ delivery package / theme-song
