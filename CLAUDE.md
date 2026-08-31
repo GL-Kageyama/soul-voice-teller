@@ -18,7 +18,7 @@ This is a layer of **novel-writing skills**. It is composed of 20 skills: the fi
 ```
 writer layer (permanent)   writer-persona ──→ soul-story · voice · forbidden moves · aesthetic sense (heard by introspection = checked against real experience)
                            voice-ledger ──→ store the heard voice, read it back (ideation · escaping a stall · updating persona)
-design layer (per work)    premise → plot-design ──→ the required design (the design document)
+design layer (per work)    premise → plot-design ──→ the required design (the design document, revised against the promise + voice)
                            preparation (optional) narration-design / character-forge / character-in-action / character-bond / worldbuild / world-iceberg / research-verify
 execution layer            fast-draft ──→ rough prose (detect departure by introspection and update the plan · deliver by the aesthetic of expression and restraint)
                            quality of writing prose / scene-writer ／ revision revise-for-reader / entertainment / whole-work-review ／ long-term series-bible ／ delivery package / theme-song
@@ -26,13 +26,14 @@ execution layer            fast-draft ──→ rough prose (detect departure by
 
 The operation that runs through all three layers is **introspection** (hearing the voice). Introspection is "**checking against**" — observation against a ground.
 
-## The three grounds of introspection (what it is checked against)
+## The four grounds of introspection (what it is checked against)
 
 | question layer | ground (what it is checked against) |
 |---|---|
 | A the writer's setting (writer-persona) | **the writer's real experience** — the works this writer has written, the questions they actually carry, the forbidden moves. The AI asks the human and holds the answers. **The AI does not fabricate its own "wound"** |
 | B ideation (premise) | **persona + the store** — voice · aesthetic sense (HOW) are checked, subject matter (WHAT) may waver (pulling too close makes every work the same) |
-| C the draft loop (fast-draft) | **the plan (scene table)** — the generated prose is checked against the plan to judge whether there is a departure |
+| C design (plot-design) | **premise (the promise · the reaction axis · the core question) + persona (voice · aesthetic sense · forbidden moves)** — the design is checked against the promise and the voice, and revised |
+| D the draft loop (fast-draft) | **the plan (scene table)** — the generated prose is checked against the plan to judge whether there is a departure |
 
 **Introspection without a ground is not observation.** Mark the ground in every question; a question without a ground is not called "introspection" ([references/introspection.md](references/introspection.md)).
 
@@ -65,10 +66,10 @@ The operation that runs through all three layers is **introspection** (hearing t
 
 | kind | example | the layer it belongs to |
 |---|---|---|
-| **the judgment internal to writing** (part of writing) | introspection · departure judgment (deepens/breaks) · detecting flow | **writing skills** (held by fast-draft) |
+| **the judgment internal to writing** (part of writing) | introspection · departure judgment (deepens/breaks) · detecting flow | **writing skills** (held by fast-draft / plot-design) |
 | **external evaluation** (judgment on what is written) | the council · sublation (negation/preservation/elevation) · revision | **the evaluation layer** (external) |
 
-"Don't build in the evaluation mechanism" means "don't build in the **external** evaluation mechanism". The **noticing** of a departure is allowed to fast-draft as part of introspection. What should be handed off is the **scrutiny · sublation** of a departure, not the noticing of it.
+"Don't build in the evaluation mechanism" means "don't build in the **external** evaluation mechanism". The **noticing** of a departure is allowed to fast-draft and plot-design as part of introspection. What should be handed off is the **scrutiny · sublation** of a departure, not the noticing of it.
 
 ## Language (i18n)
 

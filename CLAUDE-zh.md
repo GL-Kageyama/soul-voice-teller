@@ -18,7 +18,7 @@
 ```
 写作者层（持久）    writer-persona ──→ 灵魂故事 · 声音 · 禁忌 · 审美（以内省＝对照人的真实经验而听到）
                    voice-ledger ──→ 存下听到的声音，再回读（构思 · 挣脱停滞 · 更新 persona）
-构思层（每部作品）  premise → plot-design ──→ 必需的构思（设计书）
+构思层（每部作品）  premise → plot-design ──→ 必需的构思（设计书。对照约定＋声音来修订）
                    预备（可选） narration-design / character-forge / character-in-action / character-bond / worldbuild / world-iceberg / research-verify
 执行层             fast-draft ──→ 粗稿（以内省察觉偏离并更新计划 · 以流露与克制的美学送达）
                    写作质量 prose / scene-writer ／ 改稿 revise-for-reader / entertainment / whole-work-review ／ 长期 series-bible ／ 送达 package / theme-song
@@ -26,13 +26,14 @@
 
 贯穿三层的运作是**内省**（听见声音）。内省是「**对照**」——对照对象（ground）上的观察。
 
-## 内省的三个依据（对照对象）
+## 内省的四个依据（对照对象）
 
 | 问句层 | 依据（对照对象） |
 |---|---|
 | A 写作者的设定（writer-persona） | **写作者的真实经验**——这位写作者写过的作品、实际背负的问句、禁忌。AI 问人并持有答案。**AI 不自造「伤口」** |
 | B 构思（premise） | **persona＋声音库**——声音 · 审美（HOW）对照，题材（WHAT）容许摇晃（拉得过近则每部作品相同） |
-| C 草稿循环（fast-draft） | **计划（场景表）**——把生成的文字与计划对照，判断是否有偏离 |
+| C 设计（plot-design） | **premise（约定 · 反应轴 · 核心问句）＋ persona（声音 · 审美 · 禁忌）**——把设计与约定、声音对照并修订 |
+| D 草稿循环（fast-draft） | **计划（场景表）**——把生成的文字与计划对照，判断是否有偏离 |
 
 **没有依据（ground）的内省，不成其为观察。**每个问句都要标明依据；没有依据的问句不叫「内省」（[references/introspection.md](references/introspection.md)）。
 
@@ -65,10 +66,10 @@
 
 | 种类 | 例 | 所属层 |
 |---|---|---|
-| **写作内部判断**（写作的一部分） | 内省 · 偏离判定（深化/破坏）· 察觉文思 | **写作技能**（由 fast-draft 承担） |
+| **写作内部判断**（写作的一部分） | 内省 · 偏离判定（深化/破坏）· 察觉文思 | **写作技能**（由 fast-draft / plot-design 承担） |
 | **外部评价**（对写就之物的判断） | 评议会 · 扬弃（否定/保存/更高化）· 改稿 | **评价层**（外部） |
 
-「不内建评价机制」是指「不内建**外部**评价机制」。偏离的**察觉**作为内省的一部分允许交给 fast-draft。应移交的是偏离的**审视 · 扬弃**，而不是它的察觉。
+「不内建评价机制」是指「不内建**外部**评价机制」。偏离的**察觉**作为内省的一部分允许交给 fast-draft 与 plot-design。应移交的是偏离的**审视 · 扬弃**，而不是它的察觉。
 
 ## 语言（i18n）
 

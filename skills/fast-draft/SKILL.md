@@ -51,7 +51,7 @@ If any has slipped in, rewrite. "Explanation, naming, summary" are a **double ha
 
 ## The introspection loop (run per scene)
 
-ground = **the plan (scene table)**. Check the generated prose against the plan and judge whether there is a departure. The questions are [../references/introspection.md](../references/introspection.md) chapter C.
+ground = **the plan (scene table)**. Check the generated prose against the plan and judge whether there is a departure. The questions are [../references/introspection.md](../references/introspection.md) chapter D.
 
 ```
 ① Ask (turn your ear to the voice)
@@ -62,10 +62,10 @@ ground = **the plan (scene table)**. Check the generated prose against the plan 
 ⑥ Store the heard voice · departure · flow in the store (voice-ledger)
 ```
 
-- **C-1 detecting flow**: is this character as planned, or moving on their own? Did the line · action come from the plan's demand, or from the character themselves?
-- **C-2 judging the departure** (deepens/breaks): does this departure deepen or break the story? Its effect on the promise · foreshadowing · ending. Does it violate the forbidden moves (persona A-4)?
-- **C-3 updating the plan**: how to write the departure into the plan. Don't mechanically regress to the old plan.
-- **C-4 the safety valve (most important)**: **don't force the flow.** Don't pretend to hear what you don't hear. **If you don't hear it, fall back to following the plan** — the voice is something to wait for, not push out. Before falling back, listen to the store.
+- **D-1 detecting flow**: is this character as planned, or moving on their own? Did the line · action come from the plan's demand, or from the character themselves?
+- **D-2 judging the departure** (deepens/breaks): does this departure deepen or break the story? Its effect on the promise · foreshadowing · ending. Does it violate the forbidden moves (persona A-4)?
+- **D-3 updating the plan**: how to write the departure into the plan. Don't mechanically regress to the old plan.
+- **D-4 the safety valve (most important)**: **don't force the flow.** Don't pretend to hear what you don't hear. **If you don't hear it, fall back to following the plan** — the voice is something to wait for, not push out. Before falling back, listen to the store.
 
 ## Procedure
 

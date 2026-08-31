@@ -2,8 +2,8 @@
 
 > Implementation of the design principle "the inner voice is the source of everything; introspect and listen."
 > Introspection has two roles: **the source of ideas** (to draw inspiration from the voice) and **the detector of flow** (to loosen the design in the middle of writing).
-> There are three layers of question: **A the writer's setting** (permanent) → **B ideation** (per work) → **C the draft loop** (per scene).
-> The voice you hear is stored in **D (the store)** and read back across works ([voice-store.md](voice-store.md)).
+> There are four layers of question: **A the writer's setting** (permanent) → **B ideation** (per work) → **C design** (per work) → **D the draft loop** (per scene).
+> The voice you hear is stored in **E (the store)** and read back across works ([voice-store.md](voice-store.md)).
 
 ---
 
@@ -15,7 +15,8 @@ Introspection is "**checking against**" (照合) — observation against a groun
 |---|---|---|
 | A the writer's setting | **the writer's real experience** | the works this writer has actually written, the questions they actually carry, their forbidden moves. The AI asks the human and holds the answers as the ground. The AI does not fabricate its own "wound" |
 | B ideation | **persona + the store** | this writer's preferences, forbidden moves, past voices. "How would this writer choose?" is checked |
-| C the draft loop | **the plan (scene table)** | the generated prose is checked against the plan to judge whether "the character has left the plan" |
+| C design | **premise (the promise · the reaction axis · the core question) + persona (voice · aesthetic sense · forbidden moves)** | the design is checked against the promise and the voice to judge whether it has drifted from the promise, or become "a choice no one made" |
+| D the draft loop | **the plan (scene table)** | the generated prose is checked against the plan to judge whether "the character has left the plan" |
 
 ```
 ① Ask (turn your ear to the voice)
@@ -33,7 +34,7 @@ Introspection is "**checking against**" (照合) — observation against a groun
 - **Asks for checking** — not judgment, but a report of the voice held against the ground
 - **Evokes, does not force** — forcing the asking averages it out. On days nothing is heard, fall back to following the plan
 
-**Who asks**: A is dialogue (skill ↔ user). B and C are introspection the AI asks of itself.
+**Who asks**: A is dialogue (skill ↔ user). B, C, and D are introspection the AI asks of itself.
 
 ---
 
@@ -117,37 +118,69 @@ Subject-matter preference is "**an affinity** (the direction this writer is draw
 
 ---
 
-## C. The introspection loop during drafting (fast-draft · detecting flow)
+## C. Questions for design (plot-design · checking the design against the promise)
+
+Questions per work, run after a first pass of the required design. The AI asks itself. The ground is **premise (the promise · the reaction axis · the core question/trunk) + persona (voice · aesthetic sense · forbidden moves)** — the design is checked against the promise and the voice, and revised.
+
+This loop is **the judgment internal to writing**, the same category as fast-draft's departure judgment (chapter D): it *notices* where the design has drifted from the promise or become "a choice no one made", and fixes it. The *scrutiny · sublation* of the design is handed off to the external evaluation layer, and is not built in here.
+
+### C-1 Does the design fulfill the promise?
+
+- Does the scene table actually fulfill premise's promise? Does the reaction axis carry as the four-step whole-work arc?
+- Does the hook's chain preserve the trunk (the core question) to the peak?
+- Is the reader image & promise broken down into each scene's grab · hold · release of the reader's time?
+
+### C-2 Is each choice "this writer's choice"?
+
+- Narration (point of view · tense · narrator) · the direction of prose style · which axis each scene fires — checked against the persona's voice · aesthetic sense · forbidden moves, so it does not become "a choice no one made".
+- **Comparison = checking the alternatives against the ground** (not sublation): lay out the choices (e.g. first person vs close third), and ask which narration · prose direction is *this writer's* — checked against the voice.
+
+### C-3 Are there "anyone could write" design choices?
+
+- Stock loglines · a generic scene table · a safe narration — discard them and pull back toward voice · thin particularity. This is the same discarding premise's B does, applied to the design.
+- A single singular image · constraint · decision of voice outdoes carefully filled-in three-act structure ("thick generality").
+
+### C-4 The departure (design vs premise)
+
+- Has the design drifted from the promise? Does the drift **deepen** the work (update premise — the promise was wrong) or **break** it (revise the design back toward the promise)?
+
+### C-5 The safety valve (most important)
+
+- **Don't force the refinement.** Don't pretend to hear what you don't hear. If nothing is heard, fall back to the one-shot design — the voice is something to wait for, not to push out.
+
+---
+
+## D. The introspection loop during drafting (fast-draft · detecting flow)
 
 Run it after finishing each scene. It precedes the judgment that loosens the design. The ground is **the plan (scene table)** — the generated prose is checked against the plan to judge whether there is a departure.
 
-### C-1 Detecting flow (has the voice begun to move?)
+### D-1 Detecting flow (has the voice begun to move?)
 
 - Is this character moving as planned? Or **moving on their own**?
 - Where is this scene heading now? Is it trying to go somewhere other than the plan?
 - Did this line · this action come from the plan's demand, or **from the character themselves**?
 - What is my inner voice asking for now?
 
-### C-2 Judging the departure (deepens or breaks)
+### D-2 Judging the departure (deepens or breaks)
 
 - Does this departure **deepen** the story, or **break** it?
 - What effect does this departure have on the promise · foreshadowing · ending?
 - Does it violate my forbidden moves (A-4)? If so, does that violation become depth?
 
-### C-3 Updating the plan
+### D-3 Updating the plan
 
 - How do I write this departure into the plan? Which scene · which foreshadowing changes?
 - Am I mechanically regressing to the old plan?
 
-### C-4 Am I forcing it? (the limit)
+### D-4 Am I forcing it? (the limit)
 
 - Am I **forcing the flow**? Pretending to hear what I don't hear?
 - If I don't hear it, fall back to following the plan. The voice is something to wait for, not something to push out.
 
 ---
 
-## D. Handling the heard voice (the store)
+## E. Handling the heard voice (the store)
 
 - The heard voice · departure · flow · flash is stored in [voice-store.md](voice-store.md) (the `voice-ledger`)
-- The stored voice is read back for later ideation (B) · escaping a stall (C-4) · updating writer-persona
+- The stored voice is read back for later ideation (B) · escaping a stall (D-4) · updating writer-persona
 - Even a voice you cannot use right now, stored, connects to something later

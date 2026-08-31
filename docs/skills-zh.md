@@ -8,9 +8,9 @@
 |---|---|---|
 | `writer-persona` | 用对谈引出写作者的设定（A 问句 · 依据 = 人的真实经验） | 对谈 → `${SOUL_VOICE_HOME}/persona.md`（灵魂故事 / 审美 / 声音与笔触 / 禁忌 / 题材偏好） |
 | `premise` | 构思（B 问句 · 依据 = persona＋声音库） | 种子＋persona＋声音库 → `<作品>/premise.md`（一句话梗概 / 核心问句 / 主题 / 体裁的约定 / 文体的方向 / 读者形象与约定） |
-| `plot-design` | 设计书（fast-draft 的输入规格） | premise＋persona → `<作品>/design.md`（必需构思＋可选预备） |
+| `plot-design` | 设计书（fast-draft 的输入规格），对照约定＋声音来修订（C 问句 · 依据 = premise＋persona） | premise＋persona＋声音库 → `<作品>/design.md`（必需构思＋可选预备） |
 | `fast-draft` | 草稿（流露与克制的美学＋内省循环） | 设计＋persona＋声音库 → `<作品>/draft_*.md`＋计划更新＋供声音库存的声音 |
-| `voice-ledger` | 存声、回读 | 声音（构思 / 草稿 / 文思 / 禁忌 / 评价的回响） → `${SOUL_VOICE_HOME}/voice-ledger.md` |
+| `voice-ledger` | 存声、回读 | 声音（构思 / 设计 / 草稿 / 文思 / 禁忌 / 评价的回响） → `${SOUL_VOICE_HOME}/voice-ledger.md` |
 
 ## 可选预备
 
