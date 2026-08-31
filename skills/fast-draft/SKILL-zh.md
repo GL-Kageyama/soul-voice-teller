@@ -82,7 +82,7 @@ argument-hint: '（可选）design.md 的路径。省略时在工作目录中查
 ## 输出
 
 - `<工作目录>/draft_<n>_<scene>.md`（逐场景。改稿的单位）
-- `<工作目录>/draft.md`（全部场景串联的草稿）
+- `<工作目录>/draft.md`（全部场景串联的草稿＝生成视图。由逐场景文件重新串联，不直接编辑）
 - 更新后的 `<工作目录>/design.md`（补填了 `?` 时）
 - 追加到 `${SOUL_VOICE_HOME:-$HOME/.soul-voice-teller}/voice-ledger.md`（声音 · 偏离 · 文思）
 

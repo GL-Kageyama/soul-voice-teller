@@ -82,7 +82,7 @@ ground = **the plan (scene table)**. Check the generated prose against the plan 
 ## Output
 
 - `<working-dir>/draft_<n>_<scene>.md` (per scene. The unit of redrafting)
-- `<working-dir>/draft.md` (the draft with all scenes concatenated)
+- `<working-dir>/draft.md` (the draft with all scenes concatenated — a generated view, rebuilt from the per-scene files rather than edited directly)
 - updated `<working-dir>/design.md` (when `?` was filled in)
 - append to `${SOUL_VOICE_HOME:-$HOME/.soul-voice-teller}/voice-ledger.md` (voice · departure · flow)
 
