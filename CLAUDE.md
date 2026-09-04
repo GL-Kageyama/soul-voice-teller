@@ -4,7 +4,7 @@
 
 ## Project Identity
 
-This is a layer of **novel-writing skills**. It is composed of 20 skills: the five (`writer-persona` reflecting the writer's (human's) soul, voice, and preferences, `premise` for ideation, `plot-design` for design, `fast-draft` for the draft, `voice-ledger` for storing the voice), plus seven optional preparations (`narration-design` / `character-forge` / `character-in-action` / `character-bond` / `worldbuild` / `world-iceberg` / `research-verify`), the quality-of-writing · revision · long-term skills (`prose` / `scene-writer` / `series-bible` / `revise-for-reader` / `entertainment` / `whole-work-review`), and the delivery skills `package` (wrapping the finished work for the reader) and `theme-song` (condensing it into one theme song).
+This is a layer of **novel-writing skills**. It is composed of 21 skills: the five (`writer-persona` reflecting the writer's (human's) soul, voice, and preferences, `premise` for ideation, `plot-design` for design, `fast-draft` for the first draft, `voice-ledger` for storing the voice), `steady-draft` for the everyday writing (the next episode, or fleshing out / expanding an episode), plus seven optional preparations (`narration-design` / `character-forge` / `character-in-action` / `character-bond` / `worldbuild` / `world-iceberg` / `research-verify`), the quality-of-writing · revision · long-term skills (`prose` / `scene-writer` / `series-bible` / `revise-for-reader` / `entertainment` / `whole-work-review`), and the delivery skills `package` (wrapping the finished work for the reader) and `theme-song` (condensing it into one theme song).
 
 ## The core proposition (placed at the top)
 
@@ -21,12 +21,13 @@ writer layer (permanent)   writer-persona ──→ soul-story · voice · forbi
 design layer (per work)    premise → plot-design ──→ the required design (the design document, revised against the promise + voice; for a serialized work, broken into chapters and episodes)
                            preparation (optional) narration-design / character-forge / character-in-action / character-bond / worldbuild / world-iceberg / research-verify
 execution layer            fast-draft ──→ rough prose (detect departure by introspection and update the plan · deliver by the aesthetic of expression and restraint)
+                           steady-draft ──→ the next episode of an ongoing work (grounded in persona + design + ledger; write back to the ledger)
                            quality of writing prose / scene-writer ／ revision revise-for-reader / entertainment / whole-work-review ／ long-term series-bible ／ delivery package / theme-song
 ```
 
 The operation that runs through all three layers is **introspection** (hearing the voice). Introspection is "**checking against**" — observation against a ground.
 
-## The four grounds of introspection (what it is checked against)
+## The five grounds of introspection (what it is checked against)
 
 | question layer | ground (what it is checked against) |
 |---|---|
@@ -34,6 +35,7 @@ The operation that runs through all three layers is **introspection** (hearing t
 | B ideation (premise) | **persona + the store** — voice · aesthetic sense (HOW) are checked, subject matter (WHAT) may waver (pulling too close makes every work the same) |
 | C design (plot-design) | **premise (the promise · the reaction axis · the core question) + persona (voice · aesthetic sense · forbidden moves)** — the design is checked against the promise and the voice, and revised |
 | D the draft loop (fast-draft) | **the plan (scene table)** — the generated prose is checked against the plan to judge whether there is a departure |
+| E the everyday draft (steady-draft) | **persona + the design (構想) + the ledger (台帳) + the previous drafts** — the next episode is checked against the accumulated record, and what changed is written back |
 
 **Introspection without a ground is not observation.** Mark the ground in every question; a question without a ground is not called "introspection" ([references/introspection.md](references/introspection.md)).
 
@@ -52,7 +54,7 @@ The operation that runs through all three layers is **introspection** (hearing t
 
 ## Directory Conventions
 
-- `skills/{name}/SKILL.md` — each skill's canonical source (20). All callable independently. `SKILL-ja.md` / `SKILL-zh.md` are the per-language mirrors
+- `skills/{name}/SKILL.md` — each skill's canonical source (21). All callable independently. `SKILL-ja.md` / `SKILL-zh.md` are the per-language mirrors
 - `.claude/skills/` — symlinks for in-project discovery (`./install.sh --local`)
 - `~/.claude/skills/` — the global install target (`./install.sh`, callable from anywhere)
 - `.claude-plugin/` — the plugin distribution definition
@@ -66,10 +68,10 @@ The operation that runs through all three layers is **introspection** (hearing t
 
 | kind | example | the layer it belongs to |
 |---|---|---|
-| **the judgment internal to writing** (part of writing) | introspection · departure judgment (deepens/breaks) · detecting flow | **writing skills** (held by fast-draft / plot-design) |
+| **the judgment internal to writing** (part of writing) | introspection · departure judgment (deepens/breaks) · detecting flow | **writing skills** (held by fast-draft / steady-draft / plot-design) |
 | **external evaluation** (judgment on what is written) | the council · sublation (negation/preservation/elevation) · revision | **the evaluation layer** (external) |
 
-"Don't build in the evaluation mechanism" means "don't build in the **external** evaluation mechanism". The **noticing** of a departure is allowed to fast-draft and plot-design as part of introspection. What should be handed off is the **scrutiny · sublation** of a departure, not the noticing of it.
+"Don't build in the evaluation mechanism" means "don't build in the **external** evaluation mechanism". The **noticing** of a departure is allowed to fast-draft, steady-draft, and plot-design as part of introspection. What should be handed off is the **scrutiny · sublation** of a departure, not the noticing of it.
 
 ## Language (i18n)
 

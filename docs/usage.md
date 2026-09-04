@@ -18,7 +18,8 @@ After installing, call the skills in order in Claude Code:
 /writer-persona        # first draw out the writer's setting (make the five-item persona)
 /premise               # pass a seed and ideate
 /plot-design           # make the design document (required design + optional preparation)
-/fast-draft            # write the draft (introspection loop + the aesthetic of expression and restraint)
+/fast-draft            # write the first draft (introspection loop + the aesthetic of expression and restraint)
+/steady-draft          # continue the work — write the next episode, or flesh out / expand an episode (persona + design + ledger)
 /voice-ledger          # store the voice · read it back
 
 # preparation (optional. Before or after plot-design)

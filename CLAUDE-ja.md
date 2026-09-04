@@ -4,7 +4,7 @@
 
 ## Project Identity（プロジェクトの正体）
 
-これは**小説執筆スキル**のレイヤー。書き手（人間）の魂・声・嗜好を映す `writer-persona`、発想の `premise`、設計の `plot-design`、草稿の `fast-draft`、声を貯める `voice-ledger` の5スキルに、任意下準備の `narration-design` / `character-forge` / `character-in-action` / `character-bond` / `worldbuild` / `world-iceberg` / `research-verify`と、書く質・改稿・長期の `prose` / `scene-writer` / `series-bible` / `revise-for-reader` / `entertainment` / `whole-work-review`、届けるの `package` / `theme-song` を加えた20スキルで構成する。
+これは**小説執筆スキル**のレイヤー。書き手（人間）の魂・声・嗜好を映す `writer-persona`、発想の `premise`、設計の `plot-design`、初稿の `fast-draft`、声を貯める `voice-ledger` の5スキルに、通常執筆（次話・肉付け・膨らませ）の `steady-draft`、任意下準備の `narration-design` / `character-forge` / `character-in-action` / `character-bond` / `worldbuild` / `world-iceberg` / `research-verify`と、書く質・改稿・長期の `prose` / `scene-writer` / `series-bible` / `revise-for-reader` / `entertainment` / `whole-work-review`、届けるの `package` / `theme-song` を加えた21スキルで構成する。
 
 ## 核心命題（一番上に置く）
 
@@ -21,12 +21,13 @@
 構想層（作品ごと） premise → plot-design ──→ 必須構想（設計書。約束＋声に照らして改訂。連載は章立て・話割りへ展開）
                   下準備（任意）narration-design / character-forge / character-in-action / character-bond / worldbuild / world-iceberg / research-verify
 実行層            fast-draft ──→ ラフ散文（内省で逸脱を検出し計画を更新・発露と抑制の美学で届ける）
+                  steady-draft ──→ 進行中の作品の次話・肉付け（persona＋構想＋台帳を踏まえる・台帳へ書き戻す）
                   書く質 prose / scene-writer ／ 改稿 revise-for-reader / entertainment / whole-work-review ／ 長期 series-bible ／ 届ける package / theme-song
 ```
 
 三層を貫く操作が**内省**（声を聞く）。内省は「**照合**」——ground に照らした観測。
 
-## 内省の四つの ground（照合対象）
+## 内省の五つの ground（照合対象）
 
 | 問いの層 | ground（照合対象） |
 |---|---|
@@ -34,6 +35,7 @@
 | B 発想（premise） | **persona＋ため庫**——声・美意識（HOW）は照合、題材（WHAT）は揺らぎを許す（引き寄せすぎると毎回同じになる） |
 | C 設計（plot-design） | **premise（約束・反応軸・核心の問い）＋ persona（声・美意識・禁じ手）**——設計を約束と声に照らして改訂する |
 | D 草稿ループ（fast-draft） | **計画（シーン表）**——生成した文と計画を照合し、逸脱の有無を判定 |
+| E 通常執筆（steady-draft） | **persona＋構想＋台帳＋既存草稿**——次話を蓄積された記録に照らし、変わったことを書き戻す |
 
 **照合対象（ground）が無い内省は観測にならない。** 各問いに ground を明記し、ground の無い問いは「内省」と呼ばない（[references/ja/内省問い.md](references/ja/内省問い.md)）。
 
@@ -52,7 +54,7 @@
 
 ## Directory Conventions
 
-- `skills/{name}/SKILL.md` — 各スキルの正典源（20）。すべて独立して呼び出せる。`SKILL-ja.md` / `SKILL-zh.md` は各言語ミラー
+- `skills/{name}/SKILL.md` — 各スキルの正典源（21）。すべて独立して呼び出せる。`SKILL-ja.md` / `SKILL-zh.md` は各言語ミラー
 - `.claude/skills/` — プロジェクト内検出用の symlink（`./install.sh --local` で生成）
 - `~/.claude/skills/` — グローバル導入先（`./install.sh`、どこからでも呼べる）
 - `.claude-plugin/` — プラグイン配布定義
@@ -66,10 +68,10 @@
 
 | 種 | 例 | 属する層 |
 |---|---|---|
-| **執筆内在の判断**（書くことの一部） | 内省・逸脱判定（深める/壊す）・フロー検出 | **執筆スキル**（fast-draft / plot-design が持つ） |
+| **執筆内在の判断**（書くことの一部） | 内省・逸脱判定（深める/壊す）・フロー検出 | **執筆スキル**（fast-draft / steady-draft / plot-design が持つ） |
 | **外在の評価**（書かれたものへの判定） | 評議会・昇華（否定/保存/高次化）・改稿 | **評価レイヤー**（外部） |
 
-「評価機構を内蔵しない」は「**外在の評価機構を内蔵しない**」を意味する。逸脱の**気づき**は内省の一部として fast-draft と plot-design に認める。委ねるべきは逸脱の**精査・昇華**であって、逸脱の気づきではない。
+「評価機構を内蔵しない」は「**外在の評価機構を内蔵しない**」を意味する。逸脱の**気づき**は内省の一部として fast-draft と steady-draft と plot-design に認める。委ねるべきは逸脱の**精査・昇華**であって、逸脱の気づきではない。
 
 ## 言語（i18n）
 

@@ -8,7 +8,7 @@
 
 **To write is to carry the soul.** —— a layer of novel-writing skills.
 
-With 20 skills — five (`writer-persona` reflecting the writer's (human's) soul, voice, and preferences, `premise` for ideation, `plot-design` for design, `fast-draft` for the draft, `voice-ledger` for storing the voice), seven optional preparations, six for prose style · revision · the ledger, and two for delivery — the layer makes "design → draft → revision → delivery" hold up on writing skills alone.
+With 21 skills — five (`writer-persona` reflecting the writer's (human's) soul, voice, and preferences, `premise` for ideation, `plot-design` for design, `fast-draft` for the first draft, `voice-ledger` for storing the voice), `steady-draft` for continuing the work, seven optional preparations, six for prose style · revision · the ledger, and two for delivery — the layer makes "design → draft → revision → delivery" hold up on writing skills alone.
 
 ## The core proposition
 
@@ -24,12 +24,13 @@ writer layer (permanent)   writer-persona ──→ the soul-story · voice · f
                            voice-ledger ──→ store the heard voice, read it back
 design layer (per work)    premise → plot-design ──→ the required design (the design document)
 execution layer            fast-draft ──→ rough prose (detect departure by introspection · deliver by the aesthetic of expression and restraint)
+                           steady-draft ──→ the next episode of an ongoing work (grounded in persona + design + ledger; write back to the ledger)
 ```
 
 ## Documentation
 
 - [Usage](docs/usage.md) — install and the call sequence, switching the output language
-- [The 20 skills](docs/skills.md) — the reference of what each skill does (input → output)
+- [The 21 skills](docs/skills.md) — the reference of what each skill does (input → output)
 - [実証](docs/実証.md) — the empirical evidence behind the design (Japanese)
 
 ## The writer's permanent state
@@ -44,7 +45,7 @@ execution layer            fast-draft ──→ rough prose (detect departure by
 
 ## Repository layout
 
-- `skills/{name}/SKILL.md` — the 20 skills (en canonical) + `SKILL-ja.md` / `SKILL-zh.md` per language
+- `skills/{name}/SKILL.md` — the 21 skills (en canonical) + `SKILL-ja.md` / `SKILL-zh.md` per language
 - `references/` — the operational principles (introspection · expression and restraint · voice-store, en canonical; `references/ja/`, `references/zh/` mirrors)
 - `docs/` — usage & the skill reference ([usage.md](docs/usage.md) / [skills.md](docs/skills.md)) plus anything generic (evidence · rationale · design notes)
 - `locales/` — display strings (`en` canonical, `ja` / `zh` mirror)

@@ -1,4 +1,4 @@
-# 20スキル
+# 21スキル
 
 各スキルが何をするか（入力 → 出力）のリファレンス。呼び方は [使い方](usage-ja.md) を参照。
 
@@ -10,6 +10,7 @@
 | `premise` | 発想（B問い・ground=persona＋ため庫） | 種＋persona＋ため庫 → `<work>/premise.md`（ログライン/核心の問い/テーマ/ジャンルの約束/文体の方向/読者像と約束） |
 | `plot-design` | 設計書（fast-draft の入力仕様）、約束＋声に照らして改訂（C問い・ground=premise＋persona）。連載では弧を章立て・話割りへ展開 | premise＋persona＋ため庫 → `<work>/design.md`（必須構想＋章立て・話割り＋任意下準備） |
 | `fast-draft` | 草稿（発露と抑制の美学＋内省ループ） | design＋persona＋ため庫 → `<work>/draft_*.md`＋計画更新＋ため庫への声 |
+| `steady-draft` | 進行中の作品の次話を書く／既存の一話を肉付け・膨らませる（persona＋構想＋台帳＋既存草稿を踏まえる） | persona＋構想＋台帳＋既存草稿 → `<work>/草稿/draft_XX-Y_話名.md`＋台帳更新＋ため庫への声 |
 | `voice-ledger` | 声を貯め、読み返す | 声（発想/設計/草稿/筆の乗り/禁じ手/評価の響き）→ `${SOUL_VOICE_HOME}/voice-ledger.md` |
 
 ## 任意下準備

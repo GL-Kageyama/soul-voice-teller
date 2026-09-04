@@ -4,7 +4,7 @@
 
 ## 项目定位
 
-这是**小说写作技能**的一层。由 20 个技能构成：五个（`writer-persona` 映照写作者（人）的灵魂、声音与偏好，`premise` 构思，`plot-design` 设计，`fast-draft` 草稿，`voice-ledger` 存声），加上七个可选预备（`narration-design` / `character-forge` / `character-in-action` / `character-bond` / `worldbuild` / `world-iceberg` / `research-verify`）、写作质量 · 改稿 · 长期技能（`prose` / `scene-writer` / `series-bible` / `revise-for-reader` / `entertainment` / `whole-work-review`），以及送达技能 `package`（把完成的作品包装给读者）与 `theme-song`（把它凝缩为一首主题曲）。
+这是**小说写作技能**的一层。由 21 个技能构成：五个（`writer-persona` 映照写作者（人）的灵魂、声音与偏好，`premise` 构思，`plot-design` 设计，`fast-draft` 初稿，`voice-ledger` 存声）、日常书写（下一话 · 充实 · 扩写）的 `steady-draft`，加上七个可选预备（`narration-design` / `character-forge` / `character-in-action` / `character-bond` / `worldbuild` / `world-iceberg` / `research-verify`）、写作质量 · 改稿 · 长期技能（`prose` / `scene-writer` / `series-bible` / `revise-for-reader` / `entertainment` / `whole-work-review`），以及送达技能 `package`（把完成的作品包装给读者）与 `theme-song`（把它凝缩为一首主题曲）。
 
 ## 核心主张（置于最前）
 
@@ -21,12 +21,13 @@
 构思层（每部作品）  premise → plot-design ──→ 必需的构思（设计书。对照约定＋声音来修订。连载作品展开为章立て・话割り）
                    预备（可选） narration-design / character-forge / character-in-action / character-bond / worldbuild / world-iceberg / research-verify
 执行层             fast-draft ──→ 粗稿（以内省察觉偏离并更新计划 · 以流露与克制的美学送达）
+                   steady-draft ──→ 进行中作品的下一话 · 充实（踏着 persona＋构想＋台账 · 写回台账）
                    写作质量 prose / scene-writer ／ 改稿 revise-for-reader / entertainment / whole-work-review ／ 长期 series-bible ／ 送达 package / theme-song
 ```
 
 贯穿三层的运作是**内省**（听见声音）。内省是「**对照**」——对照对象（ground）上的观察。
 
-## 内省的四个依据（对照对象）
+## 内省的五个依据（对照对象）
 
 | 问句层 | 依据（对照对象） |
 |---|---|
@@ -34,6 +35,7 @@
 | B 构思（premise） | **persona＋声音库**——声音 · 审美（HOW）对照，题材（WHAT）容许摇晃（拉得过近则每部作品相同） |
 | C 设计（plot-design） | **premise（约定 · 反应轴 · 核心问句）＋ persona（声音 · 审美 · 禁忌）**——把设计与约定、声音对照并修订 |
 | D 草稿循环（fast-draft） | **计划（场景表）**——把生成的文字与计划对照，判断是否有偏离 |
+| E 日常书写（steady-draft） | **persona＋构想＋台账＋既有草稿**——把下一话对照积累下来的记录，并把变动的写回去 |
 
 **没有依据（ground）的内省，不成其为观察。**每个问句都要标明依据；没有依据的问句不叫「内省」（[references/introspection.md](references/introspection.md)）。
 
@@ -52,7 +54,7 @@
 
 ## 目录约定
 
-- `skills/{name}/SKILL.md` —— 各技能的正典源（20 个）。均可独立调用。`SKILL-ja.md` / `SKILL-zh.md` 是各语言镜像
+- `skills/{name}/SKILL.md` —— 各技能的正典源（21 个）。均可独立调用。`SKILL-ja.md` / `SKILL-zh.md` 是各语言镜像
 - `.claude/skills/` —— 项目内发现的符号链接（`./install.sh --local`）
 - `~/.claude/skills/` —— 全局安装目标（`./install.sh`，从任何地方可调用）
 - `.claude-plugin/` —— 插件分发定义
@@ -66,10 +68,10 @@
 
 | 种类 | 例 | 所属层 |
 |---|---|---|
-| **写作内部判断**（写作的一部分） | 内省 · 偏离判定（深化/破坏）· 察觉文思 | **写作技能**（由 fast-draft / plot-design 承担） |
+| **写作内部判断**（写作的一部分） | 内省 · 偏离判定（深化/破坏）· 察觉文思 | **写作技能**（由 fast-draft / steady-draft / plot-design 承担） |
 | **外部评价**（对写就之物的判断） | 评议会 · 扬弃（否定/保存/更高化）· 改稿 | **评价层**（外部） |
 
-「不内建评价机制」是指「不内建**外部**评价机制」。偏离的**察觉**作为内省的一部分允许交给 fast-draft 与 plot-design。应移交的是偏离的**审视 · 扬弃**，而不是它的察觉。
+「不内建评价机制」是指「不内建**外部**评价机制」。偏离的**察觉**作为内省的一部分允许交给 fast-draft、steady-draft 与 plot-design。应移交的是偏离的**审视 · 扬弃**，而不是它的察觉。
 
 ## 语言（i18n）
 

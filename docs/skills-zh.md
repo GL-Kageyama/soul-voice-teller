@@ -1,4 +1,4 @@
-# 20 个技能
+# 21 个技能
 
 每个技能做什么（输入 → 输出）的参考。调用方式见 [用法](usage-zh.md)。
 
@@ -10,6 +10,7 @@
 | `premise` | 构思（B 问句 · 依据 = persona＋声音库） | 种子＋persona＋声音库 → `<作品>/premise.md`（一句话梗概 / 核心问句 / 主题 / 体裁的约定 / 文体的方向 / 读者形象与约定） |
 | `plot-design` | 设计书（fast-draft 的输入规格），对照约定＋声音来修订（C 问句 · 依据 = premise＋persona）。连载作品把弧展开为章立て・话割り | premise＋persona＋声音库 → `<作品>/design.md`（必需构思＋章立て・话割り＋可选预备） |
 | `fast-draft` | 草稿（流露与克制的美学＋内省循环） | 设计＋persona＋声音库 → `<作品>/draft_*.md`＋计划更新＋供声音库存的声音 |
+| `steady-draft` | 续写进行中的作品——写下一话，或充实、扩写既有的一话（踏着 persona＋构想＋台账＋既有草稿） | persona＋构想＋台账＋既有草稿 → `<作品>/草稿/draft_XX-Y_话名.md`＋台账更新＋供声音库存的声音 |
 | `voice-ledger` | 存声、回读 | 声音（构思 / 设计 / 草稿 / 文思 / 禁忌 / 评价的回响） → `${SOUL_VOICE_HOME}/voice-ledger.md` |
 
 ## 可选预备

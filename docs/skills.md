@@ -1,4 +1,4 @@
-# The 20 skills
+# The 21 skills
 
 The reference of what each skill does (input → output). See [Usage](usage.md) for how to call them.
 
@@ -10,6 +10,7 @@ The reference of what each skill does (input → output). See [Usage](usage.md) 
 | `premise` | ideation (B questions · ground = persona + store) | seed + persona + store → `<work>/premise.md` (logline / core question / theme / genre promise / direction of prose style / reader image & promise) |
 | `plot-design` | the design document (fast-draft's input specification), revised against the promise + voice (C questions · ground = premise + persona); for a serialized work, breaks the arc into chapters and episodes | premise + persona + store → `<work>/design.md` (required design + chapter/episode breakdown + optional preparation) |
 | `fast-draft` | the draft (the aesthetic of expression and restraint + the introspection loop) | design + persona + store → `<work>/draft_*.md` + plan update + voices for the store |
+| `steady-draft` | continue the ongoing work — write the next episode, or flesh out / expand an episode, grounded in persona + design + ledger + previous drafts | persona + design + ledger + previous drafts → `<work>/草稿/draft_XX-Y_話名.md` + ledger update + voices for the store |
 | `voice-ledger` | store the voice, read it back | the voice (ideation / design / draft / flow / forbidden moves / resonance of evaluation) → `${SOUL_VOICE_HOME}/voice-ledger.md` |
 
 ## Optional preparation

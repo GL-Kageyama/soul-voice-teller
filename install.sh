@@ -2,7 +2,7 @@
 #
 # soul-voice-teller installer
 #
-# Installs the 20 writing skills to Claude Code discovery locations so they are
+# Installs the 21 writing skills to Claude Code discovery locations so they are
 # available by name.
 #
 # Usage:
@@ -120,7 +120,8 @@ echo "    Callable as follows:"
 echo "      /writer-persona    # 書き手設定を引き出す（persona を作る）"
 echo "      /premise           # 発想（ログライン・テーマ・読者像と約束）"
 echo "      /plot-design       # 設計書（必須構想＋任意下準備）"
-echo "      /fast-draft        # 草稿（内省ループ＋発露と抑制の美学）"
+echo "      /fast-draft        # 草稿（内省ループ＋発露と抑制の美学）
+      /steady-draft      # 通常執筆（次話・肉付け・膨らませ：persona＋構想＋台帳を踏まえる）"
 echo "      /voice-ledger      # 声をためる・読み返す"
 echo ""
 echo "    下準備（任意）:"

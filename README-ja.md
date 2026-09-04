@@ -8,7 +8,7 @@
 
 **書くことは、魂を運ぶこと。** —— 小説執筆スキルのレイヤー。
 
-書き手（人間）の魂・声・嗜好を映す `writer-persona`、発想の `premise`、設計の `plot-design`、草稿の `fast-draft`、声を貯める `voice-ledger` の5スキルに、任意下準備7種と文体・改稿・台帳6種・届ける2種を加えた20スキルで、「構想 → 草稿 → 改稿 → 届ける」を執筆スキル単体で成立させる。
+書き手（人間）の魂・声・嗜好を映す `writer-persona`、発想の `premise`、設計の `plot-design`、草稿の `fast-draft`、声を貯める `voice-ledger` の5スキルに、続きを書く `steady-draft`、任意下準備7種と文体・改稿・台帳6種・届ける2種を加えた21スキルで、「構想 → 草稿 → 改稿 → 届ける」を執筆スキル単体で成立させる。
 
 ## 核心命題
 
@@ -24,12 +24,13 @@
                   voice-ledger ──→ 聞こえた声を貯め、読み返す
 構想層（作品ごと） premise → plot-design ──→ 必須構想（設計書）
 実行層            fast-draft ──→ ラフ散文（内省で逸脱を検出・発露と抑制の美学で届ける）
+                  steady-draft ──→ 進行中の作品の次話（persona＋構想＋台帳を踏まえる・台帳へ書き戻す）
 ```
 
 ## ドキュメント
 
 - [使い方](docs/usage-ja.md) — 導入方法とスキルの呼び出し順序、出力言語の切り替え
-- [20スキル](docs/skills-ja.md) — 各スキルが何をするか（入力 → 出力）のリファレンス
+- [21スキル](docs/skills-ja.md) — 各スキルが何をするか（入力 → 出力）のリファレンス
 - [実証](docs/実証.md) — 設計を支える実証の記録
 
 ## 書き手の永続状態
@@ -44,7 +45,7 @@
 
 ## リポジトリ構成
 
-- `skills/{name}/SKILL.md` — 20スキル（en 正典）＋各言語の `SKILL-ja.md` / `SKILL-zh.md`
+- `skills/{name}/SKILL.md` — 21スキル（en 正典）＋各言語の `SKILL-ja.md` / `SKILL-zh.md`
 - `references/` — 運用原理（内省・発露と抑制・ため庫、en 正典；`references/ja/`・`references/zh/` ミラー）
 - `docs/` — 使い方とスキル一覧（[usage-ja.md](docs/usage-ja.md) / [skills-ja.md](docs/skills-ja.md)）＋汎用的に何でも置ける場所（実証・根拠・設計メモなど）
 - `locales/` — 表示文字列（en 正典、`ja` / `zh` ミラー）
