@@ -64,6 +64,29 @@ REVIEW_ONLY = {"縁"}
 MIN_LINE_FOR_REUSE = 12
 BASE_PHRASE_CEIL = 12
 
+# ⚠ 段落化（第七段階 第五段）への備え——2026-09-26。
+#    この検査器は、これまで「行」を単位に数えていた。⚠ 一行一文の草稿では、行と文は同じものである。
+#    **しかし段落に組むと、一行が複数の文を持つ。**
+#    ⚠ 実測——`draft_01-03` と `draft_01-05` に在る ⛔（「上着の内側にポケットがある。」＋
+#      「ポケットに家の鍵がある。」）は、**その二文を一本に組むと ✅ 0件 になる。**
+#      **一字も変えていない。変わったのは、物差しの単位だけである。**
+#    ⚠ これは「空の検査は OK と言う」と同じ形である——**第十段の検査が ✅ を出しても、
+#      それは「直った」ではなく「見えなくなった」でありうる。**
+#    ゆえに単位を文へ戻す。**組む前の本文では、行の単位と文の単位が同じゆえ、数は動かない。**
+#    ⚠ 「」『』の内側で割らない——「はい。」を「「はい。」＋「」」に割ると、鉤括弧が壊れる。
+SENTENCE_END = re.compile(r"(?<=[。？！])(?![」』])")
+
+
+def sentence_units(lines):
+    """本文を文の単位で (行番号, 文) にして返す。⚠ 段落化の前後で数が動かないようにする。"""
+    out = []
+    for i, s in prose_lines(lines):
+        for part in SENTENCE_END.split(s):
+            part = part.strip()
+            if part:
+                out.append((i, part))
+    return out
+
 # ⚠ 手前——第四巻の義務である（habits-04/構想/design.md 決定9。
 #    読み（あ）＝「四つの手前は、巻が担う。話ごとに、その話に立ちうる通路の数だけ」——2026-09-25、著者裁定）。
 #    この巻は、四つの通路が閉じることを能動の形で書く——「その動作の手前で止まる」。
@@ -273,7 +296,7 @@ def build_index(paths):
     """
     idx = {}
     for p in paths:
-        for _, s in prose_lines(load_draft(p)):
+        for _, s in sentence_units(load_draft(p)):
             if len(s) < MIN_LINE_FOR_REUSE:
                 continue
             idx.setdefault(s, set()).add(p.name)
@@ -281,14 +304,14 @@ def build_index(paths):
 
 
 def find_reuse(target_path, other_paths, index):
-    """二話にしか現れない行の、2行以上の連なりを返す。"""
+    """二話にしか現れない文の、2文以上の連なりを返す。"""
     me = target_path.name
     found = []
     for other in other_paths:
         if other == target_path:
             continue
         run_start, run = None, []
-        for i, s in prose_lines(load_draft(other)):
+        for i, s in sentence_units(load_draft(other)):
             if len(s) >= MIN_LINE_FOR_REUSE and index.get(s) == {me, other.name}:
                 if run_start is None:
                     run_start = i
@@ -307,7 +330,7 @@ def find_reuse(target_path, other_paths, index):
 def count_base_phrases(target_path, other_paths):
     """短い行（基底語）が、同巻の他の話にも現れる数。再利用としては数えない。"""
     def short(path):
-        return {s for _, s in prose_lines(load_draft(path))
+        return {s for _, s in sentence_units(load_draft(path))
                 if 0 < len(s) < BASE_PHRASE_CEIL}
 
     target = short(target_path)
@@ -475,11 +498,11 @@ def report(path, volume_dir, groups, as_json):
             if reuse:
                 for name, start, run in reuse:
                     failed = True
-                    print(f"    ⛔ {name} の {start}行目から {len(run)}行が、完全に一致する")
+                    print(f"    ⛔ {name} の {start}行目から {len(run)}文が、完全に一致する")
             else:
-                print(f"    ✅ {MIN_LINE_FOR_REUSE}字以上の行の、2行以上の一致は 0件"
+                print(f"    ✅ {MIN_LINE_FOR_REUSE}字以上の文の、2文以上の一致は 0件"
                       f"（{len(others) - 1}ファイルと突き合わせ）")
-            print(f"    ⚠ {MIN_LINE_FOR_REUSE}字未満の行の一致——{base}件。"
+            print(f"    ⚠ {MIN_LINE_FOR_REUSE}字未満の文の一致——{base}件。"
                   f"基底語として数えている")
         print()
 
