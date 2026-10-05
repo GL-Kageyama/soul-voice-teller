@@ -109,7 +109,7 @@ japanese lyrics, warm female lead vocal, conversational delivery,
 Showa-style kayokyoku pop, singalong anthem,
 nylon-string acoustic guitar, ukulele, bright upright piano,
 upright bass, brushed snare, tambourine, handclaps, glockenspiel,
-brass section answering the chorus, big mixed chorus on the chorus,
+brass section answering the chorus, many voices on the chorus, never belted,
 104 bpm, 4/4, C major with an A-minor bridge,
 warm, nostalgic, funny and tender at once, communal, gently uplifting,
 spoken-word ending
@@ -118,7 +118,7 @@ spoken-word ending
 **Exclude Styles（入れない音）**
 
 ```
-EDM, drop, autotune, rap, heavy distortion, growl, scream, melisma,
+belting, EDM, drop, autotune, rap, heavy distortion, growl, scream, melisma,
 trap, orchestral epic, key change
 ```
 
@@ -127,7 +127,7 @@ trap, orchestral epic, key change
 ### なぜこの音か
 
 - **昭和歌謡の形を選んだ。** 会員は20代から70代まで、中心は50代（`[頁]`「20代の方から７０代の方まで幅広くご入会されています」／`[動]` 2周年「だいたい50代を中心60代の方とかも」「平均年齢が割と高め」）。歌謡曲の形は、この年代のほとんどが歌い方を知っている形式である。
-- **明るさは人数と編成で取る。** サビのホーン、手拍子、鐘、そして何より**大合唱**。キーを上げて明るくする（転調）はしない——この歌の約束は高揚ではなく**軽さ**だから（§註「裁定の記録」4）。
+- **明るさは人数と編成で取る。** サビのホーン、手拍子、鐘、そして何より**大合唱**。キーを上げて明るくする（転調）はしない——この歌の約束は高揚ではなく**軽さ**だから（§註「裁定の記録」4）。⚠️ **同じ理由で、サビも張り上げない**（`belting` を Exclude に入れた）。人数で大きくなるが、**声では大きくならない**——証言の語は「軽やかに全てをわりにしたい」`[動]` であり、**軽さは音量ではない**（§4）。
 - **ブリッジだけ A マイナー**。「憎んでいた人が いま隣で笑ってる」の4行は、歌の中で唯一影が差す場所。すぐ C に戻る。
 - **アウトロは喋り。** 歌で閉じない。この部屋の閉じ方は、歌ではなく「じゃね、バイバイ」という**声**である。
 
@@ -139,13 +139,13 @@ trap, orchestral epic, key change
 |---|---|---|
 | Verse | 女性ソロ | 語りに近い。張り上げない。中音域。息まじり。 |
 | Pre-Chorus | 女性ソロ | 小声。問いかけのまま終える。 |
-| **Chorus** | **男女混声の大合唱** | リードは女性だが、サビは**全員**。声が大きくなるのは人数と音域で、音量と叫びではない。 |
+| **Chorus** | **男女混声の大合唱** | リードは女性だが、サビは**全員**。声が大きくなるのは人数と音域で、音量と叫びではない（張り上げ禁止＝`belting`）。**フック「じゃね、バイバイ」も全員で言う**——ただし**この6モーラは、文太ママの声色を模さない**。証言にある「優しく」は**彼女の個人の声**であって、会員のものではない（§註「裁定の記録」9）。ここで守るのは優しさではなく**軽さ**である。 |
 | Bridge | 女性ソロ | 一段低く、静かに。ここだけ感情を許す。 |
 | Final Chorus | 混声の大合唱 | 最後の2行は声を落として、ほぼ語り。 |
 | Outro | 女性（囁き） | 歌わない。笑い声が混じってよい。**「じゃね、バイバイ」だけ。** |
 
 - **Vocal Gender: Female**（リード）。
-- ビブラートは控えめ。メリスマ（こぶし）は禁止——Exclude に入れてある。
+- ビブラートは控えめ。メリスマ（こぶし）と張り上げ（`belting`）は禁止——両方 Exclude に入れてある。
 - 男性会員は2割ぐらい（`[動]` 2周年「男性の方もね2割ぐらいかないらっしゃい」）。**サビを混声にするのは、その2割を含めるためである。** これは「誰の歌でもない」ではなく「全員の歌である」ことの指定。
 
 ---
@@ -349,6 +349,11 @@ becomes something she can laugh about.
 8. **Bridge で「レイキを送る」を歌うか——歌わない（裁定・現状維持）。**
    主宰の実際の教えは、嫌いな人に対して**「嫌いな人にもレイキ送りましょう」「合意を外す」**である（`[動]` レイキ体験回）。歌の Bridge はそこを歌わず、**「手を放しただけ」**という最も技の名を出さない言い方で止めた（教義の歌にしないため）。**この抑制を保つ。**
 
+9. **サビの「じゃね、バイバイ」の声——全員で言う。文太ママの声色は模さない（裁定）。**
+   証言は「じゃねバイバイという**ママさんの言葉声**を聞くとなぜかしら気持ちがほっと落ち着いたものです」`[動]`——**「優しく」は彼女の個人の声に属する。** 歌でこの6モーラを担うのは**会員全員**であり、そこへ彼女の優しさを移すと、§1 が避けた「本人の物まね」になる。ゆえに**サビの声は現状のまま**（男女混声の大合唱）。
+   ⚠️ **ただし張り上げない**——`belting` を Exclude に入れ、§3 のサビのタグも `many voices on the chorus, never belted` に直した。**守るのは優しさではなく軽さである。** 根拠は同じ証言の後半「そんな風に**軽やか**に全てをわりにしたい」——これは**会員自身の願い**であって、彼女の声色ではない。
+   **この2つは別の軸である**：優しさ＝**個人の質**（模さない）／軽さ＝**この歌の設計**（守る）。
+
 ### 未確認の一覧
 
 - 字幕は自動生成で誤変換を含む。**歌詞に採った語は [頁] で表記を確認したものに限る。** それ以外の引用（§註「出所」「情景」）は字幕の文字列そのままで、誤変換の可能性を残す。
@@ -369,8 +374,8 @@ becomes something she can laugh about.
 |---|---|---|
 | **Lyrics** | §2 の歌詞だけ。**構造タグ（`[Verse 1]` 等）は残す。情景のト書きは入れない** | ⚠️ Suno は括弧の中をバッキング・ボーカルとして歌う（odyssey 2026-09-29 の調査） |
 | **Style of Music** | §3 の英語ブロックをそのまま | §4 の日本語（段落ごとの声の指示）は Suno は読まない |
-| **Exclude Styles** | §3 の一行（`EDM, drop, autotune, rap, heavy distortion, growl, scream, melisma, trap, orchestral epic, key change`） | [More Options] の最上段、音符に斜線のアイコン。**空にすると `Exclude styles` のプレースホルダが出る**（2026-09-30 実測）。⚠️ 「custom モードでのみ効く」「上限500字」は姉妹ファイルの記述で、**この工房では未確認** |
-| **Vocal Gender** | **Female** | §4（リードは女性）。⚠️ サビの混声は Female のまま、**Style 欄の `big mixed chorus on the chorus` と人数で作る**——Male にすると、この歌の「全員の歌である」が崩れる |
+| **Exclude Styles** | §3 の一行（`belting, EDM, drop, autotune, rap, heavy distortion, growl, scream, melisma, trap, orchestral epic, key change`） | [More Options] の最上段、音符に斜線のアイコン。**空にすると `Exclude styles` のプレースホルダが出る**（2026-09-30 実測）。⚠️ 「custom モードでのみ効く」「上限500字」は姉妹ファイルの記述で、**この工房では未確認** |
+| **Vocal Gender** | **Female** | §4（リードは女性）。⚠️ サビの混声は Female のまま、**Style 欄の `many voices on the chorus` と人数で作る**——Male にすると、この歌の「全員の歌である」が崩れる |
 | **Duration** | **Custom / 240秒（4:00）** | **著者裁定（2026-10-06、§註「裁定の記録」6）**。下の概算を参照。⚠️ Auto は指定を満たせない |
 | **Max Mode** | **On を推す** | 下の註。⚠️ **裁定ではない**——この一枚の読み |
 | **Weirdness** | 低め（1〜2割） | この歌の賭けは**軽さ**であって、予測不能性ではない。昭和歌謡の形から外れる音は要らない |
@@ -386,7 +391,7 @@ becomes something she can laugh about.
 
 **⚠️ Lyrics 欄に丸括弧を入れない。** §2 の歌詞欄には**括弧が一行も無い**（実測0箇所）。情景は欄の外のト書きである。⚠️ **Suno は括弧の中をバッキング・ボーカルとして歌う**——入れると、情景が声になる。**注記も、括弧に入れて Lyrics 欄へ戻さない。**
 
-**生成後に見る3点**: ① サビが本当に**合唱**になっているか ② [Outro] が**歌ではなく喋り**になっているか ③ 括弧が歌われていないか。
+**生成後に見る4点**: ① サビが本当に**合唱**になっているか ② [Outro] が**歌ではなく喋り**になっているか ③ 括弧が歌われていないか ④ **サビが張り上げ（`belting`）になっていないか**——人数で大きくなり、声では大きくなっていないか（§註「裁定の記録」9）。
 
 ### 実在の人物・団体について
 
