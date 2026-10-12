@@ -22,7 +22,8 @@
 ⚠ 同じファイルに何件も当てるときも、**行番号はすべて「当てる前」のものでよい。**
 
 確かめること（当てる前）——① ファイルがある、② 行がある、③ その行が、いま空行でない
-本文行である、④ 見出し行を狙っていない、⑤ 同じ行を二度狙っていない、
+本文行である、④ 見出し行を狙っていない（**⚠ 場面の区切り `＊` も狙わない**）、
+⑤ 同じ行を二度狙っていない、
 ⑥ 繋ぐ先がある（直前の非空行が、見出しでない本文行である）、
 ⑦ **⚠ 直上が二重空行でない**——**⚠ それは著者の置いた余白である。跨ぐと消える。**
 ⑧ **⚠ 会話（鉤括弧）を組まない**——**⚠ 会話の行は文が一つゆえ、文の数の検査では捕まらない。**
@@ -51,11 +52,21 @@
 """
 
 import argparse
+import re
 import sys
 from collections import defaultdict
 from pathlib import Path
 
 WHERE = ("組む", "切る", "組まない")
+
+# ⚠ 場面を切る印は、いま `＊`（全角のアスタリスク）だけの行である——著者裁定 2026-10-13。
+#   **区切りである。一話に二つ。** 節と節のあいだに置かれるゆえ、**最初の区切りより前が
+#   第1節である**。**名を持たない**——節番号は順に振る。
+#   ⚠ 控え（`研ぎ/段落化の控え/`）は、まだ `## N` の**札**である（**前に置かれ、名を持つ**）。
+#   ゆえに両方を受ける。
+#   ⚠⚠ **この行は、本文行ではない**——**組む側にも、組まれる側にも立てない。**
+HEAD_RE = re.compile(r"^##\s*(\d+)\s*$")
+RULE_RE = re.compile(r"^＊$")
 
 
 def read_ledger(path: Path) -> list[tuple[Path, int, str]]:
@@ -86,8 +97,9 @@ def read_ledger(path: Path) -> list[tuple[Path, int, str]]:
 
 
 def is_body(line: str) -> bool:
-    """本文行——空行でなく、見出しでない。"""
-    return bool(line.strip()) and not line.lstrip().startswith("#")
+    """本文行——空行でなく、見出しでなく、**場面の区切り（`＊`）でもない**。"""
+    s = line.strip()
+    return bool(s) and not s.startswith("#") and not RULE_RE.match(s)
 
 
 def bun(p: str) -> int:
@@ -316,16 +328,27 @@ def main() -> int:
         #    ⚠ ゆえに、数を出すだけにする。**比べる相手を、器が差し出さない。**
         # ⚠ 文の数え方は、上の `bun` に一本化した（2026-09-26。**二箇所に書くと、片方だけ直る**）。
 
-        sec, buf, rows = None, [], []
+        # ⚠ 区切りは `＊` であり、**節と節のあいだ**に在る——**ゆえに、最初の区切りの前が
+        #    第1節である。** 見出しを待つ形にすると、**第1節が丸ごと落ちる**（2026-10-13に直した）。
+        #    控えは `## N` の札ゆえ、両方を受ける。
+        labelled = any(HEAD_RE.match(l.strip()) for l in out)
+        rows, buf = [], []
+        num = 0 if labelled else 1
         for line in out:
-            if line.lstrip().startswith("## "):
-                if sec:
-                    rows.append((sec, buf))
-                sec, buf = line.strip(), []
+            s = line.strip()
+            m = HEAD_RE.match(s)
+            if m:
+                if buf:
+                    rows.append((f"第{num}節", buf))
+                num, buf = int(m.group(1)), []
+            elif RULE_RE.match(s):
+                if buf:
+                    rows.append((f"第{num}節", buf))
+                num, buf = num + 1, []
             elif is_body(line):
                 buf.append(line)
-        if sec:
-            rows.append((sec, buf))
+        if buf:
+            rows.append((f"第{num}節", buf))
 
         print("   場面ごと——文/段落（⚠ 比べる相手は無い。§8-3——場面ごとに読んで決める）")
         for sec, ps in rows:

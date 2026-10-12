@@ -29,11 +29,17 @@
 """
 
 import argparse
+import re
 import sys
 from collections import defaultdict
 from pathlib import Path
 
 WHERE = ("前", "後")
+
+# ⚠ 場面の区切りは、いま `＊`（全角のアスタリスク）だけの行である——著者裁定 2026-10-13。
+#   **本文行ではない**（字数にも、文の数にも入らない）。**ゆえに狙えない**——
+#   見出し行と同じに扱う（下の検査を見よ）。
+RULE_RE = re.compile(r"^＊$")
 
 
 def read_ledger(path: Path) -> list[tuple[Path, int, str, str, str]]:
@@ -96,8 +102,9 @@ def main() -> int:
             if "\n" in new or "\n" in old:
                 bad.append(f"{f.name}:{n}——文に改行が入っている")
                 continue
-            if lines[n - 1].lstrip().startswith("#"):
-                bad.append(f"{f.name}:{n}——見出し行を狙っている: {lines[n - 1]}")
+            # ⚠ 見出し行も、**場面の区切り（`＊`）も、本文行でない**——ゆえに狙えない（2026-10-13）。
+            if lines[n - 1].lstrip().startswith("#") or RULE_RE.match(lines[n - 1].strip()):
+                bad.append(f"{f.name}:{n}——本文行でない行を狙っている: {lines[n - 1]}")
                 continue
             # 「後」に足すとき、次の行が空行でなければ、文が接ぎ木される。
             if where == "後":

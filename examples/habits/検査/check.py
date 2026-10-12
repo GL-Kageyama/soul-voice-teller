@@ -179,7 +179,17 @@ def load_kinzoku():
 # ---------------------------------------------------------------- 草稿の読み込み
 
 TITLE_RE = re.compile(r"^#\s+第\d+話")
-SCENE_RE = re.compile(r"^##\s+(\d+)\s*$")
+
+# ⚠ 場面の区切りは、`＊`（全角のアスタリスク）一つだけの行である——2026-10-13、著者裁定。
+#    それまでは `## 1/2/3` の見出しであったが、**本文のなかの `##` が、AI の作った文書に見える**ゆえ、
+#    記号だけの行に替えた。**⚠ 番号を持たない**——節の番号は、現れた順に振る（scenes を見よ）。
+#    ⚠ ゆえにこの行は、**見出しではなく、本文でもない**。字数にも、文の数にも入らない。
+#
+# ⚠⚠ **一話に二つである**——2026-10-13の訂正。もとの `## 1/2/3` は**場面の前に置く札**であり、
+#    三つの場面を指すために三つあった。**区切りは前に置かない。節と節のあいだに置く。**
+#    ゆえに一話に二つ（三つの節の、あいだ）であり、**題の直下に区切りは来ない。**
+#    ⚠ 最初の区切りより前の本文が、**第1節である**（scenes を見よ）。
+SCENE_RE = re.compile(r"^＊$")
 
 
 def load_draft(path):
@@ -192,7 +202,7 @@ def load_draft(path):
 
 
 def prose_lines(lines):
-    """本文の行だけを (行番号, 文) で返す。題名行・見出し・空行を除く。"""
+    """本文の行だけを (行番号, 文) で返す。題名行・場面の区切り（`＊`）・空行を除く。"""
     out = []
     for i, line in enumerate(lines, start=1):
         s = line.strip()
@@ -207,7 +217,7 @@ def prose_lines(lines):
 
 
 def count_chars(lines):
-    """非空白文字を数える。題名行・空行・`## N` 見出しを除く（進捗表 §5 と同じ数え方）。"""
+    """非空白文字を数える。題名行・空行・場面の区切り（`＊`）を除く（進捗表 §5 と同じ数え方）。"""
     total = 0
     for _, s in prose_lines(lines):
         for ch in s:
@@ -217,17 +227,21 @@ def count_chars(lines):
 
 
 def scenes(lines):
-    """[(節番号, [行番号...])] を返す。節が無ければ []。"""
-    result, current = [], None
+    """[(節番号, [行番号...])] を返す。節が無ければ []。
+
+    ⚠ 区切りは番号を持たないゆえ、**節番号は、区切りが現れた順に振る**（2026-10-13）。
+    ⚠ 区切りは**節と節のあいだ**に在るゆえ、**最初の区切りより前が、第1節である**——
+      ゆえに、区切りの数より節の数が一つ多い（二つで三節）。空の節は返さない。
+    """
+    result = [[1, []]]
     for i, line in enumerate(lines, start=1):
-        m = SCENE_RE.match(line.strip())
-        if m:
-            current = (int(m.group(1)), [])
-            result.append(current)
+        s = line.strip()
+        if SCENE_RE.match(s):
+            result.append([len(result) + 1, []])
             continue
-        if current is not None and line.strip() and not line.strip().startswith("#"):
-            current[1].append(i)
-    return result
+        if s and not s.startswith("#"):
+            result[-1][1].append(i)
+    return [(num, nums) for num, nums in result if nums]
 
 
 # ---------------------------------------------------------------- 検査
@@ -248,9 +262,11 @@ def check_format(lines):
     if not any(TITLE_RE.match(l.strip()) for l in lines):
         problems.append("題名行（`# 第N話「…」`）が無い")
 
-    nums = [int(m.group(1)) for l in lines if (m := SCENE_RE.match(l.strip()))]
-    if nums != [1, 2, 3]:
-        problems.append(f"節の見出しが `## 1/2/3` でない: {nums}")
+    # ⚠ 区切りは `＊` だけの行であり、番号を持たない。ゆえに、数で見る（2026-10-13）。
+    # ⚠⚠ **二つである**——三つの節の、あいだ。**題の直下に一つ置くのは誤りである。**
+    cuts = [l for l in lines if SCENE_RE.match(l.strip())]
+    if len(cuts) != 2:
+        problems.append(f"場面の区切り（`＊`）が、二つでない: {len(cuts)}個")
 
     prose = prose_lines(lines)
     if not prose:
@@ -366,7 +382,7 @@ def report(path, volume_dir, groups, as_json):
         for p in problems:
             print(f"    ⛔ {p}")
     else:
-        print("    ✅ 題名行・`## 1/2/3`・行ごとの空行——すべて在る")
+        print("    ✅ 題名行・場面の区切り（`＊` 二個）・行ごとの空行——すべて在る")
     print()
 
     # 字数

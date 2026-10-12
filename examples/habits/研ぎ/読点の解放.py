@@ -19,8 +19,13 @@
 """
 
 import argparse
+import re
 import sys
 from pathlib import Path
+
+# ⚠ 場面の区切りは、いま `＊`（全角のアスタリスク）だけの行である——著者裁定 2026-10-13。
+#   **本文行ではない**——ゆえに、この器は**触らない**（読点を解放する相手ではない）。
+RULE_RE = re.compile(r"^＊$")
 
 # 読点の直前がこの語尾で終わっていれば、残す（従属節・形式名詞・並列の印）
 PROTECT_TAIL = [
@@ -88,7 +93,9 @@ def release(line: str) -> str:
 def process(path: Path, write: bool) -> str:
     src = path.read_text(encoding="utf-8")
     new = "".join(
-        ln if (not ln.strip() or ln.lstrip().startswith("#")) else release(ln)
+        ln
+        if (not ln.strip() or ln.lstrip().startswith("#") or RULE_RE.match(ln.strip()))
+        else release(ln)
         for ln in src.splitlines(keepends=True)
     )
     if write:

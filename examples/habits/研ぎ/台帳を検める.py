@@ -31,6 +31,10 @@ import re
 import sys
 from pathlib import Path
 
+# ⚠ 場面の区切りは、いま `＊`（全角のアスタリスク）だけの行である——著者裁定 2026-10-13。
+#   **本文行ではない**（prose_lines を見よ）。
+RULE_RE = re.compile(r"^＊$")
+
 HERE = Path(__file__).resolve().parent          # examples/habits/研ぎ
 HABITS = HERE.parent                            # examples/habits
 EXAMPLES = HABITS.parent                        # examples
@@ -71,10 +75,15 @@ def body_lines(path: Path) -> list[str]:
 
 
 def prose_lines(path: Path) -> list[str]:
+    """本文行だけ。空行・見出し・**場面の区切り（`＊`）**を除く。
+
+    ⚠ 区切りは `＊` だけの行である——著者裁定 2026-10-13。**本文行ではない**——
+      数えると、この一文字が全話に現れる「文」として逐語の索引に載る。
+    """
     out = []
     for l in body_lines(path):
         s = l.strip()
-        if s and not s.startswith("#"):
+        if s and not s.startswith("#") and not RULE_RE.match(s):
             out.append(s)
     return out
 

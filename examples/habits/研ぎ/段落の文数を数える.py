@@ -17,8 +17,8 @@
 
 **数え方**
 
-- **本文行**——空行でなく、見出し（`#` で始まる）でもない行。**⚠ 組んだあとの草稿では、
-  複数文を含む行がある**（**ゆえに、本文行数と文の総数は一致しない**）。
+- **本文行**——空行でなく、見出し（`#` で始まる）でもなく、**場面の区切り（`＊`）でもない**行。
+  **⚠ 組んだあとの草稿では、複数文を含む行がある**（**ゆえに、本文行数と文の総数は一致しない**）。
 - **段落**——空行で切った、本文行のかたまり。
 - **文**——段落のなかの `。？！` の数。**⚠ 鉤括弧のなかも数える**（**会話は一文である**）。
   **⚠ `——` で始まる一声の行も、末尾に句点があれば一文である。**
@@ -30,9 +30,18 @@
 from __future__ import annotations
 
 import argparse
+import re
 import statistics
 import sys
 from pathlib import Path
+
+# ⚠ 場面を切る印は、いま `＊`（全角のアスタリスク）だけの行である——著者裁定 2026-10-13。
+#   **区切りである。一話に二つ。** 節と節のあいだに置かれるゆえ、**最初の区切りより前が
+#   第1節である**。**名を持たない**——節番号は順に振る。
+#   ⚠ 控え（`研ぎ/段落化の控え/`）は、まだ `## N` の**札**である（**前に置かれ、名を持つ**）。
+#   ゆえに両方を受ける。
+HEAD_RE = re.compile(r"^##\s*(\d+)\s*$")
+RULE_RE = re.compile(r"^＊$")
 
 # 段落の文数の目安。**⚠ 規則ではなく、この作品の勾配である**（計画 §8-3 と同じ扱い）。
 #
@@ -54,22 +63,21 @@ def is_body(line: str) -> bool:
     return bool(s) and not s.startswith("#")
 
 
-def is_scene(line: str) -> str | None:
-    s = line.strip()
-    if s.startswith("## "):
-        return s
-    return None
-
-
 def bun(text: str) -> int:
     """⚠ 句点の数で数える。**⚠ 読点は数えない**（指示書 §1——判定は字数ではない）。"""
     return sum(text.count(c) for c in "。？！")
 
 
 def read_paragraphs(path: Path) -> tuple[list[tuple[str, list[str]]], int]:
-    """草稿を、場面ごとの段落へ割る。返り値は ([(場面名, [段落, ...]), ...], 本文行数)。"""
+    """草稿を、節ごとの段落へ割る。返り値は ([(節名, [段落, ...]), ...], 本文行数)。
+
+    ⚠ 二つの形を受ける（HEAD_RE を見よ）——**控えは札（`## N`）、いまは区切り（`＊`）。**
+    """
+    lines = path.read_text(encoding="utf-8").splitlines()
+    labelled = any(HEAD_RE.match(l.strip()) for l in lines)
+
     scenes: list[tuple[str, list[str]]] = []
-    cur_scene = "(見出しの前)"
+    cur_name: str | None = None if labelled else "第1節"
     cur_par: list[str] = []
     scene_pars: list[str] = []
     body_lines = 0
@@ -81,21 +89,26 @@ def read_paragraphs(path: Path) -> tuple[list[tuple[str, list[str]]], int]:
             cur_par = []
 
     def flush_scene() -> None:
-        nonlocal scene_pars, cur_scene
+        nonlocal scene_pars
         flush_par()
-        if scene_pars:
-            scenes.append((cur_scene, scene_pars))
-            scene_pars = []
+        if scene_pars and cur_name is not None:
+            scenes.append((cur_name, scene_pars))
+        scene_pars = []
 
-    for raw in path.read_text(encoding="utf-8").splitlines():
-        head = is_scene(raw)
-        if head is not None:
+    for raw in lines:
+        s = raw.strip()
+        m = HEAD_RE.match(s)
+        if m:
             flush_scene()
-            cur_scene = head
+            cur_name = f"第{m.group(1)}節"
+            continue
+        if RULE_RE.match(s):
+            flush_scene()
+            cur_name = f"第{len(scenes) + 1}節"
             continue
         if is_body(raw):
             body_lines += 1
-            cur_par.append(raw.strip())
+            cur_par.append(s)
         else:
             flush_par()
     flush_scene()

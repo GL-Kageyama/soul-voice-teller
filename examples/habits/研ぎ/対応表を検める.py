@@ -22,6 +22,7 @@
 """
 
 import argparse
+import re
 import sys
 from collections import defaultdict
 from pathlib import Path
@@ -29,9 +30,16 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 BACKUP = HERE / "段落化の控え"
 
+# ⚠ 場面の区切りは、いま `＊`（全角のアスタリスク）だけの行である——著者裁定 2026-10-13。
+#   ⚠⚠ **これを本文行と数えると、この器は壊れる**——「新の集合」に区切り行が混じり、
+#   **対応表のすべてが「余り」で落ちる**（2026-10-13に気づいて直した）。
+#   ⚠ 古い制御文字 `---` も同じく本文行でない。
+RULE_RE = re.compile(r"^＊$")
+
 
 def is_body(line: str) -> bool:
-    return bool(line.strip()) and not line.lstrip().startswith("#")
+    s = line.strip()
+    return bool(s) and not s.startswith("#") and not RULE_RE.match(s) and s != "---"
 
 
 def main() -> int:

@@ -20,12 +20,21 @@
 import argparse
 import glob
 import pathlib
+import re
 import sys
 
 HERE = pathlib.Path(__file__).resolve().parent
 BACKUP = HERE / "段落化の控え"
 SENT = "。？！?"
 VOLS = [("01", "第一巻"), ("02", "第二巻"), ("03", "第三巻"), ("04", "第四巻")]
+
+# ⚠ 場面を切る印は、いま二つの形がある——**著者裁定 2026-10-13**。
+#   * いまの草稿——`＊`（全角のアスタリスク）だけの行。**区切りである。一話に二つ。**
+#     節と節のあいだに置かれるゆえ、**最初の区切りより前が第1節である。名を持たない。**
+#   * 控え（`段落化の控え/`）——`## N` の見出し。**札である。場面の前に置かれる。名を持つ。**
+#   ゆえに、この器は**両方を受ける**（節は、名ではなく順で突き合わせる）。
+HEAD_RE = re.compile(r"^##\s*(\d+)\s*$")
+RULE_RE = re.compile(r"^＊$")
 
 
 def kuten(p: str) -> int:
@@ -37,23 +46,47 @@ def bun(p: str) -> int:
 
 
 def scene_finals(text: str):
-    """[(場面名, 最後の本文行), ...]。見出し `## N` で切り、空行と見出しを飛ばす。"""
-    out, cur, last = [], None, None
-    for ln in text.split("\n"):
+    """[(節番号, 最後の本文行), ...]。空行と見出しと区切りを飛ばす。
+
+    ⚠ 二つの形を受ける（HEAD_RE を見よ）——**控えは札（`## N`）、いまは区切り（`＊`）。**
+    """
+    lines = text.split("\n")
+
+    if any(HEAD_RE.match(l.strip()) for l in lines):
+        # 控えの形——`## N` の札。名は N、本文は札の**あと**。
+        out, cur, last = [], None, None
+        for ln in lines:
+            s = ln.strip()
+            m = HEAD_RE.match(s)
+            if m:
+                if cur is not None:
+                    out.append((cur, last))
+                cur, last = m.group(1), None
+                continue
+            if not s or s.startswith("#") or s == "---":
+                continue
+            if cur is None:
+                continue
+            last = s
+        if cur is not None:
+            out.append((cur, last))
+        return [(n, t) for n, t in out if t]
+
+    # いまの形——`＊` の区切り。名は順（1 から）、本文は区切りの**あいだ**。
+    out, num, last = [], 1, None
+    for ln in lines:
         s = ln.strip()
-        if s.startswith("## "):
-            if cur is not None:
-                out.append((cur, last))
-            cur, last = s[3:].strip(), None
+        if RULE_RE.match(s):
+            if last:
+                out.append((str(num), last))
+            num, last = num + 1, None
             continue
         if not s or s.startswith("#") or s == "---":
             continue
-        if cur is None:
-            continue
         last = s
-    if cur is not None:
-        out.append((cur, last))
-    return [(n, t) for n, t in out if t]
+    if last:
+        out.append((str(num), last))
+    return out
 
 
 def main() -> int:
