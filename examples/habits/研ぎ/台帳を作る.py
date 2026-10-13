@@ -14,10 +14,19 @@
 ⚠ **合流の鍵は「話＋場面」である。** ⚠ 巻では合流しない——**話の名は、巻をまたいで重ならない**
    （`01-01` … `04-18`）ゆえ、話だけで足りる。だが**場面の数は巻で違う**ゆえ、場面で引く。
 
+⚠ **入口の四欄（`入口の判定`・`①設計の字を持つ`・`②第一段落の割合`・`最良の段落`）は、
+   場面1にしか無い。** 場面2以降には **`—`** を書く——**空欄にはしない。**
+   **「空欄が無いこと」を、機械で数えられる形にするためである**（空ファイルは内容でない）。
+
+⚠ **`--keep` を付けずに走らせると、人が埋めた七欄は消える。**
+   **この器は、機械の欄しか作らない**（§ 冒頭）。**人が埋めた欄を持ったまま
+   機械の欄だけを更新したいときは、必ず `--keep 娯楽台帳.tsv` を付ける。**
+
 使い方:
-    python3 台帳を作る.py                    # 標準出力へ
+    python3 台帳を作る.py                    # 標準出力へ（読者の欄は空）
     python3 台帳を作る.py > 娯楽台帳.tsv
     python3 台帳を作る.py --summary          # 合流の検算だけを出す
+    python3 台帳を作る.py --keep 娯楽台帳.tsv # ⚠ 読者の欄を、既存の台帳から引き継ぐ
 """
 
 import argparse
@@ -47,7 +56,25 @@ READER = ["実現した軸", "三種", "掴んでいるか", "器（与えた／
 def main() -> int:
     ap = argparse.ArgumentParser(description="娯楽台帳の、機械で埋まる欄を合流させる")
     ap.add_argument("--summary", action="store_true", help="合流の検算だけを出す")
+    ap.add_argument("--keep", metavar="FILE",
+                    help="既存の台帳。読者の欄を (話,場面) で引き継ぐ")
     a = ap.parse_args()
+
+    # ---------------------------------------------------------- 0. 読者の欄を引き継ぐ
+    kept, keep_note = {}, ""
+    if a.keep:
+        old = [ln.split("\t") for ln in
+               Path(a.keep).read_text(encoding="utf-8").split("\n") if ln.strip()]
+        oh = old[0]
+        if oh[:len(MACHINE)] != MACHINE:
+            sys.exit(f"⛔ 引く台帳の機械の欄が、この器の並びと違う——{a.keep}")
+        idx = {c: oh.index(c) for c in READER}
+        # ⚠ 話＋場面で引く。⚠ 話の名は巻をまたいで重ならない
+        for r in old[1:]:
+            kept[(r[0], r[1])] = [r[idx[c]] if idx[c] < len(r) else "" for c in READER]
+        filled = sum(1 for v in kept.values() if any(x.strip() for x in v))
+        keep_note = (f"\n⚠ 引き継いだ読者の欄——{filled} 行（{a.keep}）。"
+                     f"空のままの行が {len(kept) - filled} 行ある。")
 
     ent = load("娯楽を数える.py", "ent")
     ax = load("軸を数える.py", "ax")
@@ -126,11 +153,12 @@ def main() -> int:
             en = entrance.get(s["話"])
             if en is None:
                 gaps["入口"] += 1
-            s.update(en or {c: "" for c in ("入口の判定", "①設計の字を持つ",
-                                            "②第一段落の割合", "最良の段落")})
+            s.update(en or {c: "—" for c in ("入口の判定", "①設計の字を持つ",
+                                             "②第一段落の割合", "最良の段落")})
         else:
+            # ⚠ 入口の四欄は、場面1にしか無い。**空欄にしない——`—` を書く。**
             for c in ("入口の判定", "①設計の字を持つ", "②第一段落の割合", "最良の段落"):
-                s[c] = ""
+                s[c] = "—"
         s["章末の形"] = chapters.get(s["話"], {}).get("章末の形", "")
 
     if a.summary:
@@ -148,9 +176,11 @@ def main() -> int:
         for c in MACHINE:
             v = str(s.get(c, ""))
             out.append(v.replace("\t", " ").replace("\n", " "))
-        out += ["" for _ in READER]
+        out += kept.get((s["話"], s["場面"]), ["" for _ in READER])
         print("\t".join(out))
 
+    if keep_note:
+        print(keep_note, file=sys.stderr)
     print(f"⚠ 合流しなかった——軸 {gaps['軸']} 場面／入口 {gaps['入口']} 話", file=sys.stderr)
     return 0
 
