@@ -16,7 +16,8 @@
 5. **禁則語**——`検査/check.py` と同じ語群（`../README.md` の「## 禁則」から読む）。
 6. **色語と匂いの語**——案が新しく持ち込んでいるか（いまの文が持っていなければ、新しい）。
    ⚠ **第四巻にだけ掛ける**（`CLOSED_VOLUMES` を見よ）。
-7. **閉じた形**——「答えない」「その、ままである」を、案が使っていないか。
+7. **閉じた形**——「〜は、答えない。」「その、ままである。」（**この巻の話末を閉じていた型**）を、
+   案が使っていないか。⚠ **「ままである」一般ではない**（`CLOSED_SHAPES` の註を見よ）。
    ⚠ **第四巻にだけ掛ける**（同上）。
 8. **同じ話の中の近さ**——その話の既存の行と、語の重なりが大きすぎないか（⚠）。
 
@@ -43,7 +44,23 @@ EXAMPLES = HABITS.parent                        # examples
 
 COLOR = re.compile(r"[青緑黄茶灰銀紫桃橙]")
 SMELL = re.compile(r"匂|におい|臭|香|嗅")
-CLOSED_SHAPES = re.compile(r"答えない|ままである")
+
+# ⚠ **閉じた形は、「ままである」一般ではない。**
+#   出典は `第七段階_第三段_prose_指示書.md` §4-4——「**第四巻では、「〜は、答えない。」
+#   「その、ままである。」を使わない**（同 §12〜§14）」。**指されているのは、
+#   この巻の話末を閉じていた「型」そのものである**——`第四巻_七軸_裁定材料.md` §1-3 が
+#   実測している（「話末を閉じるのは「〜、ままである。」が 17/18 話」「**「その、ままである。」は
+#   37件あり、うち十五件が第三節末**」）。**§12〜§14 は、その三十七件を当てた記録である。**
+#
+#   ⚠ **実測（2026-10-14）——第四巻の本文に「ままである」を持つ行は 110 行ある。**
+#      **そのすべてが「触ったままである」「止まったままである」「空いたままである」
+#      「置かれたままである」の形であり、読点つきの「その、ままである。」は 0 件である。**
+#      **ゆえに「ままである」を広く禁じれば、この器は、設計が正しいとしている用法を ⛔ と呼ぶ。**
+#      **実害が出た**——2026-10-14、この規則を広く読んだ私は、娯楽の段の案のうち三件
+#      （`04-02:227`「指が一本、浮いたままである。」・`04-06:51`「機械の穴が、暗いままである。」・
+#      `04-15:89`「椅子の座面が、平らなままである。」）を「〜である／〜ている」へ書き換えて当てた。
+#      **規則の要求ではなかった。戻した**（`娯楽_届いた_当てた.md` §5）。**「対比は両側を測る」の実例。**
+CLOSED_SHAPES = re.compile(r"答えない|その、?ままである")
 MIN_LEN = 12
 NEAR = 0.5
 ONE_SENTENCE_VOLUMES = {"01", "03", "04"}       # 一行一文が本体の巻（註を出すためだけに使う）
@@ -86,6 +103,36 @@ def draft_path(vol: str, ep: str) -> Path:
 def body_lines(path: Path) -> list[str]:
     """行番号つきの本文。空行も見出しも、番号を食う（台帳と同じ物差し）。"""
     return path.read_text(encoding="utf-8").splitlines()
+
+
+def ends_of(path: Path) -> tuple[set[int], int | None]:
+    """**場面末の行番号の集合**と、**章末の行番号**を返す。
+
+    ⚠ **なぜ器が、これを出すか。** 娯楽の段の案は「その行へ一句足す」形である。
+        **足した一句が、場面の結びの一打のうしろに来れば、その一打は結びでなくなる。**
+        **章末も同じである**（`whole-work-review`——「反復句が変化しなくなったら、それはループである」）。
+        ⚠ **これは ⛔ ではない。** **意図してやることもある**（結びへ具体を一つ置く）。
+        **だが、意図したかどうかは、人が読まねば分からない。**
+        **ゆえに、器は「ここは場面末である」とだけ言う**（2026-10-14、第三巻で
+        `03-07:363`「歩数はまだ足りない。」のうしろへ「名簿が、少しだけ開いている。」が
+        入り、`:309`「閉じたままである。」と食い違った。**あれは、器が黙っていたから起きた**）。
+    """
+    ls = body_lines(path)
+    scenes: set[int] = set()
+    last = None
+    for i, l in enumerate(ls, 1):
+        s = l.strip()
+        if not s or s.startswith("#"):
+            continue
+        if RULE_RE.match(s):            # 場面の区切り——その手前の本文行が、場面末である
+            if last is not None:
+                scenes.add(last)
+            last = None
+            continue
+        last = i
+    if last is not None:                # ⚠ 最後の場面末は、章末でもある
+        scenes.add(last)
+    return scenes, last
 
 
 def prose_lines(path: Path) -> list[str]:
@@ -134,6 +181,18 @@ def main() -> int:
     ap = argparse.ArgumentParser(description="改稿案の台帳を、本文へ当てる前に検める")
     ap.add_argument("ledgers", nargs="+")
     ap.add_argument("--quiet", action="store_true", help="⛔ と ⚠ のある行だけを出す")
+    # ⚠ **娯楽の段（第四段）の案は、文を一つ足す形である。**
+    #    「足すのは具体（行為・映像・音）だけ」（`skills/entertainment/SKILL-ja.md`）——
+    #    **具体を足せば、文は増える。** ゆえに、増加そのものは違反ではない。
+    #    ⚠ **だが、鳴らさないのではなく、別のことを鳴らす**——増えた先の文数である
+    #    （`段落化_著者への申し送り.md` §10・§19）。
+    ap.add_argument("--add-sentences", action="store_true",
+                    help="文の増加を ⛔ にしない（娯楽の段の案のため）。代わりに、"
+                         "当てたあとの文数を註に出す")
+    # ⚠ **娯楽の案は「いまの文へ一句足す」形ゆえ、その話の既存行と必ず近くなる**
+    #    （案は、いまの文そのものを含む）。**測れば必ず鳴る検査は、検査ではない。**
+    ap.add_argument("--no-near", action="store_true",
+                    help="「同じ話の中の近さ」（検査8）を切る。娯楽の段の案のため")
     args = ap.parse_args()
 
     check = load_check_module()
@@ -195,11 +254,31 @@ def main() -> int:
         if new == old:
             flags.append("⛔ 案が、いまの文と同じである")
         if inner_periods(new) > inner_periods(old):
-            flags.append(
-                f"⛔ 案が、いまの文より文を増やしている"
-                f"（{inner_periods(old) + 1} 文 → {inner_periods(new) + 1} 文）")
+            if args.add_sentences:
+                n_new = inner_periods(new) + 1
+                if n_new >= 5:
+                    notes.append(
+                        f"註 当てると、この行は {n_new} 文になる（⚠ 第五段の規律は"
+                        f"「五文以上を新しく作らない」——`段落化_著者への申し送り.md` §10）")
+                else:
+                    notes.append(f"註 当てると、この行は {n_new} 文になる"
+                                 f"（いまは {inner_periods(old) + 1} 文）")
+            else:
+                flags.append(
+                    f"⛔ 案が、いまの文より文を増やしている"
+                    f"（{inner_periods(old) + 1} 文 → {inner_periods(new) + 1} 文）")
         if vol in ONE_SENTENCE_VOLUMES and inner_periods(old) >= 1:
             notes.append(f"註 この行は、もともと文が {inner_periods(old) + 1} つである（この巻では例外）")
+
+        # 2''. 場面末・章末——⚠ 註である（`ends_of` を見よ）
+        if k >= 0 and 1 <= k <= len(lines):
+            se, ce = ends_of(p)
+            if ce is not None and k == ce:
+                notes.append("註 **この行は、この話の最後の本文行である**（章末）——"
+                             "足した一句は、章末の一打の**うしろ**に来る")
+            elif k in se:
+                notes.append("註 **この行は、この場面の最後の本文行である**（場面末）——"
+                             "足した一句は、場面の結びの一打の**うしろ**に来る")
 
         mine = prose_lines(p) if k >= 0 else []
 
@@ -235,8 +314,8 @@ def main() -> int:
             if m and not CLOSED_SHAPES.search(old):
                 flags.append(f"⛔ 閉じた形を使っている: {m.group(0)}")
 
-        # 8. 同じ話の中の近さ
-        pb = bigrams(new)
+        # 8. 同じ話の中の近さ——⚠ `--no-near` で切れる（娯楽の段の案のため）
+        pb = set() if args.no_near else bigrams(new)
         near = []
         for l in mine:
             if l == old or l == new:
