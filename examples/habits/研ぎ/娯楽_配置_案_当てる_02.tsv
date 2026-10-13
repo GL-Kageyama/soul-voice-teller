@@ -1,0 +1,10 @@
+# ② 配置の対——`差し替える.py` が受ける四欄（2026-10-14）
+# ⚠ 対ごとに二行。**同じ行番号の、一行ずつの置き換えである。行数は動かない。**
+# ⚠ `娯楽_配置_案_当てる.tsv`（対の入れ替え）は、6対とも導入の順序の印が鳴ったゆえ**当てない**。
+#   ここに在るのは、**畳んで前へ出す**形に組み直した3対である。
+/Users/user/AI創作工房/soul-voice-teller/examples/habits-04/草稿/draft_04-07_床に落ちた量.md	5	床がある。床は明るい。	床がある。床の上に毛が落ちている。
+/Users/user/AI創作工房/soul-voice-teller/examples/habits-04/草稿/draft_04-07_床に落ちた量.md	7	毛が落ちている。床の上にある。	床は明るい。
+/Users/user/AI創作工房/soul-voice-teller/examples/habits-04/草稿/draft_04-09_同じ大きさ.md	5	紙がある。紙は平らである。紙は白い。紙は一枚である。	紙がある。紙は平らである。紙は白い。紙の上に名が置かれている。
+/Users/user/AI創作工房/soul-voice-teller/examples/habits-04/草稿/draft_04-09_同じ大きさ.md	9	名が置かれている。紙の上にある。名は上のほうにある。	紙は一枚である。名は上のほうにある。
+/Users/user/AI創作工房/soul-voice-teller/examples/habits-04/草稿/draft_04-11_姓のない登記.md	5	机がある。机の脚が床に着いている。机の面は平らである。	机がある。机の上に登記の紙がある。その上に図面が重なってある。
+/Users/user/AI創作工房/soul-voice-teller/examples/habits-04/草稿/draft_04-11_姓のない登記.md	9	机の上に登記の紙がある。その上に図面が重なってある。	机の脚が床に着いている。机の面は平らである。
