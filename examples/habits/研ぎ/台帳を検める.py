@@ -15,7 +15,9 @@
    三話以上に現れるなら、それは基底語である（⚠ ではなく、註として出す）。
 5. **禁則語**——`検査/check.py` と同じ語群（`../README.md` の「## 禁則」から読む）。
 6. **色語と匂いの語**——案が新しく持ち込んでいるか（いまの文が持っていなければ、新しい）。
+   ⚠ **第四巻にだけ掛ける**（`CLOSED_VOLUMES` を見よ）。
 7. **閉じた形**——「答えない」「その、ままである」を、案が使っていないか。
+   ⚠ **第四巻にだけ掛ける**（同上）。
 8. **同じ話の中の近さ**——その話の既存の行と、語の重なりが大きすぎないか（⚠）。
 
 見えないもの——**その案が、その話の本文に既に真であるか。** これは人が読む。
@@ -45,6 +47,18 @@ CLOSED_SHAPES = re.compile(r"答えない|ままである")
 MIN_LEN = 12
 NEAR = 0.5
 ONE_SENTENCE_VOLUMES = {"01", "03", "04"}       # 一行一文が本体の巻（註を出すためだけに使う）
+
+# ⚠ **色語・匂い・閉じた形（答えない／ままである）は、第四巻の規則である。**
+#   出典は二つ——`第七段階_第三段_prose_指示書.md`:222-224
+#   （「**第四巻は、この二つが既に閉じている**」・「**第四巻では**、……を使わない」）と、
+#   `第四巻_締めの連_差し替え指示.md`:68。
+#
+#   ⚠ **全巻へ掛けると、第一〜第三巻に偽の ⛔ が出る。** 実測——本文で色語を持つ行は
+#     **一巻 17・二巻 43・三巻 5・四巻 1**。第一〜第三巻の地の文は、色を普通に使う
+#     （`01-01:187`「罫が引いてある。薄い緑である。」／`02-01:95`「二つとも青である。」）。
+#     **README の禁則（八つの語群）に、色語は入っていない**——ゆえに全巻の禁則ではない。
+#   ⚠ ここを巻で切らないと、**この器は、設計が許している語を ⛔ と呼ぶ**。
+CLOSED_VOLUMES = {"04"}
 
 
 def inner_periods(s: str) -> int:
@@ -139,6 +153,16 @@ def main() -> int:
         rows += read_ledger(Path(led))
 
     print(f"台帳 {len(args.ledgers)} 本 / 案 {len(rows)} 件")
+    # ⚠ **掛けなかった検査を、黙らない。** 黙れば「空の検査はOKと言う」の型になる——
+    #   検査が走っていないことが、合格に見える。
+    vols = sorted({v for _, _, (v, *_rest) in rows})
+    off = [v for v in vols if v not in CLOSED_VOLUMES]
+    if off:
+        print(f"⚠ 色語・匂い・閉じた形（答えない／ままである）の検査は、"
+              f"**巻 {', '.join(sorted(CLOSED_VOLUMES))} にだけ掛けた**。"
+              f"巻 {', '.join(off)} には掛けていない——この三つは第四巻の規則である"
+              f"（`第七段階_第三段_prose_指示書.md`:222-224・`第四巻_締めの連_差し替え指示.md`:68）。"
+              f"**ゆえに、この三つについて、巻 {', '.join(off)} の ✅ は「合格」ではない。**")
     print()
 
     bad = warn = 0
@@ -196,18 +220,20 @@ def main() -> int:
             if w in new and w not in old:
                 flags.append(f"⛔ 禁則語を持ち込んでいる: 「{w}」（{'／'.join(groups)}）")
 
-        # 6. 色語・匂いの語
-        m = COLOR.search(new)
-        if m and not COLOR.search(old):
-            flags.append(f"⛔ 色語を、新しく持ち込んでいる: {m.group(0)}")
-        m = SMELL.search(new)
-        if m and not SMELL.search(old):
-            flags.append(f"⛔ 匂いの語を、新しく持ち込んでいる: {m.group(0)}")
+        # 6. 色語・匂いの語——⚠ 第四巻にだけ掛ける（`CLOSED_VOLUMES` を見よ）
+        if vol in CLOSED_VOLUMES:
+            m = COLOR.search(new)
+            if m and not COLOR.search(old):
+                flags.append(f"⛔ 色語を、新しく持ち込んでいる: {m.group(0)}")
+            m = SMELL.search(new)
+            if m and not SMELL.search(old):
+                flags.append(f"⛔ 匂いの語を、新しく持ち込んでいる: {m.group(0)}")
 
-        # 7. 閉じた形
-        m = CLOSED_SHAPES.search(new)
-        if m and not CLOSED_SHAPES.search(old):
-            flags.append(f"⛔ 閉じた形を使っている: {m.group(0)}")
+        # 7. 閉じた形——⚠ 第四巻にだけ掛ける（同上）
+        if vol in CLOSED_VOLUMES:
+            m = CLOSED_SHAPES.search(new)
+            if m and not CLOSED_SHAPES.search(old):
+                flags.append(f"⛔ 閉じた形を使っている: {m.group(0)}")
 
         # 8. 同じ話の中の近さ
         pb = bigrams(new)
