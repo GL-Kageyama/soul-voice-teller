@@ -116,9 +116,9 @@ def fit(line: str, now: str, new: str) -> str | None:
     return line + new[len(now):]
 
 
-def read_rows(allow_missing: bool = False) -> list[dict]:
+def read_rows(allow_missing: bool = False, only: tuple = ()) -> list[dict]:
     rows, missing = [], []
-    for vol in VOLS:
+    for vol in (only or VOLS):
         for half in HALVES:
             p = HERE / f"娯楽_ユーモア_案_{vol}_{half}.tsv"
             if not p.exists():
@@ -157,10 +157,10 @@ def read_rows(allow_missing: bool = False) -> list[dict]:
 VERDICTS = {"⛔": "戻す", "△": "著者", "✅": "当てる"}
 
 
-def read_verdicts() -> dict:
+def read_verdicts(only: tuple = ()) -> dict:
     """検めの TSV（五欄）を読み、`鍵 -> (判定, 当てるか, 理由)` を返す。"""
     out = {}
-    for vol in VOLS:
+    for vol in (only or VOLS):
         p = HERE / f"娯楽_ユーモア_検め_{vol}.tsv"
         if not p.exists():
             sys.exit(f"⛔ 検めの TSV が無い: {p.name}\n"
@@ -195,15 +195,19 @@ def main() -> int:
                     help="八本そろっていなくても走らせる（検算だけ）")
     ap.add_argument("--decisions", action="store_true",
                     help="検めの TSV を読み、✅ の行だけを出す（⛔ と △ は出さない）")
+    ap.add_argument("--vol", action="append", choices=list(VOLS),
+                    help="この巻だけを扱う（巻ごとに当てるため。二度書けば二巻）")
     a = ap.parse_args()
 
-    rows = read_rows(allow_missing=a.allow_missing)
+    only = tuple(a.vol or ())
+    rows = read_rows(allow_missing=a.allow_missing, only=only)
 
     # ⚠ **当てる前の検め**（第三段の教訓——順序は `案 → 検め → 当てる`）。
     #    検めが済んでいない行は、**当てない**（黙って全部当てない）。
     tally, undecided, strayed = {}, [], []
+    already = []
     if a.decisions:
-        verdicts = read_verdicts()
+        verdicts = read_verdicts(only=only)
         keys = {f"{r['vol']}-{r['ep']}:{r['n']}" for r in rows}
         # ⚠ **逆向きも見る**——検めの鍵が、案の鍵に当たらない場合。
         #    鍵の綴りを誤れば、**その案は「未判定」として当たらない**——
@@ -236,6 +240,13 @@ def main() -> int:
             odd.append(f"{r['src']} {r['vol']}-{r['ep']}:{n} —— {e}")
             continue
         now, new = r["now"], r["new"]
+
+        # ⚠ **当て済みの行**——当てた後は、草稿のその行が**案そのもの**になる。
+        #    この判定が無いと、`fit` が足した一句を**もう一度足して**（二重にして）、
+        #    「五文以上」と「fit」の偽の ⛔ を出す（2026-10-14、第一巻を当てて実測）。
+        if new == line:
+            already.append(f"{vol}-{ep}:{n}")
+            continue
 
         if now != line:
             f = fit(line, now, new)
@@ -285,6 +296,10 @@ def main() -> int:
     print(f"■ 文が同じ    {len(same)} 件   ← ②③で打った「入れ替え」であり、この段の案ではない",
           file=sys.stderr)
     print(f"■ 文が減った  {len(shrunk)} 件", file=sys.stderr)
+    if already:
+        print(f"■ **当て済み**  {len(already)} 件"
+              f"（草稿のその行が、既に案と一字も違わない。検算から外した）: "
+              + "、".join(already[:20]) + ("…" if len(already) > 20 else ""), file=sys.stderr)
 
     if a.decisions:
         print("■ 検めの判定（案の側から数えた数）", file=sys.stderr)
