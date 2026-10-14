@@ -57,6 +57,30 @@ def count_sentences(s: str) -> int:
     return s.count("。") + (0 if s.endswith("。") else 1)
 
 
+def sentences(s: str) -> list[str]:
+    """文へ切る。`。` で切り、最後に残った端数も一文として返す。"""
+    out, buf = [], ""
+    for ch in s:
+        buf += ch
+        if ch == "。":
+            out.append(buf)
+            buf = ""
+    if buf.strip():
+        out.append(buf)
+    return [x for x in out if x.strip()]
+
+
+def lost_content(line: str, new: str) -> list[str]:
+    """**案が捨てた文**を返す。
+
+    ⚠ **この段の中心の約束は「今の内容を失わずに」である。**
+       ゆえに案は、**元の行の文を一つも落としてならない**（足すのは自由）。
+    ⚠ **前へ足す・真ん中へ挿すは、どちらもよい**——順序も動かさないことを勧めるが、
+       **落とすことだけを ⛔ にする**（`01-06:131` は真ん中に挿しており、正しい）。
+    """
+    return [x for x in sentences(line) if x not in new]
+
+
 def draft_path(vol: str, ep: str) -> Path:
     d = EXAMPLES / f"habits-{vol}" / "草稿"
     hits = sorted(d.glob(f"draft_{vol}-{ep}_*.md"))
@@ -92,7 +116,7 @@ def fit(line: str, now: str, new: str) -> str | None:
     return line + new[len(now):]
 
 
-def read_rows() -> list[dict]:
+def read_rows(allow_missing: bool = False) -> list[dict]:
     rows, missing = [], []
     for vol in VOLS:
         for half in HALVES:
@@ -106,15 +130,25 @@ def read_rows() -> list[dict]:
                 f = ln.split("\t")
                 if f[0].strip() in ("巻", "vol"):
                     continue
-                if len(f) != 8:
-                    sys.exit(f"⛔ {p.name} に八欄でない行がある（{len(f)} 欄）:\n  {ln[:120]}")
-                rows.append({"src": p.name, "vol": f[0].strip(),
-                             "ep": f[1].strip(), "scene": f[2].strip(),
-                             "n": f[3].strip(), "now": f[4].strip(),
-                             "new": f[5].strip(), "kind": f[6].strip(),
-                             "why": f[7].strip()})
+                # ⚠ **八欄が本である**（`巻/話/場面/行番号/いまの文/案/三種/根拠`）。
+                #    ⚠ **七欄も受ける**——`台帳を検める.py` の形で書いてしまった読み手のため
+                #      （場面を落として数える）。**黙って畳まない**——註に出す。
+                if len(f) == 8:
+                    vol, ep, scene, n, now, new, kind, why = (x.strip() for x in f)
+                elif len(f) == 7:
+                    vol, ep, n, now, new, kind, why = (x.strip() for x in f)
+                    scene = "?"
+                else:
+                    sys.exit(f"⛔ {p.name} に七欄でも八欄でもない行がある（{len(f)} 欄）:\n  {ln[:120]}")
+                rows.append({"src": p.name, "vol": vol, "ep": ep, "scene": scene,
+                             "n": n, "now": now, "new": new, "kind": kind, "why": why})
     if missing:
-        sys.exit("⛔ 案の TSV が足りない: " + ", ".join(missing))
+        # ⚠ **足りないことを黙らない。** だが、**途中でも走れるようにする**——
+        #    八人は別々に終わるゆえ、そろった巻から先に検める（`--allow-missing`）。
+        print("⚠ 案の TSV が足りない: " + ", ".join(missing)
+              + f"（読んだのは {len(rows)} 件）", file=sys.stderr)
+        if not allow_missing:
+            sys.exit("⛔ 全部そろってから走らせること（途中で走らせるなら `--allow-missing`）")
     return rows
 
 
@@ -122,12 +156,15 @@ def main() -> int:
     ap = argparse.ArgumentParser(description="ユーモアの案を、当てる台帳へ開く")
     ap.add_argument("--swap", action="store_true", help="差し替える.py の四欄台帳で出す")
     ap.add_argument("--ledger", action="store_true", help="台帳を検める.py の七欄台帳で出す")
+    ap.add_argument("--allow-missing", action="store_true",
+                    help="八本そろっていなくても走らせる（検算だけ）")
     a = ap.parse_args()
 
-    rows = read_rows()
+    rows = read_rows(allow_missing=a.allow_missing)
 
     out, fitted, odd = [], [], []
     same, shrunk, over, dup = [], [], [], {}
+    lost = []
     per_vol, per_kind = {}, {}
     gained = []
 
@@ -158,6 +195,9 @@ def main() -> int:
             over.append(f"{vol}-{ep}:{n} {before}→{after}")
         if after > before:
             gained.append(f"{vol}-{ep}:{n} {before}→{after}")
+
+        for gone in lost_content(now, new):
+            lost.append(f"{vol}-{ep}:{n} 捨てた文「{gone}」")
 
         key = f"{vol}-{ep}:{n}"
         dup.setdefault(key, []).append(r["src"])
@@ -203,6 +243,12 @@ def main() -> int:
         if len(fitted) > 10:
             print(f"    …ほか {len(fitted) - 10} 件", file=sys.stderr)
 
+    if lost:
+        print(f"⛔ **案が、元の文を捨てている**——{len(lost)} 件"
+              f"（この段の中心の約束「今の内容を失わずに」に触れる）", file=sys.stderr)
+        for x in lost[:20]:
+            print(f"    {x}", file=sys.stderr)
+
     if over:
         print(f"⛔ 差し替え後が五文以上——{len(over)} 件"
               f"（⚠ **器はこれを ⛔ にしない**。この段の上限を、この器が守る）", file=sys.stderr)
@@ -215,9 +261,9 @@ def main() -> int:
             print(f"    {x}", file=sys.stderr)
 
     if not (a.swap or a.ledger):
-        return 1 if (odd or over or twodup) else 0
+        return 1 if (odd or over or twodup or lost) else 0
 
-    if odd or over or twodup:
+    if odd or over or twodup or lost:
         print("⛔ あるゆえ、台帳を出さない。", file=sys.stderr)
         return 1
 
