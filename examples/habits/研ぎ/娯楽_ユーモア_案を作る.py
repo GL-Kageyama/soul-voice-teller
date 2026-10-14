@@ -241,7 +241,7 @@ def main() -> int:
 
     out, fitted, odd = [], [], []
     same, shrunk, over, dup = [], [], [], {}
-    lost = []
+    lost, dropped, declined = [], [], []
     per_vol, per_kind = {}, {}
     gained = []
 
@@ -253,6 +253,14 @@ def main() -> int:
             odd.append(f"{r['src']} {r['vol']}-{r['ep']}:{n} —— {e}")
             continue
         now, new = r["now"], r["new"]
+
+        # ⚠ **書き手が「当てない」と書いた行**——案ではなく、**置かないという判断**である
+        #    （第四巻の `04-17:95`＝巻の頂点の直後、`04-18:183`＝最終話の余白の主題）。
+        #    ⚠ その語が**案の欄に入っている**ゆえ、✅ が付くと**本文へ「当てない」が入る**。
+        #    ゆえに、ここで静かに外す（⛔ ではない——**書き手の判断をエラーとして数えない**）。
+        if new.strip().startswith("当てない"):
+            declined.append(f"{vol}-{ep}:{n}")
+            continue
 
         # ⚠ **当て済みの行**——当てた後は、草稿のその行が**案そのもの**になる。
         #    この判定が無いと、`fit` が足した一句を**もう一度足して**（二重にして）、
@@ -271,6 +279,20 @@ def main() -> int:
             now, new = line, f
 
         before, after = count_sentences(now), count_sentences(new)
+
+        # ⚠ **元の行の文を一つでも捨てる案は、当てない。**
+        #    この段の規則は「行は足さない。行は消さない。案は一行の差し替えである」ゆえ、
+        #    差し替え後の行は**元の文をすべて含む**はずである。含まないなら、その案は
+        #    この段の案ではない（別の段の「一文の入れ替え」か、書き手が案を書かなかった行）。
+        #    ⚠ **これが要るのは、書き手が「当てない」と書いた行のためである**——
+        #    案の欄にその語が入っているゆえ、✅ が付くと**本文へ「当てない」が入る**。
+        gone = lost_content(now, new)
+        if gone:
+            for g in gone:
+                lost.append(f"{vol}-{ep}:{n} 捨てた文「{g}」")
+            dropped.append(f"{vol}-{ep}:{n}（案が元の文を含まない。当てない）")
+            continue
+
         if new == now:
             same.append(f"{vol}-{ep}:{n}")
         if after < before:
@@ -279,9 +301,6 @@ def main() -> int:
             over.append(f"{vol}-{ep}:{n} {before}→{after}")
         if after > before:
             gained.append(f"{vol}-{ep}:{n} {before}→{after}")
-
-        for gone in lost_content(now, new):
-            lost.append(f"{vol}-{ep}:{n} 捨てた文「{gone}」")
 
         key = f"{vol}-{ep}:{n}"
         dup.setdefault(key, []).append(r["src"])
@@ -346,6 +365,10 @@ def main() -> int:
             print(f"      案: {f}", file=sys.stderr)
         if len(fitted) > 10:
             print(f"    …ほか {len(fitted) - 10} 件", file=sys.stderr)
+
+    if declined:
+        print(f"■ **書き手が「当てない」と決めた行**——{len(declined)} 件（案を置かない判断。"
+              f"⛔ ではない）: " + "、".join(declined), file=sys.stderr)
 
     if lost:
         print(f"⛔ **案が、元の文を捨てている**——{len(lost)} 件"
