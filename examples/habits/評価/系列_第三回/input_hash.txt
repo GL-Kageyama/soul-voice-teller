@@ -1,0 +1,10 @@
+入力のハッシュ（走らせる直前に実測）——2026-10-14
+
+パス: /Users/user/AI創作工房/soul-voice-teller/examples/habits/評価/系列_第三回/input.md
+出どころ: ca58ea2:examples/habits/草稿/draft.md（`git show` で取り出した）
+確かめ: `python3 研ぎ/合本を束ねる.py --from-git ca58ea2` が「一致する」と言う——ゆえに、この合本は ca58ea2 の時点の草稿63本そのものである
+sha256: 8a3a31748572635e1f41ff90da41b41b687f8d3a9297ae887d0f861e636ed48a
+バイト: 564307
+行: 18243
+全文字数: 200409
+草稿の非空白字（題名・見出し・`＊`・空行を除く）: 181169
