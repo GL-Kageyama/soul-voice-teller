@@ -35,7 +35,7 @@
 | `scene-writer` | 深写一个场景（留白的设计 · 见而示之 · 场景的接缝） | 设计＋persona → draft_<n>_<场景>.md |
 | `series-bible` | 作品圣经（集中管理设定 · 伏笔 · 连载的账本） | 作品的产物 → series-bible.md |
 | `revise-for-reader` | 以读者体验改稿（沉浸 · 翻页感 · 约定 · 重读） | 草稿＋设计 → 改稿后的 draft.md |
-| `entertainment` | 不破坏克制地增添娱乐的快感（钩子 · 翻页 · 反转 · 宣泄 · 节奏 · 共情） | 草稿＋设计 → 改稿后的 draft.md |
+| `entertainment` | 在不破坏克制的前提下补足六个反应轴中薄弱的一轴——当载体本身禁止那一轴时，允许根本性改写 | 草稿＋设计 → 改稿后的 draft.md |
 | `whole-work-review` | 把作品作为「整体」来重看——是否作为一本书闭合（结构的连贯性 · 伏笔回收 · 密度分配 · 重复 · 世界观词语的依赖 · 克制的平衡） | 草稿＋series-bible → 改稿后的 draft.md |
 
 ## 送达

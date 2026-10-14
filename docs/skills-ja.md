@@ -35,7 +35,7 @@ plot-design から任意に呼ぶ。空白でも執筆可。
 | `scene-writer` | 1場面を深く書く（空白の設計・見せて語る・場の切れ目） | design＋persona → draft_<n>_<場面>.md |
 | `series-bible` | 作品聖典（設定・伏線・連載を一元管理する台帳） | 作品成果物 → series-bible.md |
 | `revise-for-reader` | 読者体験で改稿（没入・ページターナー・約束・再読） | draft＋design → 改稿 draft.md |
-| `entertainment` | 抑制を壊さずにエンタメの快楽を足す（フック・ページターナー・ツイスト・カタルシス・テンポ・共感） | draft＋design → 改稿 draft.md |
+| `entertainment` | 6つの反応軸の弱いものを抑制を壊さずに補う——器そのものが軸を禁じているときは、抜本改稿まで許す | draft＋design → 改稿 draft.md |
 | `whole-work-review` | 作品を「全体」として見直す——一冊として閉じているか（構造の一貫性・伏線回収・密度配分・重複・世界観用語への寄りかかり・抑制のバランス） | draft＋series-bible → 改稿 draft.md |
 
 ## 届ける
