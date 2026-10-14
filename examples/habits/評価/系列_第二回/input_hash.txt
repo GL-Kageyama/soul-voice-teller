@@ -1,0 +1,6 @@
+入力のハッシュ（走らせる直前に実測）——2026-10-14
+
+パス: /Users/user/AI創作工房/soul-voice-teller/examples/habits/草稿/draft.md
+sha256: d365669a32109da2b817f28a5e168fd269424b9b4ffffc5c1495cf22cc3c8e82
+バイト: 576157
+行: 18243
