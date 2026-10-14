@@ -116,10 +116,11 @@ def fit(line: str, now: str, new: str) -> str | None:
     return line + new[len(now):]
 
 
-def read_rows(allow_missing: bool = False, only: tuple = ()) -> list[dict]:
+def read_rows(allow_missing: bool = False, only: tuple = (),
+              halves: tuple = HALVES) -> list[dict]:
     rows, missing = [], []
     for vol in (only or VOLS):
-        for half in HALVES:
+        for half in halves:
             p = HERE / f"娯楽_ユーモア_案_{vol}_{half}.tsv"
             if not p.exists():
                 missing.append(p.name)
@@ -157,11 +158,17 @@ def read_rows(allow_missing: bool = False, only: tuple = ()) -> list[dict]:
 VERDICTS = {"⛔": "戻す", "△": "著者", "✅": "当てる"}
 
 
-def read_verdicts(only: tuple = ()) -> dict:
-    """検めの TSV（五欄）を読み、`鍵 -> (判定, 当てるか, 理由)` を返す。"""
+def read_verdicts(only: tuple = (), suffix: str = "") -> dict:
+    """検めの TSV（五欄）を読み、`鍵 -> (判定, 当てるか, 理由)` を返す。
+
+    ⚠ `suffix` は**二度目の回**のためである（`娯楽_ユーモア_検め_0N_2.tsv`）。
+    **一度目の検めと、二度目の検めは、別のファイルでなければならない**——
+    二度目の鍵は一度目の △／⛔ の鍵と**同じ**ゆえ、一つのファイルへ混ぜると
+    `鍵が二度ある` で止まる（この器の検査）。
+    """
     out = {}
     for vol in (only or VOLS):
-        p = HERE / f"娯楽_ユーモア_検め_{vol}.tsv"
+        p = HERE / f"娯楽_ユーモア_検め_{vol}{suffix}.tsv"
         if not p.exists():
             sys.exit(f"⛔ 検めの TSV が無い: {p.name}\n"
                      f"   （検めが済んでから `--decisions` を付けること）")
@@ -197,17 +204,23 @@ def main() -> int:
                     help="検めの TSV を読み、✅ の行だけを出す（⛔ と △ は出さない）")
     ap.add_argument("--vol", action="append", choices=list(VOLS),
                     help="この巻だけを扱う（巻ごとに当てるため。二度書けば二巻）")
+    ap.add_argument("--round", choices=("1", "2"), default="1",
+                    help="回。1＝`_0N_a/_0N_b` と `検め_0N.tsv`（既定）／"
+                         "2＝`_0N_c` と `検め_0N_2.tsv`（当たらなかった場面の二度目の案）")
     a = ap.parse_args()
 
     only = tuple(a.vol or ())
-    rows = read_rows(allow_missing=a.allow_missing, only=only)
+    # ⚠ **二度目の回は、別の案ファイルと別の検めを読む**（上の `--round` を見よ）。
+    halves = HALVES if a.round == "1" else ("c",)
+    vsuffix = "" if a.round == "1" else "_2"
+    rows = read_rows(allow_missing=a.allow_missing, only=only, halves=halves)
 
     # ⚠ **当てる前の検め**（第三段の教訓——順序は `案 → 検め → 当てる`）。
     #    検めが済んでいない行は、**当てない**（黙って全部当てない）。
     tally, undecided, strayed = {}, [], []
     already = []
     if a.decisions:
-        verdicts = read_verdicts(only=only)
+        verdicts = read_verdicts(only=only, suffix=vsuffix)
         keys = {f"{r['vol']}-{r['ep']}:{r['n']}" for r in rows}
         # ⚠ **逆向きも見る**——検めの鍵が、案の鍵に当たらない場合。
         #    鍵の綴りを誤れば、**その案は「未判定」として当たらない**——
