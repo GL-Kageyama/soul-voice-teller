@@ -358,6 +358,47 @@ def count_base_phrases(target_path, other_paths):
     return len(seen)
 
 
+# ⚠ 基底語の一覧——2026-10-14（第七段階 第五段）。
+#    既定の検査は、12字未満の一致を「⚠ 12字未満の文の一致——N件。基底語として数えている」の
+#    **一つの数へ畳む**。ゆえに「昼である。」が一巻に十回・三話に現れても、
+#    **数は動くが、何が動いたかは見えない。**
+#    ⚠ これは 2026-09-25 の裁定（12字未満は基底語として別に数える）を、変えない。
+#      変えるのは**畳み方**だけである。**この一覧は、判定をしない。**
+#    ⚠ 段の単位は文である（`sentence_units`）——ゆえに、段落の途中に置かれた
+#      「昼である。」も数える。**行の単位で数えると、それが見えない。**
+def list_base_phrases(paths, ceil=BASE_PHRASE_CEIL):
+    """短い文 → (話の集合, 出現の回数)。⚠ 話の数と回数は別である。"""
+    index = {}
+    for p in paths:
+        key = p.name.split("_")[1] if "_" in p.name else p.stem
+        for _, s in sentence_units(load_draft(p)):
+            if not 0 < len(s) < ceil:
+                continue
+            rec = index.setdefault(s, {"話": set(), "回": 0})
+            rec["話"].add(key)
+            rec["回"] += 1
+    return index
+
+
+def print_base_phrases(paths, ceil=BASE_PHRASE_CEIL, min_chapters=2):
+    """基底語を、巻をまたいだ話数つきで一覧する。⚠ 既定の出力と ⛔ は、動かさない。"""
+    index = list_base_phrases(paths, ceil)
+    rows = [(s, r) for s, r in index.items() if len(r["話"]) >= min_chapters]
+    # 話数の多い順、次に出現の多い順、次に長い順。⚠ 同点の並びを、字で決める（再現のため）。
+    rows.sort(key=lambda x: (-len(x[1]["話"]), -x[1]["回"], -len(x[0]), x[0]))
+    print(f"■ 基底語の一覧——{ceil}字未満の文で、{min_chapters}話以上に現れるもの"
+          f"（{len(rows)} 種／全 {len(index)} 種）")
+    print(f"  ⚠ 単位は文である。⚠ 「話」は異なる話の数、「回」は出現の回数である——両者は別である。")
+    print(f"  ⚠ これは判定ではない。**見るべき候補**である。")
+    print()
+    for s, r in rows:
+        n = len(r["話"])
+        print(f"  {n:2d}話 {r['回']:3d}回 {len(s):2d}字  {s}")
+        print(f"        {' '.join(sorted(r['話']))}")
+    print()
+    return rows
+
+
 def report(path, volume_dir, groups, as_json):
     lines = load_draft(path)
     prose = prose_lines(lines)
@@ -529,10 +570,30 @@ def main():
     ap = argparse.ArgumentParser(description="草稿の検査器——「在る／無い」だけを出す")
     ap.add_argument("path", help="draft_*.md、または草稿ディレクトリ")
     ap.add_argument("--volume-dir", help="逐語の再利用を見る相手（同巻の草稿ディレクトリ）")
+    ap.add_argument("--base", action="store_true",
+                    help="基底語（12字未満の反復）を、話数つきで一覧する。"
+                         "⚠ この一覧だけを出し、既定の検査は打たない（⛔ の数は動かさない）")
+    ap.add_argument("--base-min", type=int, default=2,
+                    help="基底語の一覧に載せる最小の話数（既定 2）")
+    ap.add_argument("--base-ceil", type=int, default=BASE_PHRASE_CEIL,
+                    help=f"基底語と見なす字数の上限・未満（既定 {BASE_PHRASE_CEIL}）")
     args = ap.parse_args()
 
     groups = load_kinzoku()
     target = Path(args.path)
+
+    if args.base:
+        if target.is_dir():
+            files = sorted(target.glob("draft_*.md"))
+        else:
+            vol = Path(args.volume_dir) if args.volume_dir else target.parent
+            files = sorted(vol.glob("draft_*.md"))
+        if not files:
+            sys.exit(f"⛔ 草稿が、一本も無い: {target}（空の検査は通さない）")
+        print(f"走査した集合——{len(files)} ファイル（{files[0].parent}）")
+        print()
+        print_base_phrases(files, args.base_ceil, args.base_min)
+        return 0
 
     if target.is_dir():
         files = sorted(target.glob("draft_*.md"))
