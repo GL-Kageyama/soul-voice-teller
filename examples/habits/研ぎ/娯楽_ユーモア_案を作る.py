@@ -152,15 +152,75 @@ def read_rows(allow_missing: bool = False) -> list[dict]:
     return rows
 
 
+# ⚠ **判定と「当てるか」は、一対一である**（`第七段階_第四段_娯楽_ユーモア_検め.md` §4）。
+#    食い違いは、書き間違いとして ⛔ で止める（黙って寄せない）。
+VERDICTS = {"⛔": "戻す", "△": "著者", "✅": "当てる"}
+
+
+def read_verdicts() -> dict:
+    """検めの TSV（五欄）を読み、`鍵 -> (判定, 当てるか, 理由)` を返す。"""
+    out = {}
+    for vol in VOLS:
+        p = HERE / f"娯楽_ユーモア_検め_{vol}.tsv"
+        if not p.exists():
+            sys.exit(f"⛔ 検めの TSV が無い: {p.name}\n"
+                     f"   （検めが済んでから `--decisions` を付けること）")
+        for i, raw in enumerate(p.read_text(encoding="utf-8").split("\n"), 1):
+            if not raw.strip() or raw.lstrip().startswith("#"):
+                continue
+            f = raw.split("\t")
+            if f[0].strip() in ("鍵", "key"):
+                continue
+            if len(f) < 3:
+                sys.exit(f"⛔ {p.name} {i} 行目——欄が {len(f)} 個である"
+                         f"（鍵/判定/当てるか/理由/確かめた行 の五欄でなければならない）")
+            key, verdict, apply_ = f[0].strip(), f[1].strip(), f[2].strip()
+            if verdict not in VERDICTS:
+                sys.exit(f"⛔ {p.name} {i} 行目——判定が {verdict!r} である"
+                         f"（⛔／△／✅ のどれかでなければならない）")
+            if apply_ != VERDICTS[verdict]:
+                sys.exit(f"⛔ {p.name} {i} 行目——判定 {verdict} なのに「当てるか」が {apply_!r} である"
+                         f"（{VERDICTS[verdict]} でなければならない）")
+            if key in out:
+                sys.exit(f"⛔ {p.name} {i} 行目——鍵 {key} が二度ある")
+            out[key] = (verdict, apply_, f[3].strip() if len(f) > 3 else "")
+    return out
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="ユーモアの案を、当てる台帳へ開く")
     ap.add_argument("--swap", action="store_true", help="差し替える.py の四欄台帳で出す")
     ap.add_argument("--ledger", action="store_true", help="台帳を検める.py の七欄台帳で出す")
     ap.add_argument("--allow-missing", action="store_true",
                     help="八本そろっていなくても走らせる（検算だけ）")
+    ap.add_argument("--decisions", action="store_true",
+                    help="検めの TSV を読み、✅ の行だけを出す（⛔ と △ は出さない）")
     a = ap.parse_args()
 
     rows = read_rows(allow_missing=a.allow_missing)
+
+    # ⚠ **当てる前の検め**（第三段の教訓——順序は `案 → 検め → 当てる`）。
+    #    検めが済んでいない行は、**当てない**（黙って全部当てない）。
+    tally, undecided, strayed = {}, [], []
+    if a.decisions:
+        verdicts = read_verdicts()
+        keys = {f"{r['vol']}-{r['ep']}:{r['n']}" for r in rows}
+        # ⚠ **逆向きも見る**——検めの鍵が、案の鍵に当たらない場合。
+        #    鍵の綴りを誤れば、**その案は「未判定」として当たらない**——
+        #    ゆえに、当たらない鍵は黙って捨てず、名指しで出す。
+        strayed = sorted(k for k in verdicts if k not in keys)
+        kept = []
+        for r in rows:
+            k = f"{r['vol']}-{r['ep']}:{r['n']}"
+            if k not in verdicts:
+                undecided.append(k)
+                continue
+            v = verdicts[k][0]
+            per_vol_v = tally.setdefault(r["vol"], {})
+            per_vol_v[v] = per_vol_v.get(v, 0) + 1
+            if v == "✅":
+                kept.append(r)
+        rows = kept
 
     out, fitted, odd = [], [], []
     same, shrunk, over, dup = [], [], [], {}
@@ -226,6 +286,22 @@ def main() -> int:
           file=sys.stderr)
     print(f"■ 文が減った  {len(shrunk)} 件", file=sys.stderr)
 
+    if a.decisions:
+        print("■ 検めの判定（案の側から数えた数）", file=sys.stderr)
+        for v in sorted(tally):
+            per = tally[v]
+            print(f"    第{v}巻  " + "  ".join(f"{k} {per.get(k, 0)}" for k in ("✅", "△", "⛔")),
+                  file=sys.stderr)
+        print(f"■ 当てる  {len(rows)} 件（✅ のみ）"
+              f"／⚠ △ と ⛔ は当てない。△ は著者が読む番である。", file=sys.stderr)
+        if undecided:
+            print(f"⛔ **検めが無い行**——{len(undecided)} 件。当てない: "
+                  + "、".join(undecided[:20]), file=sys.stderr)
+        if strayed:
+            print(f"⛔ **案に当たらない鍵**——{len(strayed)} 件"
+                  f"（綴りの誤りか、案の消えた行である。黙って捨てない）: "
+                  + "、".join(strayed[:20]), file=sys.stderr)
+
     twodup = {k: v for k, v in dup.items() if len(v) > 1}
     if twodup:
         print(f"⛔ 同じ行に二つの案——{len(twodup)} 件", file=sys.stderr)
@@ -261,15 +337,18 @@ def main() -> int:
             print(f"    {x}", file=sys.stderr)
 
     if not (a.swap or a.ledger):
-        return 1 if (odd or over or twodup or lost) else 0
+        return 1 if (odd or over or twodup or lost or undecided or strayed) else 0
 
-    if odd or over or twodup or lost:
+    if odd or over or twodup or lost or undecided or strayed:
         print("⛔ あるゆえ、台帳を出さない。", file=sys.stderr)
         return 1
 
     if a.swap:
         print("# ユーモアの案から作った、差し替える.py 用の4欄台帳。"
               "パスは examples/ からの相対ゆえ、`cd examples` から当てる。")
+        if a.decisions:
+            print("# ⚠ この台帳は、**当てる前の検めを通った ✅ の行だけ**である"
+                  "（⛔ と △ は入っていない）。")
         print(f"# 件 {len(out)}（⚠ この段は**一行の内側で文を増やす**——"
               f"文が増えた {len(gained)}／同じ {len(same)}／減った {len(shrunk)}）。")
         print(f"# 行は動かない（置換のみ）。差し替え後の文数は四文以下（最大 "
