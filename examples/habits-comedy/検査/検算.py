@@ -6,7 +6,7 @@
     python3 検算.py <この稿.md> --old <原本.md>
     python3 検算.py <この稿.md> --old <原本.md> --json
 
-出すもの（作法 §3 の七つに対応）:
+出すもの（作法 §3 の八つに対応）:
     ① 禁則            → check.py を別に当てる（この器は数えない）
     ② 段落の文数       → 五文以上の段落の数
     ③ 内面の欄         → 数えない（人が読む。場面表 §4）
@@ -14,10 +14,15 @@
     ⑤ 落とした文       → 句点単位の異なり（この稿に無い文の数）
     ⑥ 註の比率         → である末（分母つき）・一文の長さ
     ⑦ 声の帰属         → 鉤括弧の数と、その行（帰属は人が読む）
+    ⑧ 独白             → 丸括弧の数と、その行。節ごとの声の数（2026-10-15 に足した）
 
 ⚠ 数え方は examples/habits/検査/check.py に合わせてある
    （本文行＝空行・見出し・`＊` を除いた行。字数＝本文行の非空白文字）。
-⚠ である末と一文は「地の文の文」だけを数える（鉤括弧で始まる行＝台詞は数えない）。
+⚠ である末と一文は「地の文の文」だけを数える。
+   鉤括弧で始まる行（台詞）と、丸括弧で始まる行（独白 `（…）`）は、数えない。
+   ——どちらも「声」であって、地の文ではない（作法 §0-2）。
+⚠ 節ごとの「声の数」は会話＋独白。作法 §2 段4の内側——
+   「節ごとに声を数え、声が一つも無い節を作らない」を、この器で見る。
 """
 
 import argparse
@@ -32,8 +37,17 @@ CHECK_PY = HERE.parent.parent / "habits" / "検査" / "check.py"
 
 TITLE_RE = re.compile(r"^#\s")
 SCENE_RE = re.compile(r"^(?:＊|\*{1,3}|—{2,}|-{3,})$")
+# ⚠ 行頭が `「` の行を、そのまま「会話」と数える。ゆえに、地の文が語を一つ引いた
+#   だけの行（例 `「先生」である。`、住所を一字ずつ引く五行）も、会話行に入る。
+#   ——2026-10-15、`01-07` と `01-12` の担い手が、独立にこれを申告した
+#   （[marker-is-not-the-phenomenon]——印は現象ではない）。
+#   ⚠ 原本の実測も同じ数え方ゆえ、原本との比較は揃っている。
+#   ⛔ ゆえに、この数を「発話の数」と読まない。門（声の無い節）もこの数で見ている。
 QUOTE_RE = re.compile(r"^[「『]")
-SENT_END = re.compile(r"(?<=[。？！])(?![」』])")
+# 独白——全角の丸括弧で始まる、それだけの行（作法 §0-2、2026-10-15 の裁定）。
+# ⚠ 原本63話にも、それまでの変換稿63話にも 0件だった記号である。
+MONOLOGUE_RE = re.compile(r"^（")
+SENT_END = re.compile(r"(?<=[。？！])(?![」』）])")
 PERIOD = "。"
 
 
@@ -92,10 +106,14 @@ def scene_chars(lines, nums):
 # ------------------------------------------------------------------ 数える
 
 def narration_sentences(lines):
-    """地の文の文（句点で切る）を (行番号, 文) で返す。台詞の行は丸ごと除く。"""
+    """地の文の文（句点で切る）を (行番号, 文) で返す。
+
+    声の行は丸ごと除く——鉤括弧で始まる行（会話）と、丸括弧で始まる行（独白）。
+    どちらも地の文ではない（作法 §0-2）。
+    """
     out = []
     for i, s in prose_lines(lines):
-        if QUOTE_RE.match(s):
+        if QUOTE_RE.match(s) or MONOLOGUE_RE.match(s):
             continue
         for part in SENT_END.split(s):
             part = part.strip()
@@ -118,10 +136,50 @@ def quotes(lines):
     return out
 
 
-def sentences_of(lines):
-    """本文の文を、句点で切って返す（地の文も台詞も）。⑤の突き合わせに使う。"""
+def monologues(lines):
+    """独白——丸括弧で始まる、それだけの行（作法 §0-2、⑧）。"""
     out = []
     for i, s in prose_lines(lines):
+        if MONOLOGUE_RE.match(s):
+            out.append((i, s))
+    return out
+
+
+def voices_per_scene(lines):
+    """節ごとの声の数——会話＋独白。
+
+    作法 §2 段4の内側「節ごとに声を数え、声が一つも無い節を作らない」を、
+    この器で見るための数である。⚠ 数だけでは足りない——印は現象ではない。
+    註を括弧に入れれば数は増えて声は増えない（[marker-is-not-the-phenomenon]）。
+    """
+    sc = scenes(lines)
+    pr = {i: s for i, s in prose_lines(lines)}
+    out = []
+    for n, nums in sc:
+        talk = sum(1 for i in nums if QUOTE_RE.match(pr.get(i, "")))
+        mono = sum(1 for i in nums if MONOLOGUE_RE.match(pr.get(i, "")))
+        out.append({"節": n, "会話": talk, "独白": mono, "声": talk + mono})
+    return out
+
+
+def sentences_of(lines):
+    """本文の文を、句点で切って返す（地の文も台詞も）。⑤の突き合わせに使う。
+
+    ⚠ 独白 `（…）` の行は、外側の丸括弧を剥がしてから切る。
+       剥がさないと、地の文から独白へ「声として」移しただけの文が、
+       ⑤で「落とした文」に化ける（**偽陽性**）。
+       ——2026-10-15、`04-13` の担い手が実測で見つけた
+       （原本`:105`「箱の底に糸がある。それ、誰の。」→ この稿`:121`＋`:123`「（それ、誰の。）」で、
+         文は消えていないのに「落とし 1」が返っていた）。
+    ⚠ 鉤括弧は剥がさない。剥がすと、既に記録済みの63話の⑤の数が動く
+       （丸括弧は、原本63話にも旧稿63話にも 0件ゆえ、動かない）。
+    """
+    out = []
+    for i, s in prose_lines(lines):
+        if MONOLOGUE_RE.match(s):
+            s = s[1:]
+            if s.endswith("）"):
+                s = s[:-1]
         for part in SENT_END.split(s):
             part = part.strip()
             if part:
@@ -138,6 +196,7 @@ def summarize(path):
     n_chars = sum(len(s) for _, s in nar)
     para = paragraphs(lines)
     q = quotes(lines)
+    mono = monologues(lines)
     talk = [1 for _, s in pr if QUOTE_RE.match(s)]
 
     return {
@@ -150,6 +209,11 @@ def summarize(path):
         "会話行": len(talk),
         "鉤括弧": len(q),
         "鉤括弧の行": [{"行": i, "文": s[:40]} for i, s in q],
+        "独白行": len(mono),
+        "丸括弧": len(mono),
+        "丸括弧の行": [{"行": i, "文": s[:40]} for i, s in mono],
+        "節ごとの声": voices_per_scene(lines),
+        "声の無い節": [v["節"] for v in voices_per_scene(lines) if v["声"] == 0],
         "段落": {
             "数": len(para),
             "五文以上": sum(1 for n in para if n >= 5),
@@ -201,6 +265,14 @@ def report(new_path, old_path, as_json):
               f"   （{v['行']}行）")
     line("会話行", None, new["会話行"])
     line("鉤括弧", None, new["鉤括弧"])
+    line("独白行", None, new["独白行"])
+    line("丸括弧", None, new["丸括弧"])
+    print(f"  {'節ごとの声':<12} " + "  ".join(
+        f"第{v['節']}節 会話{v['会話']}／独白{v['独白']}＝{v['声']}"
+        for v in new["節ごとの声"]))
+    if new["声の無い節"]:
+        print(f"  {'⛔ 声の無い節':<12} {new['声の無い節']}"
+              f"   （作法 §2 段4の内側——声が一つも無い節を作らない）")
     print(f"  {'段落の数':<15} 原本 {old['段落']['数'] if old else '-':>10}   この稿 {new['段落']['数']:>10}")
     print(f"  {'五文以上の段落':<13} 原本 {old['段落']['五文以上'] if old else '-':>10}   この稿 {new['段落']['五文以上']:>10}")
     print(f"  {'最長の段落(文)':<13} 原本 {old['段落']['最長'] if old else '-':>10}   この稿 {new['段落']['最長']:>10}")
