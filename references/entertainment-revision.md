@@ -4,7 +4,7 @@
 
 The six axes ([six-response-axes.md](six-response-axes.md)) say **which** reaction is weak and **how** to fill it — without breaking expression and restraint. This file answers the case that comes *before* both: **the vessel (器) of the existing draft cannot carry the axis at all**, and no amount of filling will change that.
 
-Measured from one case: `habits` → `examples/habits-comedy/` (第1話「消さなかった一行」 · 第2話「書く前の口」, 2026-10-15). The 第1話 draft was accepted by the author.
+Measured from one case: `habits` → `examples/habits/構想/コメディ変換/` (第1話「消さなかった一行」 · 第2話「書く前の口」, 2026-10-15). The 第1話 draft was accepted by the author.
 
 **No speculation.** Every clause carries its source (a measurement · a ruling · a commit). A clause without a source is not a clause.
 
@@ -47,7 +47,7 @@ A one-sentence-per-line draft can throw one beat; paragraphing it allows two. �
 | 第1話 | body 360 lines · prose 349 · **1.00 sent./line** | body **149** · prose **138** · **2.51** |
 | 第2話 | body 412 lines · prose 409 · **1.00** | body **181** · prose **178** · **2.33** |
 
-**If so, skip this step.** ⚠ **Always measure before deciding.** "The original is one sentence per line" is a claim to verify by measurement, not from memory — this clause exists because that error was walked into once (§5 of `examples/habits-comedy/構想/変換の作法.md`).
+**If so, skip this step.** ⚠ **Always measure before deciding.** "The original is one sentence per line" is a claim to verify by measurement, not from memory — this clause exists because that error was walked into once (§5 of `examples/habits/構想/コメディ変換/変換の作法.md`).
 
 ### 2 — Grow dialogue by **rewording and reply**, not by **business**
 
@@ -168,4 +168,4 @@ Put an object or a sound in the first half; return it in the second **from a dif
 - **revise-for-reader** — the surface lever (immersion · reread · the shift after reading) is untouched by this; a radical revision still has to keep the promise.
 - **plot-design** — the 動かさないもの column of a scene table is what §1-3 reads.
 
-The measurements behind it (第1話 · 第2話, and the case's own record discrepancies) live in `examples/habits-comedy/` — `構想/変換の作法.md` · `構想/各話/`. This file is the thin, citable principle.
+The measurements behind it (第1話 · 第2話, and the case's own record discrepancies) live in `examples/habits/構想/コメディ変換/` — `変換の作法.md` · `各話/`. This file is the thin, citable principle.
