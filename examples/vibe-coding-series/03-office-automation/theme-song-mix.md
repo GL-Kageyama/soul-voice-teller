@@ -13,7 +13,7 @@
 | Style of Music | [`theme-song.md`](theme-song.md) §3（そのまま） |
 | Exclude Styles | 同 §3 の二つ目（そのまま） |
 | Vocal Gender | **Female** |
-| 長さ | **205–230 秒**（推定） |
+| 長さ | **205–230 秒（3分25秒–3分50秒）**（推定） |
 
 ## 歌詞（混ぜ）
 

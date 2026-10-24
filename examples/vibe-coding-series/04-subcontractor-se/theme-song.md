@@ -174,7 +174,7 @@ rap, autotune, female lead
 
 ### 長さ
 
-**200–225 秒**（推定。歌詞 101行・140 bpm から）。[`theme-song-mix.md`](theme-song-mix.md) の「長さ」と同じ値。
+**200–225 秒（3分20秒–3分45秒）**（推定。歌詞 101行・140 bpm から）。[`theme-song-mix.md`](theme-song-mix.md) の「長さ」と同じ値。
 
 ### なぜこの音か
 

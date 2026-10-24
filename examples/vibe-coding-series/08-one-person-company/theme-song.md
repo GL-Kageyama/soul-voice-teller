@@ -175,7 +175,7 @@ female lead, high belting, heavy distortion
 
 ### 長さ
 
-**215–240 秒**（推定。歌詞 103行・105 bpm から）。[`theme-song-mix.md`](theme-song-mix.md) の「長さ」と同じ値。
+**215–240 秒（3分35秒–4分00秒）**（推定。歌詞 103行・105 bpm から）。[`theme-song-mix.md`](theme-song-mix.md) の「長さ」と同じ値。
 
 ### なぜこの音か
 

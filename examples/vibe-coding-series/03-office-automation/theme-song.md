@@ -172,7 +172,7 @@ vocaloid, anison, autotune lead
 
 ### 長さ
 
-**205–230 秒**（推定。歌詞 99行・118 bpm から）。[`theme-song-mix.md`](theme-song-mix.md) の「長さ」と同じ値。
+**205–230 秒（3分25秒–3分50秒）**（推定。歌詞 99行・118 bpm から）。[`theme-song-mix.md`](theme-song-mix.md) の「長さ」と同じ値。
 
 ### なぜこの音か
 

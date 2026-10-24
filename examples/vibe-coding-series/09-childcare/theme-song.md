@@ -174,7 +174,7 @@ belting, heavy distortion, screaming
 
 ### 長さ
 
-**225–250 秒**（推定。歌詞 103行・78 bpm から）。[`theme-song-mix.md`](theme-song-mix.md) の「長さ」と同じ値。
+**225–250 秒（3分45秒–4分10秒）**（推定。歌詞 103行・78 bpm から）。[`theme-song-mix.md`](theme-song-mix.md) の「長さ」と同じ値。
 
 ### なぜこの音か
 

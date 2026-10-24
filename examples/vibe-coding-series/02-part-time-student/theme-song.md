@@ -169,7 +169,7 @@ heavy distortion, screaming, gang vocals
 
 ### 長さ
 
-**220–245 秒**（推定。歌詞 97行・100 bpm から）。[`theme-song-mix.md`](theme-song-mix.md) の「長さ」と同じ値。
+**220–245 秒（3分40秒–4分05秒）**（推定。歌詞 97行・100 bpm から）。[`theme-song-mix.md`](theme-song-mix.md) の「長さ」と同じ値。
 
 ### なぜこの音か
 
