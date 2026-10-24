@@ -20,7 +20,7 @@
 
 ```text
 [Intro]
-午前 二時
+午前 一時
 廊下
 足音
 小さく
@@ -160,6 +160,10 @@ orchestra, stadium reverb, key change, vocaloid, anison,
 female lead, high belting, heavy distortion
 ```
 
+### 長さ
+
+**225–250 秒**（推定。歌詞 91行・72 bpm から）。[`theme-song-mix.md`](theme-song-mix.md) の「長さ」と同じ値。
+
 ### なぜこの音か
 
 - **72 bpm。夜の速さ。** 急がない。**急ぐと、親が起きる。**
@@ -179,7 +183,7 @@ female lead, high belting, heavy distortion
 
 | 段落 | 声 | 指示 |
 |---|---|---|
-| Intro | 男性（語り） | 午前二時・廊下・足音。三つだけ。 |
+| Intro | 男性（語り） | 午前一時・廊下・足音。三つだけ。 |
 | Verse 1 | 男性（低く） | 「どう した」は、起こさない声で。 |
 | Pre-Chorus | 男性（静か） | 「静か すぎる」で、息を止める。 |
 | Chorus | 男性（朗読寄り） | 「見守る」を、同じ高さで。 |
@@ -191,7 +195,7 @@ female lead, high belting, heavy distortion
 ## 5. 楽曲説明（Song Description）
 
 ```text
-At two in the morning a sensor lights up: the parent has left the bed. He gets
+At one in the morning a sensor lights up: the parent has left the bed. He gets
 up, goes, finds the parent sitting outside the toilet, unable to sleep. He makes
 tea, two cups. The machine asks whether to raise the threshold; he says yes; it
 goes quiet; it is too quiet. The chorus is watching together: the machine
@@ -241,3 +245,9 @@ ceiling, a reply, and two cups of tea.
 **幻の一稿**——最終サビ七行目を「見て いる」ではなく「見に 行けない」にする版は、**作っていない**。もし audition で最終サビが平坦に聞こえたら、まずそれを試す。**ただし、それは別の歌になる**（report §6・声明）。
 
 **読み違い予防版は同じ変更を反映済み**（[`theme-song-mix.md`](theme-song-mix.md)）。開いた語は増えていない。
+
+## 8. シリーズ横断の調整（2026-10-24）
+
+- **Intro 一行目「午前 二時」→「午前 一時」。** 09 と並べたとき、**同じ時刻・同じ四行の形の Intro が続いていた**ため。**歌の中の他の行は動かしていない**（「夜 三回」「茶 を いれる／二杯」はそのまま）。
+- **04 の「午前 二時」は残した。** 140 bpm の夜勤、別の夜。**09 の「午前三時」も残した**（Bridge の中で、二時からの経過として効いている）。
+- 読み違い予防版も同じ一語を反映した（ごぜん いちじ）。**開く語は増えていない。**

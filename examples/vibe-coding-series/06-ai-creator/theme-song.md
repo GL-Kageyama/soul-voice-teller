@@ -176,6 +176,10 @@ ballad, slow tempo, heavy distortion, screaming, enka,
 vocaloid, anison, raw live drums
 ```
 
+### 長さ
+
+**215–240 秒**（推定。歌詞 108行・108 bpm から）。[`theme-song-mix.md`](theme-song-mix.md) の「長さ」と同じ値。
+
 ### なぜこの音か
 
 - **108 bpm。スクロールの速さ。** 百枚が流れる速度。

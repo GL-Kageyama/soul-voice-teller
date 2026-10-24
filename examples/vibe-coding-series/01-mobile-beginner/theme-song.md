@@ -157,6 +157,10 @@ stadium reverb, key change, vocaloid, anison, city pop, male belting,
 falsetto lead, shredding guitar solo, slap bass, gang vocals
 ```
 
+### 長さ
+
+**210–235 秒**（推定。歌詞 85行・88 bpm から）。[`theme-song-mix.md`](theme-song-mix.md) の「長さ」と同じ値。
+
 ### なぜこの音か
 
 - **88 bpm。急がない。** 初心者の指の速度。

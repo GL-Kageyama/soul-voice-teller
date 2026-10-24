@@ -170,6 +170,10 @@ ballad, slow tempo, heavy distortion, screaming, rap, enka,
 vocaloid, anison, autotune lead
 ```
 
+### 長さ
+
+**205–230 秒**（推定。歌詞 99行・118 bpm から）。[`theme-song-mix.md`](theme-song-mix.md) の「長さ」と同じ値。
+
 ### なぜこの音か
 
 - **118 bpm。規則的。** 表計算の行が流れる速さ。

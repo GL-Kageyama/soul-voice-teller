@@ -167,6 +167,10 @@ orchestra, stadium reverb, key change, vocaloid, anison,
 female lead, high belting, heavy distortion
 ```
 
+### 長さ
+
+**225–250 秒**（推定。歌詞 96行・84 bpm から）。[`theme-song-mix.md`](theme-song-mix.md) の「長さ」と同じ値。
+
 ### なぜこの音か
 
 - **84 bpm。急がない。** コードを読む速さ。

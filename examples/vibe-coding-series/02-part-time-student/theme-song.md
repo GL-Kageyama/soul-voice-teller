@@ -167,6 +167,10 @@ ballad, slow tempo, sad piano, vocaloid, anison, enka,
 heavy distortion, screaming, gang vocals
 ```
 
+### 長さ
+
+**220–245 秒**（推定。歌詞 97行・100 bpm から）。[`theme-song-mix.md`](theme-song-mix.md) の「長さ」と同じ値。
+
 ### なぜこの音か
 
 - **100 bpm。歩く速さより少し速い。** 自転車のリズム。

@@ -172,6 +172,10 @@ orchestra, stadium reverb, key change, vocaloid, anison,
 belting, heavy distortion, screaming
 ```
 
+### 長さ
+
+**225–250 秒**（推定。歌詞 103行・78 bpm から）。[`theme-song-mix.md`](theme-song-mix.md) の「長さ」と同じ値。
+
 ### なぜこの音か
 
 - **78 bpm。眠さの速さ。** 急がない。**急ぐと、赤ちゃんが起きる。**

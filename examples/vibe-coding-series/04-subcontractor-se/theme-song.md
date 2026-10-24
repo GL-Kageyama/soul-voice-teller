@@ -172,6 +172,10 @@ slow tempo, clean guitar, happy, bright, vocaloid, anison,
 rap, autotune, female lead
 ```
 
+### 長さ
+
+**200–225 秒**（推定。歌詞 101行・140 bpm から）。[`theme-song-mix.md`](theme-song-mix.md) の「長さ」と同じ値。
+
 ### なぜこの音か
 
 - **140 bpm。息が上がる速さ。** 納期の速さであり、**疑いながら読む速さ**。
