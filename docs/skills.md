@@ -43,4 +43,4 @@ Called optionally from plot-design. Writing works even with blanks.
 | skill | role | input → output |
 |---|---|---|
 | `package` | wrap the finished work for the reader (title + hooking subtitle · catch copy · synopsis · image prompt · tags), checked against the reader's first impression | draft + premise + series-bible + persona → `<work>/package.md` |
-| `theme-song` | condense the finished work into one theme song (song title · structured lyrics · style of music · vocal · song description · placement), checked against the work's soul (the theme + the scenes where emotion surfaces) | draft + premise + series-bible + persona → `<work>/theme-song.md` |
+| `theme-song` | condense the finished work into one theme song (song title · structured lyrics · style of music · vocal · song description · placement), checked against the work's soul (the theme + the scenes where emotion surfaces); also deliver a reading-safe mix of the lyric — the same lines with only the risky readings opened | draft + premise + series-bible + persona → `<work>/theme-song.md` + `<work>/theme-song-mix.md` |

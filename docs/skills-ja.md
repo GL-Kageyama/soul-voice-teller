@@ -43,4 +43,4 @@ plot-design から任意に呼ぶ。空白でも執筆可。
 | スキル | 役割 | 入力 → 出力 |
 |---|---|---|
 | `package` | 完成した作品を読者へ包む（タイトル＋サブタイトル・キャッチコピー・あらすじ・画像プロンプト・タグ）、読者の第一印象に照合 | draft＋premise＋series-bible＋persona → `<work>/package.md` |
-| `theme-song` | 完成した作品を1曲の主題歌に凝縮する（曲名・構造付き歌詞・曲調指定・ボーカル・楽曲説明・挿入位置）、作品の魂（テーマ＋感情が立ち上がる場面）に照合 | draft＋premise＋series-bible＋persona → `<work>/theme-song.md` |
+| `theme-song` | 完成した作品を1曲の主題歌に凝縮する（曲名・構造付き歌詞・曲調指定・ボーカル・楽曲説明・挿入位置）、作品の魂（テーマ＋感情が立ち上がる場面）に照合。さらに、危ない読みだけを開いた読み違い予防版（混ぜ版）も作る | draft＋premise＋series-bible＋persona → `<work>/theme-song.md` ＋ `<work>/theme-song-mix.md` |

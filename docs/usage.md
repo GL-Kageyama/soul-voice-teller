@@ -41,7 +41,7 @@ After installing, call the skills in order in Claude Code:
 
 # delivery
 /package               # wrap the finished work for the reader
-/theme-song            # condense the finished work into one theme song
+/theme-song            # condense the finished work into one theme song (+ a reading-safe mix)
 ```
 
 ## Switching the output language

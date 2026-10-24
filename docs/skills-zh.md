@@ -43,4 +43,4 @@
 | 技能 | 职责 | 输入 → 输出 |
 |---|---|---|
 | `package` | 把完成的作品包装给读者（标题＋副标题 · 宣传语 · 简介 · 图像提示词 · 标签），对照读者的第一印象 | 草稿＋premise＋series-bible＋persona → `<作品>/package.md` |
-| `theme-song` | 把完成的作品凝缩为一首主题曲（曲名 · 带结构的歌词 · 曲风指定 · 声乐 · 歌曲说明 · 位置），对照作品的灵魂（主题＋情感升起的场景） | 草稿＋premise＋series-bible＋persona → `<作品>/theme-song.md` |
+| `theme-song` | 把完成的作品凝缩为一首主题曲（曲名 · 带结构的歌词 · 曲风指定 · 声乐 · 歌曲说明 · 位置），对照作品的灵魂（主题＋情感升起的场景）。同时交出只展开危险读法的读法安全版（混合版） | 草稿＋premise＋series-bible＋persona → `<作品>/theme-song.md` ＋ `<作品>/theme-song-mix.md` |
