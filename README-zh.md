@@ -39,7 +39,7 @@
 - `${SOUL_VOICE_HOME}/voice-ledger.md` ——「我这样写过」（过去式 · 日记）。由 voice-ledger 累积
 - 位置是用户在**工作区**内另设的**专用文件夹（本地文件夹即可，推荐 git 仓库）**，以 `SOUL_VOICE_HOME` 环境变量指向（未设定则 `~/.soul-voice-teller/`）。writer-persona 的第一步就是促成这个文件夹的创建
 
-> **persona / voice-ledger 是每位写作者的状态，不纳入仓库（不固定）**——因为会有许多不同的人使用它。技能并不引用任何默认 persona。`examples/sample/` 里的 persona 是演示样例，不是技能的默认值。
+> **persona / voice-ledger 是每位写作者的状态，不纳入仓库（不固定）**——因为会有许多不同的人使用它。技能并不引用任何默认 persona。`examples/demos/sample/` 里的 persona 是演示样例，不是技能的默认值。
 
 > **注记——存声录的增长与上下文。** `voice-ledger.md` 不会被自动载入会话上下文——仅在需要时读取，因此只在**读取的那一刻**占用上下文。读取方式，以及如何在增长后保持全文读取轻量，参见 [usage「存声录的增长与上下文」](docs/usage-zh.md)。
 
