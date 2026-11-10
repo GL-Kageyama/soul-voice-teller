@@ -1,5 +1,7 @@
 # 構想（旧稿）
 
-`premise.md` と `design.md` は旧稿。新稿は `../改稿/構想/` に置く。
+`premise.md` と `design.md` は旧稿。新稿は `../../ukebi-anime/構想/premise.md` と
+`../../ukebi-anime/構想/design.md`。
 
-`改稿調査.md` と `改稿裁定.md` は現行の調査・裁定記録で、旧稿ではない。
+調査と裁定も新稿の側へ移した。`../../ukebi-anime/構想/改稿調査.md`、
+`../../ukebi-anime/構想/改稿裁定.md`。
